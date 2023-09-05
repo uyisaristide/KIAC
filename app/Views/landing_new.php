@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="<?= base_url(); ?>assets/landing_newimg/logo.png" rel="icon" />
+    <link href="<?= base_url(); ?>assets/landing_new/img/logo.png" rel="icon" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
         rel="stylesheet" />
@@ -196,7 +196,7 @@
                         <li><a href="#"><i class="fa fa-newspaper-o"></i> Amakuru</a>
                         </li>
                         <li class="menu-item">
-                            <h2><a id="has-submenu" class="" href="study_at_kiac"><span class="sub-arrow">+</span><i
+                            <h2><a id="has-submenu" class="" href="<?=base_url('study_at_kiac');?>"><span class="sub-arrow">+</span><i
                                         class="fa fa-share-alt"></i> Apply Now</a></h2>
                             <ul class="">
                                 <li><a href="ibidukikije/">Ibidukikije</a></li>
