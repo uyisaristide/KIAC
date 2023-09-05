@@ -1,0 +1,40 @@
+{
+    "name": "bds/somanet",
+    "type": "project",
+    "description": "School management system developed by Qonics inc",
+    "homepage": "https://qonics.com",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "kint-php/kint": "^2.2",
+        "psr/log": "^1.1.4",
+        "zendframework/zend-escaper": "^2.6.1",
+        "phpoffice/phpspreadsheet": "^1.24.1",
+        "guzzlehttp/guzzle": "^7.5",
+        "michalsn/codeigniter4-uuid": "^1.0.1"
+    },
+    "require-dev": {
+        "codeigniter4/codeigniter4-standard": "^1.1.1",
+        "mikey179/vfsstream": "1.6.11",
+        "phpunit/phpunit": "^7.5.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeIgniter\\": "system/"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "@composer dump-autoload",
+            "CodeIgniter\\ComposerScripts::postUpdate",
+            "bash admin/setup.sh"
+        ]
+    },
+    "support": {
+        "forum": "http://qonics.com/",
+        "source": "https://github.com/codeigniter4/CodeIgniter4",
+        "slack": "https://codeigniterchat.slack.com"
+    }
+}
