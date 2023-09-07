@@ -445,7 +445,7 @@
         <div class="card-container">
             <img src="<?= base_url() ?>assets/landing_new/img/icon-3.png" alt="Icon 3" class="card-image">
             <h2 class="card-title">FACTS & FIGURES</h2>
-            <p class="text-center">The University of Rwanda is a public research university</p>
+            <p class="text-center">The Universit of Rwanda is a public research university</p>
         </div>
     </div>
 </div>
