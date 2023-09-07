@@ -429,19 +429,19 @@
         <div class="card-container">
             <img src="<?= base_url() ?>assets/landing_new/img/icon-1.png" alt="Icon 1" class="card-image">
             <h2 class="card-title">WE'RE ON THE RISE</h2>
-            <p class="text-center">Ranked in the world's top 100 young universities.</p>
+            <p class="text-center">Ranked in the world's top 100 Training Center.</p>
         </div>
         <!-- Card 2 -->
         <div class="card-container">
             <img src="<?= base_url() ?>assets/landing_new/img/icon-2.png" alt="Icon 2" class="card-image">
             <h2 class="card-title">BEST COURSE</h2>
-            <p class="text-center">UR Courses are ranked by students as the best</p>
+            <p class="text-center">Our Courses are ranked by students as the best</p>
         </div>
         <!-- Card 3 -->
         <div class="card-container">
             <img src="<?= base_url() ?>assets/landing_new/img/icon-3.png" alt="Icon 3" class="card-image">
             <h2 class="card-title">FACTS & FIGURES</h2>
-            <p class="text-center">The Universit of Rwanda is a public research university</p>
+            <p class="text-center">KIAC is a public research Center</p>
         </div>
     </div>
 </div>
