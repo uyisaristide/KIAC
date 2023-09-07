@@ -448,13 +448,13 @@
 
 <div class="gallery-container">
     <div class="gallery-image">
-        <img src="<?= base_url() ?>assets/landing_new/img/1.png" alt="Image 1" class="image-fit">
+        <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit">
     </div>
     <div class="gallery-image">
-        <img src="<?= base_url() ?>assets/landing_new/img/2.png" alt="Image 2" class="image-fit">
+        <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit">
     </div>
     <div class="gallery-image">
-        <img src="<?= base_url() ?>assets/landing_new/img/3.png" alt="Image 3" class="image-fit">
+        <img src="<?= base_url() ?>assets/landing_new/img/3.jpg" alt="Image 3" class="image-fit">
     </div>
 </div>
  
