@@ -102,13 +102,9 @@
                             <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg"
                                 alt="img" />
                         </div>
-                        <!-- <div class="h-full w-1/2 md:w-full">
-                            <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif"
-                                alt="img" />
-                        </div> -->
                     </div>
-                    <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
-                        <div class="flex gap-2 text-white items-center md:flex-col md:gap-3">
+                    <div class="p-[1px] bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
+                        <div class="flex ml-2 gap-2 text-white items-center md:flex-col md:gap-3">
                             <div class="flex items-center gap-2">
                                 <i class="fa-regular fa-clock fa-xs"></i>
                                 <span class="time-real text-xs font-medium">13:52:32</span>
@@ -184,29 +180,29 @@
                     </label>
                     <ul id="main-menu" class="sm sm-blue">
                         <li><a class="current" href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About</a>
+                        <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
-                        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Programs</a>
+                        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-trophy"></i> KIAC Agent</a>
+                        <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-bullseye"></i> Imyidagaduro</a>
+                        <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>
-                        <li><a href="#contact"><i class="fa fa-laptop"></i> Contact Us</a>
+                        <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
                         <li><a href="<?=base_url('login');?>"><i class="fa fa-language"></i> Login</a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
-                        <li><a href="#"><i class="fa fa-plane"></i> KIAC TV</a>
+                        <li><a href="#"><i class="fa fa-plane"></i>Services</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i> Facilities</a>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-group"></i> News And Events</a>
+                        <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-female"></i> Products</a>
+                        <li><a href="#"><i class="fa fa-female"></i> News and Events</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-building"></i> Alarm</a></li>
-                        <li><a href="#"><i class="fa fa-newspaper-o"></i> Amakuru</a>
+                        <li><a href="#"><i class="fa fa-building"></i>Agents</a></li>
+                        <li><a href="#"><i class="fa fa-newspaper-o"></i>Study Abroad </a>
                         </li>
                         <li class="menu-item">
                             <h2><a id="has-submenu" class="" href="<?=base_url('study_at_kiac');?>"><span class="sub-arrow">+</span><i
