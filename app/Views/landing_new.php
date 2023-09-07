@@ -221,7 +221,7 @@
                     <!-- img header -->
                     <div class="w-full flex items-center justify-between  h-24 md:block">
                         <div class="h-full w-full md:hidden">
-                        <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif"
+                        <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.jpg"
                                 alt="img" />
                         </div>
                     </div>
