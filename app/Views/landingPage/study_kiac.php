@@ -123,7 +123,7 @@
             <li><a href="twinigure/">Twinigure</a></li>
             <li><a href="imyemerere/"><i class="fa fa-plus-circle"></i> Iyobokamana</a></li>
           </ul>
-        </li>
+        </li> 
       </ul>
     </nav>
   </div>
@@ -1034,44 +1034,83 @@
       formData.append('payment_method', paymentMethodSelect.value);
 
       // Make a POST request using fetch
-      fetch('<?=base_url();?>save_self_appliaction_kiac', {
-        method: 'POST',
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(data=>{
-          if(data.errors){
+    //   fetch('<?=base_url();?>save_self_appliaction_kiac'  , {
+    //     method: 'POST',
+    //     body: formData,
+    //   })
+    //     .then(response => response.json())
+    //     .then(data=>{
+    //       if(data.errors){
             
-            let firstKey = null;
-            let firstValue = null;
+    //         let firstKey = null;
+    //         let firstValue = null;
 
-            for (const key in data.errors) {
-              if (myObject.hasOwnProperty(key)) {
-                // Check if the key is the first key found
-                if (firstKey === null) {
-                  firstKey = key;
-                  firstValue = myObject[key];
-                }
-              }
-            }
+    //         for (const key in data.errors) {
+    //           if (myObject.hasOwnProperty(key)) {
+    //             // Check if the key is the first key found
+    //             if (firstKey === null) {
+    //               firstKey = key;
+    //               firstValue = myObject[key];
+    //             }
+    //           }
+    //         }
 
-            errors.innerHTML = firstValue
+    //         errors.innerHTML = firstValue
 
-          }else if(data.message){
-            if(data.message == "Application submitted successfully"){
-              alert(data.message)
-              window.location.href = "/"
-            }
-          }else{
-            alert("SOMETHING WENT WRONG")
-          }
-        })
-        .catch(error => {
-          // Handle any network errors here
-          console.error('Network error occurred', error);
-          alert("Something went wrong!, try again later")
-        });
+    //       }else if(data.message){
+    //         if(data.message == "Application submitted successfully"){
+    //           alert(data.message)
+    //           window.location.href = "/"
+    //         }
+    //       }else{
+    //         alert("SOMETHING WENT WRONG")
+    //       }
+    //     })
+    //     .catch(error => {
+    //       // Handle any network errors here
+    //       console.error('Network error occurred', error);
+    //       alert("Something went wrong!, try again later")
+    //     });
+    // }
+
+    fetch('http://localhost:3000/save_application', {
+  method: 'POST',
+  body: formData,
+})
+.then(response => response.json())
+.then(data => {
+  if (data.errors) {
+
+    let firstKey = null;
+    let firstValue = null;
+
+    for (const key in data.errors) {
+      if (data.errors.hasOwnProperty(key)) {
+        // Check if the key is the first key found
+        if (firstKey === null) {
+          firstKey = key;
+          firstValue = data.errors[key];
+        }
+      }
     }
+
+    errors.innerHTML = firstValue;
+
+  } else if (data.message) {
+    if (data.message == "Application submitted successfully") {
+      alert(data.message);
+      window.location.href = "/";
+    }
+  } else {
+    alert("SOMETHING WENT WRONG");
+  }
+})
+.catch(error => {
+  // Handle any network errors here
+  console.error('Network error occurred', error);
+  alert("Something went wrong!, try again later");
+});
+
 
     // Helper function to get the selected value from a group of radio buttons
     function getSelectedRadioValue(radioGroup) {
