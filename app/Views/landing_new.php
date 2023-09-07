@@ -8,10 +8,8 @@
     <meta name="keywords" content="Kigali Art College" />
     <meta name="author" content="KIAC" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="<?= base_url(); ?>assets/landing_new/fontawesome/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -28,14 +26,17 @@
     <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url(); ?>assets/landing_new/css/main.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
+    
     <script>
         $(document).ready(function () {
             $('#myCarousel').carousel();
         });
     </script>
+     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
         .container-main {
             background-image: url("<?= base_url(); ?>assets/landing_new/css/back1.jpg");
@@ -81,6 +82,12 @@
             display: block;
             opacity: 1;
         }
+         .custom-bg {
+            background: rgba(0, 0, 0, 0) linear-gradient(152deg, #4eb9d3 0, #007bb3 72%, #0375a1 100%) repeat scroll 0 0;
+        }
+        .tailwind-container * {
+        all: initial;
+    }
     </style>
 </head>
 
@@ -90,15 +97,15 @@
             <header>
                 <div class="border-2 border-white/60 w-full ">
                     <!-- img header -->
-                    <div class="w-full flex items-center justify-between gap-4 h-24 md:block">
-                        <div class="h-full w-1/2 md:hidden">
+                    <div class="w-full flex items-center justify-between  h-24 md:block">
+                        <div class="h-full w-full md:hidden">
                             <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg"
                                 alt="img" />
                         </div>
-                        <div class="h-full w-1/2 md:w-full">
+                        <!-- <div class="h-full w-1/2 md:w-full">
                             <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif"
                                 alt="img" />
-                        </div>
+                        </div> -->
                     </div>
                     <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
                         <div class="flex gap-2 text-white items-center md:flex-col md:gap-3">
@@ -126,6 +133,12 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="flex items-center float-right text-white/80 text-xs font-medium py-2">
+                        <div class="flex gap-2">
+                            <span>+27 &deg;</span>
+                            <span class="px-4 border-l">KIGALI</span>
+                        </div>
+                    </div>
                         <div class="flex gap-3 items-center md:mt-3">
                             <div class="flex gap-3">
                                 <a href="#" class="text-white hover:text-blue-400 transition-all">
@@ -147,14 +160,14 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center float-right text-white/80 text-xs font-medium py-2">
+                    <!-- <div class="flex items-center float-right text-white/80 text-xs font-medium py-2">
                         <div class="flex gap-1">
                             <span>+27 &deg;</span>
                             <span class="px-4 border-l">KIGALI</span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="flex items-center h-[8rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
-                        <div class="w-1/2 py-2 pl-4 md:w-full">
+                        <div class="w-1/3 py-2 pl-4 md:w-full">
                             <img class="w-1/2 h-[80%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
                                 alt="no image found">
                         </div>
@@ -164,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <nav class="main-nav w-full" role="navigation">
+                <nav class="main-nav w-full mt-2" role="navigation">
                     <input id="main-menu-state" type="checkbox" />
                     <label class="main-menu-btn" for="main-menu-state">
                         <span class="main-menu-btn-icon"></span> Toggle main menu visibility
@@ -208,7 +221,14 @@
                     </ul>
                 </nav>
             </header>
-
+            <div class="mt-2 w-full ">
+                    <!-- img header -->
+                    <div class="w-full flex items-center justify-between  h-24 md:block">
+                        <div class="h-full w-full md:hidden">
+                        <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif"
+                                alt="img" />
+                        </div>
+                    </div>
 
             <div class="flex gap-3 mt-4 md:flex-col ">
                 <div class="w-[30%] md:w-full">
@@ -404,204 +424,45 @@
             </div>
         </div>
     </div>
+    <!-- boxes -->
+    <h2 class="text-custom-blue">Why Choose Kiac?</h2>
 
-    <div class="p-4 container-main">
-        <div id="about" class="bg-white p-12 rounded-lg shadow">
-            <div class="flex gap-2 h-96 md:flex-col md:h-fit">
-                <div class="w-3/5 md:w-full">
-                    <div class="">
-                        <h2 class="text-2xl font-bold text-gray-800">ABOUT <span class="text-blue-500">KIAC</span></h2>
-                    </div>
-                    <div class="mt-4">
-                        <h2 class="text-xl font-semibold text-gray-800">Who We Are</h2>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-lg font-regular text-gray-800">
-                            Kigali International Art College (KIAC) is a dynamic and forward-looking technical school,
-                            vibrant and lively; established in 2015 under the Workforce Development Authority (WDA)
-                            decision, to produce highly technical skilled workforce to meet industry and social needs.
-                            We are confident that our technical courses are internationally benchmarked and meet
-                            national and international demands. Technical and Vocational training tackle directly the
-                            environment issues through nurturing young skilled technician with skills of renewable
-                            energy.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-2/5 md:w-full">
-                    <div class="h-full">
-                        <img class="w-full h-full object-cover rounded-lg"
-                            src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4">
-                <div class="">
-                    <h2 class="text-center text-xl font-semibold text-gray-800">KIAC Objectives</h2>
-                </div>
-                <div class="mt-2 flex flex-col gap-2">
-                    <p class="text-lg font-regular text-gray-800">
-                        1. To offer professional training to meet both local and international market demands to
-                        develoop and improve the effectiviness on young generations through quality training, capacity
-                        building & career quidance.
-                    </p>
-                    <p class="text-lg font-regular text-gray 800">
-                        2. To participate in discovery, transmission and preservation and enhancement of technical
-                        skills and stimulate the intellectual participation of trainees in the economic, art,
-                        professional technological development of Rwanda.
-                    </p>
-                    <div class="text-lg-font-regular text-gray-800">
-                        3. Upon successful completion of the course, students will be issued a certificate, depending on
-                        the organizers of the course.after getting all required skills student can be able to graduate
-                        and start making differencesy.
-                    </div>
-                </div>
-            </div>
+<div class="bg-custom-gradient px-4">
+    <div class="flex flex-wrap text-white justify-between mx-auto max-w-5xl">
+        <!-- Card 1 -->
+        <div class="card-container">
+            <img src="<?= base_url() ?>assets/landing_new/img/icon-1.png" alt="Icon 1" class="card-image">
+            <h2 class="card-title">WE'RE ON THE RISE</h2>
+            <p class="text-center">Ranked in the world's top 100 young universities.</p>
         </div>
-
-        <div id="programs" class="bg-blue-100 py-4 rounded-lg mt-4">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-semibold text-center mb-6 text-blue-800">OUR PROGRAMS</h2>
-                <div class="grid md:grid-cols-1 grid-cols-3 gap-4">
-                    <!-- Program Card 1: Photography -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Photography</h3>
-                        <p class="text-center text-gray-700">
-                            Photography courses enable the candidates to understand the utility of different camera
-                            parts, working out the lights while clicking pictures.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 2: Graphic Design -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Graphic Design</h3>
-                        <p class="text-center text-gray-700">
-                            Graphic design courses help in a craft where professionals create visual content to
-                            communicate messages.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 3: Videography -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Videography</h3>
-                        <p class="text-center text-gray-700">
-                            Our Videography courses provide learners with the skills to master your camera for video and
-                            audio.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 4: Creative Art -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Creative Art</h3>
-                        <p class="text-center text-gray-700">
-                            A broad, practice-based course, that encompasses a wide variety of visual and non-visual
-                            disciplines for students to select as part of their tailor-made creative journey.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 5: CCTV Camera Installation -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">CCTV Camera Installation</h3>
-                        <p class="text-center text-gray-700">
-                            CCTV Camera Installation courses are designed to provide you with the skills and knowledge
-                            required to install and commission Closed Circuit TV systems from the cameras to the image
-                            processors and recorders.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 6: Computer Maintenance -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Computer Maintenance</h3>
-                        <p class="text-center text-gray-700">
-                            Computer Maintenance provides an introduction to the computer hardware and software skills
-                            needed to bring students to an entry-level ICT professional.
-                        </p>
-                    </div>
-
-                    <!-- Program Card 7: Music -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <div class="text-3xl mb-4 text-blue-600">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Music</h3>
-                        <p class="text-center text-gray-700">
-                            Music courses range in specialization from practical instrument training to music theory to
-                            the music business.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
+        <!-- Card 2 -->
+        <div class="card-container">
+            <img src="<?= base_url() ?>assets/landing_new/img/icon-2.png" alt="Icon 2" class="card-image">
+            <h2 class="card-title">BEST COURSE</h2>
+            <p class="text-center">UR Courses are ranked by students as the best</p>
         </div>
-
-        <div class="py-6 rounded-lg mt-4 md:w-full" id="contact">
-            <div class="px-4 md:px-0 md:w-full">
-                <h2 class="text-3xl font-semibold text-center mb-6 text-gray-800">CONTACT US</h2>
-                <div class="bg-white p-8 md:w-full rounded-lg shadow-md flex gap-4 md:flex-col justify-between">
-                    <div class="md:w-full w-2/3 mb-8 md:mb-0">
-                        <h3 class="text-xl font-semibold mb-4 text-blue-800">Get in Touch</h3>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
-                                <input type="text" id="name" name="name"
-                                    class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
-                                <input type="email" id="email" name="email"
-                                    class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
-                                <textarea id="message" name="message"
-                                    class="w-full p-2 border border-gray-300 rounded resize-none focus:outline-none focus:border-blue-500"
-                                    rows="4"></textarea>
-                            </div>
-                            <button type="submit"
-                                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">Submit</button>
-                        </form>
-                    </div>
-                    <div class="md:w-full w-1/3">
-                        <h3 class="text-xl font-semibold mb-4 text-blue-800">Contact Information</h3>
-                        <p class="text-gray-700 font-medium text-[16px] mt-3 mb-2"><i class="fas fa-phone-alt mr-2 text-blue-600"></i>+123 456 7890
-                        </p>
-                        <p class="text-gray-700 font-medium text-[16px] mb-2"><i class="fas fa-envelope mr-2 text-blue-600"></i>info@kiac.ac.rw
-                        </p>
-                        <p class="text-gray-700 font-medium text-[16px] mb-2"><i class="fas fa-clock mr-2 text-blue-600"></i>Reply within 24
-                            hours</p>
-                        <p class="text-gray-700 font-medium text-[16px] mb-2"><i class="fas fa-headset mr-2 text-blue-600"></i>24 hrs Support
-                        </p>
-                        <p class="text-gray-700 font-medium text-[16px] mb-2"><i class="fas fa-phone mr-2 text-blue-600"></i>Call to ask any
-                            question<br>+250 783 205 698</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Card 3 -->
+        <div class="card-container">
+            <img src="<?= base_url() ?>assets/landing_new/img/icon-3.png" alt="Icon 3" class="card-image">
+            <h2 class="card-title">FACTS & FIGURES</h2>
+            <p class="text-center">The University of Rwanda is a public research university</p>
         </div>
-
-
-
-
-
     </div>
+</div>
 
-
+<div class="gallery-container">
+    <div class="gallery-image">
+        <img src="<?= base_url() ?>assets/landing_new/img/1.png" alt="Image 1" class="image-fit">
+    </div>
+    <div class="gallery-image">
+        <img src="<?= base_url() ?>assets/landing_new/img/2.png" alt="Image 2" class="image-fit">
+    </div>
+    <div class="gallery-image">
+        <img src="<?= base_url() ?>assets/landing_new/img/3.png" alt="Image 3" class="image-fit">
+    </div>
+</div>
+ 
+    
     <!-- FOOTER -->
     <div class="-mb-24">
         <!-- Footer Start -->
