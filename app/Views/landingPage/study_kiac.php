@@ -30,11 +30,8 @@
     <div class="border-2 border-white/60 w-full ">
       <!-- img div -->
       <div class="w-full flex items-center justify-between gap-4 h-24 md:block">
-        <div class="h-full w-1/2 md:hidden">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" alt="img" />
-        </div>
-        <div class="h-full w-1/2 md:w-full">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif" alt="img" />
+        <div class="h-full w-full md:w-full">
+          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner.gif" alt="img" />
         </div>
       </div>
       <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
@@ -347,7 +344,7 @@
           </label>
           <input required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="dob" type="date">
+            id="grid-last-name" name="date_of_birth" type="date">
         </div>
 
         <div class="w-full px-3 mt-4">
@@ -355,8 +352,8 @@
             Gender
           </label>
           <div class="">
-            <input required class="w-3 h-3" type="radio" name="gender" value="male" /> Male
-            <input required class="w-3 h-3" type="radio" name="gender" value="female" /> Female
+            <input required class="w-3 h-3" type="radio" name="gender" value="male" required /> Male
+            <input required class="w-3 h-3" type="radio" name="gender" value="female" required /> Female
           </div>
         </div>
       </div>
@@ -542,13 +539,13 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             name="payment_method" id="payment_option">
 
-            <option value="1"
+            <option value="cash"
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               Cash</option>
-            <option value="2" disabled
+            <option value="MOMO Pay" disabled
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               MOMO Pay</option>
-            <option value="3" disabled
+            <option value="VIS/CREDIT/DEBIT Card" disabled
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               VIS/CREDIT/DEBIT Card</option>
 
@@ -850,12 +847,12 @@
         handleStepChange(currentStep)
 
 
-      }else{
-        if(currentStep >= MAX_STEPS) {
+      } else {
+        if (currentStep >= MAX_STEPS) {
           sendApplication()
         }
       }
-      
+
 
     }
 
@@ -967,8 +964,8 @@
     var firstNameInput = document.querySelector('input[name="fname"]');
     var lastNameInput = document.querySelector('input[name="lname"]');
     var nationalityInput = document.querySelector('input[name="nationality"]');
-    var dobInput = document.querySelector('input[name="dob"]');
-    var genderRadio = document.getElementsByName('gender');
+    var dobInput = document.querySelector('input[name="date_of_birth"]');
+    // var genderRadio = document.getElementsByName('gender');
     var phoneNumberInput = document.querySelector('input[name="phone"]');
     var emailAddressInput = document.querySelector('input[name="email"]');
 
@@ -987,22 +984,30 @@
     var transcriptFileInput = document.querySelector('input[name="transcript"]');
 
     // Payment Method Field
-    var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
+    // var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
+
+    // date of birth
+
 
     function sendApplication() {
       // Create a new FormData object to store the form data
       var formData = new FormData();
 
+      // date of birth
+      var date_of_birth = document.querySelector("input[name='date_of_birth']").value;
+      formData.append('date_of_birth', date_of_birth)
+      console.log(date_of_birth)
+
       // Educational Background Fields
-    
-        formData.append('level', getSelectedRadioValue(schoolLevel));
 
-        formData.append('finish_secondary', getSelectedRadioValue(finishSecondaryRadio)); // You need to select the appropriate value from finishSecondaryRadio
-        formData.append('secondary_level', getSelectedRadioValue(secondaryLevelRadio));
+      formData.append('level', getSelectedRadioValue(schoolLevel));
 
-        formData.append('finish_university', getSelectedRadioValue(finishUniversityRadio)); // You need to select the appropriate value from finishSecondaryRadio
-        formData.append('university_level', getSelectedRadioValue(universityLevelRadio));
-      
+      formData.append('finish_secondary', getSelectedRadioValue(finishSecondaryRadio));  // This will append true or false to formData
+      formData.append('secondary_level', getSelectedRadioValue(secondaryLevelRadio));
+
+      formData.append('finish_university', getSelectedRadioValue(finishUniversityRadio));
+      formData.append('university_level', getSelectedRadioValue(universityLevelRadio));
+
 
       // School Information Fields
       formData.append('school_id', schoolSelect.value);
@@ -1011,8 +1016,11 @@
       formData.append('fname', firstNameInput.value);
       formData.append('lname', lastNameInput.value);
       formData.append('nationality', nationalityInput.value);
-      formData.append('dob', dobInput.value);
-      formData.append('gender', getSelectedRadioValue(genderRadio));
+      formData.append('date_of_birth', dobInput.value);
+      // formData.append('gender', getSelectedRadioValue(genderRadio));
+      let gender = document.querySelector("input[name='gender']:checked")
+      formData.append('gender', gender);
+
       formData.append('phone', phoneNumberInput.value);
       formData.append('email', emailAddressInput.value);
 
@@ -1022,8 +1030,10 @@
       formData.append('sector', sectorInput.value);
       formData.append('city_relatives', getSelectedRadioValue(liveInKigaliRadio));
 
+
+
       // Choose Course Fields
-      formData.append('shift', getSelectedRadioValue(shiftRadio));
+      formData.append('program', getSelectedRadioValue(shiftRadio));
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1031,57 +1041,59 @@
       formData.append('transcript', transcriptFileInput.files[0]);
 
       // Payment Method Field
-      formData.append('payment_method', paymentMethodSelect.value);
+      // let selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+      // formData.append('payment_method', selectedPaymentMethod);
+      // console.log(selectedPaymentMethod)
 
-      // Make a POST request using fetch
-      fetch('<?=base_url();?>save_self_appliaction_kiac', {
+
+      fetch('http://localhost:3000/api/students/register', {
         method: 'POST',
         body: formData,
       })
-        .then(response => response.json())
-        .then(data=>{
-          if(data.errors){
-            
-            let firstKey = null;
-            let firstValue = null;
+        .then(response => {
+          // Check if the response status is OK
+          if (!response.ok) {
+            // If not OK, throw an error
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.errors) {
 
-            for (const key in data.errors) {
-              if (myObject.hasOwnProperty(key)) {
-                // Check if the key is the first key found
-                if (firstKey === null) {
-                  firstKey = key;
-                  firstValue = myObject[key];
-                }
-              }
-            }
+            let firstValue = Object.values(data.errors)[0]; // Get the first error message
 
-            errors.innerHTML = firstValue
+            errors.innerHTML = firstValue;
 
-          }else if(data.message){
-            if(data.message == "Application submitted successfully"){
+          } else if (data.message) {
+            if (data.message == "Application submitted successfully") {
               alert(data.message)
               window.location.href = "/"
             }
-          }else{
-            alert("SOMETHING WENT WRONG")
+          } else {
+            alert("SOMETHING WENT WRONG");
           }
         })
         .catch(error => {
-          // Handle any network errors here
-          console.error('Network error occurred', error);
-          alert("Something went wrong!, try again later")
+          // Handle any errors here, both network and thrown by our logic above
+          console.error('Error occurred:', error.message);
+          alert("Something went wrong!, try again later");
         });
+
     }
 
     // Helper function to get the selected value from a group of radio buttons
-    function getSelectedRadioValue(radioGroup) {
-      for (var i = 0; i < radioGroup.length; i++) {
-        if (radioGroup[i].checked) {
-          return radioGroup[i].value;
+    function getSelectedRadioValue(radioNodeList) {
+      let value = null;
+      for (let i = 0; i < radioNodeList.length; i++) {
+        if (radioNodeList[i].checked) {
+          value = radioNodeList[i].value;
+          break;
         }
       }
-      return '';
+      return value === "true";  // Convert "true" string to true, otherwise return false
     }
+
 
 
 
