@@ -1006,8 +1006,6 @@
     var firstNameInput = document.querySelector('input[name="fname"]');
     var lastNameInput = document.querySelector('input[name="lname"]');
     var nationalityInput = document.querySelector('input[name="nationality"]');
-    var dobInput = document.querySelector('input[name="dob"]');
-    var genderRadio = document.getElementsByName('gender');
     var phoneNumberInput = document.querySelector('input[name="phone"]');
     var emailAddressInput = document.querySelector('input[name="email"]');
 
@@ -1032,6 +1030,11 @@
       // Create a new FormData object to store the form data
       var formData = new FormData();
 
+      // date of birth
+      var date_of_birth = document.querySelector("input[name='date_of_birth']");
+      formData.append('date_of_birth', date_of_birth.value)
+      console.log(date_of_birth)
+
       // Educational Background Fields
 
       formData.append('level', getSelectedRadioValue(schoolLevel));
@@ -1050,8 +1053,19 @@
       formData.append('fname', firstNameInput.value);
       formData.append('lname', lastNameInput.value);
       formData.append('nationality', nationalityInput.value);
-      formData.append('dob', dobInput.value);
-      formData.append('gender', getSelectedRadioValue(genderRadio));
+
+
+      (function () {
+        let selectedGender = document.querySelector("input[name='gender']:checked");
+        if (selectedGender) {
+          formData.append('gender', selectedGender.value);
+        } else {
+          alert("You must select your gender");
+          location.reload();
+        }
+      })();
+
+
       formData.append('phone', phoneNumberInput.value);
       formData.append('email', emailAddressInput.value);
 
@@ -1065,7 +1079,17 @@
 
 
       // Choose Course Fields
-      formData.append('shift', getSelectedRadioValue(shiftRadio));
+      (function () {
+        let program = document.querySelector("input[name='program']:checked")
+        if (program) {
+          formData.append('program', program.value);
+        } else {
+          alert("You must select program");
+          location.reload();
+        }
+      })();
+          // Choose Course Fields
+    var courseRadio = document.getElementsByName('course');
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1073,57 +1097,90 @@
       formData.append('transcript', transcriptFileInput.files[0]);
 
       // Payment Method Field
-      formData.append('payment_method', paymentMethodSelect.value);
+      // formData.append('payment_method', paymentMethodSelect.value);
+      const paymentOption = document.getElementById("payment_option");
+      const selectedPaymentMethod = paymentOption.value;
 
 
       fetch('http://localhost:3000/api/students/register', {
         method: 'POST',
         body: formData,
       })
-        .then(response => response.json())
-        .then(data=>{
-          if(data.errors){
-            
-            let firstKey = null;
-            let firstValue = null;
-
-            for (const key in data.errors) {
-              if (myObject.hasOwnProperty(key)) {
-                // Check if the key is the first key found
-                if (firstKey === null) {
-                  firstKey = key;
-                  firstValue = myObject[key];
-                }
-              }
+        .then(response => {
+          if (!response.ok) {
+            // Throwing an error to be caught in the next catch block
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            return;
+          }
+          return response.json(); // Parsing the JSON data from the response
+        })
+        .then(data => {
+          if (data.errors) {
+            let firstValue = Object.values(data.errors)[0]; // Get the first error message
+            errors.innerHTML = firstValue;
+            console.error('Server-side error:', firstValue);
+            showAlert(firstValue);
+            location.reload();
+            return firstValue; // Return the error
+          } else if (data.message) {
+            if (data.message == "Application created successfully") {
+              // alert(data.message);
+              // displaySuccessModal();
+              showAlert(data.message);
+              location.reload();
+            } else {
+              console.error('Unknown server message:', data.message);
+              return data.message;
             }
-
-            errors.innerHTML = firstValue
-
-          }else if(data.message){
-            if(data.message == "Application submitted successfully"){
-              alert(data.message)
-              window.location.href = "/"
-            }
-          }else{
-            alert("SOMETHING WENT WRONG")
+          } else {
+            console.error('Unexpected response:', data);
+            alert("SOMETHING WENT WRONG");
+            location.reload()
+            // return data; // Return the unexpected data
           }
         })
         .catch(error => {
-          // Handle any network errors here
-          console.error('Network error occurred', error);
-          alert("Something went wrong!, try again later")
+          console.error('Error occurred in fetch:', error.message);
+          alert("Something went wrong!, try again later");
+
+          location.reload();
+          // showAlert("Your custom alert message here.");
         });
+      document.addEventListener('DOMContentLoaded', (event) => {
+
+        let modal = document.getElementById("customAlert");
+        let span = document.getElementsByClassName("close-button")[0];
+
+        function showAlert(message) {
+          modal.querySelector("p").textContent = message;
+          modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+          modal.style.display = "none";
+          window.location.reload();
+        }
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+            window.location.reload();
+          }
+        }
+      })
     }
 
     // Helper function to get the selected value from a group of radio buttons
-    function getSelectedRadioValue(radioGroup) {
-      for (var i = 0; i < radioGroup.length; i++) {
-        if (radioGroup[i].checked) {
-          return radioGroup[i].value;
-        }
-      }
-      return '';
+function getSelectedRadioValue(radioNodeList) {
+  let value = null;
+  for (let i = 0; i < radioNodeList.length; i++) {
+    if (radioNodeList[i].checked) {
+      value = radioNodeList[i].value;
+      break;
     }
+  }
+  return value;  // Return the value of the selected radio button
+}
 
 
 
