@@ -98,7 +98,7 @@
 
         /* Slideshow */
 
-        .image-slideshow {
+        /* .image-slideshow {
             position: relative;
             margin: auto;
         }
@@ -120,6 +120,14 @@
             to {
                 opacity: 1
             }
+        } */
+
+
+        /* Why Choose Kiac? */
+
+        .text-choose,
+        .text-course {
+            color: #036e9d;
         }
 
         .card-container {
@@ -160,15 +168,29 @@
             border: 1px solid rgba(3, 110, 157, 0.3);
             ;
             box-shadow:
-                0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-                0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-                0 12.5px 10px rgba(0, 0, 0, 0.06),
-                0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-                0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-                0 100px 80px rgba(0, 0, 0, 0.12);
+                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+                0 0 0 2px rgb(255, 255, 255),
+                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
             padding: 1em;
             text-align: center;
             margin: 1em;
+        }
+
+        .box h2 {
+            position: relative;
+            display: inline-block;
+            color: #036e9d;
+            padding: 10px 0;
+        }
+
+        .box h2::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 3em;
+            border-bottom: 3px solid #036e9d;
         }
 
         @media (max-width: 768px) {
@@ -187,7 +209,8 @@
             margin-top: -20px;
         }
 
-        .txt, .txt-service {
+        .txt,
+        .txt-service {
             color: #036e9d;
         }
 
@@ -206,7 +229,9 @@
         }
 
         .why_chosse_list li:hover,
-        .more:hover, .txt:hover, .panel:hover {
+        .more:hover,
+        .txt:hover,
+        .panel:hover {
             color: dodgerblue;
             text-decoration: underline;
         }
@@ -223,7 +248,8 @@
             padding-top: 5px;
         }
 
-        .home-events, .panel-group {
+        .home-events,
+        .panel-group {
             position: relative;
             padding-top: 10px;
         }
@@ -263,6 +289,7 @@
             margin: 10px 0 20px;
             opacity: 0.1;
         }
+
         .panel-group .panel {
             border: none;
             margin: 10px 0 20px;
@@ -280,6 +307,145 @@
             text-decoration: none;
             color: inherit;
         }
+
+        /* Contact us */
+
+        .txt-contact {
+            position: relative;
+            display: inline-block;
+            color: #036e9d;
+            padding: 10px 0;
+        }
+
+        .txt-contact::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 4em;
+            border-bottom: 3px solid #036e9d;
+        }
+
+        .contact-container {
+            margin-top: -50px;
+            width: 99%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-container input[type=text],
+        .contact-container input[type=email],
+        .contact-container textarea {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #036e9d;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            resize: vertical;
+            border-radius: 5px;
+        }
+
+        .contact-container input[type=text]::placeholder,
+        .contact-container input[type=email]::placeholder,
+        .contact-container textarea::placeholder {
+            color: black;
+            opacity: 0.8;
+        }
+
+        .contact-container input[type=submit] {
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #009edd;
+        }
+
+        .contact-container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width: 50%;
+            margin-top: 6px;
+            padding: 20px;
+            box-shadow:
+                0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                0 12.5px 10px rgba(0, 0, 0, 0.06),
+                0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+                0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+                0 100px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .column,
+            .contact-container input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            max-width: 100%;
+            width: 100%;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .testimonial {
+            display: inline-block;
+            width: 33.3333%;
+            box-sizing: border-box;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        button#slideLeft,
+        button#slideRight {
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button#slideLeft:hover,
+        button#slideRight:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the "Slide Right" button */
+        button#slideRight {
+            right: 0;
+            border-radius: 0;
+        }
     </style>
 </head>
 
@@ -290,19 +456,21 @@
                 <div class="border-2 border-white/60 w-full ">
                     <!-- img header -->
                     <div class="w-full flex items-center justify-between  h-24 md:block">
-                        <div class="h-full w-full md:hidden image-slideshow">
-                            <div class="image fade">
+                        <!-- <div class="h-full w-full md:hidden image-slideshow"> -->
+                        <div class="h-full w-full image-slideshow">
+                            <!-- <div class="image fade"> -->
+                            <div class="image">
                                 <img class="w-full h-full"
                                     src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" alt="img" />
                             </div>
-                            <div class="image fade">
+                            <!-- <div class="image fade">
                                 <img class="w-full h-full"
                                     src="<?= base_url(); ?>assets/landing_new/img/banner_right.jpg" alt="img" />
                             </div>
                             <div class="image fade">
                                 <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner.jpg"
                                     alt="img" />
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="p-[1px] bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
@@ -632,7 +800,7 @@
             </div>
         </div>
         <!-- boxes -->
-        <h2 class="text-custom-blue">Why Choose Kiac?</h2>
+        <h2 class="text-choose text-custom-blue">Why Choose Kiac?</h2>
 
         <div class="bg-custom-gradient px-4">
             <div class="flex flex-wrap text-white justify-between mx-auto max-w-5xl">
@@ -670,7 +838,7 @@
         </div>
 
         <!-- Our Program -->
-        <h2 class="text-custom-blue">Our Courses</h2>
+        <h2 class="text-course text-custom-blue">Our Courses</h2>
 
         <div class="program-container">
             <div class="box">
@@ -743,7 +911,8 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
                                         <a href="#">
-                                            <div class="choose_icon"><img alt=""  src="<?= base_url(); ?>assets/landing_new/img/2.jpg" alt="img"
+                                            <div class="choose_icon"><img alt=""
+                                                    src="<?= base_url(); ?>assets/landing_new/img/2.jpg" alt="img"
                                                     class="img-responsive"></div>
                                         </a>
                                     </div>
@@ -764,16 +933,15 @@
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
-                                        <a
-                                            href="#">
-                                            <div class="choose_icon"><img alt="" src="<?= base_url(); ?>assets/landing_new/img/1.jpg" alt="img"
+                                        <a href="#">
+                                            <div class="choose_icon"><img alt=""
+                                                    src="<?= base_url(); ?>assets/landing_new/img/1.jpg" alt="img"
                                                     class="img-responsive"></div>
                                         </a>
                                     </div>
                                     <div class="col-lg-8 col-md-8  col-sm-8  col-xs-8">
                                         <div class="description">
-                                            <h3 class="fw_400"> <a
-                                                    href="#">Upcoming
+                                            <h3 class="fw_400"> <a href="#">Upcoming
                                                     3rd Annual Biodiversity Field School brings together 40 participants
                                                     from 10 countries</a></h3>
                                         </div>
@@ -788,9 +956,9 @@
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
-                                        <a
-                                            href="#">
-                                            <div class="choose_icon"><img alt="" src="<?= base_url(); ?>assets/landing_new/img/3.jpg" alt="img"
+                                        <a href="#">
+                                            <div class="choose_icon"><img alt=""
+                                                    src="<?= base_url(); ?>assets/landing_new/img/3.jpg" alt="img"
                                                     class="img-responsive"></div>
                                         </a>
                                     </div>
@@ -812,7 +980,8 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
                                         <a href="#">
-                                            <div class="choose_icon"><img alt="" src="<?= base_url(); ?>assets/landing_new/img/brand-1.jpg" alt="img"
+                                            <div class="choose_icon"><img alt=""
+                                                    src="<?= base_url(); ?>assets/landing_new/img/brand-1.jpg" alt="img"
                                                     class="img-responsive"></div>
                                         </a>
                                     </div>
@@ -840,7 +1009,8 @@
                         <article class="home-events pt10 pl20_lg clearfix">
                             <div class="row">
                                 <div class="col-lg-2 col-md-2  col-sm-2  col-xs-2">
-                                    <div class="calendar"><span class="month">AUG</span><span class="day" style="margin-top: -5px;">23</span>
+                                    <div class="calendar"><span class="month">AUG</span><span class="day"
+                                            style="margin-top: -5px;">23</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-md-10  col-sm-10  col-xs-10">
@@ -860,7 +1030,8 @@
                         <article class="home-events pt10 pl20_lg clearfix">
                             <div class="row">
                                 <div class="col-lg-2 col-md-2  col-sm-2  col-xs-2">
-                                    <div class="calendar"><span class="month">JUL</span><span class="day" style="margin-top: -5px;">23</span>
+                                    <div class="calendar"><span class="month">JUL</span><span class="day"
+                                            style="margin-top: -5px;">23</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-md-10  col-sm-10  col-xs-10">
@@ -887,8 +1058,8 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title fw_400">
-                                        <a href="./?Shortlisting-of-applicants-for-part-time-job-opportunities-at-the-UR-CBE-SOE"
-                                            class="collapsed">Shortlisting of applicants for part-time job opportunities
+                                        <a href="#" class="collapsed">Shortlisting of applicants for part-time job
+                                            opportunities
                                             at the UR-CBE-SOE</a>
                                     </h3>
                                 </div>
@@ -931,16 +1102,163 @@
                         <a class="more" href="#">See all announcements</a>
                     </div>
                     <div class="col-lg-1">
-                        <div style="margin-bottom: 10px; width: 170px"><a target="_blank"
-                                href="#">
-                                <img class="service-banner" src="<?= base_url(); ?>assets/landing_new/img/banner-service.jpg" alt="img"
+                        <div style="margin-bottom: 10px; width: 170px"><a target="_blank" href="#">
+                                <img class="service-banner"
+                                    src="<?= base_url(); ?>assets/landing_new/img/banner-service.jpg" alt="img"
                                     style="margin-top: 10px;"></a></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- NEWS -->
+
+        <!-- Contact us -->
+
+        <div class="contact-container">
+            <div style="text-align:center">
+                <h2 class="txt-contact fw_400" style="font-size: 25px;">Contact Us</h2>
+                <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Feel free to reach out to us. We're here to
+                    assist you!</h1>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="col-lg-7">
+                        <div class="section-title position-relative pb-3 mb-5">
+                            <h1 class="mb-0">Need any help about how you can study or getting scholarship with KIAC?
+                                Please Feel Free to Contact Us</h1>
+                        </div>
+                        <div class="row gx-3">
+                            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s"
+                                style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">
+                                <h5 class="mb-4"><i class="fa fa-reply text-primary me-3"></i>Reply within 24 hours</h5>
+                            </div>
+                            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s"
+                                style="visibility: visible; animation-delay: 0.4s; animation-name: zoomIn;">
+                                <h5 class="mb-4"><i class="fa fa-phone-alt text-primary me-3"></i>24 hrs Support</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s"
+                            style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn;">
+                            <div class="bg-primary d-flex align-items-center justify-content-center rounded"
+                                style="width: 60px; height: 60px;">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ps-4">
+                                <h5 class="mb-2">Call to ask any question</h5>
+                                <h4 class="text-primary mb-0">+250 783 205 698</h4>
+                            </div><br>
+                            <i class="fa fa-anvelope text-white"></i>
+                            <div class="ps-4">
+                                <h5 class="mb-2">Send us email </h5>
+                                <h4 class="text-primary mb-0">info@kiac.ac.rw</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <form action="/action_page.php">
+
+                        <input type="text" id="fname" name="firstname" placeholder="Enter your Name">
+
+                        <input type="text" id="lname" name="lastname" placeholder="Enter your Last Name">
+
+                        <input type="email" id="email" name="email" placeholder="Enter your Email">
+
+                        <textarea id="subject" name="subject" placeholder="Write something.."
+                            style="height:170px"></textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonial-container mx-auto mt-20">
+            <div style="text-align:center">
+                <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 60px">Testimonials</h2>
+                <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
+            </div>
+            <div class="testimonial-slider overflow-hidden relative">
+                <div class="slider-content flex" id="sliderContent">
+                    <!-- Profile 1 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 1"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 1."</p>
+                            <h4 class="mt-4">John Doe</h4>
+                        </div>
+                    </div>
+                    <!-- Profile 2 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 2."</p>
+                            <h4 class="mt-4">Jane Smith</h4>
+                        </div>
+                    </div>
+                    <!-- Profile 3 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 3"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 3."</p>
+                            <h4 class="mt-4">Alice Johnson</h4>
+                        </div>
+                    </div>
+                    <!-- Profile 4 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 4"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 3."</p>
+                            <h4 class="mt-4">Alice Johnson</h4>
+                        </div>
+                    </div>
+                    <!-- Profile 5 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="profile3.jpg" alt="Profile 5" class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 3."</p>
+                            <h4 class="mt-4">Alice Johnson</h4>
+                        </div>
+                    </div>
+                    <!-- Profile 6 -->
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="profile3.jpg" alt="Profile 6" class="w-20 h-20 rounded-full">
+                            </div>
+                            <p>"This is the testimonial text for profile 3."</p>
+                            <h4 class="mt-4">Alice Johnson</h4>
+                        </div>
+                    </div>
+                </div>
+                <button id="slideLeft"
+                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow">&#8249;
+                    Prev</button>
+                <!-- Add the "Slide Left" button here -->
+                <button id="slideRight"
+                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow">Next
+                    &#8250;</button>
+            </div>
+            <!-- <button id="slideLeft"
+                class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow">&lt;</button>
+            <button id="slideRight"
+                class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow">&gt;</button> -->
+        </div>
+
 
         <!-- FOOTER -->
         <div class="-mb-24">
@@ -1025,24 +1343,48 @@
     });
 </script>
 
+<script>
+    const slideContent = document.getElementById('sliderContent');
+    const slideLeftBtn = document.getElementById('slideLeft');
+    const slideRightBtn = document.getElementById('slideRight');
+
+    let sliderPosition = 0;
+    const slideWidth = slideContent.children[0].clientWidth;
+
+    slideLeftBtn.addEventListener('click', () => {
+        if (sliderPosition < 0) {
+            sliderPosition += slideWidth;
+            slideContent.style.transform = `translateX(${sliderPosition}px)`;
+        }
+    });
+
+    slideRightBtn.addEventListener('click', () => {
+        if (sliderPosition > -(slideContent.children.length - 3) * slideWidth) {
+            sliderPosition -= slideWidth;
+            slideContent.style.transform = `translateX(${sliderPosition}px)`;
+        }
+    });
+
+</script>
+
 <!-- image-slideshow -->
 
 <script>
-    let index = 0;
-    displayImages();
-    function displayImages() {
-        let i;
-        const images = document.getElementsByClassName("image");
-        for (i = 0; i < images.length; i++) {
-            images[i].style.display = "none";
-        }
-        index++;
-        if (index > images.length) {
-            index = 1;
-        }
-        images[index - 1].style.display = "block";
-        setTimeout(displayImages, 2000);
-    }
+    // let index = 0;
+    // displayImages();
+    // function displayImages() {
+    //     let i;
+    //     const images = document.getElementsByClassName("image");
+    //     for (i = 0; i < images.length; i++) {
+    //         images[i].style.display = "none";
+    //     }
+    //     index++;
+    //     if (index > images.length) {
+    //         index = 1;
+    //     }
+    //     images[index - 1].style.display = "block";
+    //     setTimeout(displayImages, 2000);
+    // }
 
 </script>
 
