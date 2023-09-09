@@ -1014,8 +1014,7 @@
     var sectorInput = document.querySelector('input[name="sector"]');
     var liveInKigaliRadio = document.getElementsByName('city_relatives');
 
-    // Choose Course Fields
-    var courseRadio = document.getElementsByName('course');
+
 
     // Attachments Fields
     var idPassportFileInput = document.querySelector('input[name="id_passport"]');
@@ -1089,7 +1088,8 @@
           location.reload();
         }
       })();
-      
+          // Choose Course Fields
+    var courseRadio = document.getElementsByName('course');
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1110,6 +1110,7 @@
           if (!response.ok) {
             // Throwing an error to be caught in the next catch block
             throw new Error(`HTTP error! Status: ${response.status}`);
+            return;
           }
           return response.json(); // Parsing the JSON data from the response
         })
@@ -1124,7 +1125,8 @@
           } else if (data.message) {
             if (data.message == "Application created successfully") {
               // alert(data.message);
-              displaySuccessModal();
+              // displaySuccessModal();
+              showAlert(data.message);
               location.reload();
             } else {
               console.error('Unknown server message:', data.message);
@@ -1133,13 +1135,16 @@
           } else {
             console.error('Unexpected response:', data);
             alert("SOMETHING WENT WRONG");
-            return data; // Return the unexpected data
+            location.reload()
+            // return data; // Return the unexpected data
           }
         })
         .catch(error => {
           console.error('Error occurred in fetch:', error.message);
-          showAlert("Your custom alert message here.");
-          // alert("Something went wrong!, try again later");
+          alert("Something went wrong!, try again later");
+
+          location.reload();
+          // showAlert("Your custom alert message here.");
         });
       document.addEventListener('DOMContentLoaded', (event) => {
 
@@ -1166,17 +1171,16 @@
     }
 
     // Helper function to get the selected value from a group of radio buttons
-    function getSelectedRadioValue(radioNodeList) {
-      let value = null;
-      for (let i = 0; i < radioNodeList.length; i++) {
-        if (radioNodeList[i].checked) {
-          value = radioNodeList[i].value;
-          break;
-        }
-      }
-      return value === "true";  // Convert "true" string to true, otherwise return false
+function getSelectedRadioValue(radioNodeList) {
+  let value = null;
+  for (let i = 0; i < radioNodeList.length; i++) {
+    if (radioNodeList[i].checked) {
+      value = radioNodeList[i].value;
+      break;
     }
-
+  }
+  return value;  // Return the value of the selected radio button
+}
 
 
 

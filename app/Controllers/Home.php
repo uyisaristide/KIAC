@@ -11991,6 +11991,7 @@ Merci";
 		}
 	}
 
+
 	public
 		function getApproveStudentInformation(
 		$application
