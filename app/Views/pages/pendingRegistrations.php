@@ -25,9 +25,9 @@ function array_term($terms)
 				<div class="container-fluid">
 					<div class="card mb-3">
 						<div class="card-header-tab card-header">
-							<div
-									class="card-header-title font-size-lg text-capitalize font-weight-normal">
-								<i class="header-icon typcn typcn-home-outline text-muted opacity-6"> </i><?= $title; ?>
+							<div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+								<i class="header-icon typcn typcn-home-outline text-muted opacity-6"> </i>
+								<?= $title; ?>
 							</div>
 							<div class="btn-actions-pane-right actions-icon-btn">
 
@@ -38,75 +38,71 @@ function array_term($terms)
 								<div class="row">
 									<div class="col-sm-12">
 										<table style="width: 100%;" id="example"
-											   class=" table-hover table-striped table-bordered">
+											class="table-hover table-striped table-bordered">
 											<thead>
-											<tr role="row">
-												<th>#</th>
-												<th>Applicant</th>
-												<th>Gender</th>
-												<th>Level</th>
-												<th>Studying mode</th>
-												<th>Parent type</th>
-												<th>Parent name</th>
-												<th>Parent phone</th>
-												<th>Payment status</th>
-												<th>Application - code</th>
-												<th></th>
-											</tr>
+												<tr role="row">
+													<th>#</th>
+													<th>Applicant</th>
+													<th>Gender</th>
+													<th>Phone</th>
+													<th>Program</th>
+													<th>Payment status</th>
+													<th>Application - code</th>
+													<th>Action</th>
+												</tr>
 											</thead>
 											<tbody>
-											<?php foreach ($pendings as $key=>$pending) { ?>
-												<tr>
-													<td><?= $key+1; ?></td>
-													<td><?= $pending['applicant']; ?></td>
-													<td><?= $pending['gender']; ?></td>
-													<td><?= $pending['level']; ?></td>
-													<td><?= $pending['mode']; ?></td>
-													<td><?= parentType($pending['parentType']); ?></td>
-													<td><?= $pending['parentNames']; ?></td>
-													<td><?= $pending['parentPhoneNumber']; ?></td>
-													<td><?= $pending['status']==0?'Pending':'Success'; ?></td>
-													<td><?= $pending['code']; ?></td>
-													<td style="text-align: center">
-														<button class="btn btn-sm btn-info" data-id="<?=$pending['id']; ?>"
-																 href="javascript:void" class="dropdown-item"
-																data-toggle="modal" data-target="#documentModal">Docs</button>
-														<button class="btn btn-sm btn-success"
-																<?=$pending['status']==0 || $pending['status']==2 ?'disabled':'';?>
-																data-id="<?=$pending['id']; ?>"
-																href="javascript:void"
-																data-toggle="modal" data-target="#approveRegistrationModal"
-														>Approve</button>
-														<button class="btn btn-sm btn-primary smsBtn" data-id="<?=$pending['id']; ?>" <?=$pending['status']==0 || $pending['status']==2 ?'disabled':'';?>>Send sms</button>
-													</td>
-												</tr>
-												<?php
-											}
-											?>
+												<?php foreach ($pendings as $key => $pending) { ?>
+													<tr>
+														<td>
+															<?= $key + 1; ?>
+														</td>
+														<td>
+															<?= $pending['fname'] . ' ' . $pending['lname']; ?>
+														</td>
+														<td>
+															<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
+														</td>
+														<td>
+															<?= $pending['phone']; ?>
+														</td>
+														<td>
+															<?= $pending['program']; ?>
+														</td>
+														<td>
+															<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
+														</td>
+														<td>
+															<?= $pending['id']; ?>
+														</td> <!-- Displaying the id as the application code -->
+														<td>
+															<button class="btn btn-sm btn-info"
+																data-id="<?= $pending['id']; ?>" href="javascript:void"
+																class="dropdown-item" data-toggle="modal"
+																data-target="#documentModal">Docs</button>
+															<button class="btn btn-sm btn-success" <?= !$pending['approved'] ? 'disabled' : ''; ?> data-id="<?= $pending['id']; ?>"
+																href="javascript:void" data-toggle="modal"
+																data-target="#approveRegistrationModal">Approve</button>
+															<button class="btn btn-sm btn-primary smsBtn"
+																data-id="<?= $pending['id']; ?>" <?= !$pending['approved'] ? 'disabled' : ''; ?>>Send sms</button>
+														</td>
+													</tr>
+												<?php } ?>
 											</tbody>
 											<tfoot>
-											<tr>
-												<th>#</th>
-												<th>Applicant</th>
-												<th>Gender</th>
-												<th>Level</th>
-												<th>Studying mode</th>
-												<th>Parent type</th>
-												<th>Parent name</th>
-												<th>Parent phone</th>
-												<th>Payment status</th>
-												<th>Application - code</th>
-												<th></th>
-											</tr>
+												<tr>
+													<th>#</th>
+													<th>Applicant</th>
+													<th>Gender</th>
+													<th>Phone</th>
+													<th>Program</th>
+													<th>Payment status</th>
+													<th>Application - code</th>
+													<th>Action</th>
+												</tr>
 											</tfoot>
 										</table>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>

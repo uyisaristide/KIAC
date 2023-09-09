@@ -20,6 +20,42 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #f4f4f4;
+      width: 70%;
+    }
+
+    .close-button {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 
 </head>
@@ -30,11 +66,8 @@
     <div class="border-2 border-white/60 w-full ">
       <!-- img div -->
       <div class="w-full flex items-center justify-between gap-4 h-24 md:block">
-        <div class="h-full w-1/2 md:hidden">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" alt="img" />
-        </div>
-        <div class="h-full w-1/2 md:w-full">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.gif" alt="img" />
+        <div class="h-full w-full md:w-full">
+          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner.gif" alt="img" />
         </div>
       </div>
       <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
@@ -123,7 +156,7 @@
             <li><a href="twinigure/">Twinigure</a></li>
             <li><a href="imyemerere/"><i class="fa fa-plus-circle"></i> Iyobokamana</a></li>
           </ul>
-        </li> 
+        </li>
       </ul>
     </nav>
   </div>
@@ -347,7 +380,7 @@
           </label>
           <input required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="dob" type="date">
+            id="grid-last-name" name="date_of_birth" type="date">
         </div>
 
         <div class="w-full px-3 mt-4">
@@ -355,8 +388,8 @@
             Gender
           </label>
           <div class="">
-            <input required class="w-3 h-3" type="radio" name="gender" value="male" /> Male
-            <input required class="w-3 h-3" type="radio" name="gender" value="female" /> Female
+            <input required class="w-3 h-3" type="radio" name="gender" value="male" required /> Male
+            <input required class="w-3 h-3" type="radio" name="gender" value="female" required /> Female
           </div>
         </div>
       </div>
@@ -446,23 +479,23 @@
       </div>
       <div class="w-full mt-4 mb-4">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          CHOOSE SHIFT YOU WANT TO STUDY
+          CHOOSE Programs YOU WANT TO STUDY
         </label>
         <div class="mt-2">
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="day" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Day
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="night" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Evening
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="weekend" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Weekend
             </span>
@@ -542,13 +575,13 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             name="payment_method" id="payment_option">
 
-            <option value="1"
+            <option value="cash"
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               Cash</option>
-            <option value="2" disabled
+            <option value="MOMO Pay" disabled
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               MOMO Pay</option>
-            <option value="3" disabled
+            <option value="VIS/CREDIT/DEBIT Card" disabled
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               VIS/CREDIT/DEBIT Card</option>
 
@@ -629,6 +662,12 @@
       <i class="fa fa-chevron-up"></i>
     </a>
 
+  </div>
+  <div id="customAlert" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <p>Your custom message here</p>
+    </div>
   </div>
   <script>
     const MAX_STEPS = 8
@@ -815,7 +854,7 @@
           progress = 100
           progressBar.style.width = `${progress}%`
           progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
+          // nextButton.type = "button"
           nextButton.innerHTML = "Submit Application"
           break
 
@@ -850,12 +889,12 @@
         handleStepChange(currentStep)
 
 
-      }else{
-        if(currentStep >= MAX_STEPS) {
+      } else {
+        if (currentStep >= MAX_STEPS) {
           sendApplication()
         }
       }
-      
+
 
     }
 
@@ -967,19 +1006,15 @@
     var firstNameInput = document.querySelector('input[name="fname"]');
     var lastNameInput = document.querySelector('input[name="lname"]');
     var nationalityInput = document.querySelector('input[name="nationality"]');
-    var dobInput = document.querySelector('input[name="dob"]');
-    var genderRadio = document.getElementsByName('gender');
     var phoneNumberInput = document.querySelector('input[name="phone"]');
     var emailAddressInput = document.querySelector('input[name="email"]');
 
     // Residential Address Fields
     var countryInput = document.querySelector('input[name="country"]');
-    var districtInput = document.querySelector('input[name="district"]');
     var sectorInput = document.querySelector('input[name="sector"]');
     var liveInKigaliRadio = document.getElementsByName('city_relatives');
 
     // Choose Course Fields
-    var shiftRadio = document.getElementsByName('shift');
     var courseRadio = document.getElementsByName('course');
 
     // Attachments Fields
@@ -987,22 +1022,30 @@
     var transcriptFileInput = document.querySelector('input[name="transcript"]');
 
     // Payment Method Field
-    var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
+    // var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
+
+    // date of birth
+
 
     function sendApplication() {
       // Create a new FormData object to store the form data
       var formData = new FormData();
 
+      // date of birth
+      var date_of_birth = document.querySelector("input[name='date_of_birth']");
+      formData.append('date_of_birth', date_of_birth.value)
+      console.log(date_of_birth)
+
       // Educational Background Fields
-    
-        formData.append('level', getSelectedRadioValue(schoolLevel));
 
-        formData.append('finish_secondary', getSelectedRadioValue(finishSecondaryRadio)); // You need to select the appropriate value from finishSecondaryRadio
-        formData.append('secondary_level', getSelectedRadioValue(secondaryLevelRadio));
+      formData.append('level', getSelectedRadioValue(schoolLevel));
 
-        formData.append('finish_university', getSelectedRadioValue(finishUniversityRadio)); // You need to select the appropriate value from finishSecondaryRadio
-        formData.append('university_level', getSelectedRadioValue(universityLevelRadio));
-      
+      formData.append('finish_secondary', getSelectedRadioValue(finishSecondaryRadio));  // This will append true or false to formData
+      formData.append('secondary_level', getSelectedRadioValue(secondaryLevelRadio));
+
+      formData.append('finish_university', getSelectedRadioValue(finishUniversityRadio));
+      formData.append('university_level', getSelectedRadioValue(universityLevelRadio));
+
 
       // School Information Fields
       formData.append('school_id', schoolSelect.value);
@@ -1011,19 +1054,42 @@
       formData.append('fname', firstNameInput.value);
       formData.append('lname', lastNameInput.value);
       formData.append('nationality', nationalityInput.value);
-      formData.append('dob', dobInput.value);
-      formData.append('gender', getSelectedRadioValue(genderRadio));
+
+
+      (function () {
+        let selectedGender = document.querySelector("input[name='gender']:checked");
+        if (selectedGender) {
+          formData.append('gender', selectedGender.value);
+        } else {
+          alert("You must select your gender");
+          location.reload();
+        }
+      })();
+
+
       formData.append('phone', phoneNumberInput.value);
       formData.append('email', emailAddressInput.value);
 
       // Residential Address Fields
       formData.append('country', countryInput.value);
-      formData.append('district', districtInput.value);
       formData.append('sector', sectorInput.value);
+      let districtValue = document.querySelector('input[name="district"]');
+      formData.append('district', districtValue.value);
       formData.append('city_relatives', getSelectedRadioValue(liveInKigaliRadio));
 
+
+
       // Choose Course Fields
-      formData.append('shift', getSelectedRadioValue(shiftRadio));
+      (function () {
+        let program = document.querySelector("input[name='program']:checked")
+        if (program) {
+          formData.append('program', program.value);
+        } else {
+          alert("You must select program");
+          location.reload();
+        }
+      })();
+      
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1031,96 +1097,86 @@
       formData.append('transcript', transcriptFileInput.files[0]);
 
       // Payment Method Field
-      formData.append('payment_method', paymentMethodSelect.value);
+      // formData.append('payment_method', paymentMethodSelect.value);
+      const paymentOption = document.getElementById("payment_option");
+      const selectedPaymentMethod = paymentOption.value;
 
-      // Make a POST request using fetch
-    //   fetch('<?=base_url();?>save_self_appliaction_kiac'  , {
-    //     method: 'POST',
-    //     body: formData,
-    //   })
-    //     .then(response => response.json())
-    //     .then(data=>{
-    //       if(data.errors){
-            
-    //         let firstKey = null;
-    //         let firstValue = null;
 
-    //         for (const key in data.errors) {
-    //           if (myObject.hasOwnProperty(key)) {
-    //             // Check if the key is the first key found
-    //             if (firstKey === null) {
-    //               firstKey = key;
-    //               firstValue = myObject[key];
-    //             }
-    //           }
-    //         }
+      fetch('http://localhost:3000/api/students/register', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => {
+          if (!response.ok) {
+            // Throwing an error to be caught in the next catch block
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json(); // Parsing the JSON data from the response
+        })
+        .then(data => {
+          if (data.errors) {
+            let firstValue = Object.values(data.errors)[0]; // Get the first error message
+            errors.innerHTML = firstValue;
+            console.error('Server-side error:', firstValue);
+            showAlert(firstValue);
+            location.reload();
+            return firstValue; // Return the error
+          } else if (data.message) {
+            if (data.message == "Application created successfully") {
+              // alert(data.message);
+              displaySuccessModal();
+              location.reload();
+            } else {
+              console.error('Unknown server message:', data.message);
+              return data.message;
+            }
+          } else {
+            console.error('Unexpected response:', data);
+            alert("SOMETHING WENT WRONG");
+            return data; // Return the unexpected data
+          }
+        })
+        .catch(error => {
+          console.error('Error occurred in fetch:', error.message);
+          showAlert("Your custom alert message here.");
+          // alert("Something went wrong!, try again later");
+        });
+      document.addEventListener('DOMContentLoaded', (event) => {
 
-    //         errors.innerHTML = firstValue
+        let modal = document.getElementById("customAlert");
+        let span = document.getElementsByClassName("close-button")[0];
 
-    //       }else if(data.message){
-    //         if(data.message == "Application submitted successfully"){
-    //           alert(data.message)
-    //           window.location.href = "/"
-    //         }
-    //       }else{
-    //         alert("SOMETHING WENT WRONG")
-    //       }
-    //     })
-    //     .catch(error => {
-    //       // Handle any network errors here
-    //       console.error('Network error occurred', error);
-    //       alert("Something went wrong!, try again later")
-    //     });
-    // }
-
-    fetch('http://localhost:3000/save_application', {
-  method: 'POST',
-  body: formData,
-})
-.then(response => response.json())
-.then(data => {
-  if (data.errors) {
-
-    let firstKey = null;
-    let firstValue = null;
-
-    for (const key in data.errors) {
-      if (data.errors.hasOwnProperty(key)) {
-        // Check if the key is the first key found
-        if (firstKey === null) {
-          firstKey = key;
-          firstValue = data.errors[key];
+        function showAlert(message) {
+          modal.querySelector("p").textContent = message;
+          modal.style.display = "block";
         }
-      }
+
+        span.onclick = function () {
+          modal.style.display = "none";
+          window.location.reload();
+        }
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+            window.location.reload();
+          }
+        }
+      })
     }
-
-    errors.innerHTML = firstValue;
-
-  } else if (data.message) {
-    if (data.message == "Application submitted successfully") {
-      alert(data.message);
-      window.location.href = "/";
-    }
-  } else {
-    alert("SOMETHING WENT WRONG");
-  }
-})
-.catch(error => {
-  // Handle any network errors here
-  console.error('Network error occurred', error);
-  alert("Something went wrong!, try again later");
-});
-
 
     // Helper function to get the selected value from a group of radio buttons
-    function getSelectedRadioValue(radioGroup) {
-      for (var i = 0; i < radioGroup.length; i++) {
-        if (radioGroup[i].checked) {
-          return radioGroup[i].value;
+    function getSelectedRadioValue(radioNodeList) {
+      let value = null;
+      for (let i = 0; i < radioNodeList.length; i++) {
+        if (radioNodeList[i].checked) {
+          value = radioNodeList[i].value;
+          break;
         }
       }
-      return '';
+      return value === "true";  // Convert "true" string to true, otherwise return false
     }
+
 
 
 
