@@ -3931,13 +3931,13 @@ if ($page == "pendingRegistration") {
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<form action="<?= base_url('manipulate_course_category'); ?>" class="autoSubmit validate">
-					<div class="modal-header">
+					<!-- <div class="modal-header">
 						<h5 class="modal-title">Applicant document</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
-					</div>
-					<div class="modal-body">
+					</div> -->
+					<!-- <div class="modal-body">
 						<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 							<table class="table">
 								<tr>
@@ -3953,8 +3953,8 @@ if ($page == "pendingRegistration") {
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
-								data-dismiss="modal"><?= lang("app.close"); ?></button>
-					</div>
+								data-dismiss="modal"> ?></button>
+					</div> -->
 				</form>
 			</div>
 		</div>
@@ -4085,23 +4085,23 @@ if ($page == "pendingRegistration") {
 				$("#selected_staff_book").val('').change()
 			}
 		})
-		let row
-		$("#documentModal").on("show.bs.modal", function (e) {
-			let id = $(e.relatedTarget).data("id")
-			$("#documentTbl").html(" ")
-			row = " "
-			$.getJSON("<?=base_url();?>registrationsDocument/" + id, function (data) {
-				$.each(data, function (index, obj) {
-					let docsUrl = "<?=base_url('assets/documents/');?>" + obj.fileName
-					row += "<tr>" +
-						"<td>" + (index + 1) + "</td>" +
-						"<td style='text-align: center'>" + obj.documentName + "</td>" +
-						"<td style='text-align: center'><a target='_blank' href=" + docsUrl + ">Click here to download</a</td>" +
-						"</tr>"
-				})
-				$("#documentTbl").html(row)
-			})
-		})
+		// let row
+		// $("#documentModal").on("show.bs.modal", function (e) {
+		// 	let id = $(e.relatedTarget).data("id")
+		// 	$("#documentTbl").html(" ")
+		// 	row = " "
+			// $.getJSON("<?//=base_url();?>registrationsDocument/" + id, function (data) {
+		// 		$.each(data, function (index, obj) {
+					// let docsUrl = "<?//=base_url('assets/documents/');?>" + obj.fileName
+		// 			row += "<tr>" +
+		// 				"<td>" + (index + 1) + "</td>" +
+		// 				"<td style='text-align: center'>" + obj.documentName + "</td>" +
+		// 				"<td style='text-align: center'><a target='_blank' href=" + docsUrl + ">Click here to download</a</td>" +
+		// 				"</tr>"
+		// 		})
+		// 		$("#documentTbl").html(row)
+		// 	})
+		// })
 		$("#approveRegistrationModal").on("show.bs.modal", function (e) {
 			let id = $(e.relatedTarget).data("id")
 			let options

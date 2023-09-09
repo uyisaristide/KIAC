@@ -11893,27 +11893,63 @@ Merci";
 		}
 	}
 
-	public
-		function pendingRegistrations(
-	) {
+	// public
+	// 	function pendingRegistrations(
+	// ) {
+	// 	$this->_preset();
+	// 	$data = $this->data;
+	// 	$applicationMdl = new StudentApplicationModel();
+	// 	$school_id = $this->session->get("ideyetu_school_id");
+	// 	$data['title'] = lang("app.pendingRegistration");
+	// 	$data['subtitle'] = lang("app.pendingRegistration");
+	// 	$data['page'] = "pendingRegistration";
+	// 	$data['pendings'] = $applicationMdl->select("applications.id,concat(fname,' ',lname) as applicant,
+	// 	if(gender='M','Male','Famele') as gender,
+	// 	phoneNumber,parentType,
+	// 	parentPhoneNumber,parentNames,dateOfBirth,l.title as level,if(studyingMode=0,'Boarding','Day') mode,applications.status,code,admitted")
+	// 		->join("levels l", "l.id=applications.level")
+	// 		->where("admitted", 0)
+	// 		->where("schoolId", $school_id)
+	// 		->get()->getResultArray();
+	// 	$data['content'] = view("pages/pendingRegistrations", $data);
+	// 	return view('main', $data);
+	// }
+	function pendingRegistrations() {
 		$this->_preset();
 		$data = $this->data;
-		$applicationMdl = new StudentApplicationModel();
+		
 		$school_id = $this->session->get("ideyetu_school_id");
 		$data['title'] = lang("app.pendingRegistration");
 		$data['subtitle'] = lang("app.pendingRegistration");
 		$data['page'] = "pendingRegistration";
-		$data['pendings'] = $applicationMdl->select("applications.id,concat(fname,' ',lname) as applicant,
-		if(gender='M','Male','Famele') as gender,
-		phoneNumber,parentType,
-		parentPhoneNumber,parentNames,dateOfBirth,l.title as level,if(studyingMode=0,'Boarding','Day') mode,applications.status,code,admitted")
-			->join("levels l", "l.id=applications.level")
-			->where("admitted", 0)
-			->where("schoolId", $school_id)
-			->get()->getResultArray();
+	
+		// Replace this part with a cURL request to your API
+		$apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		if (curl_errno($ch)) {
+			// Handle error, maybe log it and show an error message
+			die("Error: " . curl_error($ch));
+		}
+		curl_close($ch);
+		
+		$applications = json_decode($response, true);
+	
+		// Assuming 'applications' is the key in the API response containing the applications
+		if (isset($applications['applications'])) {
+			$data['pendings'] = $applications['applications'];
+		} else {
+			// Handle the error, maybe log it and show an error message
+			$data['pendings'] = [];
+		}
+	
 		$data['content'] = view("pages/pendingRegistrations", $data);
 		return view('main', $data);
 	}
+	
 
 	public
 		function registrationsDocument(
@@ -11954,6 +11990,7 @@ Merci";
 			echo "zero";
 		}
 	}
+
 
 	public
 		function getApproveStudentInformation(
@@ -12405,67 +12442,67 @@ Merci";
 
 	protected $helpers = ['form'];
 
-	public function save_self_appliaction_kiac()
-	{
-		$data = $this->request->getPost();
-		$model = new ApplicationsModel();
+	// public function save_self_appliaction_kiac()
+	// {
+	// 	$data = $this->request->getPost();
+	// 	$model = new ApplicationsModel();
 
-		// Define your validation rules here, matching the field names in ApplicationsModel
-		$rules = [
-			'level' => 'required',
-			'finish_secondary' => 'required',
-			'finish_university' => 'required',
-			'secondary_level' => 'required',
-			'university_level' => 'required',
-			'school_id' => 'required',
-			'fname' => 'required',
-			'lname' => 'required',
-			'nationality' => 'required',
-			'gender' => 'required',
-			'phone' => 'required',
-			'email' => 'required|valid_email',
-			'country' => 'required',
-			'sector' => 'required',
-			'city_relatives' => 'required',
-			'course' => 'required',
-			'shift' => 'required',
-			'id_passport' => 'uploaded[id_passport]|mime_in[id_passport,image/jpg,image/jpeg,image/png]|max_size[id_passport,1024]',
-			'transcript' => 'uploaded[transcript]|mime_in[transcript,image/jpg,image/jpeg,image/png,pdf]|max_size[transcript,2048]',
-			'payment_method' => 'required'
-		];
+	// 	// Define your validation rules here, matching the field names in ApplicationsModel
+	// 	$rules = [
+	// 		'level' => 'required',
+	// 		'finish_secondary' => 'required',
+	// 		'finish_university' => 'required',
+	// 		'secondary_level' => 'required',
+	// 		'university_level' => 'required',
+	// 		'school_id' => 'required',
+	// 		'fname' => 'required',
+	// 		'lname' => 'required',
+	// 		'nationality' => 'required',
+	// 		'gender' => 'required',
+	// 		'phone' => 'required',
+	// 		'email' => 'required|valid_email',
+	// 		'country' => 'required',
+	// 		'sector' => 'required',
+	// 		'city_relatives' => 'required',
+	// 		'course' => 'required',
+	// 		'shift' => 'required',
+	// 		'id_passport' => 'uploaded[id_passport]|mime_in[id_passport,image/jpg,image/jpeg,image/png]|max_size[id_passport,1024]',
+	// 		'transcript' => 'uploaded[transcript]|mime_in[transcript,image/jpg,image/jpeg,image/png,pdf]|max_size[transcript,2048]',
+	// 		'payment_method' => 'required'
+	// 	];
 
-		if (!$this->validate($rules)) {
-			// Validation failed, return validation errors in JSON format
-			return $this->response->setJSON(['errors' => $this->validator->getErrors()]);
-		}
+	// 	if (!$this->validate($rules)) {
+	// 		// Validation failed, return validation errors in JSON format
+	// 		return $this->response->setJSON(['errors' => $this->validator->getErrors()]);
+	// 	}
 
-		// Handle file uploads
-		$idPassportFile = $this->request->getFile('id_passport');
-		$transcriptFile = $this->request->getFile('transcript');
+	// 	// Handle file uploads
+	// 	$idPassportFile = $this->request->getFile('id_passport');
+	// 	$transcriptFile = $this->request->getFile('transcript');
 
-		if ($idPassportFile->isValid() && $transcriptFile->isValid()) {
-			// Generate unique file names
-			$idPassportFileName = uniqid() . '_' . $idPassportFile->getName();
-			$transcriptFileName = uniqid() . '_' . $transcriptFile->getName();
+	// 	if ($idPassportFile->isValid() && $transcriptFile->isValid()) {
+	// 		// Generate unique file names
+	// 		$idPassportFileName = uniqid() . '_' . $idPassportFile->getName();
+	// 		$transcriptFileName = uniqid() . '_' . $transcriptFile->getName();
 
-			// Move uploaded files to the uploads folder
-			$idPassportFile->move(ROOTPATH . 'public/uploads', $idPassportFileName);
-			$transcriptFile->move(ROOTPATH . 'public/uploads', $transcriptFileName);
+	// 		// Move uploaded files to the uploads folder
+	// 		$idPassportFile->move(ROOTPATH . 'public/uploads', $idPassportFileName);
+	// 		$transcriptFile->move(ROOTPATH . 'public/uploads', $transcriptFileName);
 
-			// Store file paths in the database
-			$data['id_passport'] = 'uploads/' . $idPassportFileName;
-			$data['transcript'] = 'uploads/' . $transcriptFileName;
-		} else {
-			// Handle file upload errors
-			return $this->response->setJSON(['errors' => 'File upload failed']);
-		}
+	// 		// Store file paths in the database
+	// 		$data['id_passport'] = 'uploads/' . $idPassportFileName;
+	// 		$data['transcript'] = 'uploads/' . $transcriptFileName;
+	// 	} else {
+	// 		// Handle file upload errors
+	// 		return $this->response->setJSON(['errors' => 'File upload failed']);
+	// 	}
 
-		// Save the application data to the database
-		$model->insert($data);
+	// 	// Save the application data to the database
+	// 	$model->insert($data);
 
-		// Return a success response in JSON format
-		return $this->response->setJSON(['message' => 'Application submitted successfully']);
-	}
+	// 	// Return a success response in JSON format
+	// 	return $this->response->setJSON(['message' => 'Application submitted successfully']);
+	// }
 
 
 }

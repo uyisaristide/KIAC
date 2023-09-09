@@ -20,6 +20,42 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #f4f4f4;
+      width: 70%;
+    }
+
+    .close-button {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 
 </head>
@@ -443,23 +479,23 @@
       </div>
       <div class="w-full mt-4 mb-4">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          CHOOSE SHIFT YOU WANT TO STUDY
+          CHOOSE Programs YOU WANT TO STUDY
         </label>
         <div class="mt-2">
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="day" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Day
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="night" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Evening
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <input required type="radio" name="shift" value="1" class="p-2 w-4 h-4 focus:ring-blue-500" />
+            <input required type="radio" name="program" value="weekend" class="p-2 w-4 h-4 focus:ring-blue-500" />
             <span>
               Weekend
             </span>
@@ -626,6 +662,12 @@
       <i class="fa fa-chevron-up"></i>
     </a>
 
+  </div>
+  <div id="customAlert" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <p>Your custom message here</p>
+    </div>
   </div>
   <script>
     const MAX_STEPS = 8
@@ -812,7 +854,7 @@
           progress = 100
           progressBar.style.width = `${progress}%`
           progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
+          // nextButton.type = "button"
           nextButton.innerHTML = "Submit Application"
           break
 
@@ -964,20 +1006,17 @@
     var firstNameInput = document.querySelector('input[name="fname"]');
     var lastNameInput = document.querySelector('input[name="lname"]');
     var nationalityInput = document.querySelector('input[name="nationality"]');
-    var dobInput = document.querySelector('input[name="date_of_birth"]');
-    // var genderRadio = document.getElementsByName('gender');
+    var dobInput = document.querySelector('input[name="dob"]');
+    var genderRadio = document.getElementsByName('gender');
     var phoneNumberInput = document.querySelector('input[name="phone"]');
     var emailAddressInput = document.querySelector('input[name="email"]');
 
     // Residential Address Fields
     var countryInput = document.querySelector('input[name="country"]');
-    var districtInput = document.querySelector('input[name="district"]');
     var sectorInput = document.querySelector('input[name="sector"]');
     var liveInKigaliRadio = document.getElementsByName('city_relatives');
 
-    // Choose Course Fields
-    var shiftRadio = document.getElementsByName('shift');
-    var courseRadio = document.getElementsByName('course');
+
 
     // Attachments Fields
     var idPassportFileInput = document.querySelector('input[name="id_passport"]');
@@ -992,11 +1031,6 @@
     function sendApplication() {
       // Create a new FormData object to store the form data
       var formData = new FormData();
-
-      // date of birth
-      var date_of_birth = document.querySelector("input[name='date_of_birth']").value;
-      formData.append('date_of_birth', date_of_birth)
-      console.log(date_of_birth)
 
       // Educational Background Fields
 
@@ -1016,24 +1050,22 @@
       formData.append('fname', firstNameInput.value);
       formData.append('lname', lastNameInput.value);
       formData.append('nationality', nationalityInput.value);
-      formData.append('date_of_birth', dobInput.value);
-      // formData.append('gender', getSelectedRadioValue(genderRadio));
-      let gender = document.querySelector("input[name='gender']:checked")
-      formData.append('gender', gender);
-
+      formData.append('dob', dobInput.value);
+      formData.append('gender', getSelectedRadioValue(genderRadio));
       formData.append('phone', phoneNumberInput.value);
       formData.append('email', emailAddressInput.value);
 
       // Residential Address Fields
       formData.append('country', countryInput.value);
-      formData.append('district', districtInput.value);
       formData.append('sector', sectorInput.value);
+      let districtValue = document.querySelector('input[name="district"]');
+      formData.append('district', districtValue.value);
       formData.append('city_relatives', getSelectedRadioValue(liveInKigaliRadio));
 
 
 
       // Choose Course Fields
-      formData.append('program', getSelectedRadioValue(shiftRadio));
+      formData.append('shift', getSelectedRadioValue(shiftRadio));
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1041,57 +1073,56 @@
       formData.append('transcript', transcriptFileInput.files[0]);
 
       // Payment Method Field
-      // let selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
-      // formData.append('payment_method', selectedPaymentMethod);
-      // console.log(selectedPaymentMethod)
+      formData.append('payment_method', paymentMethodSelect.value);
 
 
       fetch('http://localhost:3000/api/students/register', {
         method: 'POST',
         body: formData,
       })
-        .then(response => {
-          // Check if the response status is OK
-          if (!response.ok) {
-            // If not OK, throw an error
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data.errors) {
+        .then(response => response.json())
+        .then(data=>{
+          if(data.errors){
+            
+            let firstKey = null;
+            let firstValue = null;
 
-            let firstValue = Object.values(data.errors)[0]; // Get the first error message
+            for (const key in data.errors) {
+              if (myObject.hasOwnProperty(key)) {
+                // Check if the key is the first key found
+                if (firstKey === null) {
+                  firstKey = key;
+                  firstValue = myObject[key];
+                }
+              }
+            }
 
-            errors.innerHTML = firstValue;
+            errors.innerHTML = firstValue
 
-          } else if (data.message) {
-            if (data.message == "Application submitted successfully") {
+          }else if(data.message){
+            if(data.message == "Application submitted successfully"){
               alert(data.message)
               window.location.href = "/"
             }
-          } else {
-            alert("SOMETHING WENT WRONG");
+          }else{
+            alert("SOMETHING WENT WRONG")
           }
         })
         .catch(error => {
-          // Handle any errors here, both network and thrown by our logic above
-          console.error('Error occurred:', error.message);
-          alert("Something went wrong!, try again later");
+          // Handle any network errors here
+          console.error('Network error occurred', error);
+          alert("Something went wrong!, try again later")
         });
-
     }
 
     // Helper function to get the selected value from a group of radio buttons
-    function getSelectedRadioValue(radioNodeList) {
-      let value = null;
-      for (let i = 0; i < radioNodeList.length; i++) {
-        if (radioNodeList[i].checked) {
-          value = radioNodeList[i].value;
-          break;
+    function getSelectedRadioValue(radioGroup) {
+      for (var i = 0; i < radioGroup.length; i++) {
+        if (radioGroup[i].checked) {
+          return radioGroup[i].value;
         }
       }
-      return value === "true";  // Convert "true" string to true, otherwise return false
+      return '';
     }
 
 
