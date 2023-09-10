@@ -591,26 +591,6 @@
 
     return formData;
   }
-  // function showModal(message) {
-  //   let modal = document.getElementById("myModal");
-  //   let span = document.getElementsByClassName("close")[0];
-  //   let modalText = document.getElementById("modalText");
-
-  //   modalText.innerHTML = message;
-  //   modal.style.display = "block";
-
-  //   span.onclick = function () {
-  //     modal.style.display = "none";
-  //     location.reload();  // Refresh the page when the modal is closed.
-  //   }
-
-  //   window.onclick = function (event) {
-  //     if (event.target === modal) {
-  //       modal.style.display = "none";
-  //       location.reload();  // Refresh the page when the modal is clicked outside.
-  //     }
-  //   }
-  // }
   function showModal(message) {
     let modal = document.getElementById("myModal");
     let span = document.getElementsByClassName("close")[0];
@@ -618,15 +598,35 @@
 
     modalText.innerHTML = message;
     modal.style.display = "block";
-    setTimeout(() => modal.classList.add('modal-open'), 10);
 
     span.onclick = function () {
-      modal.classList.remove('modal-open');
-      setTimeout(() => {
-        modal.style.display = "none";
-        location.reload();  // Refresh the page when the modal is closed.
-      }, 100);
+      modal.style.display = "none";
+      location.reload();  // Refresh the page when the modal is closed.
     }
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        location.reload();  // Refresh the page when the modal is clicked outside.
+      }
+    }
+  }
+  // function showModal(message) {
+  //   let modal = document.getElementById("myModal");
+  //   let span = document.getElementsByClassName("close")[0];
+  //   let modalText = document.getElementById("modalText");
+
+  //   modalText.innerHTML = message;
+  //   modal.style.display = "block";
+  //   setTimeout(() => modal.classList.add('modal-open'), 10);
+
+  //   span.onclick = function () {
+  //     modal.classList.remove('modal-open');
+  //     setTimeout(() => {
+  //       modal.style.display = "none";
+  //       location.reload();  // Refresh the page when the modal is closed.
+  //     }, 100);
+  //   }
 
     window.onclick = function (event) {
       if (event.target === modal) {
