@@ -104,7 +104,7 @@ function array_term($terms)
 																	<!-- Button to download Passport -->
 																	<div>
 																		<button class="btn btn-sm btn-secondary download-doc"
-																			data-document-path="<?= $pending['id_passport']; ?>">
+																			data-document-path="<?= $pending['passport']; ?>">
 																			Passport</button>
 																	</div>
 																	<div>
