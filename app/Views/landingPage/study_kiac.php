@@ -1102,7 +1102,7 @@
       const selectedPaymentMethod = paymentOption.value;
 
 
-      fetch('http://localhost:3000/api/students/register', {
+      fetch('http://173.212.230.165:3000/api/students/register', {
         method: 'POST',
         body: formData,
       })

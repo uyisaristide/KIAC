@@ -11924,9 +11924,9 @@ Merci";
 		$data['page'] = "pendingRegistration";
 	
 		// Replace this part with a cURL request to your API
-		$apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
+		$apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
 		
-		$ch = curl_init();
+		$ch = curl_init();	
 		curl_setopt($ch, CURLOPT_URL, $apiUrl);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$response = curl_exec($ch);
