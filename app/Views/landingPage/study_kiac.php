@@ -625,7 +625,7 @@
       setTimeout(() => {
         modal.style.display = "none";
         location.reload();  // Refresh the page when the modal is closed.
-      }, 300);
+      }, 100);
     }
 
     window.onclick = function (event) {
@@ -634,7 +634,7 @@
         setTimeout(() => {
           modal.style.display = "none";
           location.reload();  // Refresh the page when the modal is clicked outside.
-        }, 300);
+        }, 100);
       }
     }
   }
