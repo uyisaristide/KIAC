@@ -333,6 +333,21 @@
             width: 4em;
             border-bottom: 3px solid #036e9d;
         }
+        .reviews .column .section-title{
+            position: relative;
+            display: inline-block;
+            color: #036e9d;
+            padding: 10px 0;
+        }
+        .reviews .column .section-title::after{
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 4em;
+            border-bottom: 3px solid #036e9d;
+        }
 
         .contact-container {
             margin-top: -50px;
@@ -413,6 +428,8 @@
 
         /* Testimonials */
 
+        
+
         .testimonial-container {
             position: relative;
             display: flex;
@@ -490,6 +507,9 @@
                 inset 0 -3em 3em rgba(0, 0, 0, 0.1),
                 0 0 0 2px rgb(255, 255, 255),
                 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        }
+        .reviews .column{
+            box-shadow: none !important;
         }
 
         .testimonial-content {
@@ -1435,6 +1455,28 @@
                 <i class="fas fa-angle-right"></i>
             </button>
         </div>
+        
+        <div class="contact-container reviews">
+            <div class="row">
+                <div class="column">
+                    <div class="col-lg-7">
+                        <div class="section-title position-relative pb-3 mb-1">
+                            <h1 class="mb-0" style="font-size: 20px">Add Your Review. Be Our Testimonial!</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <form action="/action_page.php">
+                        <input type="text" id="fname" name="firstname" placeholder="Enter Full Name">
+                        <input type="text" id="lname" name="lastname" placeholder="Add your Title: e.g Student">
+                        <textarea id="subject" name="subject" placeholder="Write Your Review"
+                            style="height:100px"></textarea><br>
+                        <input style="width: 70%" type="submit" value="Submit Review">
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
 
         <!-- FOOTER -->
