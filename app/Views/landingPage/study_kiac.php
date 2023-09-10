@@ -1088,8 +1088,8 @@
           location.reload();
         }
       })();
-          // Choose Course Fields
-    var courseRadio = document.getElementsByName('course');
+      // Choose Course Fields
+      var courseRadio = document.getElementsByName('course');
       formData.append('course', getSelectedRadioValue(courseRadio));
 
       // Attachments Fields
@@ -1171,16 +1171,16 @@
     }
 
     // Helper function to get the selected value from a group of radio buttons
-function getSelectedRadioValue(radioNodeList) {
-  let value = null;
-  for (let i = 0; i < radioNodeList.length; i++) {
-    if (radioNodeList[i].checked) {
-      value = radioNodeList[i].value;
-      break;
+    function getSelectedRadioValue(radioNodeList) {
+      let value = null;
+      for (let i = 0; i < radioNodeList.length; i++) {
+        if (radioNodeList[i].checked) {
+          value = radioNodeList[i].value;
+          break;
+        }
+      }
+      return value;  // Return the value of the selected radio button
     }
-  }
-  return value;  // Return the value of the selected radio button
-}
 
 
 

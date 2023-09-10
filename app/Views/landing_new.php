@@ -155,6 +155,8 @@
 
         }
 
+        /* Our Courses */
+
         .program-container {
             display: flex;
             justify-content: center;
@@ -166,7 +168,6 @@
             width: 14em;
             height: 14em;
             border: 1px solid rgba(3, 110, 157, 0.3);
-            ;
             box-shadow:
                 inset 0 -3em 3em rgba(0, 0, 0, 0.1),
                 0 0 0 2px rgb(255, 255, 255),
@@ -174,6 +175,12 @@
             padding: 1em;
             text-align: center;
             margin: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .box h2 {
@@ -405,46 +412,157 @@
         }
 
         /* Testimonials */
+
+        .testimonial-container {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .testimonial-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            cursor: pointer;
+            z-index: 1;
+            font-size: 24px;
+            color: #0d6efd;
+            padding: 8px 12px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            box-shadow:
+                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+                0 0 0 2px rgb(255, 255, 255),
+                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-button:hover {
+            background-color: #009edd;
+            color: #fff;
+        }
+
+        .testimonial-button-prev {
+            left: 10px;
+        }
+
+        .testimonial-button-next {
+            right: 10px;
+        }
+
         .testimonial-slider {
             max-width: 100%;
             width: 100%;
             white-space: nowrap;
             transition: all 0.3s;
+            height: auto;
         }
 
         .testimonial {
             display: inline-block;
-            width: 33.3333%;
             box-sizing: border-box;
+            transition: transform 0.3s ease;
+            flex: 0 0 33.33%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .testimonial {
+                flex: 0 0 100%;
+            }
+        }
+
+        .testimonial .bg-white {
+            border-left: 1px solid #036e9d;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial .bg-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            border: 2px solid #fff;
+            border: 1px solid rgba(3, 110, 157, 0.3);
+            box-shadow:
+                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+                0 0 0 2px rgb(255, 255, 255),
+                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
         }
 
-        button#slideLeft,
-        button#slideRight {
-            background-color: #007BFF;
-            color: white;
-            font-size: 16px;
-            padding: 8px 16px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+        .testimonial-content {
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 14rem;
         }
 
-        button#slideLeft:hover,
-        button#slideRight:hover {
-            background-color: #0056b3;
+        .testimonial h4 {
+            color: #036e9d;
         }
 
-        /* Style for the "Slide Right" button */
-        button#slideRight {
-            right: 0;
-            border-radius: 0;
+        .testimonial h4,
+        .testimonial h5 {
+            text-align: center;
+        }
+
+        .testimonial h5 {
+            padding-bottom: 10px;
+        }
+
+        .testimonial h4,
+        .testimonial p {
+            margin: 0;
+        }
+
+        .testimonial-text {
+            white-space: normal;
+            word-wrap: break-word;
+            width: 100%;
+        }
+
+        /* Footer */
+        
+        .footer-container {
+            bottom: 0;
+            background-color: #e5e5e5;
+            padding: 1px;
+        }
+
+        .footer-heading {
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .main_footer_links ul li {
+            font-size: 14px;
+            color: #036e9d;
+            padding: 5px 0;
+            font-weight: 600;
+        }
+
+        .main_footer_links ul li a:hover,
+        .copyright:hover {
+            text-decoration: underline;
+            color: #036e9d;
+        }
+
+        .footer-social li {
+            border: 2px solid #036e9d;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 25px;
+        }
+
+        .footer-social li {
+            border: 2px solid #036e9d;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 25px;
+            color: #036e9d;
         }
     </style>
 </head>
@@ -1060,7 +1178,7 @@
                                     <h3 class="panel-title fw_400">
                                         <a href="#" class="collapsed">Shortlisting of applicants for part-time job
                                             opportunities
-                                            at the UR-CBE-SOE</a>
+                                            at the KIAC-CBE-SOE</a>
                                     </h3>
                                 </div>
 
@@ -1173,161 +1291,296 @@
         </div>
 
         <!-- Testimonials -->
+        <div style="text-align:center">
+            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 60px">Testimonials</h2>
+            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
+        </div>
         <div class="testimonial-container mx-auto mt-20">
-            <div style="text-align:center">
-                <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 60px">Testimonials</h2>
-                <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
-            </div>
+            <button id="prevBtn" class="testimonial-button testimonial-button-prev">
+                <i class="fas fa-angle-left"></i> <!-- FontAwesome angle-left icon -->
+            </button>
             <div class="testimonial-slider overflow-hidden relative">
                 <div class="slider-content flex" id="sliderContent">
-                    <!-- Profile 1 -->
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 1"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <p>"This is the testimonial text for profile 1."</p>
-                            <h4 class="mt-4">John Doe</h4>
-                        </div>
-                    </div>
-                    <!-- Profile 2 -->
                     <div class="testimonial p-4 w-1/3">
                         <div class="bg-white p-4 rounded shadow flex flex-col items-center">
                             <div class="mb-4">
                                 <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
                                     class="w-20 h-20 rounded-full">
                             </div>
-                            <p>"This is the testimonial text for profile 2."</p>
-                            <h4 class="mt-4">Jane Smith</h4>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
                         </div>
                     </div>
-                    <!-- Profile 3 -->
                     <div class="testimonial p-4 w-1/3">
                         <div class="bg-white p-4 rounded shadow flex flex-col items-center">
                             <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 3"
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
                                     class="w-20 h-20 rounded-full">
                             </div>
-                            <p>"This is the testimonial text for profile 3."</p>
-                            <h4 class="mt-4">Alice Johnson</h4>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
                         </div>
                     </div>
-                    <!-- Profile 4 -->
                     <div class="testimonial p-4 w-1/3">
                         <div class="bg-white p-4 rounded shadow flex flex-col items-center">
                             <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 4"
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
                                     class="w-20 h-20 rounded-full">
                             </div>
-                            <p>"This is the testimonial text for profile 3."</p>
-                            <h4 class="mt-4">Alice Johnson</h4>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
                         </div>
                     </div>
-                    <!-- Profile 5 -->
                     <div class="testimonial p-4 w-1/3">
                         <div class="bg-white p-4 rounded shadow flex flex-col items-center">
                             <div class="mb-4">
-                                <img src="profile3.jpg" alt="Profile 5" class="w-20 h-20 rounded-full">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
                             </div>
-                            <p>"This is the testimonial text for profile 3."</p>
-                            <h4 class="mt-4">Alice Johnson</h4>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kate Angel</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
                         </div>
                     </div>
-                    <!-- Profile 6 -->
                     <div class="testimonial p-4 w-1/3">
                         <div class="bg-white p-4 rounded shadow flex flex-col items-center">
                             <div class="mb-4">
-                                <img src="profile3.jpg" alt="Profile 6" class="w-20 h-20 rounded-full">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
                             </div>
-                            <p>"This is the testimonial text for profile 3."</p>
-                            <h4 class="mt-4">Alice Johnson</h4>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kate Angel</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
                         </div>
                     </div>
                 </div>
-                <button id="slideLeft"
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow">&#8249;
-                    Prev</button>
-                <!-- Add the "Slide Left" button here -->
-                <button id="slideRight"
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow">Next
-                    &#8250;</button>
             </div>
-            <!-- <button id="slideLeft"
-                class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow">&lt;</button>
-            <button id="slideRight"
-                class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow">&gt;</button> -->
+            <button id="nextBtn" class="testimonial-button testimonial-button-next">
+                <i class="fas fa-angle-right"></i>
+            </button>
         </div>
 
 
         <!-- FOOTER -->
-        <div class="-mb-24">
-            <!-- Footer Start -->
-            <div class="bg-[#091e35] text-white py-16 md:px-6">
-                <div class="container mx-auto">
-                    <div class="grid md:grid-cols-1 md:gap-4 grid-cols-4 gap-0">
-                        <div class="text-center">
-                            <div class="mb-4">
-                                <img class="" src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="Logo">
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold mb-4 md:mb-2">Get in Touch</h2>
-                            <div class="text-md">
-                                <p class="flex items-center gap-2 mt-3 md:mt-2"><i class="fa fa-map-marker"></i>4 KG 11
-                                    Ave, Kigali
-                                    YUSSA PLAZZA Building at 1st Floor
-                                </p>
-                                <p class="flex items-center gap-2 mt-3"><i class="fa fa-envelope"></i>info@kiac.ac.rw
-                                </p>
-                                <p class="flex items-center gap-2 mt-3"><i class="fa fa-phone"></i>+250 783 205 698</p>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold mb-4 md:mb-2 md:mt-4">Follow Us</h2>
-                            <div class="text-md">
-                                <div class="flex gap-3">
-                                    <a href="https://twitter.com/kiac_rwanda" target="_blank"
-                                        class="fab fa-twitter"></a>
-                                    <a href="https://www.facebook.com/kiac.rw1" target="_blank"
-                                        class="fab fa-facebook-f"></a>
-                                    <a href="https://www.linkedin.com/in/kigaliartcollege/" target="_blank"
-                                        class="fab fa-linkedin-in"></a>
-                                    <a href="https://www.instagram.com/kiac_rwanda?" target="_blank"
-                                        class="fab fa-instagram"></a>
-                                    <a href="https://www.youtube.com/channel/UClc_sPYUsjFGVgFGOi1k01g" target="_blank"
-                                        class="fab fa-youtube"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold mb-4 md:mb-2 mt-4">Useful Links</h2>
-                            <ul class="text-md">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+        <div class="footer-container gray-bg_medium">
+            <footer class="container" id="footer"
+                style="padding: 20px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="footer-links-group">
+                            <h3 class="footer-heading fw_300">About Us</h3>
+                            <ul class="main_footer_links" style="display: block;">
+                                <ul>
+                                    <li><a href="#">KIAC Facts and Figures</a></li>
+                                    <li><a href="#">KIAC Statement and Concept</a></li>
+                                    <li><a href="#">Vision and Mission</a></li>
+                                    <li><a href="#">The Chancellor</a></li>
+                                    <li><a href="#">Vice Chancellor's Office</a></li>
+                                    <li><a href="#">Board of Governors</a></li>
+                                    <li><a href="#">Administrative offices</a></li>
+                                    <li><a href="#">Key Documents & Policies</a></li>
+                                    <li><a href="#">Partnerships</a></li>
+                                </ul>
+
                             </ul>
                         </div>
                     </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="footer-links-group">
+                            <h3 class="footer-heading fw_300">Academic</h3>
+                            <ul class="main_footer_links" style="display: block;">
+                                <ul>
+                                    <li><a href="#">Students</a></li>
+                                    <li><a href="#">Colleges and Campuses Schools</a></li>
+                                    <li><a href="#">Schools</a></li>
+                                    <li><a href="#">Admission</a></li>
+                                    <li><a href="#">International Students</a></li>
+                                    <li><a href="#">Fee Structure</a></li>
+                                    <li><a href="#">KIAC Bank accounts</a></li>
+                                    <li><a href="#">Academic Calendar</a></li>
+                                    <li><a href="#">Academic Regulations & Policies</a></li>
+                                    <li><a href="#">Centres of excellence</a></li>
+                                    <li><a href="#">E-Learning</a></li>
+                                </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="footer-links-group">
+                            <h3 class="footer-heading fw_300">Key Links</h3>
+                            <ul class="main_footer_links" style="display: block;">
+                                <ul>
+                                    <li><a href="#">KIAC brand guidelines</a></li>
+                                    <li><a href="#">Our partner universities/institutions</a></li>
+                                    <li><a href="#">Government Smart Admin System</a></li>
+                                    <li><a href="#">E-mboni</a></li>
+                                    <li><a href="#">MIFOTRA self-service portal</a></li>
+                                    <li><a href="#">Class Representative Report Form</a></li>
+                                    <li><a href="#">Students Evaluation of Module Teaching and Learning Form</a></li>
+                                    <li><a href="#">KIAC weekly reporting form</a></li>
+                                    <li><a href="#">DTLE</a></li>
+                                </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="footer-links-group">
+                            <h3 class="footer-heading fw_300">Address</h3>
+                            <ul class="main_footer_links ">
+                                <li style="font-weight: 600;color: #036e9d; font-size: 14px; padding-top: 5px;"><i
+                                        class="fa fa-map-marker"></i> KK 737
+                                    Street, Remera, Kigali<br>
+                                    PO BOX 4285 Kigali-Rwanda</li>
+                                <li style="font-weight: 600;color: #036e9d; font-size:14px; padding: 5px 0 15px;"> <i
+                                        class="fa fa-envelope"></i>
+                                    info@kiac.ac.rw</li>
+                            </ul>
+                        </div>
+                        <div class="map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.665309640288!2d30.10036658371208!3d-1.9683043972220091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca64f761b814b%3A0xac5a13c74d16a75c!2sSonatubes!5e0!3m2!1sen!2srw!4v1694360421607!5m2!1sen!2srw"
+                                width="285" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Footer End -->
+            </footer>
+            <section class="footer-btm">
+                <div class="container footer-btm">
+                    <div class="row ptb50 boder_tb gray-bg"
+                        style="padding-bottom: 30px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+                        <div class="col-md-4 col-sm-12 m_text-center m_pb20"><a href=""><img
+                                    style="width: 40%; margin-top: -50px;"
+                                    src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="img"></a></div>
 
-            <!-- Footer Bottom Start -->
-            <div class="footer-bottom bg-[#061429] py-4">
-                <div class="container mx-auto text-center">
-                    <p class="text-sm text-white">Copyright &copy; <a href="#" class="text-white">KIAC</a>. All Rights
-                        Reserved</p>
+                        <div class="col-md-4 col-sm-12 m_pb20">
+                            <ul class="footer-social">
+                                <li class="inline-block m-2">
+                                    <a href="#">
+                                        <i class="fab fa-facebook inline-block align-middle"></i>
+                                        <span class="sr-only">Link to Facebook</span>
+                                    </a>
+                                </li>
+                                <li class="inline-block m-2">
+                                    <a href="#">
+                                        <i class="fab fa-twitter inline-block align-middle"></i>
+                                        <span class="sr-only">Link to Twitter</span>
+                                    </a>
+                                </li>
+                                <li class="inline-block m-2">
+                                    <a href="#">
+                                        <i class="fab fa-instagram inline-block align-middle"></i>
+                                        <span class="sr-only">Link to Instagram</span>
+                                    </a>
+                                </li>
+                                <li class="inline-block m-2">
+                                    <a href="#">
+                                        <i class="fab fa-youtube inline-block align-middle"></i>
+                                        <span class="sr-only">Link to YouTube</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <ul class="footer-links">
+                                <li><a style="color: #036e9d" class="pr10 copyright" href="">Copyright / Disclaimer /
+                                        Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row ptb40 gray-bg" style="padding: 20px 0;">
+                        <div class="col-md-12">
+                            <p class="cricos">
+                                <span style="color: #666;">© 2023 Kigali International Art College. All Right
+                                    Reserved</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Footer Bottom End -->
-
-            <!-- Back to Top -->
-            <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
-                <i class="fa fa-chevron-up"></i>
-            </a>
-
+            </section>
         </div>
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
     </div>
 </body>
 
@@ -1344,27 +1597,71 @@
 </script>
 
 <script>
-    const slideContent = document.getElementById('sliderContent');
-    const slideLeftBtn = document.getElementById('slideLeft');
-    const slideRightBtn = document.getElementById('slideRight');
 
-    let sliderPosition = 0;
-    const slideWidth = slideContent.children[0].clientWidth;
+    // Testimonials
 
-    slideLeftBtn.addEventListener('click', () => {
-        if (sliderPosition < 0) {
-            sliderPosition += slideWidth;
-            slideContent.style.transform = `translateX(${sliderPosition}px)`;
+    document.addEventListener("DOMContentLoaded", function () {
+        const slideContent = document.getElementById('sliderContent');
+        const slideWidth = slideContent.children[0].clientWidth;
+        const slideInterval = 3000;
+
+        let sliderPosition = 0;
+        let intervalId = null;
+
+        function nextSlide() {
+            if (sliderPosition > -(slideContent.children.length - 3) * slideWidth) {
+                sliderPosition -= slideWidth;
+                slideContent.style.transition = "transform 0.5s ease-in-out";
+                slideContent.style.transform = `translateX(${sliderPosition}px)`;
+            } else {
+                sliderPosition = 0;
+                slideContent.style.transition = "transform 0.5s ease-in-out";
+                slideContent.style.transform = `translateX(${sliderPosition}px)`;
+            }
         }
+
+        function startSlideShow() {
+            intervalId = setInterval(nextSlide, slideInterval);
+        }
+
+        function pauseSlideShow() {
+            clearInterval(intervalId);
+        }
+
+        slideContent.addEventListener('mouseover', pauseSlideShow);
+        slideContent.addEventListener('mouseout', startSlideShow);
+
+        startSlideShow();
     });
 
-    slideRightBtn.addEventListener('click', () => {
-        if (sliderPosition > -(slideContent.children.length - 3) * slideWidth) {
-            sliderPosition -= slideWidth;
-            slideContent.style.transform = `translateX(${sliderPosition}px)`;
+    // Get testimonial container and buttons
+    const testimonialContainer = document.querySelector('.testimonial-container');
+    const prevButton = document.getElementById('prevBtn');
+    const nextButton = document.getElementById('nextBtn');
+
+    const testimonials = testimonialContainer.querySelectorAll('.testimonial');
+    const totalTestimonials = testimonials.length;
+
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.style.transform = `translateX(-${100 * index}%)`;
+        });
+    }
+    showTestimonial(currentIndex);
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalTestimonials - 1) {
+            currentIndex++;
+            showTestimonial(currentIndex);
         }
     });
-
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showTestimonial(currentIndex);
+        }
+    });
 </script>
 
 <!-- image-slideshow -->
