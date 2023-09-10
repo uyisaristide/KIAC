@@ -11,6 +11,7 @@
   <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
   <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
   <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
@@ -55,6 +56,157 @@
       color: #000;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      font-size: 14px;
+      /* Reduced font size */
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    h3 {
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 16px;
+      /* Adjusted font size */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 13px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+      border-color: #007BFF;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      transform: scale(0.9);
+      /* Reduce size a bit */
+    }
+
+    input[type="file"] {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+
+    #submitButton {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    #submitButton:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 40px;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 90%;
+      transition: transform 0.3s, opacity 0.3s;
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    .modal-open .modal-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 36px;
+      font-weight: bold;
+      margin: -20px -20px 0 0;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      cursor: pointer;
+    }
+
+    #modalText {
+      font-size: 20px;
+      line-height: 1.4;
+      color: #333;
+    }
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      form {
+        padding: 20px;
+      }
     }
   </style>
 
@@ -174,1018 +326,368 @@
     </div>
 
   </div>
-  <div class="max-w-xl mx-auto">
-    <div class="h-4 rounded-xl bg-blue-500 transition-all duration-500 ease-in" id="progressBar">
-    </div>
-    <span id="progressPerc" class="font-semibold text-gray-700">25%</span>
-  </div>
-  <form id="form_main" class="">
 
+  <!DOCTYPE html>
+  <html lang="en">
 
-    <div id="edLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
-        <div class="mt-4">
-          <p class="text-sm text-gray-700">We would like to know your educational background</p>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            WHAT IS YOUR LEVEL OF EDUCATION
-          </label>
-          <div class="">
-            <input onclick="checkLevel()" required class="w-3 h-3" type="radio" name="level" id="university"
-              value="university" /> University Level
-          </div>
-          <div class="">
-            <input onclick="checkLevel()" required class="w-3 h-3" type="radio" name="level" id="secondary"
-              value="secondary" /> Secondary Level
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="secondaryLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
-        <div class="mt-4">
-          <p class="text-sm text-gray-700">We would like to know your educational background</p>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            DID YOU FINISH YOUR SECONDARY SCHOOL
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="finish_secondary" value="1" /> YES
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="finish_secondary" value="0" /> NO
-          </div>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="secondary_level" value="s3" /> S3
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="secondary_level" value="S4[level3]" /> S4[LEVEL 3]
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="secondary_level" value="S5[level4]" /> S4[LEVEL 4]
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="secondary_level" value="S6[level5]" /> S6[LEVEL 5]
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="universityLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
-        <div class="mt-4">
-          <p class="text-sm text-gray-700">We would like to know your educational background</p>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            DID YOU GRADUATE FROM UNIVERSITY ?
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="finish_university" value="1" /> YES
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="finish_university" value="0" /> NO
-          </div>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY ?
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="university_level" value="1" /> YEAR 1
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="university_level" value="2" /> YEAR 2
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="university_level" value="3" /> YEAR 3
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="university_level" value="4" /> YEAR 4
-          </div>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="university_level" value="5" /> YEAR 5
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-    <div id="schoolInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">SCHOOL INFORMATION</h2>
-
-        <div class="mt-4">
-          <p class="text-sm text-gray-700">Choose school you want to apply for</p>
-        </div>
-      </div>
-
-      <div class="-mx-3 mb-6">
-
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            SELECT SCHOOL
-          </label>
-
-          <select required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            name="school_id" id="schoolSelect">
-            <?php foreach ($schools as $school): ?>
-              <option value="<?= $school['id'] ?>"
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
-                <?= $school['name'] ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            REQUIREMENTS FOR THE SELECTED SCHOOL
-          </label>
-
-          <div id="requirements" class="requirements">
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="personalInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">PERSONAL INFORMATION</h2>
-
-        <div class="mt-2">
-          <p class="text-sm text-gray-700">Your cooperation in providing this information will greatly assist us in
-            efficiently processing your application. If you have any concerns or questions regarding the collection of
-            personal identification information, please do not hesitate to reach out to us.</p>
-        </div>
-      </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Fist Name
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="fname" type="text" placeholder="ex: John">
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Last Name
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="lname" type="text" placeholder="ex: Doe">
-        </div>
-
-      </div>
-
-      <div class="-mx-3 mb-6">
-
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Nationality
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="nationality" type="text" placeholder="ex: Rwandan">
-        </div>
-
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Date Of Birth
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="date_of_birth" type="date">
-        </div>
-
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Gender
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="gender" value="male" required /> Male
-            <input required class="w-3 h-3" type="radio" name="gender" value="female" required /> Female
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap -mx-3 mb-6">
-
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Phone Number
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="phone" type="phone" placeholder="ex: +250....">
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Email Address
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="email" type="text" placeholder="ex: example@at.com">
-        </div>
-
-      </div>
-    </div>
-
-    <div id="residentialInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">RESIDENTIAL ADDRESS</h2>
-
-        <div class="mt-2">
-          <p class="text-sm text-gray-700">We kindly request you to fill in your personal identification information to
-            proceed with your application. Providing accurate and complete personal identification details is essential
-            for the application process. This information will be treated with utmost confidentiality and used solely
-            for the purpose of processing your application.</p>
-        </div>
-      </div>
-
-      <div class="-mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            COUNTRY OF RESIDENCE
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="country" type="text" placeholder="Country">
-        </div>
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            DISTRICT OF RESIDENCE
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" placeholder="District" name="district" type="text">
-        </div>
-
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            SECTOR OF RESIDENCE
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" placeholder="Sector" name="sector" type="text">
-        </div>
-
-        <div class="w-full px-3 mt-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY
-          </label>
-          <div class="">
-            <input required class="w-3 h-3" type="radio" name="city_relatives" value="0" /> Yes
-            <input required class="w-3 h-3" type="radio" name="city_relatives" value="1" /> No
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="chooseCourse" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-6">
-        <h2 class="text-blue-700 text-xl font-semibold">COURSE</h2>
-
-        <div class="mt-2">
-          <p class="text-sm text-gray-700">We are excited to inform you about the wide range of courses available for
-            partial scholarships at our institution. These scholarships aim to make quality education more accessible to
-            talented individuals like yourself. Below, you will find a list of the courses eligible for our partial
-            scholarship program:</p>
-        </div>
-      </div>
-      <div class="w-full mt-4 mb-4">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          CHOOSE Programs YOU WANT TO STUDY
-        </label>
-        <div class="mt-2">
-          <div class="flex items-center gap-2">
-            <input required type="radio" name="program" value="day" class="p-2 w-4 h-4 focus:ring-blue-500" />
-            <span>
-              Day
-            </span>
-          </div>
-          <div class="flex items-center gap-2">
-            <input required type="radio" name="program" value="night" class="p-2 w-4 h-4 focus:ring-blue-500" />
-            <span>
-              Evening
-            </span>
-          </div>
-          <div class="flex items-center gap-2">
-            <input required type="radio" name="program" value="weekend" class="p-2 w-4 h-4 focus:ring-blue-500" />
-            <span>
-              Weekend
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="mb-6">
-        <div class="w-full">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            SELECT THE COURSE YOU WANT TO STUDY
-          </label>
-          <div class="mt-2">
-            <?php foreach ($faculties as $fac): ?>
-              <div class="flex items-center gap-2">
-                <input required onclick="changeCourse('<?= $fac['title']; ?>')" type="radio" name="course"
-                  value="<?= $fac['id']; ?>" class="p-2 w-4 h-4 focus:ring-blue-500" />
-                <span>
-                  <?= $fac['title']; ?>
-                </span>
-              </div>
-            <?php endforeach; ?>
-          </div>
-          <div class="mt-4">
-            <span class="font-medium">Select a course to see it's description</span>
-          </div>
-          <div class="">
-            <p id="courseDescription"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="attachments" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">Attachments</h2>
-      </div>
-
-      <div class="-mx-3 mb-6">
-
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            YOUR ID or PASSPORT
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="id_passport" type="file">
-
-        </div>
-        <div class="w-full px-3 mt-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            YOUR ADVANCED LEVEL CERTIFICATE or ACADEMIC TRANSCRIPT [SCHOOL REPORT ]
-          </label>
-          <input required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            id="grid-last-name" name="transcript" type="file">
-
-        </div>
-      </div>
-    </div>
-    <div id="choose_payment_method" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
-      <div class="mb-4">
-        <h2 class="text-blue-700 text-xl font-semibold">APPLICATION FEE</h2>
-
-        <div class="mt-4">
-          <p class="text-sm text-gray-700">CHOOSE PAYMENT METHOD</p>
-        </div>
-      </div>
-
-      <div class="-mx-3 mb-6">
-
-        <div class="w-full px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            SELECT SCHOOL
-          </label>
-
-          <select required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            name="payment_method" id="payment_option">
-
-            <option value="cash"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
-              Cash</option>
-            <option value="MOMO Pay" disabled
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
-              MOMO Pay</option>
-            <option value="VIS/CREDIT/DEBIT Card" disabled
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
-              VIS/CREDIT/DEBIT Card</option>
-
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div id="error"
-      class="text-red-500 bg-red-200 font-medium w-fit mx-auto p-3 rounded-xl mt-2 text-sm text-center hidden">
-      Something went wrong
-    </div>
-    <div class="max-w-xl mx-auto mt-4 flex gap-4 px-4">
-      <button type="button" id="prevButton"
-        class="p-3 bg-yellow-700 text-white rounded-lg text-sm font-medium shadow-md">PREV</button>
-      <button type="button" id="nextButton"
-        class="p-3 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-md">NEXT</button>
-    </div>
-  </form>
-
-  <div class="-mb-24 mt-12">
-    <!-- Footer Start -->
-    <div class="bg-[#091e35] text-white py-16 px-4 md:px-6">
-      <div class="container mx-auto">
-        <div class="grid md:grid-cols-1 md:gap-4 grid-cols-4 gap-0">
-          <div class="text-center">
-            <div class="mb-4">
-              <img class="" src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="Logo">
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2">Get in Touch</h2>
-            <div class="text-md">
-              <p class="flex items-center gap-2 mt-3 md:mt-2"><i class="fa fa-map-marker"></i>4 KG 11 Ave, Kigali
-                YUSSA PLAZZA Building at 1st Floor
-              </p>
-              <p class="flex items-center gap-2 mt-3"><i class="fa fa-envelope"></i>info@kiac.ac.rw</p>
-              <p class="flex items-center gap-2 mt-3"><i class="fa fa-phone"></i>+250 783 205 698</p>
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2 md:mt-4">Follow Us</h2>
-            <div class="text-md">
-              <div class="flex gap-3">
-                <a href="https://twitter.com/kiac_rwanda" target="_blank" class="fab fa-twitter"></a>
-                <a href="https://www.facebook.com/kiac.rw1" target="_blank" class="fab fa-facebook-f"></a>
-                <a href="https://www.linkedin.com/in/kigaliartcollege/" target="_blank" class="fab fa-linkedin-in"></a>
-                <a href="https://www.instagram.com/kiac_rwanda?" target="_blank" class="fab fa-instagram"></a>
-                <a href="https://www.youtube.com/channel/UClc_sPYUsjFGVgFGOi1k01g" target="_blank"
-                  class="fab fa-youtube"></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2 mt-4">Useful Links</h2>
-            <ul class="text-md">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Footer Bottom Start -->
-    <div class="footer-bottom bg-[#061429] py-4">
-      <div class="container mx-auto text-center">
-        <p class="text-sm text-white">Copyright &copy; <a href="#" class="text-white">KIAC</a>. All Rights
-          Reserved</p>
-      </div>
-    </div>
-    <!-- Footer Bottom End -->
-
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-
-  </div>
-  <div id="customAlert" class="modal">
-    <div class="modal-content">
-      <span class="close-button">×</span>
-      <p>Your custom message here</p>
-    </div>
-  </div>
-  <script>
-    const MAX_STEPS = 8
-    let currentStep = 0
-    const prevButton = document.querySelector("#prevButton")
-    const nextButton = document.querySelector("#nextButton")
-
-    const form0 = document.querySelector("#edLevel")
-    const form1 = document.querySelector("#secondaryLevel")
-    const form2 = document.querySelector("#universityLevel")
-    const form3 = document.querySelector("#schoolInformation")
-    const form4 = document.querySelector('#personalInformation')
-    const form5 = document.querySelector('#residentialInformation')
-    const form6 = document.querySelector('#chooseCourse')
-    const form7 = document.querySelector("#attachments")
-    const form8 = document.querySelector("#choose_payment_method")
-
-    let edLevel = ''
-    const errors = document.querySelector('#error')
-
-    function checkLevel() {
-      var levelRadios = document.getElementsByName('level');
-
-      // Initialize a variable to store the selected value
-      var selectedLevel = '';
-
-      // Loop through each radio button
-      for (var i = 0; i < levelRadios.length; i++) {
-        // Check if the radio button is checked
-        if (levelRadios[i].checked) {
-          // Set the selectedLevel variable to the value of the checked radio button
-          selectedLevel = levelRadios[i].value;
-          edLevel = selectedLevel
-          break; // Exit the loop once a checked radio button is found
-        }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+      .error {
+        color: red;
+        font-weight: bold;
       }
-    }
+    </style>
+  </head>
 
+  <body>
 
+    <form id="applicationForm" enctype="multipart/form-data">
 
+      <h3>WHAT IS YOUR LEVEL OF EDUCATION</h3>
+      <input type="radio" name="level" value="University Level" required> University Level
+      <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+      <div class="error" id="educationLevelError"></div>
 
-    const progressBar = document.querySelector("#progressBar")
-    const progressPerc = document.querySelector("#progressPerc")
-    let progress = 10
-    progressBar.style.width = `${progress}%`
-    progressPerc.innerHTML = `${progress}%`
+      <h3>DID YOU FINISH YOUR SECONDARY SCHOOL</h3>
+      <input type="radio" name="secondary_level" value="YES" required> YES
+      <input type="radio" name="secondary_level" value="NO" required> NO
+      <div class="error" id="secondaryFinishedError"></div>
 
-    const courseDescription = document.querySelector("#courseDescription")
+      <div id="secondaryYearDiv">
+        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?</h3>
+        <select name="secondaryYear" id="secondaryYear">
+          <option value="" disabled selected>Select your year</option>
+          <option value="S3">S3</option>
+          <option value="S4[LEVEL 3]">S4[LEVEL 3]</option>
+          <option value="S4[LEVEL 4]">S4[LEVEL 4]</option>
+          <option value="S6[LEVEL 5]">S6[LEVEL 5]</option>
+        </select>
+        <div class="error" id="secondaryYearError"></div>
+      </div>
 
+      <!-- ... Repeat for all other sections ... -->
+      <h3>DID YOU GRADUATE FROM UNIVERSITY?</h3>
+      <input type="radio" name="universityGraduated" value="YES" required> YES
+      <input type="radio" name="universityGraduated" value="NO" required> NO
+      <div class="error" id="universityGraduatedError"></div>
 
-    const handleStepChange = (step) => {
-      switch (step) {
-        case 0:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.remove("hidden")
-          progress = 10
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 1:
-          form1.classList.remove("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 20
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 2:
-          form1.classList.add("hidden")
-          form2.classList.remove("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 30
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 3:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.remove("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 40
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 4:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.remove("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 50
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 5:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.remove("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 75
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 6:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.remove("hidden")
-          form7.classList.add("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 85
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          break
-        case 7:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.remove("hidden")
-          form8.classList.add("hidden")
-          form0.classList.add("hidden")
-          progress = 95
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          nextButton.type = "button"
-          nextButton.innerHTML = "Next"
-          break
-        case 8:
-          form1.classList.add("hidden")
-          form2.classList.add("hidden")
-          form3.classList.add("hidden")
-          form4.classList.add("hidden")
-          form5.classList.add("hidden")
-          form6.classList.add("hidden")
-          form7.classList.add("hidden")
-          form8.classList.remove("hidden")
-          form0.classList.add("hidden")
-          progress = 100
-          progressBar.style.width = `${progress}%`
-          progressPerc.innerHTML = `${progress}%`
-          // nextButton.type = "button"
-          nextButton.innerHTML = "Submit Application"
-          break
+      <div id="universityYearDiv">
+        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY?</h3>
+        <select name="universityYear" id="universityYear">
+          <option value="" disabled selected>Select your year</option>
+          <option value="YEAR 1">YEAR 1</option>
+          <option value="YEAR 2">YEAR 2</option>
+          <option value="YEAR 3">YEAR 3</option>
+          <option value="YEAR 4">YEAR 4</option>
+          <option value="YEAR 5">YEAR 5</option>
+        </select>
+        <div class="error" id="universityYearError"></div>
+      </div>
 
-      }
-    }
-    let skip = 1
-    prevButton.onclick = (e) => {
-      if (currentStep > 0) {
-        skip = edLevel.toLocaleLowerCase() == "university" ? 2 : 1
+      <h3>SELECT SCHOOL</h3>
+      <select name="school">
+        <option value="" disabled selected>Select your school</option>
+        <option value="Kigali International Art College">Kigali International Art College</option>
+      </select>
+      <div class="error" id="schoolError"></div>
 
-        currentStep -= 1
-        handleStepChange(currentStep)
-        // handleButtons(currentStep)
+      <!-- Personal Information -->
+      <h3>PERSONAL INFORMATION</h3>
+      First Name: <input type="text" name="firstName" required><br>
+      Last Name: <input type="text" name="lastName" required><br>
+      Gender:
+      <input type="radio" name="gender" value="Male" required> Male
+      <input type="radio" name="gender" value="Female" required> Female
+      <div class="error" id="genderError"></div>
+      Nationality: <input type="text" name="nationality" required><br>
+      Date of Birth: <input type="date" name="dob" required><br>
+      Phone Number: <input type="tel" name="phone" required pattern="[0-9]{10}"><br>
+      Email Address: <input type="email" name="email" required><br>
 
-      }
-      console.log(currentStep)
-      if (currentStep == 0) {
-        console.log(edLevel)
-      }
-    }
+      <h3>RESIDENTIAL ADDRESS</h3>
+      COUNTRY OF RESIDENCE:
+      <input type="text" name="country" required><br>
+      DISTRICT OF RESIDENCE:
+      <input type="text" name="district" required><br>
+      SECTOR OF RESIDENCE:
+      <input type="text" name="sector" required><br>
 
+      <h3>IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY</h3>
+      <input type="radio" name="familyInKigali" value="Yes" required> Yes
+      <input type="radio" name="familyInKigali" value="No" required> No
+      <div class="error" id="familyInKigaliError"></div>
+      <h3>COURSE</h3>
+      <p>We are excited to inform you about the wide range of courses available for partial scholarships at our
+        institution. These scholarships aim to make quality education more accessible to talented individuals like
+        yourself. Below, you will find a list of the courses eligible for our partial scholarship program:</p>
 
+      <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
+      <input type="checkbox" name="program" value="Day"> Day<br>
+      <input type="checkbox" name="program" value="Night"> Night<br>
+      <input type="checkbox" name="program" value="Weekend"> Weekend<br>
+      <div class="error" id="programError"></div>
 
-    nextButton.onclick = (e) => {
-      if (currentStep < MAX_STEPS) {
+      <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
+      <select name="course" required>
+        <option value="CCTV CAMERA">CCTV CAMERA</option>
+        <option value="Computer Hardware">Computer Hardware</option>
+        <option value="Music">Music</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Video Production">Video Production</option>
+        <option value="Creative Art">Creative Art</option>
+        <option value="Web design">Web design</option>
+        <option value="Software Development">Software Development</option>
+        <option value="Photography">Photography</option>
+        <option value="Electronic Services">Electronic Services</option>
+        <option value="cycle inferieur">cycle inferieur</option>
+        <option value="Maternelle">Maternelle</option>
+        <option value="Secondaire">Secondaire</option>
+      </select>
+      <div class="error" id="courseError"></div>
 
-        skip = edLevel.toLocaleLowerCase() == "university" ? 2 : 1
+      <h3>Attachments</h3>
+      YOUR ID OR PASSPORT: <input type="file" name="passport"><br>
+      YOUR ADVANCED LEVEL CERTIFICATE OR ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript"><br>
 
-        currentStep += 1
+      <h3>APPLICATION FEE</h3>
+      CHOOSE PAYMENT METHOD:
+      <select name="paymentMethod">
+        <option value="" disabled selected>Select a payment method</option>
+        <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
+        <option value="Credit Card">Credit Card</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="PayPal">PayPal</option>
+      </select>
+      <div class="error" id="paymentMethodError"></div>
+      <input type="submit" value="Submit Application" id="submitButton">
 
+      <!-- <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modalText"></p>
+        </div>
+      </div> -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modalText"></p>
+        </div>
+      </div>
 
-        handleStepChange(currentStep)
+    </form>
 
+    <script>
+      document.getElementById("applicationForm").addEventListener("submit", function (event) {
+        let hasError = false;
 
-      } else {
-        if (currentStep >= MAX_STEPS) {
-          sendApplication()
-        }
-      }
-
-
-    }
-
-
-    const handleButtons = (step) => {
-      if (step = MAX_STEPS) {
-        prevButton.classList.remove("hidden")
-        nextButton.classList.add("hidden")
-      }
-      if (step = 1) {
-        prevButton.classList.add("hidden")
-        nextButton.classList.remove("hidden")
-      }
-    }
-
-    //form steps
-
-    const courses = [
-      {
-        title: "CCTV CAMERA",
-        description: "This course equips students with the skills to install, maintain, and troubleshoot closed-circuit television (CCTV) systems. Students learn about camera types, wiring, networking, and video management systems, enabling them to pursue careers in security system installation and maintenance."
-      },
-      {
-        title: "Computer Hardware",
-        description: "This course focuses on the technical aspects of computer hardware and software maintenance. Students learn about computer components, system troubleshooting, software installation, and data backup techniques. Graduates can work as computer technicians, system administrators, or pursue further studies in computer science."
-      },
-      {
-        title: "Music",
-        description: "The Music course at KIAC offers comprehensive training in music theory, composition, performance, and production. Students can specialize in various instruments or vocal performance. They gain a solid foundation in music theory and have access to recording studios and practice spaces, fostering their creativity and musical abilities."
-      },
-      {
-        title: "Graphic Design",
-        description: "This course explores the principles and techniques of visual communication and graphic design. Students learn to use industry-standard software for designing logos, posters, websites, and other visual materials. They develop skills in typography, layout design, and digital image manipulation, preparing them for careers as graphic designers or freelancers."
-      },
-      {
-        title: "Video Production",
-        description: "The Video Production course at KIAC teaches students the art of capturing and editing video footage. Students learn about camera operation, lighting, composition, and video editing techniques. They gain practical experience in creating compelling visual stories and can pursue careers in film, television, advertising, or digital media production."
-      },
-      {
-        title: "Creative Art",
-        description: "This course focuses on developing students' artistic skills and creativity through various mediums such as painting, sculpture, drawing, and mixed media. Students explore different art forms, techniques, and concepts while honing their artistic expression and visual storytelling abilities."
-      },
-      {
-        title: "Web design",
-        description: "The Web Design course provides students with the skills to create visually appealing and functional websites. They learn HTML, CSS, and web design principles to build user-friendly interfaces, responsive designs, and interactive web elements. Graduates can work as web designers or start their own web design businesses."
-      },
-      {
-        title: "Software Development",
-        description: "This course trains students in programming languages, software development methodologies, and problem-solving techniques. Students learn to develop software applications, websites, and mobile apps. They gain practical experience through hands-on projects and can pursue careers as software developers or software engineers."
-      },
-      {
-        title: "Photography",
-        description: "The Photography course focuses on developing students' technical skills and artistic vision in capturing compelling images. Students learn about camera operation, lighting techniques, composition, and post-processing. They have access to studio equipment and can explore various genres of photography, including portrait, landscape, and documentary."
-      }
-      ,
-      {
-        "title": "Electronic Services",
-        "description": "This course covers a wide range of topics related to electronic services. It is designed to provide participants with a comprehensive understanding of the various electronic services available today. The course will delve into the principles, technologies, and best practices that drive electronic services in different industries. From online banking to e-commerce platforms, participants will gain insights into the workings and benefits of electronic services. Through practical examples and case studies, participants will also learn how to develop, implement, and optimize electronic service strategies."
-      }
-
-    ];
-
-
-
-    function changeCourse(title) {
-      const course = courses.find(course => course.title.toString().toLowerCase() === title.toString().toLowerCase())
-      if (course) {
-        console.log(course.description)
-        courseDescription.innerHTML = course.description
-      }
-    }
-
-    const applicationSettings = <?= json_encode($settings); ?>
-
-    const schoolSelect = document.querySelector("#schoolSelect")
-    const requirementsDiv = document.querySelector("#requirements")
-    schoolSelect.addEventListener('change', (e) => {
-      const selectedSchoolId = e.target.value
-      console.log(selectedSchoolId)
-
-      const settingsData = applicationSettings.find(req => req.school_id == selectedSchoolId)
-
-      if (settingsData) {
-        requirementsDiv.classList.remove("hidden")
-        requirementsDiv.innerHTML = `
-        <p>Registration Fees: ${settingsData.registration_fees}</p>
-        <a download class="bg-blue-500 p-2 block mt-4 w-fit rounded-xl px-3 text-white font-medium " href="assets/documents/${settingsData.requirement_document}">Download the requirements document</a>
-        `
-      } else {
-        requirementsDiv.classList.add("hidden")
-      }
-
-    })
-
-
-
-    // Educational Background Fields
-    let schoolLevel = document.getElementsByName('level')
-    var finishSecondaryRadio = document.getElementsByName('finish_secondary');
-    var secondaryLevelRadio = document.getElementsByName('secondary_level');
-    var finishUniversityRadio = document.getElementsByName('finish_university');
-    var universityLevelRadio = document.getElementsByName('university_level');
-
-    // School Information Fields
-    // var schoolSelect = document.getElementById('schoolSelect');
-    // var requirementsDiv = document.getElementById('requirements');
-
-    // Personal Information Fields
-    var firstNameInput = document.querySelector('input[name="fname"]');
-    var lastNameInput = document.querySelector('input[name="lname"]');
-    var nationalityInput = document.querySelector('input[name="nationality"]');
-    var phoneNumberInput = document.querySelector('input[name="phone"]');
-    var emailAddressInput = document.querySelector('input[name="email"]');
-
-    // Residential Address Fields
-    var countryInput = document.querySelector('input[name="country"]');
-    var sectorInput = document.querySelector('input[name="sector"]');
-    var liveInKigaliRadio = document.getElementsByName('city_relatives');
-
-
-
-    // Attachments Fields
-    var idPassportFileInput = document.querySelector('input[name="id_passport"]');
-    var transcriptFileInput = document.querySelector('input[name="transcript"]');
-
-    // Payment Method Field
-    // var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
-
-    // date of birth
-
-
-    function sendApplication() {
-      // Create a new FormData object to store the form data
-      var formData = new FormData();
-
-      // date of birth
-      var date_of_birth = document.querySelector("input[name='date_of_birth']");
-      formData.append('date_of_birth', date_of_birth.value)
-      console.log(date_of_birth)
-
-      // Educational Background Fields
-
-      formData.append('level', getSelectedRadioValue(schoolLevel));
-
-      formData.append('finish_secondary', getSelectedRadioValue(finishSecondaryRadio));  // This will append true or false to formData
-      formData.append('secondary_level', getSelectedRadioValue(secondaryLevelRadio));
-
-      formData.append('finish_university', getSelectedRadioValue(finishUniversityRadio));
-      formData.append('university_level', getSelectedRadioValue(universityLevelRadio));
-
-
-      // School Information Fields
-      formData.append('school_id', schoolSelect.value);
-
-      // Personal Information Fields
-      formData.append('fname', firstNameInput.value);
-      formData.append('lname', lastNameInput.value);
-      formData.append('nationality', nationalityInput.value);
-
-
-      (function () {
-        let selectedGender = document.querySelector("input[name='gender']:checked");
-        if (selectedGender) {
-          formData.append('gender', selectedGender.value);
+        // For education level
+        if (!document.querySelector('input[name="educationLevel"]:checked')) {
+          document.getElementById("educationLevelError").innerText = "Please select your education level.";
+          hasError = true;
         } else {
-          alert("You must select your gender");
-          location.reload();
+          document.getElementById("educationLevelError").innerText = "";
         }
-      })();
 
-
-      formData.append('phone', phoneNumberInput.value);
-      formData.append('email', emailAddressInput.value);
-
-      // Residential Address Fields
-      formData.append('country', countryInput.value);
-      formData.append('sector', sectorInput.value);
-      let districtValue = document.querySelector('input[name="district"]');
-      formData.append('district', districtValue.value);
-      formData.append('city_relatives', getSelectedRadioValue(liveInKigaliRadio));
-
-
-
-      // Choose Course Fields
-      (function () {
-        let program = document.querySelector("input[name='program']:checked")
-        if (program) {
-          formData.append('program', program.value);
+        // For secondary school finished
+        if (!document.querySelector('input[name="secondaryFinished"]:checked')) {
+          document.getElementById("secondaryFinishedError").innerText = "Please answer this question.";
+          hasError = true;
         } else {
-          alert("You must select program");
-          location.reload();
+          document.getElementById("secondaryFinishedError").innerText = "";
         }
-      })();
-          // Choose Course Fields
-    var courseRadio = document.getElementsByName('course');
-      formData.append('course', getSelectedRadioValue(courseRadio));
 
-      // Attachments Fields
-      formData.append('id_passport', idPassportFileInput.files[0]);
-      formData.append('transcript', transcriptFileInput.files[0]);
+        // ... Add similar validations for other fields ...
+        // For university graduated
+        if (!document.querySelector('input[name="universityGraduated"]:checked')) {
+          document.getElementById("universityGraduatedError").innerText = "Please answer this question.";
+          hasError = true;
+        } else {
+          document.getElementById("universityGraduatedError").innerText = "";
+        }
 
-      // Payment Method Field
-      // formData.append('payment_method', paymentMethodSelect.value);
-      const paymentOption = document.getElementById("payment_option");
-      const selectedPaymentMethod = paymentOption.value;
+        // For school selection
+        if (!document.querySelector('select[name="school"]').value) {
+          document.getElementById("schoolError").innerText = "Please select a school.";
+          hasError = true;
+        } else {
+          document.getElementById("schoolError").innerText = "";
+        }
+
+        // For gender selection
+        if (!document.querySelector('input[name="gender"]:checked')) {
+          document.getElementById("genderError").innerText = "Please select your gender.";
+          hasError = true;
+        } else {
+          document.getElementById("genderError").innerText = "";
+        }
+
+        // For family in Kigali question
+        if (!document.querySelector('input[name="familyInKigali"]:checked')) {
+          document.getElementById("familyInKigaliError").innerText = "Please answer this question.";
+          hasError = true;
+        } else {
+          document.getElementById("familyInKigaliError").innerText = "";
+        }
+        // For program selection
+        if (!document.querySelector('input[name="program"]:checked')) {
+          document.getElementById("programError").innerText = "Please select at least one program.";
+          hasError = true;
+        } else {
+          document.getElementById("programError").innerText = "";
+        }
+
+        // For course selection
+        if (!document.querySelector('select[name="course"]').value) {
+          document.getElementById("courseError").innerText = "Please select a course.";
+          hasError = true;
+        } else {
+          document.getElementById("courseError").innerText = "";
+        }
+
+        // For payment method selection
+        if (!document.querySelector('select[name="paymentMethod"]').value) {
+          document.getElementById("paymentMethodError").innerText = "Please select a payment method.";
+          hasError = true;
+        } else {
+          document.getElementById("paymentMethodError").innerText = "";
+        }
 
 
-      fetch('http://173.212.230.165:3000/api/students/register', {
-        method: 'POST',
-        body: formData,
-      })
-        .then(response => {
-          if (!response.ok) {
-            // Throwing an error to be caught in the next catch block
-            throw new Error(`HTTP error! Status: ${response.status}`);
-            return;
-          }
-          return response.json(); // Parsing the JSON data from the response
-        })
-        .then(data => {
-          if (data.errors) {
-            let firstValue = Object.values(data.errors)[0]; // Get the first error message
-            errors.innerHTML = firstValue;
-            console.error('Server-side error:', firstValue);
-            showAlert(firstValue);
-            location.reload();
-            return firstValue; // Return the error
-          } else if (data.message) {
-            if (data.message == "Application created successfully") {
-              // alert(data.message);
-              // displaySuccessModal();
-              showAlert(data.message);
-              location.reload();
-            } else {
-              console.error('Unknown server message:', data.message);
-              return data.message;
-            }
-          } else {
-            console.error('Unexpected response:', data);
-            alert("SOMETHING WENT WRONG");
-            location.reload()
-            // return data; // Return the unexpected data
-          }
-        })
-        .catch(error => {
-          console.error('Error occurred in fetch:', error.message);
-          alert("Something went wrong!, try again later");
 
-          location.reload();
-          // showAlert("Your custom alert message here.");
+        if (hasError) {
+          event.preventDefault();
+        }
+      });
+
+
+      function gatherFormData() {
+        let formData = new FormData();
+
+        formData.append('level', document.querySelector('[name="level"]:checked').value);
+        formData.append('finish_secondary', document.querySelector('[name="secondary_level"]:checked').value);
+        formData.append('secondaryYear', document.querySelector('#secondaryYear').value);
+        formData.append('universityGraduated', document.querySelector('[name="universityGraduated"]:checked').value);
+        formData.append('universityYear', document.querySelector('#universityYear').value);
+        formData.append('school', document.querySelector('[name="school"]').value);
+        formData.append('firstName', document.querySelector('[name="firstName"]').value);
+        formData.append('lastName', document.querySelector('[name="lastName"]').value);
+        formData.append('gender', document.querySelector('[name="gender"]:checked').value);
+        formData.append('nationality', document.querySelector('[name="nationality"]').value);
+        formData.append('dob', document.querySelector('[name="dob"]').value);
+        formData.append('phone', document.querySelector('[name="phone"]').value);
+        formData.append('email', document.querySelector('[name="email"]').value);
+        formData.append('country', document.querySelector('[name="country"]').value);
+        formData.append('district', document.querySelector('[name="district"]').value);
+        formData.append('sector', document.querySelector('[name="sector"]').value);
+        formData.append('familyInKigali', document.querySelector('[name="familyInKigali"]:checked').value);
+
+        // For checkboxes where multiple values can be checked
+        Array.from(document.querySelectorAll('[name="program"]:checked')).forEach(input => {
+          formData.append('program', input.value);
         });
-      document.addEventListener('DOMContentLoaded', (event) => {
 
-        let modal = document.getElementById("customAlert");
-        let span = document.getElementsByClassName("close-button")[0];
+        formData.append('course', document.querySelector('[name="course"]').value);
 
-        function showAlert(message) {
-          modal.querySelector("p").textContent = message;
-          modal.style.display = "block";
+        // Handle file uploads
+        if (document.querySelector('[name="passport"]').files.length > 0) {
+          formData.append('passport', document.querySelector('[name="passport"]').files[0]);
         }
+
+        if (document.querySelector('[name="transcript"]').files.length > 0) {
+          formData.append('transcript', document.querySelector('[name="transcript"]').files[0]);
+        }
+
+        formData.append('paymentMethod', document.querySelector('[name="paymentMethod"]').value);
+
+        return formData;
+      }
+      // function showModal(message) {
+      //   let modal = document.getElementById("myModal");
+      //   let span = document.getElementsByClassName("close")[0];
+      //   let modalText = document.getElementById("modalText");
+
+      //   modalText.innerHTML = message;
+      //   modal.style.display = "block";
+
+      //   span.onclick = function () {
+      //     modal.style.display = "none";
+      //     location.reload();  // Refresh the page when the modal is closed.
+      //   }
+
+      //   window.onclick = function (event) {
+      //     if (event.target === modal) {
+      //       modal.style.display = "none";
+      //       location.reload();  // Refresh the page when the modal is clicked outside.
+      //     }
+      //   }
+      // }
+      function showModal(message) {
+        let modal = document.getElementById("myModal");
+        let span = document.getElementsByClassName("close")[0];
+        let modalText = document.getElementById("modalText");
+
+        modalText.innerHTML = message;
+        modal.style.display = "block";
+        setTimeout(() => modal.classList.add('modal-open'), 10);
 
         span.onclick = function () {
-          modal.style.display = "none";
-          window.location.reload();
+          modal.classList.remove('modal-open');
+          setTimeout(() => {
+            modal.style.display = "none";
+            location.reload();  // Refresh the page when the modal is closed.
+          }, 300);
         }
 
         window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-            window.location.reload();
+          if (event.target === modal) {
+            modal.classList.remove('modal-open');
+            setTimeout(() => {
+              modal.style.display = "none";
+              location.reload();  // Refresh the page when the modal is clicked outside.
+            }, 300);
           }
         }
-      })
-    }
-
-    // Helper function to get the selected value from a group of radio buttons
-function getSelectedRadioValue(radioNodeList) {
-  let value = null;
-  for (let i = 0; i < radioNodeList.length; i++) {
-    if (radioNodeList[i].checked) {
-      value = radioNodeList[i].value;
-      break;
-    }
-  }
-  return value;  // Return the value of the selected radio button
-}
+      }
 
 
+      function sendDataToServer() {
+        let formData = gatherFormData();
 
 
-  </script>
+        // fetch('http://localhost:3000/api/students/register', {
+        fetch('http://localhost:3000/api/students/register', {
+          method: 'POST',
+          body: formData
+        }).then(response => {
+          return response.json().then(data => {
+            if (!response.ok) {
+              throw new Error(data.error || 'Network response was not ok');
+            }
+            return data;
+          });
+        }).then(data => {
+          console.log(data);
+          showModal('Your application sent successfully!');
+        }).catch(error => {
+          console.error('Error:', error);
+          showModal("Some thing went wrong! Plz Fill the Form as it required ");
+        });
+      }
+
+      document.getElementById('applicationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        sendDataToServer();
+      });
+
+    </script>
+
+  </body>
+
+  </html>
+
 
 </body>
 
