@@ -74,7 +74,7 @@ function array_term($terms)
 																<?= $key + 1; ?>
 															</td>
 															<td>
-																<?= $pending['fname'] . ' ' . $pending['lname']; ?>
+																<?= $pending['firstName'] . ' ' . $pending['lastName']; ?>
 															</td>
 															<td>
 																<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
