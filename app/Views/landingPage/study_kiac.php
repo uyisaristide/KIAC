@@ -819,12 +819,12 @@
   function sendAgentDataToServer() {
     let formData = gatheragentFormData();
 
-    fetch('http://localhost:3000/api/agents/application', {
-      // fetch('http://173.212.230.165:3000/api/agents/application', {
+    // fetch('http://localhost:3000/api/agents/application', {
+      fetch('http://173.212.230.165:3000/api/agents/application', {
       method: 'POST',
-      // headers: {
-      //   'Content-Type': 'application/x-www-form-urlencoded'
-      // },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
       body: formData
     }).then(response => {
       if (!response.ok) {
@@ -887,7 +887,8 @@
 
     let formData = gatherAbroadFormData();
 
-    fetch('http://localhost:3000/api/study/abroad/application', {
+    // fetch('http://localhost:3000/api/study/abroad/application', {
+      fetch('http://173.212.230.165:3000/api/study/abroad/application', {
       method: 'POST',
       headers: {
         // 'Content-Type': 'application/x-www-form-urlencoded'
@@ -906,7 +907,7 @@
       })
       .then((data) => {
         console.log(data);
-        // alertAndReload('Your application was sent successfully!');
+        alertAndReload('Your application was sent successfully!');
       })
       .catch((error) => {
         console.error('Client-Side Error:', error);
@@ -919,11 +920,7 @@
     console.error('Server-Side Error:', errorMessage);
   }
 
-  // function alertAndReload(message) {
-  //   alert(message);
-  //   // Optionally reload the page or perform other actions
-  //   // window.location.reload();
-  // }
+ 
 
   document.getElementById('abroadApplicationForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -933,7 +930,7 @@
 
   function alertAndReload(message) {
     alert(message);
-    // location.reload();
+    location.reload();
   }
 
 
