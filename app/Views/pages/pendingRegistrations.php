@@ -74,7 +74,7 @@ function array_term($terms)
 																<?= $key + 1; ?>
 															</td>
 															<td>
-																<?= $pending['fname'] . ' ' . $pending['lname']; ?>
+																<?= $pending['firstName'] . ' ' . $pending['lastName']; ?>
 															</td>
 															<td>
 																<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
@@ -103,15 +103,15 @@ function array_term($terms)
 																	</div>
 																	<!-- Button to download Passport -->
 																	<div>
-																		<button class="btn btn-sm btn-secondary download-doc"
-																			data-document-path="<?= $pending['id_passport']; ?>">
+																		<button
+																			class="btn btn-sm btn-secondary download-doc"
+																			data-document-path="<?= $pending['passport']; ?>">
 																			Passport</button>
 																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-success"
 																			data-id="<?= $pending['id']; ?>"
-																			data-toggle="modal"
-																			data-target="#exampleModal">Approve</button>
+																			>Approve</button>
 																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-danger"
@@ -150,35 +150,57 @@ function array_term($terms)
 
 </body>
 <script>
-    // Function to initiate document download
-    const downloadDocument = async (url) => {
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.click();
-    };
+	// Function to initiate document download
+	const downloadDocument = async (url) => {
+		const link = document.createElement('a');
+		link.href = url;
+		link.target = '_blank';
+		link.rel = 'noopener noreferrer';
+		link.click();
+	};
 
-    // Add click event listeners to the "Download" buttons
-    document.querySelectorAll('.download-doc').forEach(button => {
-        button.addEventListener('click', function () {
-            // Get the document path from the data attribute
-            const documentPath = this.getAttribute('data-document-path');
+	// Add click event listeners to the "Download" buttons
+	document.querySelectorAll('.download-doc').forEach(button => {
+		button.addEventListener('click', function () {
+			// Get the document path from the data attribute
+			const documentPath = this.getAttribute('data-document-path');
 
-            // Construct the full document URL
-            const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
-            const documentUrl = serverBaseUrl + documentPath;
+			// Construct the full document URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
+			const documentUrl = serverBaseUrl + documentPath;
 
-            // Initiate the document download
-            downloadDocument(documentUrl);
-        });
-    });
+			// Initiate the document download
+			downloadDocument(documentUrl);
+		});
+	});
+
+	document.querySelectorAll('.btn-success').forEach(button => {
+		button.addEventListener('click', function () {
+			const studentId = this.getAttribute('data-id');
+
+			// Send an AJAX request to update payment status
+			// fetch(`/update_payment_status.php?student_id=${studentId}`, {
+				fetch(`localhost:3000/api/student/:${studentId}/updatePaymentStatus`,{
+				method: 'POST',
+			})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						// Payment status updated successfully
+						// Now, call your API to create a student
+						createStudent(studentId);
+					} else {
+						// Handle any errors here
+						console.error(data.error);
+					}
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		});
+	});
+
 </script>
-
-
-
-
-
-
 
 </html>
