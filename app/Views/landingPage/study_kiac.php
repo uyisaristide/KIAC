@@ -1,39 +1,26 @@
+<?php
+include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <link href="<?= base_url(); ?>assets/landing_new/fontawesome/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" <meta
-    charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <title>Apply To Study At Kigali International Art School</title>
-  <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 
   <style>
-    .form-container {
-      display: none;
-    }
-
-    .nav-container {
-      background-image: url("<?= base_url(); ?>assets/landing_new/css/back1.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-
-
-    body {
+        body {
       font-family: 'Open Sans', sans-serif;
       background-color: #f5f5f5;
-      padding: 20px;
       font-size: 14px;
       /* Reduced font size */
+    }
+    .form-container {
+      display: none;
     }
 
     form {
@@ -152,12 +139,11 @@
 
     /* Center content */
     .center {
-      margin-top: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 100%;
+      height: 50%;
     }
 
     /* Center content */
@@ -165,7 +151,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      height: 30%;
     }
 
     /* Styles for the content div */
@@ -201,109 +187,10 @@
       }
     }
   </style>
-
 </head>
 
 <body class="bg-gray-200">
 
-  <div class="px-2 py-2 nav-container">
-    <div class="border-2 border-white/60 w-full ">
-      <!-- img div -->
-      <div class="w-full flex items-center justify-between gap-4 h-24 md:block">
-        <div class="h-full w-full md:w-full">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner.gif" alt="img" />
-        </div>
-      </div>
-      <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
-        <div class="flex gap-2 text-white items-center md:flex-col md:gap-3">
-          <div class="flex items-center gap-2">
-            <i class="fa-regular fa-clock fa-xs"></i>
-            <span class="time-real text-xs font-medium">13:52:32</span>
-          </div>
-          <div class="text-xs text-yellow-300"><a class="text-yellow-300" href="#">KIAC NETWORK</a>
-          </div>
-          <div class="flex items-center -mt-1 gap-2 text-sm font-italic text-xs">
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/rkinyarwanda.ico" alt="lang" />
-              <span>KINYARWANDA</span>
-            </a>
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/britain.ico" alt="lang" />
-              <span>ENGLISH</span>
-            </a>
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/francais.ico" alt="lang" />
-              <span>FRANCAIS</span>
-            </a>
-          </div>
-        </div>
-        <div class="flex gap-3 items-center md:mt-3">
-          <div class="flex gap-3">
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-facebook-f fa-xs"></i>
-            </a>
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-twitter fa-xs"></i>
-            </a>
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-instagram fa-xs"></i>
-            </a>
-          </div>
-          <div class="px-4 p-2 border-l border-white/50">
-            <a href="#">
-              <i class="fa-solid fa-magnifying-glass fa-xl text-blue-400"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="main-nav w-full" role="navigation">
-      <input id="main-menu-state" type="checkbox" />
-      <label class="main-menu-btn" for="main-menu-state">
-        <span class="main-menu-btn-icon"></span> Toggle main menu visibility
-      </label>
-      <ul id="main-menu" class="sm sm-blue">
-        <li><a class="current" href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-institution"></i> About</a>
-        </li>
-        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Programs</a>
-        </li>
-        <li><a href="#"><i class="fa fa-trophy"></i> KIAC Agent</a>
-        </li>
-        <li><a href="#"><i class="fa fa-bullseye"></i> Imyidagaduro</a>
-        </li>
-        <li><a href="#contact"><i class="fa fa-laptop"></i> Contact Us</a>
-        </li>
-        <li><a href="#"><i class="fa fa-language"></i> Logs</a></li>
-      </ul>
-      <ul id="main-menu2" class="sm2 sm-blue">
-        <li><a href="#"><i class="fa fa-plane"></i> KIAC TV</a>
-        </li>
-        <li><a href="#"><i class="fa fa-line-chart "></i> Facilities</a>
-        </li>
-        <li><a href="#"><i class="fa fa-group"></i> News And Events</a>
-        </li>
-        <li><a href="#"><i class="fa fa-female"></i> Products</a>
-        </li>
-        <li><a href="#"><i class="fa fa-building"></i> Alarm</a></li>
-        <li><a href="#"><i class="fa fa-newspaper-o"></i> Amakuru</a>
-        </li>
-        <li class="menu-item">
-          <h2><a id="has-submenu" class="" href="study_at_kiac"><span class="sub-arrow">+</span><i
-                class="fa fa-share-alt"></i> Apply Now</a></h2>
-          <ul class="">
-            <li><a href="ibidukikije/">Ibidukikije</a></li>
-            <li><a href="umuco/"> Umuco</a></li>
-            <li><a href="twinigure/">Twinigure</a></li>
-            <li><a href="imyemerere/"><i class="fa fa-plus-circle"></i> Iyobokamana</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
   <div class="center">
     <div class="content" id="selectorDiv">
       <h3>Choose</h3>
@@ -590,16 +477,15 @@
         </div>
 
       </form>
-
-
       <!-- Your form fields for abroad student go here -->
 
     </div>
-
+  </div>
+  <?php
+  include('footer.php');
+  ?>
 </body>
-
 <script>
-
   function showForm(userType) {
     // Hide all forms initially
     // document.getElementById("selectorDiv").style.display = "none";
@@ -616,8 +502,6 @@
       document.getElementById("abroadForm").style.display = "block";
     }
   }
-
-
   document.getElementById("applicationForm").addEventListener("submit", function (event) {
     let hasError = false;
 
@@ -691,16 +575,10 @@
     } else {
       document.getElementById("paymentMethodError").innerText = "";
     }
-
-
-
     if (hasError) {
       event.preventDefault();
     }
   });
-
-
-
   function gatherFormData() {
     let formData = new FormData();
 
