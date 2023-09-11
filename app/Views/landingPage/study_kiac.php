@@ -384,7 +384,7 @@
       First Name: <input type="text" name="firstName" required><br>
       Last Name: <input type="text" name="lastName" required><br>
       Gender:
-      <input type="radio" name="want_to_study" value="Male" required> Male
+      <input type="radio" name="gender" value="Male" required> Male
       <input type="radio" name="gender" value="Female" required> Female
       <div class="error" id="genderError"></div>
       Nationality: <input type="text" name="nationality" required><br>
@@ -442,7 +442,7 @@
       <select name="paymentMethod">
         <option value="" disabled selected>Select a payment method</option>
         <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
-        <option value="Credit Card">Credit Card</option>
+        <option value="Cash">Cash</option>
         <option value="Bank Transfer">Bank Transfer</option>
         <option value="PayPal">PayPal</option>
       </select>
