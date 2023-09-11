@@ -99,6 +99,12 @@
 									<?= lang("app.users"); ?>
 								</a>
 							</li>
+							<li>
+								<a href="<?= base_url('Web_Administration'); ?>">
+									<i class="metismenu-icon typcn typcn-group-outline"></i>
+									Web Administration
+								</a>
+							</li>
 
 						</ul>
 					</div>
