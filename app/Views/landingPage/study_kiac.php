@@ -16,47 +16,17 @@
 
 
   <style>
+    .form-container {
+      display: none;
+    }
+
     .nav-container {
       background-image: url("<?= base_url(); ?>assets/landing_new/css/back1.jpg");
       background-repeat: no-repeat;
       background-size: cover;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
 
-    .modal-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background-color: #f4f4f4;
-      width: 70%;
-    }
-
-    .close-button {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close-button:hover,
-    .close-button:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
 
     body {
       font-family: 'Open Sans', sans-serif;
@@ -146,64 +116,82 @@
       transform: scale(1.05);
     }
 
-    .error {
-      color: red;
-      margin-bottom: 20px;
-    }
-
     .modal {
       display: none;
       position: fixed;
-      z-index: 10;
+      z-index: 1;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .modal-content {
       background-color: #fefefe;
-      margin: 10% auto;
-      padding: 40px;
-      border-radius: 4px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      max-width: 600px;
-      width: 90%;
-      transition: transform 0.3s, opacity 0.3s;
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-
-    .modal-open .modal-content {
-      transform: translateY(0);
-      opacity: 1;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
     }
 
     .close {
       color: #aaa;
       float: right;
-      font-size: 36px;
+      font-size: 28px;
       font-weight: bold;
-      margin: -20px -20px 0 0;
     }
 
     .close:hover,
     .close:focus {
-      color: #000;
+      color: black;
+      text-decoration: none;
       cursor: pointer;
     }
 
-    #modalText {
-      font-size: 20px;
-      line-height: 1.4;
-      color: #333;
+    /* Center content */
+    .center {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
     }
 
-    .error {
-      color: red;
-      font-weight: bold;
+    /* Center content */
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Styles for the content div */
+    .content {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      /* center the h2 and radio buttons */
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: inline-block;
+      /* changed from block to inline-block */
+      margin: 0 10px;
+      /* added margin to space them apart */
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
     }
 
     /* Responsive Styles */
@@ -316,158 +304,252 @@
       </ul>
     </nav>
   </div>
+  <div class="center">
+    <div class="content" id="selectorDiv">
+      <h3>Choose</h3>
 
-
-  <div class="max-w-xl mx-auto mt-12">
-    <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
-
-    <div class="my-4">
-      <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
-        Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
-        Maintenance, Music, Graphic Design, Videography, Creative Art, Web Design, Software Development, and
-        Photography. Applying to KIAC provides you an opportunity to access high-quality, innovative education and
-        potentially win a 70% scholarship.</p>
+      <label><input type="radio" name="userType" value="student" onclick="showForm('student')"> Student</label>
+      <label><input type="radio" name="userType" value="agent" onclick="showForm('agent')"> Agent</label>
+      <label><input type="radio" name="userType" value="abroad" onclick="showForm('abroad')"> Abroad Student</label>
     </div>
-
   </div>
 
-  <form id="applicationForm" enctype="multipart/form-data" METHOD="POST">
+  <div class="form-container" id="studentForm">
+    <div class="max-w-xl mx-auto mt-12">
+      <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
 
-    <h3>WHAT IS YOUR LEVEL OF EDUCATION</h3>
-    <input type="radio" name="level" value="University Level" required> University Level
-    <input type="radio" name="level" value="Secondary Level" required> Secondary Level
-    <div class="error" id="educationLevelError"></div>
+      <div class="my-4">
+        <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
+          Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
+          Maintenance, Music, Graphic Design, Videography, Creative Art, Web Design, Software Development, and
+          Photography. Applying to KIAC provides you an opportunity to access high-quality, innovative education and
+          potentially win a 70% scholarship.</p>
+      </div>
 
-    <h3>DID YOU FINISH YOUR SECONDARY SCHOOL</h3>
-    <input type="radio" name="secondary_level" value="YES" required> YES
-    <input type="radio" name="secondary_level" value="NO" required> NO
-    <div class="error" id="secondaryFinishedError"></div>
-
-    <div id="secondaryYearDiv">
-      <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?</h3>
-      <select name="secondaryYear" id="secondaryYear">
-        <option value="" disabled selected>Select your year</option>
-        <option value="S3">S3</option>
-        <option value="S4[LEVEL 3]">S4[LEVEL 3]</option>
-        <option value="S4[LEVEL 4]">S4[LEVEL 4]</option>
-        <option value="S6[LEVEL 5]">S6[LEVEL 5]</option>
-      </select>
-      <div class="error" id="secondaryYearError"></div>
     </div>
+    <!-- <h4>Student Form</h4> -->
 
-    <!-- ... Repeat for all other sections ... -->
-    <h3>DID YOU GRADUATE FROM UNIVERSITY?</h3>
-    <input type="radio" name="universityGraduated" value="YES" required> YES
-    <input type="radio" name="universityGraduated" value="NO" required> NO
-    <div class="error" id="universityGraduatedError"></div>
+    <form id="applicationForm" enctype="multipart/form-data" METHOD="POST">
 
-    <div id="universityYearDiv">
-      <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY?</h3>
-      <select name="universityYear" id="universityYear">
-        <option value="" disabled selected>Select your year</option>
-        <option value="YEAR 1">YEAR 1</option>
-        <option value="YEAR 2">YEAR 2</option>
-        <option value="YEAR 3">YEAR 3</option>
-        <option value="YEAR 4">YEAR 4</option>
-        <option value="YEAR 5">YEAR 5</option>
+      <h3>WHAT IS YOUR LEVEL OF EDUCATION</h3>
+      <input type="radio" name="level" value="University Level" required> University Level
+      <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+      <div class="error" id="educationLevelError"></div>
+
+      <h3>DID YOU FINISH YOUR SECONDARY SCHOOL</h3>
+      <input type="radio" name="secondary_level" value="YES" required> YES
+      <input type="radio" name="secondary_level" value="NO" required> NO
+      <div class="error" id="secondaryFinishedError"></div>
+
+      <div id="secondaryYearDiv">
+        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?</h3>
+        <select name="secondaryYear" id="secondaryYear">
+          <option value="" disabled selected>Select your year</option>
+          <option value="S3">S3</option>
+          <option value="S4[LEVEL 3]">S4[LEVEL 3]</option>
+          <option value="S4[LEVEL 4]">S4[LEVEL 4]</option>
+          <option value="S6[LEVEL 5]">S6[LEVEL 5]</option>
+        </select>
+        <div class="error" id="secondaryYearError"></div>
+      </div>
+
+      <!-- ... Repeat for all other sections ... -->
+      <h3>DID YOU GRADUATE FROM UNIVERSITY?</h3>
+      <input type="radio" name="universityGraduated" value="YES" required> YES
+      <input type="radio" name="universityGraduated" value="NO" required> NO
+      <div class="error" id="universityGraduatedError"></div>
+
+      <div id="universityYearDiv">
+        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY?</h3>
+        <select name="universityYear" id="universityYear">
+          <option value="" disabled selected>Select your year</option>
+          <option value="YEAR 1">YEAR 1</option>
+          <option value="YEAR 2">YEAR 2</option>
+          <option value="YEAR 3">YEAR 3</option>
+          <option value="YEAR 4">YEAR 4</option>
+          <option value="YEAR 5">YEAR 5</option>
+        </select>
+        <div class="error" id="universityYearError"></div>
+      </div>
+
+      <h3>SELECT SCHOOL</h3>
+      <select name="school">
+        <option value="" disabled selected>Select your school</option>
+        <option value="Kigali International Art College">Kigali International Art College</option>
       </select>
-      <div class="error" id="universityYearError"></div>
-    </div>
+      <div class="error" id="schoolError"></div>
 
-    <h3>SELECT SCHOOL</h3>
-    <select name="school">
-      <option value="" disabled selected>Select your school</option>
-      <option value="Kigali International Art College">Kigali International Art College</option>
-    </select>
-    <div class="error" id="schoolError"></div>
+      <!-- Personal Information -->
+      <h3>PERSONAL INFORMATION</h3>
+      First Name: <input type="text" name="firstName" required><br>
+      Last Name: <input type="text" name="lastName" required><br>
+      Gender:
+      <input type="radio" name="gender" value="Male" required> Male
+      <input type="radio" name="gender" value="Female" required> Female
+      <div class="error" id="genderError"></div>
+      Nationality: <input type="text" name="nationality" required><br>
+      Date of Birth: <input type="date" name="dob" required><br>
+      Phone Number: <input type="tel" name="phone" required pattern="[0-9]{10}"><br>
+      Email Address: <input type="email" name="email" required><br>
 
-    <!-- Personal Information -->
-    <h3>PERSONAL INFORMATION</h3>
-    First Name: <input type="text" name="firstName" required><br>
-    Last Name: <input type="text" name="lastName" required><br>
-    Gender:
-    <input type="radio" name="gender" value="Male" required> Male
-    <input type="radio" name="gender" value="Female" required> Female
-    <div class="error" id="genderError"></div>
-    Nationality: <input type="text" name="nationality" required><br>
-    Date of Birth: <input type="date" name="dob" required><br>
-    Phone Number: <input type="tel" name="phone" required pattern="[0-9]{10}"><br>
-    Email Address: <input type="email" name="email" required><br>
+      <h3>RESIDENTIAL ADDRESS</h3>
+      COUNTRY OF RESIDENCE:
+      <input type="text" name="country" required><br>
+      DISTRICT OF RESIDENCE:
+      <input type="text" name="district" required><br>
+      SECTOR OF RESIDENCE:
+      <input type="text" name="sector" required><br>
 
-    <h3>RESIDENTIAL ADDRESS</h3>
-    COUNTRY OF RESIDENCE:
-    <input type="text" name="country" required><br>
-    DISTRICT OF RESIDENCE:
-    <input type="text" name="district" required><br>
-    SECTOR OF RESIDENCE:
-    <input type="text" name="sector" required><br>
+      <h3>IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY</h3>
+      <input type="radio" name="familyInKigali" value="Yes" required> Yes
+      <input type="radio" name="familyInKigali" value="No" required> No
+      <div class="error" id="familyInKigaliError"></div>
+      <h3>COURSE</h3>
+      <p>We are excited to inform you about the wide range of courses available for partial scholarships at our
+        institution. These scholarships aim to make quality education more accessible to talented individuals like
+        yourself. Below, you will find a list of the courses eligible for our partial scholarship program:</p>
 
-    <h3>IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY</h3>
-    <input type="radio" name="familyInKigali" value="Yes" required> Yes
-    <input type="radio" name="familyInKigali" value="No" required> No
-    <div class="error" id="familyInKigaliError"></div>
-    <h3>COURSE</h3>
-    <p>We are excited to inform you about the wide range of courses available for partial scholarships at our
-      institution. These scholarships aim to make quality education more accessible to talented individuals like
-      yourself. Below, you will find a list of the courses eligible for our partial scholarship program:</p>
+      <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
+      <input type="checkbox" name="program" value="Day"> Day<br>
+      <input type="checkbox" name="program" value="Night"> Night<br>
+      <input type="checkbox" name="program" value="Weekend"> Weekend<br>
+      <div class="error" id="programError"></div>
 
-    <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
-    <input type="checkbox" name="program" value="Day"> Day<br>
-    <input type="checkbox" name="program" value="Night"> Night<br>
-    <input type="checkbox" name="program" value="Weekend"> Weekend<br>
-    <div class="error" id="programError"></div>
+      <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
+      <select name="course" required>
+        <option value="CCTV CAMERA">CCTV CAMERA</option>
+        <option value="Computer Hardware">Computer Hardware</option>
+        <option value="Music">Music</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Video Production">Video Production</option>
+        <option value="Creative Art">Creative Art</option>
+        <option value="Web design">Web design</option>
+        <option value="Software Development">Software Development</option>
+        <option value="Photography">Photography</option>
+        <option value="Electronic Services">Electronic Services</option>
+        <option value="cycle inferieur">cycle inferieur</option>
+        <option value="Maternelle">Maternelle</option>
+        <option value="Secondaire">Secondaire</option>
+      </select>
+      <div class="error" id="courseError"></div>
 
-    <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
-    <select name="course" required>
-      <option value="CCTV CAMERA">CCTV CAMERA</option>
-      <option value="Computer Hardware">Computer Hardware</option>
-      <option value="Music">Music</option>
-      <option value="Graphic Design">Graphic Design</option>
-      <option value="Video Production">Video Production</option>
-      <option value="Creative Art">Creative Art</option>
-      <option value="Web design">Web design</option>
-      <option value="Software Development">Software Development</option>
-      <option value="Photography">Photography</option>
-      <option value="Electronic Services">Electronic Services</option>
-      <option value="cycle inferieur">cycle inferieur</option>
-      <option value="Maternelle">Maternelle</option>
-      <option value="Secondaire">Secondaire</option>
-    </select>
-    <div class="error" id="courseError"></div>
+      <h3>Attachments</h3>
+      YOUR ID OR PASSPORT: <input type="file" name="passport"><br>
+      YOUR ADVANCED LEVEL CERTIFICATE OR ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript"><br>
 
-    <h3>Attachments</h3>
-    YOUR ID OR PASSPORT: <input type="file" name="passport"><br>
-    YOUR ADVANCED LEVEL CERTIFICATE OR ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript"><br>
+      <h3>APPLICATION FEE</h3>
+      CHOOSE PAYMENT METHOD:
+      <select name="paymentMethod">
+        <option value="" disabled selected>Select a payment method</option>
+        <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
+        <option value="Credit Card">Credit Card</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="PayPal">PayPal</option>
+      </select>
+      <div class="error" id="paymentMethodError"></div>
+      <input type="submit" value="Submit Application" id="submitButton">
 
-    <h3>APPLICATION FEE</h3>
-    CHOOSE PAYMENT METHOD:
-    <select name="paymentMethod">
-      <option value="" disabled selected>Select a payment method</option>
-      <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
-      <option value="Credit Card">Credit Card</option>
-      <option value="Bank Transfer">Bank Transfer</option>
-      <option value="PayPal">PayPal</option>
-    </select>
-    <div class="error" id="paymentMethodError"></div>
-    <input type="submit" value="Submit Application" id="submitButton">
-
-    <!-- <div id="myModal" class="modal">
+      <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <p id="modalText"></p>
         </div>
-      </div> -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="modalText"></p>
       </div>
-    </div>
 
-  </form>
+    </form>
+    <!-- Your form fields for student go here -->
+  </div>
+
+  <!-- Agent Form -->
+  <div class="form-container" id="agentForm">
+    <div class="max-w-xl mx-auto mt-12">
+      <h2 class="text-gray-700 font-bold text-2xl">APPLY FOR SCHOLARSHIP</h2>
+
+      <div class="my-4">
+        <p class="text-gray-700 font-medium">SCHOLARSHIP COVERS 50% TUITION FEES
+          OPPORTUNITY TO STUDY ABROAD
+          OPPORTUNITY FOR INTERNSHIP TO OUR PARTNERS </p>
+      </div>
+
+      <form id="agentApplicationForm" METHOD="POST">
+        <h3>PERSONAL INFORMATION</h3>
+        Names: <input type="text" name="names" required><br>
+        Phone Number: <input type="tel" name="telephone" required pattern="[0-9]{10}"><br>
+        Email Address: <input type="email" name="email_address" required><br>
+        DISTRICT OF RESIDENCE:
+        <input type="text" name="address" required><br>
+        <h3>Education Level
+        </h3>
+
+        <input type="radio" name="level" value="University Level" required> University Level
+        <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+
+        <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
+        <input type="checkbox" name="program" value="Day"> Day<br>
+        <input type="checkbox" name="program" value="Night"> Night<br>
+        <input type="checkbox" name="program" value="Weekend"> Weekend<br>
+
+
+        <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
+        <select name="courses" required>
+          <option>-----select course----</option>
+          <option value="CCTV CAMERA">CCTV CAMERA</option>
+          <option value="Computer Hardware">Computer Hardware</option>
+          <option value="Music">Music</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Video Production">Video Production</option>
+          <option value="Creative Art">Creative Art</option>
+          <option value="Web design">Web design</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Photography">Photography</option>
+          <option value="Electronic Services">Electronic Services</option>
+          <option value="cycle inferieur">cycle inferieur</option>
+          <option value="Maternelle">Maternelle</option>
+          <option value="Secondaire">Secondaire</option>
+        </select>
+
+        <input type="submit" value="Submit" id="submitButton">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <!-- Your form fields for agent go here -->
+  </div>
+
+  <!-- Abroad Student Form -->
+  <div class="form-container" id="abroadForm">
+    <h4>Abroad Student Form</h4>
+    <!-- Your form fields for abroad student go here -->
+
+  </div>
+
 </body>
 
 <script>
+
+  function showForm(userType) {
+    // Hide all forms initially
+    // document.getElementById("selectorDiv").style.display = "none";
+    document.getElementById("studentForm").style.display = "none";
+    document.getElementById("agentForm").style.display = "none";
+    document.getElementById("abroadForm").style.display = "none";
+
+    // Display the corresponding form based on user selection
+    if (userType === "student") {
+      document.getElementById("studentForm").style.display = "block";
+    } else if (userType === "agent") {
+      document.getElementById("agentForm").style.display = "block";
+    } else if (userType === "abroad") {
+      document.getElementById("abroadForm").style.display = "block";
+    }
+  }
+
+
   document.getElementById("applicationForm").addEventListener("submit", function (event) {
     let hasError = false;
 
@@ -550,6 +632,7 @@
   });
 
 
+
   function gatherFormData() {
     let formData = new FormData();
 
@@ -591,6 +674,7 @@
 
     return formData;
   }
+
   function showModal(message) {
     let modal = document.getElementById("myModal");
     let span = document.getElementsByClassName("close")[0];
@@ -611,34 +695,6 @@
       }
     }
   }
-  // function showModal(message) {
-  //   let modal = document.getElementById("myModal");
-  //   let span = document.getElementsByClassName("close")[0];
-  //   let modalText = document.getElementById("modalText");
-
-  //   modalText.innerHTML = message;
-  //   modal.style.display = "block";
-  //   setTimeout(() => modal.classList.add('modal-open'), 10);
-
-  //   span.onclick = function () {
-  //     modal.classList.remove('modal-open');
-  //     setTimeout(() => {
-  //       modal.style.display = "none";
-  //       location.reload();  // Refresh the page when the modal is closed.
-  //     }, 100);
-  //   }
-
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.classList.remove('modal-open');
-        setTimeout(() => {
-          modal.style.display = "none";
-          location.reload();  // Refresh the page when the modal is clicked outside.
-        }, 100);
-      }
-    }
-  }
-
   function sendDataToServer() {
     let formData = gatherFormData();
 
@@ -650,7 +706,8 @@
     }).then(response => {
       return response.json().then(data => {
         if (!response.ok) {
-          throw new Error(data.error || 'Network response was not ok');
+          throw new Error(data.error || alert("Some thing went wrong! Plz Fill the Form as it required "));
+          location.reload();
         }
         return data;
       });
@@ -667,6 +724,68 @@
     e.preventDefault();
     sendDataToServer();
   });
+
+  function gatheragentFormData() {
+    let data = {
+      names: document.querySelector('[name="names"]').value,
+      telephone: document.querySelector('[name="telephone"]').value,
+      email_address: document.querySelector('[name="email_address"]').value,
+      address: document.querySelector('[name="address"]').value,
+      level: document.querySelector('[name="level"]:checked').value,
+      course: document.querySelector('[name="courses"]').value,
+    };
+
+    const programs = Array.from(document.querySelectorAll('[name="program"]:checked')).map(input => input.value);
+
+    // Initialize URLSearchParams from the data object
+    const params = new URLSearchParams(data);
+
+    // Add each program to the params
+    programs.forEach(program => {
+      params.append('program', program);
+    });
+
+    return params.toString();
+  }
+
+  function sendAgentDataToServer() {
+    let formData = gatheragentFormData();
+
+    fetch('http://localhost:3000/api/agents/application', {
+      // fetch('http://173.212.230.165:3000/api/agents/application', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: formData
+    }).then(response => {
+      if (!response.ok) {
+        return response.json().then(data => {
+          const errorMessage = data.error || "Please fill the form correctly";
+          alert(errorMessage);
+          throw new Error(errorMessage);
+        });
+      }
+      return response.json();
+    }).then(data => {
+      console.log(data);
+      // showModal('Your application sent successfully!');
+      alertAndReload('Your application was sent successfully!');
+    }).catch(error => {
+      console.error('Error:', error);
+      // showModal("Some thing went wrong! Plz Fill the Form as it required ");
+      alertAndReload('Something went wrong! Please fill the form correctly.');
+    });
+  }
+  document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    sendAgentDataToServer();
+  });
+
+  function alertAndReload(message) {
+    alert(message);
+    location.reload();
+  }
 
 </script>
 
