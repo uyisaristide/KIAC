@@ -63,7 +63,7 @@
                         <span class="main-menu-btn-icon"></span> Toggle main menu visibility
                     </label>
                     <ul id="main-menu" class="sm sm-blue">
-                        <li><a class="current" href="/KIAC/public/"><i class="fa fa-home fa-lg"></i> Home</a>
+                        <li><a class="current"  href="<?= base_url('#'); ?>"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
                         <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
