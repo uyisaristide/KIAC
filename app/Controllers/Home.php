@@ -11961,7 +11961,7 @@ Merci";
 		$data['page'] = "pendingRegistration";
 	
 		// Updated API URL for fetching student applications
-		$apiUrl = "http://173.212.230.165:3000/api/agent/all/application"; 
+		$apiUrl = "http://173.212.230.165:3000/api/agents/all/applications"; 
 		// $apiUrl = "http://localhost:5000/api/agents/all/applications"; 
 		// If your API for students is different, adjust the above URL accordingly
 		

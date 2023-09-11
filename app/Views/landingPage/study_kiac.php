@@ -654,6 +654,7 @@ include('header.php');
       return response.json().then(data => {
         if (!response.ok) {
           throw new Error(data.error || alert("Some thing went wrong! Plz Fill the Form as it required "));
+          console.log(data.error || "Please fill the form correctly");
           location.reload();
         }
         return data;
@@ -769,9 +770,6 @@ include('header.php');
     // fetch('http://localhost:3000/api/study/abroad/application', {
     fetch('http://173.212.230.165:3000/api/study/abroad/application', {
       method: 'POST',
-      headers: {
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      },
       body: formData,
     })
       .then((response) => {
