@@ -1470,7 +1470,7 @@ class Home extends BaseController
 		$yearId = $this->request->getGet("y") == null ? "-1" : $this->request->getGet("y");
 		$classMdl = new ClassesModel();
 		$school_id = $this->session->get("ideyetu_school_id");
-		$data['classes'] = $classMdl->select("classes.id,classes.title,d.title as department_name,d.code as dept_code,l.title as level_name
+		$data['classes'] = $classMdl->select("classes.id,classes.title,d.title as department_name,d.code as dept_code
 		,f.type,f.abbrev as faculty_code,concat(s.fname,' ',s.lname) as mentor_name,s.id as idstf")
 			->join("departments d", "d.id=classes.department")
 			->join("levels l", "l.id=classes.level")

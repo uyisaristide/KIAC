@@ -15,7 +15,7 @@
 										<option disabled selected><?= lang("app.chooseClass"); ?></option>
 										<?php
 										foreach ($classes as $classe):
-											echo "<option value='{$classe['id']}' ".($class_id==$classe['id']?'selected':'').">{$classe['level_name']} {$classe['dept_code']} {$classe['title']}</option>";
+											echo "<option value='{$classe['id']}' ".($class_id==$classe['id']?'selected':'').">{$classe['dept_code']} {$classe['title']}</option>";
 										endforeach;
 										?>
 									</select>
