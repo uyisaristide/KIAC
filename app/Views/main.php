@@ -123,6 +123,48 @@
 							}
 							?>
 							<?php
+							if (!is_blocked(2)) {
+								?>
+								<li>
+									<a href="#">
+										<i class="metismenu-icon typcn typcn-user-outline"></i>
+											Agents
+										<i class="metismenu-state-icon fa fa-caret-down"></i>
+									</a>
+									<ul class="mm-collapse">
+										<li>
+											<a href="<?= base_url('pending_agent_applications'); ?>">
+												<i class="metismenu-icon typcn typcn-group-outline"></i>
+												<?= lang("app.pendingRegistration"); ?>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<?php
+							}
+							?>
+							<?php
+							if (!is_blocked(2)) {
+								?>
+								<li>
+									<a href="#">
+										<i class="metismenu-icon typcn typcn-user-outline"></i>
+											Study Abroad
+										<i class="metismenu-state-icon fa fa-caret-down"></i>
+									</a>
+									<ul class="mm-collapse">
+										<li>
+											<a href="<?= base_url('pendingRegistrations'); ?>">
+												<i class="metismenu-icon typcn typcn-group-outline"></i>
+												<?= lang("app.pendingRegistration"); ?>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<?php
+							}
+							?>
+							<?php
 							if (is_allowed(1, 3)) {
 								if ($_SESSION['ideyetu_country'] == "Congo") {
 									?>

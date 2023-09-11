@@ -190,7 +190,6 @@ function array_term($terms)
 						// createStudent(studentId);
 
 						// Reload the page to reflect the changes in the table
-						alert("updated successfully")
 						location.reload();
 					} else {
 						// Handle any errors here
