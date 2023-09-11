@@ -1,170 +1,16 @@
+<?php
+include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link href="<?= base_url(); ?>assets/landing_new/fontawesome/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" <meta
-    charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply To Study At Kigali International Art School</title>
-  <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
-  <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-
-  <style>
-    .nav-container {
-      background-image: url("<?= base_url(); ?>assets/landing_new/css/back1.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background-color: #f4f4f4;
-      width: 70%;
-    }
-
-    .close-button {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close-button:hover,
-    .close-button:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  </style>
-
 </head>
-
 <body class="bg-gray-200">
-
-  <div class="px-2 py-2 nav-container">
-    <div class="border-2 border-white/60 w-full ">
-      <!-- img div -->
-      <div class="w-full flex items-center justify-between gap-4 h-24 md:block">
-        <div class="h-full w-full md:w-full">
-          <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner.gif" alt="img" />
-        </div>
-      </div>
-      <div class="p-2 bg-[#333] flex items-center justify-between md:flex-col md:gap-2">
-        <div class="flex gap-2 text-white items-center md:flex-col md:gap-3">
-          <div class="flex items-center gap-2">
-            <i class="fa-regular fa-clock fa-xs"></i>
-            <span class="time-real text-xs font-medium">13:52:32</span>
-          </div>
-          <div class="text-xs text-yellow-300"><a class="text-yellow-300" href="#">KIAC NETWORK</a>
-          </div>
-          <div class="flex items-center -mt-1 gap-2 text-sm font-italic text-xs">
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/rkinyarwanda.ico" alt="lang" />
-              <span>KINYARWANDA</span>
-            </a>
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/britain.ico" alt="lang" />
-              <span>ENGLISH</span>
-            </a>
-            <a href="#"
-              class="flex item-center gap-1 px-1 border-t-2 pt-1 border-[#333] hover:border-yellow-300 hover:text-yellow-300 transition-all duration-[500]">
-              <img src="<?= base_url(); ?>assets/landing_new/img/francais.ico" alt="lang" />
-              <span>FRANCAIS</span>
-            </a>
-          </div>
-        </div>
-        <div class="flex gap-3 items-center md:mt-3">
-          <div class="flex gap-3">
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-facebook-f fa-xs"></i>
-            </a>
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-twitter fa-xs"></i>
-            </a>
-            <a href="#" class="text-white hover:text-blue-400 transition-all">
-              <i class="fa-brands fa-instagram fa-xs"></i>
-            </a>
-          </div>
-          <div class="px-4 p-2 border-l border-white/50">
-            <a href="#">
-              <i class="fa-solid fa-magnifying-glass fa-xl text-blue-400"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="main-nav w-full" role="navigation">
-      <input id="main-menu-state" type="checkbox" />
-      <label class="main-menu-btn" for="main-menu-state">
-        <span class="main-menu-btn-icon"></span> Toggle main menu visibility
-      </label>
-      <ul id="main-menu" class="sm sm-blue">
-        <li><a class="current" href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-institution"></i> About</a>
-        </li>
-        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Programs</a>
-        </li>
-        <li><a href="#"><i class="fa fa-trophy"></i> KIAC Agent</a>
-        </li>
-        <li><a href="#"><i class="fa fa-bullseye"></i> Imyidagaduro</a>
-        </li>
-        <li><a href="#contact"><i class="fa fa-laptop"></i> Contact Us</a>
-        </li>
-        <li><a href="#"><i class="fa fa-language"></i> Logs</a></li>
-      </ul>
-      <ul id="main-menu2" class="sm2 sm-blue">
-        <li><a href="#"><i class="fa fa-plane"></i> KIAC TV</a>
-        </li>
-        <li><a href="#"><i class="fa fa-line-chart "></i> Facilities</a>
-        </li>
-        <li><a href="#"><i class="fa fa-group"></i> News And Events</a>
-        </li>
-        <li><a href="#"><i class="fa fa-female"></i> Products</a>
-        </li>
-        <li><a href="#"><i class="fa fa-building"></i> Alarm</a></li>
-        <li><a href="#"><i class="fa fa-newspaper-o"></i> Amakuru</a>
-        </li>
-        <li class="menu-item">
-          <h2><a id="has-submenu" class="" href="study_at_kiac"><span class="sub-arrow">+</span><i
-                class="fa fa-share-alt"></i> Apply Now</a></h2>
-          <ul class="">
-            <li><a href="ibidukikije/">Ibidukikije</a></li>
-            <li><a href="umuco/"> Umuco</a></li>
-            <li><a href="twinigure/">Twinigure</a></li>
-            <li><a href="imyemerere/"><i class="fa fa-plus-circle"></i> Iyobokamana</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-
   <div class="max-w-xl mx-auto mt-12">
     <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
-
     <div class="my-4">
       <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
         Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
@@ -172,7 +18,6 @@
         Photography. Applying to KIAC provides you an opportunity to access high-quality, innovative education and
         potentially win a 70% scholarship.</p>
     </div>
-
   </div>
   <div class="max-w-xl mx-auto">
     <div class="h-4 rounded-xl bg-blue-500 transition-all duration-500 ease-in" id="progressBar">
@@ -180,16 +25,12 @@
     <span id="progressPerc" class="font-semibold text-gray-700">25%</span>
   </div>
   <form id="form_main" class="">
-
-
     <div id="edLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
         <div class="mt-4">
           <p class="text-sm text-gray-700">We would like to know your educational background</p>
         </div>
-
         <div class="w-full mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             WHAT IS YOUR LEVEL OF EDUCATION
@@ -203,18 +44,14 @@
               value="secondary" /> Secondary Level
           </div>
         </div>
-
       </div>
     </div>
-
     <div id="secondaryLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
         <div class="mt-4">
           <p class="text-sm text-gray-700">We would like to know your educational background</p>
         </div>
-
         <div class="w-full mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             DID YOU FINISH YOUR SECONDARY SCHOOL
@@ -226,7 +63,6 @@
             <input required class="w-3 h-3" type="radio" name="finish_secondary" value="0" /> NO
           </div>
         </div>
-
         <div class="w-full mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?
@@ -244,18 +80,14 @@
             <input required class="w-3 h-3" type="radio" name="secondary_level" value="S6[level5]" /> S6[LEVEL 5]
           </div>
         </div>
-
       </div>
     </div>
-
     <div id="universityLevel" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">EDUCATIONAL BACKGROUND</h2>
-
         <div class="mt-4">
           <p class="text-sm text-gray-700">We would like to know your educational background</p>
         </div>
-
         <div class="w-full mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             DID YOU GRADUATE FROM UNIVERSITY ?
@@ -267,7 +99,6 @@
             <input required class="w-3 h-3" type="radio" name="finish_university" value="0" /> NO
           </div>
         </div>
-
         <div class="w-full mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY ?
@@ -288,11 +119,8 @@
             <input required class="w-3 h-3" type="radio" name="university_level" value="5" /> YEAR 5
           </div>
         </div>
-
       </div>
     </div>
-
-
     <div id="schoolInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">SCHOOL INFORMATION</h2>
@@ -301,14 +129,11 @@
           <p class="text-sm text-gray-700">Choose school you want to apply for</p>
         </div>
       </div>
-
       <div class="-mx-3 mb-6">
-
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             SELECT SCHOOL
           </label>
-
           <select required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             name="school_id" id="schoolSelect">
@@ -323,19 +148,14 @@
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             REQUIREMENTS FOR THE SELECTED SCHOOL
           </label>
-
           <div id="requirements" class="requirements">
-
           </div>
-
         </div>
       </div>
     </div>
-
     <div id="personalInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">PERSONAL INFORMATION</h2>
-
         <div class="mt-2">
           <p class="text-sm text-gray-700">Your cooperation in providing this information will greatly assist us in
             efficiently processing your application. If you have any concerns or questions regarding the collection of
@@ -343,7 +163,6 @@
         </div>
       </div>
       <div class="flex flex-wrap -mx-3 mb-6">
-
         <div class="w-full md:w-1/2 px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Fist Name
@@ -360,11 +179,8 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="lname" type="text" placeholder="ex: Doe">
         </div>
-
       </div>
-
       <div class="-mx-3 mb-6">
-
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Nationality
@@ -373,7 +189,6 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="nationality" type="text" placeholder="ex: Rwandan">
         </div>
-
         <div class="w-full px-3 mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Date Of Birth
@@ -382,7 +197,6 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="date_of_birth" type="date">
         </div>
-
         <div class="w-full px-3 mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Gender
@@ -393,9 +207,7 @@
           </div>
         </div>
       </div>
-
       <div class="flex flex-wrap -mx-3 mb-6">
-
         <div class="w-full md:w-1/2 px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Phone Number
@@ -412,14 +224,11 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="email" type="text" placeholder="ex: example@at.com">
         </div>
-
       </div>
     </div>
-
     <div id="residentialInformation" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">RESIDENTIAL ADDRESS</h2>
-
         <div class="mt-2">
           <p class="text-sm text-gray-700">We kindly request you to fill in your personal identification information to
             proceed with your application. Providing accurate and complete personal identification details is essential
@@ -427,7 +236,6 @@
             for the purpose of processing your application.</p>
         </div>
       </div>
-
       <div class="-mx-3 mb-6">
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -445,7 +253,6 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" placeholder="District" name="district" type="text">
         </div>
-
         <div class="w-full px-3 mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             SECTOR OF RESIDENCE
@@ -454,7 +261,6 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" placeholder="Sector" name="sector" type="text">
         </div>
-
         <div class="w-full px-3 mt-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY
@@ -469,7 +275,6 @@
     <div id="chooseCourse" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-6">
         <h2 class="text-blue-700 text-xl font-semibold">COURSE</h2>
-
         <div class="mt-2">
           <p class="text-sm text-gray-700">We are excited to inform you about the wide range of courses available for
             partial scholarships at our institution. These scholarships aim to make quality education more accessible to
@@ -527,14 +332,11 @@
         </div>
       </div>
     </div>
-
     <div id="attachments" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">Attachments</h2>
       </div>
-
       <div class="-mx-3 mb-6">
-
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             YOUR ID or PASSPORT
@@ -542,7 +344,6 @@
           <input required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="id_passport" type="file">
-
         </div>
         <div class="w-full px-3 mt-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -551,30 +352,24 @@
           <input required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             id="grid-last-name" name="transcript" type="file">
-
         </div>
       </div>
     </div>
     <div id="choose_payment_method" class="w-full max-w-xl mx-auto mt-4 shadow-lg p-12 bg-white rounded-xl hidden">
       <div class="mb-4">
         <h2 class="text-blue-700 text-xl font-semibold">APPLICATION FEE</h2>
-
         <div class="mt-4">
           <p class="text-sm text-gray-700">CHOOSE PAYMENT METHOD</p>
         </div>
       </div>
-
       <div class="-mx-3 mb-6">
-
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             SELECT SCHOOL
           </label>
-
           <select required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             name="payment_method" id="payment_option">
-
             <option value="cash"
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               Cash</option>
@@ -584,12 +379,10 @@
             <option value="VIS/CREDIT/DEBIT Card" disabled
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               VIS/CREDIT/DEBIT Card</option>
-
           </select>
         </div>
       </div>
     </div>
-
     <div id="error"
       class="text-red-500 bg-red-200 font-medium w-fit mx-auto p-3 rounded-xl mt-2 text-sm text-center hidden">
       Something went wrong
@@ -601,68 +394,9 @@
         class="p-3 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-md">NEXT</button>
     </div>
   </form>
-
-  <div class="-mb-24 mt-12">
-    <!-- Footer Start -->
-    <div class="bg-[#091e35] text-white py-16 px-4 md:px-6">
-      <div class="container mx-auto">
-        <div class="grid md:grid-cols-1 md:gap-4 grid-cols-4 gap-0">
-          <div class="text-center">
-            <div class="mb-4">
-              <img class="" src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="Logo">
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2">Get in Touch</h2>
-            <div class="text-md">
-              <p class="flex items-center gap-2 mt-3 md:mt-2"><i class="fa fa-map-marker"></i>4 KG 11 Ave, Kigali
-                YUSSA PLAZZA Building at 1st Floor
-              </p>
-              <p class="flex items-center gap-2 mt-3"><i class="fa fa-envelope"></i>info@kiac.ac.rw</p>
-              <p class="flex items-center gap-2 mt-3"><i class="fa fa-phone"></i>+250 783 205 698</p>
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2 md:mt-4">Follow Us</h2>
-            <div class="text-md">
-              <div class="flex gap-3">
-                <a href="https://twitter.com/kiac_rwanda" target="_blank" class="fab fa-twitter"></a>
-                <a href="https://www.facebook.com/kiac.rw1" target="_blank" class="fab fa-facebook-f"></a>
-                <a href="https://www.linkedin.com/in/kigaliartcollege/" target="_blank" class="fab fa-linkedin-in"></a>
-                <a href="https://www.instagram.com/kiac_rwanda?" target="_blank" class="fab fa-instagram"></a>
-                <a href="https://www.youtube.com/channel/UClc_sPYUsjFGVgFGOi1k01g" target="_blank"
-                  class="fab fa-youtube"></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold mb-4 md:mb-2 mt-4">Useful Links</h2>
-            <ul class="text-md">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Footer Bottom Start -->
-    <div class="footer-bottom bg-[#061429] py-4">
-      <div class="container mx-auto text-center">
-        <p class="text-sm text-white">Copyright &copy; <a href="#" class="text-white">KIAC</a>. All Rights
-          Reserved</p>
-      </div>
-    </div>
-    <!-- Footer Bottom End -->
-
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-
-  </div>
+  <?php
+  include('footer.php');
+  ?>
   <div id="customAlert" class="modal">
     <div class="modal-content">
       <span class="close-button">×</span>
@@ -691,33 +425,22 @@
     function checkLevel() {
       var levelRadios = document.getElementsByName('level');
 
-      // Initialize a variable to store the selected value
       var selectedLevel = '';
 
-      // Loop through each radio button
       for (var i = 0; i < levelRadios.length; i++) {
-        // Check if the radio button is checked
         if (levelRadios[i].checked) {
-          // Set the selectedLevel variable to the value of the checked radio button
           selectedLevel = levelRadios[i].value;
           edLevel = selectedLevel
-          break; // Exit the loop once a checked radio button is found
+          break;
         }
       }
     }
-
-
-
-
     const progressBar = document.querySelector("#progressBar")
     const progressPerc = document.querySelector("#progressPerc")
     let progress = 10
     progressBar.style.width = `${progress}%`
     progressPerc.innerHTML = `${progress}%`
-
     const courseDescription = document.querySelector("#courseDescription")
-
-
     const handleStepChange = (step) => {
       switch (step) {
         case 0:
@@ -875,9 +598,6 @@
         console.log(edLevel)
       }
     }
-
-
-
     nextButton.onclick = (e) => {
       if (currentStep < MAX_STEPS) {
 
@@ -894,11 +614,7 @@
           sendApplication()
         }
       }
-
-
     }
-
-
     const handleButtons = (step) => {
       if (step = MAX_STEPS) {
         prevButton.classList.remove("hidden")
@@ -956,9 +672,6 @@
       }
 
     ];
-
-
-
     function changeCourse(title) {
       const course = courses.find(course => course.title.toString().toLowerCase() === title.toString().toLowerCase())
       if (course) {
@@ -988,9 +701,6 @@
       }
 
     })
-
-
-
     // Educational Background Fields
     let schoolLevel = document.getElementsByName('level')
     var finishSecondaryRadio = document.getElementsByName('finish_secondary');
@@ -1014,8 +724,6 @@
     var sectorInput = document.querySelector('input[name="sector"]');
     var liveInKigaliRadio = document.getElementsByName('city_relatives');
 
-
-
     // Attachments Fields
     var idPassportFileInput = document.querySelector('input[name="id_passport"]');
     var transcriptFileInput = document.querySelector('input[name="transcript"]');
@@ -1024,7 +732,6 @@
     // var paymentMethodSelect = document.querySelector('select[name="payment_method"]');
 
     // date of birth
-
 
     function sendApplication() {
       // Create a new FormData object to store the form data
@@ -1065,7 +772,6 @@
         }
       })();
 
-
       formData.append('phone', phoneNumberInput.value);
       formData.append('email', emailAddressInput.value);
 
@@ -1075,8 +781,6 @@
       let districtValue = document.querySelector('input[name="district"]');
       formData.append('district', districtValue.value);
       formData.append('city_relatives', getSelectedRadioValue(liveInKigaliRadio));
-
-
 
       // Choose Course Fields
       (function () {
@@ -1100,7 +804,6 @@
       // formData.append('payment_method', paymentMethodSelect.value);
       const paymentOption = document.getElementById("payment_option");
       const selectedPaymentMethod = paymentOption.value;
-
 
       fetch('http://173.212.230.165:3000/api/students/register', {
         method: 'POST',
@@ -1181,12 +884,6 @@
       }
       return value;  // Return the value of the selected radio button
     }
-
-
-
-
   </script>
-
 </body>
-
 </html>

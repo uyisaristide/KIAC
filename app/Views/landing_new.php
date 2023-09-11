@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/landing_new/css/main2.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
@@ -31,7 +32,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
-
     <script>
         $(document).ready(function () {
             $('#myCarousel').carousel();
@@ -39,551 +39,7 @@
     </script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
-        * {
-            box-sizing: border-box;
-        }
 
-        .container-main {
-            background-image: url("<?= base_url(); ?>assets/landing_new/css/back1.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .image-link {
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-        }
-
-        .image-link img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .image-link .button {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            background-color: #FFC600;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            font-size: 0.80rem;
-            width: 70%;
-        }
-
-        .image-link:hover img {
-            opacity: 0.7;
-            -webkit-filter: none;
-            filter: blur(1px);
-        }
-
-        .image-link:hover .button {
-            display: block;
-            opacity: 1;
-        }
-
-        .custom-bg {
-            background: rgba(0, 0, 0, 0) linear-gradient(152deg, #4eb9d3 0, #007bb3 72%, #0375a1 100%) repeat scroll 0 0;
-        }
-
-        .tailwind-container * {
-            all: initial;
-        }
-
-        /* Slideshow */
-
-        /* .image-slideshow {
-            position: relative;
-            margin: auto;
-        }
-
-        .image-slideshow img {
-            width: 100%
-        }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 2s;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .6
-            }
-
-            to {
-                opacity: 1
-            }
-        } */
-
-
-        /* Why Choose Kiac? */
-
-        .text-choose,
-        .text-course {
-            color: #036e9d;
-        }
-
-        .card-container {
-            background-color: rgba(3, 110, 157, 0.3);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .card-container:hover,
-        .card-container:focus {
-            background-color: rgba(3, 110, 157, 1);
-        }
-
-        .gallery-image,
-        .gallery-image:focus {
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-            border-left: 1px solid rgba(3, 110, 157, 0.3);
-            border-right: 1px solid rgba(3, 110, 157, 0.3);
-
-        }
-
-        .gallery-image:hover,
-        .gallery-image:hover:focus {
-            box-shadow: 0 0.5em 0.5em -0.5em var(--hover);
-            transform: translateY(-0.8em);
-
-        }
-
-        /* Our Courses */
-
-        .program-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-        }
-
-        .box {
-            width: 14em;
-            height: 14em;
-            border: 1px solid rgba(3, 110, 157, 0.3);
-            box-shadow:
-                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-                0 0 0 2px rgb(255, 255, 255),
-                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-            padding: 1em;
-            text-align: center;
-            margin: 1em;
-            transition: transform 0.3s ease;
-        }
-
-        .box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .box h2 {
-            position: relative;
-            display: inline-block;
-            color: #036e9d;
-            padding: 10px 0;
-        }
-
-        .box h2::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 3em;
-            border-bottom: 3px solid #036e9d;
-        }
-
-        @media (max-width: 768px) {
-            .program-container {
-                flex-direction: column;
-            }
-
-            .box {
-                width: 100%;
-                margin: 0.5em 0;
-            }
-        }
-
-        /* Service Section */
-        .news_events {
-            margin-top: -20px;
-        }
-
-        .txt,
-        .txt-service {
-            color: #036e9d;
-        }
-
-        .pt50 {
-            padding-top: 50px;
-        }
-
-        .why_chosse_list {
-            padding-top: 10px;
-        }
-
-        .why_chosse_list li,
-        .more {
-            list-style-type: none;
-            color: #036e9d;
-        }
-
-        .why_chosse_list li:hover,
-        .more:hover,
-        .txt:hover,
-        .panel:hover {
-            color: dodgerblue;
-            text-decoration: underline;
-        }
-
-        .why_chosse_list li .choose_icon img {
-            width: 100%;
-            height: auto;
-        }
-
-        .bottom-bdr {
-            border-bottom: 3px solid #036e9d;
-            display: block;
-            width: 8em;
-            padding-top: 5px;
-        }
-
-        .home-events,
-        .panel-group {
-            position: relative;
-            padding-top: 10px;
-        }
-
-        .col-xs-2 {
-            width: 16.66666667%;
-        }
-
-        .home-events .calendar {
-            background: #009edd;
-            color: #FFF;
-            float: left;
-            height: 55px;
-            margin-right: 20px;
-            margin-top: 7px;
-            overflow: hidden;
-            text-align: center;
-            text-transform: uppercase;
-            width: 55px;
-        }
-
-        .home-events .calendar .month {
-            display: block;
-            font-size: 1em;
-        }
-
-        .home-events .calendar .day {
-            display: block;
-            font-size: 1.6em;
-        }
-
-        .pl20_lg {
-            padding-left: 20px;
-        }
-
-        .horizontal {
-            margin: 10px 0 20px;
-            opacity: 0.1;
-        }
-
-        .panel-group .panel {
-            border: none;
-            margin: 10px 0 20px;
-        }
-
-        .panel-group .panel .panel-heading {
-            background-color: transparent;
-        }
-
-        .panel-group .panel .panel-title {
-            font-size: 16px;
-        }
-
-        .panel-group .panel .panel-title a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Contact us */
-
-        .txt-contact {
-            position: relative;
-            display: inline-block;
-            color: #036e9d;
-            padding: 10px 0;
-        }
-
-        .txt-contact::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 4em;
-            border-bottom: 3px solid #036e9d;
-        }
-        .reviews .column .section-title{
-            position: relative;
-            display: inline-block;
-            color: #036e9d;
-            padding: 10px 0;
-        }
-        .reviews .column .section-title::after{
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 4em;
-            border-bottom: 3px solid #036e9d;
-        }
-
-        .contact-container {
-            margin-top: -50px;
-            width: 99%;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .contact-container input[type=text],
-        .contact-container input[type=email],
-        .contact-container textarea {
-            width: 70%;
-            padding: 8px;
-            border: 1px solid #036e9d;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            resize: vertical;
-            border-radius: 5px;
-        }
-
-        .contact-container input[type=text]::placeholder,
-        .contact-container input[type=email]::placeholder,
-        .contact-container textarea::placeholder {
-            color: black;
-            opacity: 0.8;
-        }
-
-        .contact-container input[type=submit] {
-            background-color: #0d6efd;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        input[type=submit]:hover {
-            background-color: #009edd;
-        }
-
-        .contact-container {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 10px;
-        }
-
-        .column {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-            width: 50%;
-            margin-top: 6px;
-            padding: 20px;
-            box-shadow:
-                0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-                0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-                0 12.5px 10px rgba(0, 0, 0, 0.06),
-                0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-                0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-                0 100px 80px rgba(0, 0, 0, 0.12);
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        @media screen and (max-width: 600px) {
-
-            .column,
-            .contact-container input[type=submit] {
-                width: 100%;
-                margin-top: 0;
-            }
-        }
-
-        /* Testimonials */
-
-        
-
-        .testimonial-container {
-            position: relative;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .testimonial-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            cursor: pointer;
-            z-index: 1;
-            font-size: 24px;
-            color: #0d6efd;
-            padding: 8px 12px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-            box-shadow:
-                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-                0 0 0 2px rgb(255, 255, 255),
-                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        }
-
-        .testimonial-button:hover {
-            background-color: #009edd;
-            color: #fff;
-        }
-
-        .testimonial-button-prev {
-            left: 10px;
-        }
-
-        .testimonial-button-next {
-            right: 10px;
-        }
-
-        .testimonial-slider {
-            max-width: 100%;
-            width: 100%;
-            white-space: nowrap;
-            transition: all 0.3s;
-            height: auto;
-        }
-
-        .testimonial {
-            display: inline-block;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
-            flex: 0 0 33.33%;
-        }
-
-        @media screen and (max-width: 768px) {
-            .testimonial {
-                flex: 0 0 100%;
-            }
-        }
-
-        .testimonial .bg-white {
-            border-left: 1px solid #036e9d;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial .bg-white:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border: 1px solid rgba(3, 110, 157, 0.3);
-            box-shadow:
-                inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-                0 0 0 2px rgb(255, 255, 255),
-                0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-        }
-        .reviews .column{
-            box-shadow: none !important;
-        }
-
-        .testimonial-content {
-
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 14rem;
-        }
-
-        .testimonial h4 {
-            color: #036e9d;
-        }
-
-        .testimonial h4,
-        .testimonial h5 {
-            text-align: center;
-        }
-
-        .testimonial h5 {
-            padding-bottom: 10px;
-        }
-
-        .testimonial h4,
-        .testimonial p {
-            margin: 0;
-        }
-
-        .testimonial-text {
-            white-space: normal;
-            word-wrap: break-word;
-            width: 100%;
-        }
-
-        /* Footer */
-        
-        .footer-container {
-            bottom: 0;
-            background-color: #e5e5e5;
-            padding: 1px;
-        }
-
-        .footer-heading {
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        .main_footer_links ul li {
-            font-size: 14px;
-            color: #036e9d;
-            padding: 5px 0;
-            font-weight: 600;
-        }
-
-        .main_footer_links ul li a:hover,
-        .copyright:hover {
-            text-decoration: underline;
-            color: #036e9d;
-        }
-
-        .footer-social li {
-            border: 2px solid #036e9d;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 25px;
-        }
-
-        .footer-social li {
-            border: 2px solid #036e9d;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 25px;
-            color: #036e9d;
-        }
     </style>
 </head>
 
@@ -664,12 +120,6 @@
                     </div>
                 </div>
                 <div>
-                    <!-- <div class="flex items-center float-right text-white/80 text-xs font-medium py-2">
-                        <div class="flex gap-1">
-                            <span>+27 &deg;</span>
-                            <span class="px-4 border-l">KIGALI</span>
-                        </div>
-                    </div> -->
                     <div class="flex items-center h-[8rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
                         <div class="w-1/3 py-2 pl-4 md:w-full">
                             <img class="w-1/2 h-[80%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
@@ -687,7 +137,8 @@
                         <span class="main-menu-btn-icon"></span> Toggle main menu visibility
                     </label>
                     <ul id="main-menu" class="sm sm-blue">
-                        <li><a class="current" href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
+                        <li><a class="current" href="/"><i class="fa fa-home fa-lg"></i> Home</a>
+                        </li>
                         <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
                         <li><a href="#programs"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
@@ -738,24 +189,25 @@
                     <div class="w-[30%] md:w-full">
                         <div class="my-2 w-full flex item-center gap-2">
                             <input
-                                class="py-1 w-4/6 text-sm px-2 rounded-lg outline-none border text-white placeholder:text-white/90 focus:border-yellow-300 transition-colors border-white/30 bg-white/20"
-                                type="text" placeholder="Search . . ." name="search" id="search" />
-                            <button class="p-2 w-2/6 bg-yellow-500 rounded-lg text-sm text-white"
+                                class="py-1 w-4/6 text-sm px-2 rounded-lg outline-none text-black/90 placeholder:text-black/90 transition-colors bg-blue-100"
+                                type="text" placeholder="Search . . ." name="search" id="search"
+                                style="border: 1px solid rgba(3, 110, 157, 0.3);" />
+                            <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="border-2 border-yellow-300 text-center p-2 bg-blue-500 rounded-lg">
-                            <a class="text-white font-semibold" href="#">Study <span
-                                    class="text-white bg-yellow-500 p-1 rounded-lg px-3">Abroad</span></a>
+                        <div class="text-center p-2 rounded-lg bg-blue-100"
+                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
+                            <a class="text-blue-500 font-semibold" href="#">Study <span
+                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Abroad</span></a>
                         </div>
-
                         <div class="pt-3 flex flex-col gap-2">
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-3/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/arm.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Study in Armenia</button>
@@ -764,11 +216,11 @@
 
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-3/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Study in Turkey</button>
@@ -776,11 +228,11 @@
                             </div>
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-3/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/4.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Study in Cyprus</button>
@@ -788,11 +240,11 @@
                             </div>
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-3/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/arm.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Study in Poland</button>
@@ -834,24 +286,27 @@
                     <div class="w-[30%] md:w-full">
                         <div class="my-2 w-full flex item-center gap-2">
                             <input
-                                class="py-1 w-4/6 text-sm px-2 rounded-lg outline-none border text-white placeholder:text-white/90 focus:border-yellow-300 transition-colors border-white/30 bg-white/20"
-                                type="text" placeholder="Search . . ." name="search" id="search" />
-                            <button class="p-2 w-2/6 bg-yellow-500 rounded-lg text-sm text-white"
+                                class="py-1 w-4/6 text-sm px-2 rounded-lg outline-none text-black/90 placeholder:text-black/90 transition-colors bg-blue-100 border-white/30"
+                                type="text" placeholder="Search . . ." name="search" id="search"
+                                style="border: 1px solid rgba(3, 110, 157, 0.3);" />
+                            <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="border-2 border-yellow-300 text-center p-2 bg-blue-500 rounded-lg">
-                            <a class="text-white font-semibold" href="#">Study At <span
-                                    class="text-white bg-yellow-500 p-1 px-3 rounded-lg">Kigali International
+                        <div class="text-center p-2 rounded-lg bg-blue-100"
+                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
+                            <a class="text-blue-500 font-semibold" href="#">Study At <span
+                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Kigali
+                                    International
                                     School</span></a>
                         </div>
                         <div class="pt-3 flex flex-col gap-2">
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/video.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Video Production</button>
@@ -859,11 +314,11 @@
                             </div>
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/photo.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Photography</button>
@@ -872,11 +327,11 @@
 
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/graphic.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Graphic Design</button>
@@ -885,11 +340,11 @@
 
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/web.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Web Design</button>
@@ -898,11 +353,11 @@
 
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/crea.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Creative Arts</button>
@@ -910,11 +365,11 @@
                             </div>
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/comp.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Computer Maintainance</button>
@@ -922,11 +377,11 @@
                             </div>
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
-                                <div class="w-4/5 h-[70px] md:h-[100px]">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
                                         src="<?= base_url(); ?>assets/landing_new/img/music.jpg" alt="Armenia Image">
                                 </div>
-                                <div class="w-2/5">
+                                <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
                                         href="#">Music</button>
@@ -981,54 +436,54 @@
         <div class="program-container">
             <div class="box">
                 <h2 style="font-size: 20px;">Web design</h2>
-                <p style="font-size: 14px; padding-top: 5px;">Web design refers to the design of websites that are
+                <p style="font-size: 14px; padding: 5px;">Web design refers to the design of websites that are
                     displayed on the internet.</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Software Development</h2>
-                <p style="font-size: 14px; padding-top: 5px">Software Development
+                <p style="font-size: 14px; padding: 5px">Software Development
                     Our courses helps in process programmers use to build computer programs.</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Photography</h2>
-                <p style="font-size: 14px; padding-top: 5px">Photography courses enable the candidates to understand the
+                <p style="font-size: 14px; padding: 5px">Photography courses enable the candidates to understand the
                     utility of different camera parts, working out the lights while clicking pictures.</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Graphic Design</h2>
-                <p style="font-size: 14px; padding-top: 5px">Graphic design courses helps in a craft where professionals
+                <p style="font-size: 14px; padding: 5px">Graphic design courses helps in a craft where professionals
                     create visual content to communicate messages.</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Computer Hardware</h2>
-                <p style="font-size: 14px; padding-top: 5px;">Web design refers to the design of websites that are
+                <p style="font-size: 14px; padding: 5px;">Web design refers to the design of websites that are
                     displayed on the internet. It usually refers to</p>
             </div>
         </div>
         <div class="program-container">
             <div class="box">
                 <h2 style="font-size: 20px;">Video Production</h2>
-                <p style="font-size: 14px; padding-top: 5px;">The Photography course focuses on developing students'
+                <p style="font-size: 14px; padding: 5px;">The Photography course focuses on developing students'
                     technical skills and artistic vision in capturing compelling images</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Creative Art</h2>
-                <p style="font-size: 14px; padding-top: 5px">A broad, practice-based course, that encompasses a wide
+                <p style="font-size: 14px; padding: 5px">A broad, practice-based course, that encompasses a wide
                     variety of visual and non-visual disciplines </p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">CCTV Camera</h2>
-                <p style="font-size: 14px; padding-top: 5px">This course equips students with the skills to install,
+                <p style="font-size: 14px; padding: 5px">This course equips students with the skills to install,
                     maintain, and troubleshoot closed-circuit television (CCTV) systems.</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Electronic Services</h2>
-                <p style="font-size: 14px; padding-top: 5px">This course covers a wide range of topics related to
+                <p style="font-size: 14px; padding: 5px">This course covers a wide range of topics related to
                     electronic services. It is designed to provide</p>
             </div>
             <div class="box">
                 <h2 style="font-size: 20px;">Music</h2>
-                <p style="font-size: 14px; padding-top: 5px">Music courses range in specialization from practical
+                <p style="font-size: 14px; padding: 5px">Music courses range in specialization from practical
                     instrument training to music theory to the music business.</p>
             </div>
         </div>
@@ -1041,10 +496,7 @@
                     <div id="choose" class="col-lg-4">
                         <h2 class="txt-service fw_400" style="font-size: 25px;">Latest News</h2>
                         <span class="bottom-bdr"></span>
-
                         <ul class="why_chosse_list">
-
-
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
@@ -1056,7 +508,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-8  col-sm-8  col-xs-8">
                                         <div class="description">
-                                            <h3 class="fw_400"> <a href="#">UR’s
+                                            <h3 class="fw_400"> <a href="#">KIAC’s
                                                     ACEIoT empowers youth with AI, Internet of Things training for
                                                     thriving ICT careers</a></h3>
                                         </div>
@@ -1102,7 +554,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-8  col-sm-8  col-xs-8">
                                         <div class="description">
-                                            <h3 class="fw_400"> <a href="#">UR
+                                            <h3 class="fw_400"> <a href="#">KIAC
                                                     welcomes students from Sudanese varsity sheltered in Rwanda to
                                                     resume their medical studies </a></h3>
                                         </div>
@@ -1219,7 +671,7 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title fw_400">
                                         <a href="./?Results-for-accountant-position-at-UR-HG-Ltd"
-                                            class="collapsed">Results for accountant position at UR HG Ltd</a>
+                                            class="collapsed">Results for accountant position at KIAC Ltd</a>
                                     </h3>
                                 </div>
 
@@ -1248,7 +700,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Contact us -->
 
@@ -1455,7 +906,7 @@
                 <i class="fas fa-angle-right"></i>
             </button>
         </div>
-        
+
         <div class="contact-container reviews">
             <div class="row">
                 <div class="column">
@@ -1467,8 +918,8 @@
                 </div>
                 <div class="column">
                     <form action="/action_page.php">
-                        <input type="text" id="fname" name="firstname" placeholder="Enter Full Name">
-                        <input type="text" id="lname" name="lastname" placeholder="Add your Title: e.g Student">
+                        <input type="email" id="fname" name="email" placeholder="Enter Your Email">
+                        <input type="text" id="title" name="title" placeholder="Add your Title: e.g Student">
                         <textarea id="subject" name="subject" placeholder="Write Your Review"
                             style="height:100px"></textarea><br>
                         <input style="width: 70%" type="submit" value="Submit Review">
@@ -1476,10 +927,8 @@
                 </div>
             </div>
         </div>
-
-
-
         <!-- FOOTER -->
+
         <div class="footer-container gray-bg_medium">
             <footer class="container" id="footer"
                 style="padding: 20px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
@@ -1558,7 +1007,7 @@
                         </div>
                         <div class="map">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.665309640288!2d30.10036658371208!3d-1.9683043972220091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca64f761b814b%3A0xac5a13c74d16a75c!2sSonatubes!5e0!3m2!1sen!2srw!4v1694360421607!5m2!1sen!2srw"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127601.33843275288!2d29.95548984335936!3d-1.9355972999999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7a9f5f652c3%3A0xd0fe063e8f64a42b!2sKIAC%20-%20Kigali%20International%20Art%20College!5e0!3m2!1sen!2srw!4v1694422613436!5m2!1sen!2srw"
                                 width="285" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
                         </div>
                     </div>
@@ -1727,11 +1176,8 @@
 
 </script>
 
+<!-- REAL-TIME CLOCK -->
 <script>
-
-
-    //REAL-TIME CLOCK
-
     let hours = new Date().getHours()
     let minutes = new Date().getMinutes()
     let seconds = new Date().getSeconds()
@@ -1744,10 +1190,6 @@
         document.querySelector('.time-real').innerHTML = `${hours >= 10 ? hours : "0 " + hours} : ${minutes >= 10 ? minutes : "0 " + minutes} : ${seconds >= 10 ? seconds : "0 " + seconds} ${hours >= 12 ? "PM" : "AM"}`
 
     }, 500)
-
 </script>
-<!-- <script src="<?= base_url(); ?>assets/landing_new/lib/easing/easing.min.js"></script>
-      <script src="<?= base_url(); ?>assets/landing_new/lib/slick/slick.min.js"></script> -->
 <script src="<?= base_url(); ?>assets/landing_new/js/main.js"></script>
-
 </html>
