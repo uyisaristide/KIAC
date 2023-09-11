@@ -408,11 +408,11 @@
       <p>We are excited to inform you about the wide range of courses available for partial scholarships at our
         institution. These scholarships aim to make quality education more accessible to talented individuals like
         yourself. Below, you will find a list of the courses eligible for our partial scholarship program:</p>
-
       <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
-      <input type="checkbox" name="program" value="Day"> Day<br>
-      <input type="checkbox" name="program" value="Night"> Night<br>
-      <input type="checkbox" name="program" value="Weekend"> Weekend<br>
+
+      <input type="checkbox" id="day" name="program" value="Day" onclick="checkOnlyOne(this)"> Day<br>
+      <input type="checkbox" id="night" name="program" value="Night" onclick="checkOnlyOne(this)"> Night<br>
+      <input type="checkbox" id="weekend" name="program" value="Weekend" onclick="checkOnlyOne(this)"> Weekend<br>
       <div class="error" id="programError"></div>
 
       <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
@@ -485,9 +485,9 @@
         <input type="radio" name="level" value="Secondary Level" required> Secondary Level
 
         <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
-        <input type="checkbox" name="program" value="Day"> Day<br>
-        <input type="checkbox" name="program" value="Night"> Night<br>
-        <input type="checkbox" name="program" value="Weekend"> Weekend<br>
+        <input type="checkbox" name="program" value=" Day "> Day<br>
+        <input type="checkbox" name="program" value=" Night "> Night<br>
+        <input type="checkbox" name="program" value=" Weekend "> Weekend<br>
 
 
         <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
@@ -723,9 +723,10 @@
     formData.append('familyInKigali', document.querySelector('[name="familyInKigali"]:checked').value);
 
     // For checkboxes where multiple values can be checked
-    Array.from(document.querySelectorAll('[name="program"]:checked')).forEach(input => {
-      formData.append('program', input.value);
-    });
+    // Array.from(document.querySelectorAll('[name="program"]:checked')).forEach(input => {
+    //   formData.append('program', input.value);
+    // });
+    formData.append("program", document.querySelector('[name="program"]:checked').value);
 
     formData.append('course', document.querySelector('[name="course"]').value);
 
@@ -768,7 +769,7 @@
 
 
     // fetch('http://localhost:3000/api/students/register', {
-    fetch('http://173.212.230.165:3000/api/students/register', {
+      fetch('http://173.212.230.165:3000/api/students/register', {
       method: 'POST',
       body: formData
     }).then(response => {
@@ -820,7 +821,7 @@
     let formData = gatheragentFormData();
 
     // fetch('http://localhost:3000/api/agents/application', {
-      fetch('http://173.212.230.165:3000/api/agents/application', {
+    fetch('http://173.212.230.165:3000/api/agents/application', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -888,7 +889,7 @@
     let formData = gatherAbroadFormData();
 
     // fetch('http://localhost:3000/api/study/abroad/application', {
-      fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+    fetch('http://173.212.230.165:3000/api/study/abroad/application', {
       method: 'POST',
       headers: {
         // 'Content-Type': 'application/x-www-form-urlencoded'
@@ -920,7 +921,7 @@
     console.error('Server-Side Error:', errorMessage);
   }
 
- 
+
 
   document.getElementById('abroadApplicationForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -933,6 +934,14 @@
     location.reload();
   }
 
+  function checkOnlyOne(checkbox) {
+    const checkboxes = document.getElementsByName('program');
+    checkboxes.forEach((chk) => {
+      if (chk !== checkbox) {
+        chk.checked = false;
+      }
+    });
+  }
 
 
 </script>
