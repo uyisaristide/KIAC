@@ -193,11 +193,11 @@ include('header.php');
 
   <div class="center">
     <div class="content" id="selectorDiv">
-      <h3>Choose</h3>
+      <h3>Choose To:</h3>
 
-      <label><input type="radio" name="userType" value="student" onclick="showForm('student')"> Student</label>
-      <label><input type="radio" name="userType" value="agent" onclick="showForm('agent')"> Agent</label>
-      <label><input type="radio" name="userType" value="abroad" onclick="showForm('abroad')"> Abroad Student</label>
+      <label><input type="radio" name="userType" value="student" onclick="showForm('student')"> Study At KIAC</label>
+      <label><input type="radio" name="userType" value="agent" onclick="showForm('agent')">Be An Agent</label>
+      <label><input type="radio" name="userType" value="abroad" onclick="showForm('abroad')">Study Abroad</label>
     </div>
   </div>
 
