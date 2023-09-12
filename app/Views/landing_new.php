@@ -158,14 +158,14 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center h-[8rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
+                    <div class="flex items-center h-[4rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
                         <div class="w-1/3 py-2 pl-4 md:w-full">
-                            <img class="w-1/2 h-[80%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
+                            <img class="w-1/2 h-[70%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
                                 alt="no image found">
                         </div>
                         <div class="w-full md:w-full">
-                            <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg "
-                                alt="no image found">
+                            <img class="w-full h-[80%]" src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg "
+                                alt="no image found" style="height: 96px">
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                         </li>
                         <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
-                        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
+                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
                         </li>
                         <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
                         </li>
@@ -194,8 +194,8 @@
                         <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
-                        <li><a href="#"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="#"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
+                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
