@@ -204,8 +204,8 @@
                             </h2>
                             <ul class="submenu">
                                 <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
-                                <li><a href="#">Be An Agent</a></li>
-                                <li><a href="#">Study Abroad</a></li>
+                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
+                                <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
                             </ul>
                         </li>
                     </ul>
