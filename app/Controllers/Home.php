@@ -224,6 +224,12 @@ class Home extends BaseController
 		return view('landingPage/agent.php');
 		//		return view('landing_new', $data);	
 	}
+	public function Abroad()
+	{
+
+		return view('landingPage/abroad.php');
+		//		return view('landing_new', $data);	
+	}
 	public function About()
 	{
 
