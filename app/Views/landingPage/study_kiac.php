@@ -134,8 +134,6 @@ include('header.php');
       text-decoration: none;
       cursor: pointer;
     }
-
-    /* Center content */
     .center {
       display: flex;
       justify-content: center;
@@ -144,22 +142,18 @@ include('header.php');
       height: 50%;
     }
 
-    /* Center content */
     .center {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 30%;
     }
-
-    /* Styles for the content div */
     .content {
       background-color: #ffffff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      /* center the h2 and radio buttons */
     }
 
     h3 {
@@ -168,17 +162,13 @@ include('header.php');
 
     label {
       display: inline-block;
-      /* changed from block to inline-block */
       margin: 0 10px;
-      /* added margin to space them apart */
       cursor: pointer;
     }
 
     input[type="radio"] {
       margin-right: 5px;
     }
-
-    /* Responsive Styles */
     @media (max-width: 768px) {
       form {
         padding: 20px;
@@ -315,9 +305,9 @@ include('header.php');
       <select name="paymentMethod">
         <option value="" disabled selected>Select a payment method</option>
         <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
-        <option value="Cash" selected >Cash</option>
-        <option value="Bank Transfer" disabled>Momo</option>
-        <option value="PayPal" disabled>Credid Card/PayPal</option>
+        <option value="Cash">Cash</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="PayPal">PayPal</option>
       </select>
       <div class="error" id="paymentMethodError"></div>
       <input type="submit" value="Submit Application" id="submitButton">
@@ -336,8 +326,99 @@ include('header.php');
   ?>
 </body>
 <script>
+  function showForm(userType) {
+    // Hide all forms initially
+    // document.getElementById("selectorDiv").style.display = "none";
+    document.getElementById("studentForm").style.display = "none";
+    document.getElementById("agentForm").style.display = "none";
+    document.getElementById("abroadForm").style.display = "none";
 
+    // Display the corresponding form based on user selection
+    if (userType === "student") {
+      document.getElementById("studentForm").style.display = "block";
+    } else if (userType === "agent") {
+      document.getElementById("agentForm").style.display = "block";
+    } else if (userType === "abroad") {
+      document.getElementById("abroadForm").style.display = "block";
+    }
+  }
+  document.getElementById("applicationForm").addEventListener("submit", function (event) {
+    let hasError = false;
 
+    // For education level
+    if (!document.querySelector('input[name="educationLevel"]:checked')) {
+      document.getElementById("educationLevelError").innerText = "Please select your education level.";
+      hasError = true;
+    } else {
+      document.getElementById("educationLevelError").innerText = "";
+    }
+
+    // For secondary school finished
+    if (!document.querySelector('input[name="secondaryFinished"]:checked')) {
+      document.getElementById("secondaryFinishedError").innerText = "Please answer this question.";
+      hasError = true;
+    } else {
+      document.getElementById("secondaryFinishedError").innerText = "";
+    }
+    // ... Add similar validations for other fields ...
+    // For university graduated
+    if (!document.querySelector('input[name="universityGraduated"]:checked')) {
+      document.getElementById("universityGraduatedError").innerText = "Please answer this question.";
+      hasError = true;
+    } else {
+      document.getElementById("universityGraduatedError").innerText = "";
+    }
+
+    // For school selection
+    if (!document.querySelector('select[name="school"]').value) {
+      document.getElementById("schoolError").innerText = "Please select a school.";
+      hasError = true;
+    } else {
+      document.getElementById("schoolError").innerText = "";
+    }
+
+    // For gender selection
+    if (!document.querySelector('input[name="gender"]:checked')) {
+      document.getElementById("genderError").innerText = "Please select your gender.";
+      hasError = true;
+    } else {
+      document.getElementById("genderError").innerText = "";
+    }
+
+    // For family in Kigali question
+    if (!document.querySelector('input[name="familyInKigali"]:checked')) {
+      document.getElementById("familyInKigaliError").innerText = "Please answer this question.";
+      hasError = true;
+    } else {
+      document.getElementById("familyInKigaliError").innerText = "";
+    }
+    // For program selection
+    if (!document.querySelector('input[name="program"]:checked')) {
+      document.getElementById("programError").innerText = "Please select at least one program.";
+      hasError = true;
+    } else {
+      document.getElementById("programError").innerText = "";
+    }
+
+    // For course selection
+    if (!document.querySelector('select[name="course"]').value) {
+      document.getElementById("courseError").innerText = "Please select a course.";
+      hasError = true;
+    } else {
+      document.getElementById("courseError").innerText = "";
+    }
+
+    // For payment method selection
+    if (!document.querySelector('select[name="paymentMethod"]').value) {
+      document.getElementById("paymentMethodError").innerText = "Please select a payment method.";
+      hasError = true;
+    } else {
+      document.getElementById("paymentMethodError").innerText = "";
+    }
+    if (hasError) {
+      event.preventDefault();
+    }
+  });
   function gatherFormData() {
     let formData = new FormData();
 
@@ -381,70 +462,56 @@ include('header.php');
     return formData;
   }
 
-  function sendDataToServer() {
-    if (!isValidForm()) return;
-    let formData = gatherFormData();
-
-    function isValidForm() {
-      const form = document.getElementById('applicationForm');
-      if (!form.checkValidity()) {
-        alert('Please fill all the fields correctly.');
-        return false;
-      }
-      return true;
-    }
-   
-    // fetch('http://localhost:3000/api/students/register', {
-      fetch('http://173.212.230.165:3000/api/students/register', {
-      method: 'POST',
-      body: formData,
-      dataType: 'json',
-      
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          showModal('Your application was sent successfully!');
-        } else {
-          const errorMsg = data.error || 'Please fill the form correctly';
-          showModal(errorMsg);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        showModal('Something went wrong! Please try again.');
-        // showModal(error);
-      });
-  }
-
   function showModal(message) {
-    const modal = document.getElementById('myModal');
-    const span = document.getElementsByClassName("close")[0];
-    const modalText = document.getElementById('modalText');
+    let modal = document.getElementById("myModal");
+    let span = document.getElementsByClassName("close")[0];
+    let modalText = document.getElementById("modalText");
 
     modalText.innerHTML = message;
     modal.style.display = "block";
 
     span.onclick = function () {
       modal.style.display = "none";
-      location.reload(); // reloads the page
+      location.reload();  // Refresh the page when the modal is closed.
     }
 
     window.onclick = function (event) {
       if (event.target === modal) {
         modal.style.display = "none";
-        location.reload(); // reloads the page
+        location.reload();  // Refresh the page when the modal is clicked outside.
       }
     }
+  }
+  function sendDataToServer() {
+    let formData = gatherFormData();
+
+
+    // fetch('http://localhost:3000/api/students/register', {
+    fetch('http://173.212.230.165:3000/api/students/register', {
+      method: 'POST',
+      body: formData
+    }).then(response => {
+      return response.json().then(data => {
+        if (!response.ok) {
+          throw new Error(data.error || alert("Some thing went wrong! Plz Fill the Form as it required "));
+          console.log(data.error || "Please fill the form correctly");
+          location.reload();
+        }
+        return data;
+      });
+    }).then(data => {
+      console.log(data);
+      showModal('Your application sent successfully!');
+    }).catch(error => {
+      console.error('Error:', error);
+      showModal("Some thing went wrong! Plz Fill the Form as it required ");
+    });
   }
 
   document.getElementById('applicationForm').addEventListener('submit', function (e) {
     e.preventDefault();
     sendDataToServer();
   });
-
-
-
 
 
 </script>
