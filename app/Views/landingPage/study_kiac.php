@@ -200,11 +200,9 @@ include('header.php');
       <label><input type="radio" name="userType" value="abroad" onclick="showForm('abroad')">Study Abroad</label>
     </div>
   </div>
-
   <div class="form-container" id="studentForm">
     <div class="max-w-xl mx-auto mt-12">
       <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
-
       <div class="my-4">
         <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
           Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
