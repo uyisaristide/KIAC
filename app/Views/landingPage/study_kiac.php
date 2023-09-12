@@ -13,11 +13,14 @@ include('header.php');
   <title>Apply To Study At Kigali International Art School</title>
 
   <style>
-    body {
+        body {
       font-family: 'Open Sans', sans-serif;
       background-color: #f5f5f5;
       font-size: 14px;
       /* Reduced font size */
+    }
+    .form-container {
+      display: none;
     }
 
     form {
@@ -78,7 +81,6 @@ include('header.php');
       border: 1px solid #e0e0e0;
       border-radius: 5px;
       font-size: 13px;
-      width: 100%;
     }
 
 
@@ -134,6 +136,8 @@ include('header.php');
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* Center content */
     .center {
       display: flex;
       justify-content: center;
@@ -142,18 +146,22 @@ include('header.php');
       height: 50%;
     }
 
+    /* Center content */
     .center {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 30%;
     }
+
+    /* Styles for the content div */
     .content {
       background-color: #ffffff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      /* center the h2 and radio buttons */
     }
 
     h3 {
@@ -162,13 +170,17 @@ include('header.php');
 
     label {
       display: inline-block;
+      /* changed from block to inline-block */
       margin: 0 10px;
+      /* added margin to space them apart */
       cursor: pointer;
     }
 
     input[type="radio"] {
       margin-right: 5px;
     }
+
+    /* Responsive Styles */
     @media (max-width: 768px) {
       form {
         padding: 20px;
@@ -178,9 +190,21 @@ include('header.php');
 </head>
 
 <body class="bg-gray-200">
+
+  <div class="center">
+    <div class="content" id="selectorDiv">
+      <h3>Choose To:</h3>
+
+      <label><input type="radio" name="userType" value="student" onclick="showForm('student')"> Study At KIAC</label>
+      <label><input type="radio" name="userType" value="agent" onclick="showForm('agent')">Be An Agent</label>
+      <label><input type="radio" name="userType" value="abroad" onclick="showForm('abroad')">Study Abroad</label>
+    </div>
+  </div>
+
   <div class="form-container" id="studentForm">
     <div class="max-w-xl mx-auto mt-12">
       <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
+
       <div class="my-4">
         <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
           Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
@@ -320,6 +344,142 @@ include('header.php');
       </div>
 
     </form>
+    <!-- Your form fields for student go here -->
+  </div>
+
+  <!-- Agent Form -->
+  <div class="form-container" id="agentForm">
+    <div class="max-w-xl mx-auto mt-12">
+      <h2 class="text-gray-700 font-bold text-2xl">APPLY FOR SCHOLARSHIP</h2>
+
+      <div class="my-4">
+        <p class="text-gray-700 font-medium">SCHOLARSHIP COVERS 50% TUITION FEES
+          OPPORTUNITY TO STUDY ABROAD
+          OPPORTUNITY FOR INTERNSHIP TO OUR PARTNERS </p>
+      </div>
+
+      <form id="agentApplicationForm" METHOD="POST">
+        <h3>PERSONAL INFORMATION</h3>
+        Names: <input type="text" name="names" required><br>
+        Phone Number: <input type="tel" name="telephone" required pattern="[0-9]{10}"><br>
+        Email Address: <input type="email" name="email_address" required><br>
+        DISTRICT OF RESIDENCE:
+        <input type="text" name="address" required><br>
+        <h3>Education Level
+        </h3>
+
+        <input type="radio" name="level" value="University Level" required> University Level
+        <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+
+        <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
+        <input type="checkbox" name="program" value=" Day "> Day<br>
+        <input type="checkbox" name="program" value=" Night "> Night<br>
+        <input type="checkbox" name="program" value=" Weekend "> Weekend<br>
+
+
+        <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
+        <select name="courses" required>
+          <option>-----select course----</option>
+          <option value="CCTV CAMERA">CCTV CAMERA</option>
+          <option value="Computer Hardware">Computer Hardware</option>
+          <option value="Music">Music</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Video Production">Video Production</option>
+          <option value="Creative Art">Creative Art</option>
+          <option value="Web design">Web design</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Photography">Photography</option>
+          <option value="Electronic Services">Electronic Services</option>
+          <option value="cycle inferieur">cycle inferieur</option>
+          <option value="Maternelle">Maternelle</option>
+          <option value="Secondaire">Secondaire</option>
+        </select>
+
+        <input type="submit" value="Submit" id="submitButton">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <!-- Your form fields for agent go here -->
+  </div>
+
+  <!-- Abroad Student Form -->
+  <div class="form-container" id="abroadForm">
+    <div class="max-w-xl mx-auto mt-12">
+      <h2 class="text-gray-700 font-bold text-2xl">STUDY ABROAD FOR SCHOLARSHIP
+      </h2>
+
+      <div class="my-4">
+        <p class="text-gray-700 font-medium">KIAC is a professional educational agency, you can explore study abroad
+          opportunities with scholarships that cover 90% of your expenses. We specialize in providing guidance and
+          support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen countries.</p>
+      </div>
+      <form id="abroadApplicationForm" enctype="multipart/form-data" METHOD="POST">
+
+        <h3>DO YOU WANT TO STUDY ABROAD FOR SCHOLARSHIP ?</h3>
+        <input type="radio" name="want_to_study" value="yes" required> Yes
+        <input type="radio" name="want_to_study" value="no" required> No
+        <!-- <div class="error" id="educationLevelError"></div> -->
+
+        <h3>IF YOU ARE INTERESTED ON THIS SCHOLARSHIP; PROCEED TO THE NEXT STEP.</h3>
+        <input type="radio" name="interested" value="YES" required>I AM INTERESTED
+        <input type="radio" name="interested" value="NO" required> NOT INTERESTED
+        <!-- <div class="error" id="secondaryFinishedError"></div> -->
+
+        <h3>PERSONAL INFORMATION</h3>
+        <!-- First Name: <input type="text" name="firstName" required><br>
+        Last Name: <input type="text" name="lastName" required><br> -->
+        Date of Birth: <input type="date" name="birth_date" required><br>
+        Gender:
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female
+        <div class="error" id="genderError"></div>
+        Nationality: <input type="text" name="nationality" required><br>
+        Phone Number: <input type="tel" name="phone_number" required pattern="[0-9]{10}"><br>
+        Email Address: <input type="email" name="email_add" required><br>
+
+
+        <h3>YOUR CURRENT LEVEL OF EDUCATION </h3>
+        <input type="radio" name="university_level" value="University Level" required> University Level
+        <input type="radio" name="university_level" value="Secondary Level" required> Secondary Level
+        <div class="error" id="educationLevelError"></div>
+
+        <!-- ... Repeat for all other sections ... -->
+        <h3>SELECT YOUR DESIRED COUNTRY
+          *</h3>
+        <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
+        <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
+        <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
+        <div class="error" id="universityGraduatedError"></div>
+
+        <h3>WHICH PROGRAM DO YOU WANT TO APPLY FOR ?
+          *</h3>
+        Program:
+        <input type="text" name="program" required><br>
+        <h3>REQUIRED DOCUMENT</h3>
+        YOUR PHOTO PASSPORT: <input type="file" name="passport_pic"><br>
+        ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript_doc"><br>
+        YOUR VALID PASSPORT: <input type="file" name="id_passport"><br>
+        COVID_19 VACINATION CERTIFICATE <input type="file" name="vaccine"><br>
+
+        <input type="submit" value="Submit Application" id="submitButton">
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+          </div>
+        </div>
+
+      </form>
+      <!-- Your form fields for abroad student go here -->
+
+    </div>
   </div>
   <?php
   include('footer.php');
@@ -487,7 +647,7 @@ include('header.php');
 
 
     // fetch('http://localhost:3000/api/students/register', {
-    fetch('http://173.212.230.165:3000/api/students/register', {
+      fetch('http://173.212.230.165:3000/api/students/register', {
       method: 'POST',
       body: formData
     }).then(response => {
@@ -513,8 +673,151 @@ include('header.php');
     sendDataToServer();
   });
 
+  function gatheragentFormData() {
+    let data = {
+      names: document.querySelector('[name="names"]').value,
+      telephone: document.querySelector('[name="telephone"]').value,
+      email_address: document.querySelector('[name="email_address"]').value,
+      address: document.querySelector('[name="address"]').value,
+      level: document.querySelector('[name="level"]:checked').value,
+      course: document.querySelector('[name="courses"]').value,
+    };
+
+    const programs = Array.from(document.querySelectorAll('[name="program"]:checked')).map(input => input.value);
+
+    // Initialize URLSearchParams from the data object
+    const params = new URLSearchParams(data);
+
+    // Add each program to the params
+    programs.forEach(program => {
+      params.append('program', program);
+    });
+
+    return params.toString();
+  }
+
+  function sendAgentDataToServer() {
+    let formData = gatheragentFormData();
+
+    // fetch('http://localhost:3000/api/agents/application', {
+    fetch('http://173.212.230.165:3000/api/agents/application', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: formData
+    }).then(response => {
+      if (!response.ok) {
+        return response.json().then(data => {
+          const errorMessage = data.error || "Please fill the form correctly";
+          alert(errorMessage);
+          throw new Error(errorMessage);
+        });
+      }
+      return response.json();
+    }).then(data => {
+      console.log(data);
+      // showModal('Your application sent successfully!');
+      alertAndReload('Your application was sent successfully!');
+    }).catch(error => {
+      console.error('Error:', error);
+      // showModal("Some thing went wrong! Plz Fill the Form as it required ");
+      alertAndReload('Something went wrong! Please fill the form correctly.');
+    });
+  }
+  document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    sendAgentDataToServer();
+  });
 
 
+
+
+  // abbroad
+  function gatherAbroadFormData() {
+    let formData = new FormData();
+    formData.append('university_level', document.querySelector('[name="university_level"]:checked').value);
+    formData.append('gender', document.querySelector('[name="gender"]:checked').value);
+    formData.append('want_to_study', document.querySelector('[name="want_to_study"]:checked').value);
+    formData.append('interested', document.querySelector('[name="interested"]:checked').value);
+    formData.append('desired_country', document.querySelector('[name="desired_country"]:checked').value);
+    formData.append('birth_date', document.querySelector('[name="birth_date"]').value);
+    formData.append('phone_number', document.querySelector('[name="phone_number"]').value);
+    formData.append('email_add', document.querySelector('[name="email_add"]').value);
+    formData.append('program', document.querySelector('[name="program"]').value);
+
+    // Handle file uploads
+    if (document.querySelector('[name="id_passport"]').files.length > 0) {
+      formData.append('id_passport', document.querySelector('[name="id_passport"]').files[0]);
+    }
+    if (document.querySelector('[name="passport_pic"]').files.length > 0) {
+      formData.append('passport_pic', document.querySelector('[name="passport_pic"]').files[0]);
+    }
+    if (document.querySelector('[name="vaccine"]').files.length > 0) {
+      formData.append('vaccine', document.querySelector('[name="vaccine"]').files[0]);
+    }
+
+    if (document.querySelector('[name="transcript_doc"]').files.length > 0) {
+      formData.append('transcript_doc', document.querySelector('[name="transcript_doc"]').files[0]);
+    }
+    return formData;
+  }
+
+  function sendAbroadDataToServer() {
+
+    let formData = gatherAbroadFormData();
+
+    // fetch('http://localhost:3000/api/study/abroad/application', {
+    fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((data) => {
+            const errorMessage = data.error || 'Please fill the form correctly';
+            alertAndLogError(errorMessage);
+            throw new Error(errorMessage);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        alertAndReload('Your application was sent successfully!');
+      })
+      .catch((error) => {
+        console.error('Client-Side Error:', error);
+        alertAndLogError('Something went wrong! Please fill the form correctly.');
+      });
+  }
+
+  function alertAndLogError(errorMessage) {
+    alert(errorMessage);
+    console.error('Server-Side Error:', errorMessage);
+  }
+
+
+
+  document.getElementById('abroadApplicationForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    sendAbroadDataToServer();
+  });
+
+
+  function alertAndReload(message) {
+    alert(message);
+    location.reload();
+  }
+
+  function checkOnlyOne(checkbox) {
+    const checkboxes = document.getElementsByName('program');
+    checkboxes.forEach((chk) => {
+      if (chk !== checkbox) {
+        chk.checked = false;
+      }
+    });
+  }
 
 
 </script>

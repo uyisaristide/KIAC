@@ -554,14 +554,10 @@
                                                     ACEIoT empowers youth with AI, Internet of Things training for
                                                     thriving ICT careers</a></h3>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </li>
                             <hr class="horizontal">
-
-
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
@@ -583,8 +579,6 @@
                                 </div>
                             </li>
                             <hr class="horizontal">
-
-
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
