@@ -24,7 +24,7 @@ include('header.php');
 			background-color: #fff;
 			padding: 30px;
 			border-radius: 10px;
-			box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+			postal_box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 			max-width: 800px;
 			margin: 40px auto;
 		}
@@ -157,7 +157,7 @@ include('header.php');
 			background-color: #ffffff;
 			padding: 20px;
 			border-radius: 5px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			postal_box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 			text-align: center;
 			/* center the h2 and radio buttons */
 		}
@@ -201,22 +201,22 @@ include('header.php');
 							OPPORTUNITY FOR INTERNSHIP TO OUR PARTNERS </p>
 					</div>
 
-					<form id="agentApplicationForm" METHOD="POST">
+					<form id="agentApplicationForm" enctype="multipart/form-data" METHOD="POST">
 						<h3>PERSONAL INFORMATION</h3>
 						Names: <input type="text" name="names" required><br>
 						Phone Number: <input type="tel" name="telephone" required pattern="[0-9]{10}"><br>
 						Email Address: <input type="email" name="email_address" required><br>
 						Nationality:<input type="text" name="nationality" required><br>
-						ID/PC: <input type="file" name="doc"><br>
-						Transcript: <input type="file" name="tra_doc"><br>
+						ID/PC: <input type="file" name="passport"><br>
+						Transcript: <input type="file" name="transcript"><br>
 
 						<h3>Status:</h3>
-						<input type="checkbox" name="program" value=" Single " onclick=checkOnlyOne(this)> Single<br>
-						<input type="checkbox" name="program" value=" Married " onclick=checkOnlyOne(this)> Married<br>
-						<input type="checkbox" name="program" value=" Widow " onclick=checkOnlyOne(this)> Widow<br>
-						<input type="checkbox" name="program" value=" Divorced " onclick=checkOnlyOne(this)>
+						<input type="checkbox" name="status" value=" Single " onclick=checkOnlyOne(this)> Single<br>
+						<input type="checkbox" name="status" value=" Married " onclick=checkOnlyOne(this)> Married<br>
+						<input type="checkbox" name="status" value=" Widow " onclick=checkOnlyOne(this)> Widow<br>
+						<input type="checkbox" name="status" value=" Divorced " onclick=checkOnlyOne(this)>
 						Divorced<br>
-						<input type="checkbox" name="program" value=" Separated " onclick=checkOnlyOne(this)>
+						<input type="checkbox" name="status" value=" Separated " onclick=checkOnlyOne(this)>
 						Separated<br><br>
 
 						<h3>Current Address</h3>
@@ -245,7 +245,7 @@ include('header.php');
 						Job<br><br>
 
 						<h2>Educational Qualification:</h2>
-						<p>(Enclose notified/certified copies)</p>
+						<p>(Enclose notified/certified copy)</p>
 
 						<label for="level">Level:</label>
 						<select id="level" name="level">
@@ -281,8 +281,8 @@ include('header.php');
 						<input type="text" id="grade" name="grade">
 						<br>
 
-						<label for="copies">Enclose notified/certified copies:</label>
-						<input type="file" id="copies" name="copies">
+						<label for="certificate">Enclose notified/certified copy:</label>
+						<input type="file" id="certificate" name="certificate">
 						<br>
 
 						<input type="submit" value="Submit" id="submitButton">
@@ -307,61 +307,132 @@ include('header.php');
 </body>
 <script>
 	function gatheragentFormData() {
-		let data = {
-			names: document.querySelector('[name="names"]').value,
-			telephone: document.querySelector('[name="telephone"]').value,
-			email_address: document.querySelector('[name="email_address"]').value,
-			address: document.querySelector('[name="address"]').value,
-			level: document.querySelector('[name="level"]:checked').value,
-			course: document.querySelector('[name="courses"]').value,
-		};
+		let formData = new FormData();
+		// name of the form field / name of the file
+		formData.append('names', document.querySelector('[name="names"]').value);
+		formData.append('telephone', document.querySelector('[name="telephone"]').value);
+		formData.append('nationality', document.querySelector('[name="nationality"]').value);
+		formData.append('province', document.querySelector('[name="province"]').value);
+		formData.append('district', document.querySelector('[name="district"]').value);
+		formData.append('country', document.querySelector('[name="country"]').value);
+		formData.append('email_address', document.querySelector('[name="email_address"]').value);
+		formData.append('postal_box', document.querySelector('[name="postal_box"]').value);
+		formData.append('fax', document.querySelector('[name="fax"]').value);
 
-		const programs = Array.from(document.querySelectorAll('[name="program"]:checked')).map(input => input.value);
+		// Educational Qualification fields
+		formData.append('level', document.querySelector('[name="level"]').value);
+		formData.append('fieldDegree', document.querySelector('[name="fieldDegree"]').value);
+		formData.append('specialization', document.querySelector('[name="specialization"]').value);
+		formData.append('year', document.querySelector('[name="year"]').value);
+		formData.append('institution', document.querySelector('[name="institution"]').value);
+		formData.append('place', document.querySelector('[name="place"]').value);
+		formData.append('grade', document.querySelector('[name="grade"]').value);
+		formData.append('occupation', document.querySelector('[name="occupation"]').value);
+		formData.append('status', document.querySelector('[name="status"]').value);
 
-		// Initialize URLSearchParams from the data object
-		const params = new URLSearchParams(data);
+		if (document.querySelector('[name="passport"]').files.length > 0) {
+			formData.append('passport', document.querySelector('[name="passport"]').files[0]);
+		}
+		if (document.querySelector('[name="certificate"]').files.length > 0) {
+			formData.append('certificate', document.querySelector('[name="certificate"]').files[0]);
+		}
 
-		// Add each program to the params
-		programs.forEach(program => {
-			params.append('program', program);
-		});
+		if (document.querySelector('[name="transcript"]').files.length > 0) {
+			formData.append('transcript', document.querySelector('[name="transcript"]').files[0]);
+		}
+		// status
+		return formData;
 
-		return params.toString();
 	}
 
-	function sendAgentDataToServer() {
-		let formData = gatheragentFormData();
-
-		// fetch('http://localhost:3000/api/agents/application', {
-		fetch('http://173.212.230.165:3000/api/agents/application', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: formData
-		}).then(response => {
-			if (!response.ok) {
-				return response.json().then(data => {
-					const errorMessage = data.error || "Please fill the form correctly";
-					alert(errorMessage);
-					throw new Error(errorMessage);
-				});
+	function isValidForm() {
+			const form = document.getElementById('agentApplicationForm');
+			if (!form.checkValidity()) {
+				alert('Please fill all the fields correctly.');
+				return false;
 			}
-			return response.json();
-		}).then(data => {
-			console.log(data);
-			// showModal('Your application sent successfully!');
-			alertAndReload('Your application was sent successfully!');
-		}).catch(error => {
-			console.error('Error:', error);
-			// showModal("Some thing went wrong! Plz Fill the Form as it required ");
-			alertAndReload('Something went wrong! Please fill the form correctly.');
+			return true;
+		}
+
+
+	function sendDataToServer() {
+		if (!isValidForm()) return;
+		let formData = gatheragentFormData();
+			fetch('http://173.212.230.165:3000/api/agents/application', {
+			// fetch('http://localhost:3000/api/agents/application', {
+				method: 'POST',
+
+				body: formData,
+				dataType: 'json',
+
+			})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						showModal('Your application was sent successfully!');
+					} else {
+						const errorMsg = data.error || 'Please fill the form correctly';
+						showModal(errorMsg);
+					}
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					showModal('Something went wrong! Please try again.');
+					// showModal(error);
+				});
+		}
+
+		function showModal(message) {
+			const modal = document.getElementById('myModal');
+			const span = document.getElementsByClassName("close")[0];
+			const modalText = document.getElementById('modalText');
+
+			modalText.innerHTML = message;
+			modal.style.display = "block";
+
+			span.onclick = function () {
+				modal.style.display = "none";
+				location.reload(); // reloads the page
+			}
+
+			window.onclick = function (event) {
+				if (event.target === modal) {
+					modal.style.display = "none";
+					location.reload(); // reloads the page
+				}
+			}
+		}
+
+
+
+		function checkOnlyOne(checkboxGroupName) {
+			// Get all checkboxes with the same name
+			const checkboxes = document.querySelectorAll(`input[name="${checkboxGroupName}"]`);
+
+			// Add event listeners to each checkbox
+			checkboxes.forEach(checkbox => {
+				checkbox.addEventListener('change', function () {
+					// If the changed checkbox is checked, uncheck all others
+					if (this.checked) {
+						checkboxes.forEach(postal_box => {
+							if (postal_box !== this) postal_box.checked = false;
+						});
+					}
+				});
+			});
+		}
+
+		// Usage:
+		// Assuming you have checkboxes with the name attribute as "status" and "occupation"
+		window.onload = function () {
+			checkOnlyOne('status');
+			checkOnlyOne('occupation');
+		}
+
+		document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+			sendDataToServer();
 		});
-	}
-	document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
-		e.preventDefault();
-		sendAgentDataToServer();
-	});
 
 </script>
 

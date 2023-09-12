@@ -164,9 +164,8 @@
                                 alt="no image found">
                         </div>
                         <div class="w-full md:w-full">
-                            <img class="w-full h-[80%]"
-                                src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg " alt="no image found"
-                                style="height: 96px">
+                            <img class="w-full h-[80%]" src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg "
+                                alt="no image found" style="height: 96px">
                         </div>
                     </div>
                 </div>
@@ -178,10 +177,9 @@
                     <ul id="main-menu" class="sm sm-blue">
                         <li><a class="current" href="#"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About KIAC</a>
+                        <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
-                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
-                                KIAC</a>
+                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
                         </li>
                         <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
                         </li>
@@ -211,6 +209,7 @@
                             </ul>
                         </li>
                     </ul>
+
                 </nav>
             </header>
             <div class="mt-2 w-full ">
@@ -305,10 +304,10 @@
                                     <img class="h-full w-full d-block w-100 rounded-lg"
                                         src="<?= base_url() ?>assets/landing_new/img/header-slide-2.jpg" alt="">
                                 </div>
-                                <!-- <div class="carousel-item h-full">
+                                <div class="carousel-item h-full">
                                     <img class="h-full w-full d-block w-100 rounded-lg"
                                         src="<?= base_url() ?>assets/landing_new/img/header-slide-3.jpg" alt="">
-                                </div> -->
+                                </div>
                                 <div class="carousel-item h-full">
                                     <img class="h-full w-full d-block w-100 rounded-lg"
                                         src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
@@ -430,10 +429,7 @@
             </div>
         </div>
         <!-- boxes -->
-        <div style="text-align:center;">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0;">Why Choose KIAC</h2>
-            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
-        </div>
+        <h2 class="text-choose text-custom-blue">Why Choose Kiac?</h2>
 
         <div class="bg-custom-gradient px-4">
             <div class="flex flex-wrap text-white justify-between mx-auto max-w-5xl">
@@ -471,10 +467,8 @@
         </div>
 
         <!-- Our Program -->
-        <div style="text-align:center; padding-top: 10px">
-            <h2 class="txt-contact fw_400" style="font-size: 25px;">Our Courses</h2>
-            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
-        </div>
+        <h2 class="text-course text-custom-blue">Our Courses</h2>
+
         <div class="program-container">
             <div class="box">
                 <h2 style="font-size: 20px;">Web design</h2>
@@ -554,14 +548,10 @@
                                                     ACEIoT empowers youth with AI, Internet of Things training for
                                                     thriving ICT careers</a></h3>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </li>
                             <hr class="horizontal">
-
-
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
@@ -583,8 +573,6 @@
                                 </div>
                             </li>
                             <hr class="horizontal">
-
-
                             <li>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4  col-sm-4  col-xs-4">
@@ -743,192 +731,17 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <div style="text-align:center">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0;">Testimonials</h2>
-            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
-        </div>
-        <div class="testimonial-container mx-auto mt-20">
-            <button id="prevBtn" class="testimonial-button testimonial-button-prev">
-                <i class="fas fa-angle-left"></i> <!-- FontAwesome angle-left icon -->
-            </button>
-            <div class="testimonial-slider overflow-hidden relative">
-                <div class="slider-content flex" id="sliderContent">
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
-                                <h5 class="font-semibold text-sm">Student At KIAC</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
-                                <h5 class="font-semibold text-sm">Student Abroad</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
-                                <h5 class="font-semibold text-sm">Student Abroad</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Kate Angel</h4>
-                                <h5 class="font-semibold text-sm">Student At KIAC</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
-                                <h5 class="font-semibold text-sm">Student At Abroad</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
-                                <h5 class="font-semibold text-sm">Student At KIAC</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
-                                <h5 class="font-semibold text-sm">Student Abroad</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
-                            <div class="mb-4">
-                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
-                                    class="w-20 h-20 rounded-full">
-                            </div>
-                            <div class="testimonial-content">
-                                <h4 class="font-semibold text-lg">Kate Angel</h4>
-                                <h5 class="font-semibold text-sm">Student Abroad</h5>
-                            </div>
-                            <p class="testimonial-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
-                                Deleniti iure impedit eius possimus?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="nextBtn" class="testimonial-button testimonial-button-next">
-                <i class="fas fa-angle-right"></i>
-            </button>
-        </div>
-
-        <div class="contact-container reviews">
-            <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%; background-color: #fff;" ;>
-                    <div class="col-lg-7">
-                        <div class="section-title position-relative pb-3 mb-1">
-                            <h1 class="mb-0" style="font-size: 20px">Be Our Testimonial!</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="width:35%">
-                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
-                        <input class="focus:outline-none" type="email" id="fname" name="email"
-                            placeholder="Enter Your Name">
-                        <select class="focus:outline-none" id="title" name="title">
-                            <option value="" disabled selected>Select School</option>
-                            <option value="student_kiac">Student At KIAC</option>
-                            <option value="student_abroad">Student Abroad</option>
-                        </select>
-                        <label for="profile" class="custom-file-upload focus:outline-none">
-                            Choose Profile Photo
-                        </label>
-                        <input class="hidden-file-input" id="profile" type="file">
-                        <textarea class="focus:outline-none" id="subject" name="subject" placeholder="Write Your Review"
-                            style="height:70px"></textarea><br>
-                        <input style="width: 70%" type="submit" value="Submit Review">
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- Contact us -->
-        <div style="text-align:center">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 50px;">Contact Us</h2>
-            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Feel free to reach out to us. We're here to
-                assist you!</h1>
-        </div>
+
         <div class="contact-container">
-            <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%;">
-                    <div class="col-lg-10">
+            <div style="text-align:center">
+                <h2 class="txt-contact fw_400" style="font-size: 25px;">Contact Us</h2>
+                <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Feel free to reach out to us. We're here to
+                    assist you!</h1>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="col-lg-7">
                         <div class="section-title position-relative pb-3 mb-5">
                             <h1 class="mb-0">Need any help about how you can study or getting scholarship with KIAC?
                                 Please Feel Free to Contact Us</h1>
@@ -945,7 +758,8 @@
                         </div>
                         <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s"
                             style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn;">
-                            <div class="bg-primary rounded" style="padding: 10px 20px">
+                            <div class="bg-primary d-flex align-items-center justify-content-center rounded"
+                                style="width: 60px; height: 60px;">
                                 <i class="fa fa-phone-alt text-white"></i>
                             </div>
                             <div class="ps-4">
@@ -960,26 +774,189 @@
                         </div>
                     </div>
                 </div>
-                <div class="column" style="width: 35%;">
-                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
+                <div class="column">
+                    <form action="/action_page.php">
 
-                        <input class="focus:outline-none" type="text" id="fname" name="firstname"
-                            placeholder="Enter your Name">
+                        <input type="text" id="fname" name="firstname" placeholder="Enter your Name">
 
-                        <input class="focus:outline-none" type="text" id="lname" name="lastname"
-                            placeholder="Enter your Last Name">
+                        <input type="text" id="lname" name="lastname" placeholder="Enter your Last Name">
 
-                        <input class="focus:outline-none" type="email" id="email" name="email"
-                            placeholder="Enter your Email">
+                        <input type="email" id="email" name="email" placeholder="Enter your Email">
 
-                        <textarea class="focus:outline-none" id="subject" name="subject" placeholder="Write something.."
-                            style="height:100px"></textarea><br>
+                        <textarea id="subject" name="subject" placeholder="Write something.."
+                            style="height:170px"></textarea><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
             </div>
         </div>
 
+        <!-- Testimonials -->
+        <div style="text-align:center">
+            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 60px">Testimonials</h2>
+            <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
+        </div>
+        <div class="testimonial-container mx-auto mt-20">
+            <button id="prevBtn" class="testimonial-button testimonial-button-prev">
+                <i class="fas fa-angle-left"></i> <!-- FontAwesome angle-left icon -->
+            </button>
+            <div class="testimonial-slider overflow-hidden relative">
+                <div class="slider-content flex" id="sliderContent">
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kate Angel</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Teddy Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-1.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kitty Nila</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/review-3.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Alice Johnson</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial p-4 w-1/3">
+                        <div class="bg-white p-4 rounded shadow flex flex-col items-center">
+                            <div class="mb-4">
+                                <img src="<?= base_url(); ?>assets/landing_new/img/slider-2.jpg" alt="Profile 2"
+                                    class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="testimonial-content">
+                                <h4 class="font-semibold text-lg">Kate Angel</h4>
+                                <h5 class="font-semibold text-sm">Student</h5>
+                            </div>
+                            <p class="testimonial-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, enim exercitationem!
+                                Deleniti iure impedit eius possimus?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="nextBtn" class="testimonial-button testimonial-button-next">
+                <i class="fas fa-angle-right"></i>
+            </button>
+        </div>
+
+        <div class="contact-container reviews">
+            <div class="row">
+                <div class="column">
+                    <div class="col-lg-7">
+                        <div class="section-title position-relative pb-3 mb-1">
+                            <h1 class="mb-0" style="font-size: 20px">Add Your Review. Be Our Testimonial!</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <form action="/action_page.php">
+                        <input type="email" id="fname" name="email" placeholder="Enter Your Email">
+                        <input type="text" id="title" name="title" placeholder="Add your Title: e.g Student">
+                        <textarea id="subject" name="subject" placeholder="Write Your Review"
+                            style="height:100px"></textarea><br>
+                        <input style="width: 70%" type="submit" value="Submit Review">
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- FOOTER -->
 
         <div class="footer-container gray-bg_medium">
