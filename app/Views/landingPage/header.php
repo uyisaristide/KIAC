@@ -32,47 +32,45 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
 </head>
-
 <body class="w-screen max-w-full -mt-[30px]">
     <div class="w-full max-w-full">
         <div class="container-main p-4">
             <style>
-                #main-menu2 .menu-item:hover .submenu {
-                    display: block;
-                }
+                        #main-menu2 .menu-item:hover .submenu {
+            display: block;
+        }
 
-                #main-menu2 .submenu {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    border-right: 3px solid #fff;
-                    border-top: 0;
-                    border-bottom: 0;
-                    border-left: 0;
-                    padding: 0;
-                }
+        #main-menu2 .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            border-right: 3px solid #fff;
+            border-top: 0;
+            border-bottom: 0;
+            border-left: 0;
+            padding: 0;
+        }
+        #main-menu2 .submenu li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-                #main-menu2 .submenu li {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                }
+        #main-menu2 .submenu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
 
-                #main-menu2 .submenu a {
-                    display: block;
-                    padding: 10px 20px;
-                    text-decoration: none;
-                    color: #fff;
-                    text-align: center;
-                    font-size: 15px;
-                    font-family: 'Trebuchet MS', sans-serif;
-                }
-
-                #main-menu2 .submenu a:hover {
-                    color: #036e9d;
-                    background: #fff !important;
-                }
+        #main-menu2 .submenu a:hover {
+            color: #036e9d;
+            background: #fff !important;
+        }
             </style>
             <header>
                 <div class="border-2 border-white/60 w-full ">
@@ -102,12 +100,11 @@
                         <span class="main-menu-btn-icon"></span> Toggle main menu visibility
                     </label>
                     <ul id="main-menu" class="sm sm-blue">
-                        <li><a href="<?= base_url('#'); ?>"><i class="fa fa-home fa-lg"></i> Home</a>
+                        <li><a class="current"  href="<?= base_url('#'); ?>"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About KIAC</a>
+                        <li><a href="#about"><i class="fa fa-institution"></i> About Kiac</a>
                         </li>
-                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
-                                KIAC</a>
+                        <li><a href="#programs"><i class="fa fa-heartbeat "></i> Study At Kiac</a>
                         </li>
                         <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
                         </li>
@@ -122,8 +119,8 @@
                         <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
-                        <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="#"><i class="fa fa-building"></i>Agents</a></li>
+                        <li><a href="#"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
@@ -132,8 +129,8 @@
                             </h2>
                             <ul class="submenu">
                                 <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
-                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
-                                <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
+                                <li><a href="#">Be An Agent</a></li>
+                                <li><a href="#">Study Abroad</a></li>
                             </ul>
                         </li>
                     </ul>
