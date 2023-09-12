@@ -134,8 +134,6 @@ include('header.php');
       text-decoration: none;
       cursor: pointer;
     }
-
-    /* Center content */
     .center {
       display: flex;
       justify-content: center;
@@ -144,22 +142,18 @@ include('header.php');
       height: 50%;
     }
 
-    /* Center content */
     .center {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 30%;
     }
-
-    /* Styles for the content div */
     .content {
       background-color: #ffffff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      /* center the h2 and radio buttons */
     }
 
     h3 {
@@ -168,17 +162,13 @@ include('header.php');
 
     label {
       display: inline-block;
-      /* changed from block to inline-block */
       margin: 0 10px;
-      /* added margin to space them apart */
       cursor: pointer;
     }
 
     input[type="radio"] {
       margin-right: 5px;
     }
-
-    /* Responsive Styles */
     @media (max-width: 768px) {
       form {
         padding: 20px;
