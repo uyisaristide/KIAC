@@ -214,6 +214,10 @@ class Home extends BaseController
 		return view('landingPage/application.php');
 		//		return view('landing_new', $data);	
 	}
+	public function Web_Administration()
+	{
+		return view('landingPage/web_administration.php');
+	}
 	public function Agent()
 	{
 
