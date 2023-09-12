@@ -13,12 +13,13 @@ include('header.php');
   <title>Apply To Study At Kigali International Art School</title>
 
   <style>
-        body {
+    body {
       font-family: 'Open Sans', sans-serif;
       background-color: #f5f5f5;
       font-size: 14px;
       /* Reduced font size */
     }
+
     .form-container {
       display: none;
     }
@@ -81,6 +82,7 @@ include('header.php');
       border: 1px solid #e0e0e0;
       border-radius: 5px;
       font-size: 13px;
+      width: 100%;
     }
 
 
@@ -363,37 +365,75 @@ include('header.php');
         Names: <input type="text" name="names" required><br>
         Phone Number: <input type="tel" name="telephone" required pattern="[0-9]{10}"><br>
         Email Address: <input type="email" name="email_address" required><br>
-        DISTRICT OF RESIDENCE:
-        <input type="text" name="address" required><br>
-        <h3>Education Level
-        </h3>
+        Nationality:<input type="text" name="nationality" required><br>
+        ID/PC: <input type="file" name="doc"><br>
+        Transcript: <input type="file" name="tra_doc"><br>
 
-        <input type="radio" name="level" value="University Level" required> University Level
-        <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+        <h3>Status:</h3>
+        <input type="checkbox" name="program" value=" Single " onclick=checkOnlyOne(this)> Single<br>
+        <input type="checkbox" name="program" value=" Married " onclick=checkOnlyOne(this)> Married<br>
+        <input type="checkbox" name="program" value=" Widow " onclick=checkOnlyOne(this)> Widow<br>
+        <input type="checkbox" name="program" value=" Divorced " onclick=checkOnlyOne(this)> Divorced<br>
+        <input type="checkbox" name="program" value=" Separated " onclick=checkOnlyOne(this)> Separated<br><br>
 
-        <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
-        <input type="checkbox" name="program" value=" Day "> Day<br>
-        <input type="checkbox" name="program" value=" Night "> Night<br>
-        <input type="checkbox" name="program" value=" Weekend "> Weekend<br>
+        <h3>Current Address</h3>
+        Postal Box:
+        <input type="text" name="postal_box" required><br>
+        District/City:
+        <input type="text" name="district" required><br>
+        Province:
+        <input type="text" name="province" required><br>
+        Country:
+        <input type="text" name="country" required><br>
+        Fax:
+        <input type="text" name="fax" required><br><br>
+        Current Occupation:
+        <input type="checkbox" name="occupation" value=" Student " onclick=checkOnlyOne(this)> Student<br>
+        <input type="checkbox" name="occupation" value=" Wage Earner " onclick=checkOnlyOne(this)> Wage Earner<br>
+        <input type="checkbox" name="occupation" value=" Self Employed " onclick=checkOnlyOne(this)> Self Employed<br>
+        <input type="checkbox" name="occupation" value=" Job Seeker " onclick=checkOnlyOne(this)> Job Seeker<br>
+        <input type="checkbox" name="occupation" value=" Without job " onclick=checkOnlyOne(this)> Without Job<br><br>
 
+        <h2>Educational Qualification:</h2>
+        <p>(Enclose notified/certified copies)</p>
 
-        <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
-        <select name="courses" required>
-          <option>-----select course----</option>
-          <option value="CCTV CAMERA">CCTV CAMERA</option>
-          <option value="Computer Hardware">Computer Hardware</option>
-          <option value="Music">Music</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="Video Production">Video Production</option>
-          <option value="Creative Art">Creative Art</option>
-          <option value="Web design">Web design</option>
-          <option value="Software Development">Software Development</option>
-          <option value="Photography">Photography</option>
-          <option value="Electronic Services">Electronic Services</option>
-          <option value="cycle inferieur">cycle inferieur</option>
-          <option value="Maternelle">Maternelle</option>
-          <option value="Secondaire">Secondaire</option>
+        <label for="level">Level:</label>
+        <select id="level" name="level">
+          <option value="secondary">Secondary</option>
+          <option value="school">School</option>
+          <option value="undergraduate">Undergraduate</option>
+          <option value="graduate">Graduate</option>
+          <option value="research">Research</option>
         </select>
+        <br>
+
+        <label for="fieldDegree">Field/Degree:</label>
+        <input type="text" id="fieldDegree" name="fieldDegree">
+        <br>
+
+        <label for="specialization">Specialization awarded:</label>
+        <input type="text" id="specialization" name="specialization">
+        <br>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year">
+        <br>
+
+        <label for="institution">Institution/University:</label>
+        <input type="text" id="institution" name="institution">
+        <br>
+
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place">
+        <br>
+
+        <label for="grade">Grade obtained:</label>
+        <input type="text" id="grade" name="grade">
+        <br>
+
+        <label for="copies">Enclose notified/certified copies:</label>
+        <input type="file" id="copies" name="copies">
+        <br>
 
         <input type="submit" value="Submit" id="submitButton">
         <div id="myModal" class="modal">
@@ -647,7 +687,7 @@ include('header.php');
 
 
     // fetch('http://localhost:3000/api/students/register', {
-      fetch('http://173.212.230.165:3000/api/students/register', {
+    fetch('http://173.212.230.165:3000/api/students/register', {
       method: 'POST',
       body: formData
     }).then(response => {
