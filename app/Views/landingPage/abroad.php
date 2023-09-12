@@ -271,8 +271,8 @@ include('header.php');
         </div>
     </div>
     <?php
-  include('footer.php');
-  ?>
+    include('footer.php');
+    ?>
 </body>
 
 
@@ -309,61 +309,67 @@ include('header.php');
         return formData;
     }
 
+    function isValidForm() {
+        const form = document.getElementById('abroadApplicationForm');
+        if (!form.checkValidity()) {
+            alert('Please fill all the fields correctly.');
+            return false;
+        }
+        return true;
+    }
     function sendAbroadDataToServer() {
+        if (!isValidForm()) return;
 
         let formData = gatherAbroadFormData();
 
-        // fetch('http://localhost:3000/api/study/abroad/application', {
-        fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+        // fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+            fetch('http://localhost:3000/api/study/abroad/application', {
             method: 'POST',
             body: formData,
+            dataType: 'json',
         })
-            .then((response) => {
-                if (!response.ok) {
-                    return response.json().then((data) => {
-                        const errorMessage = data.error || 'Please fill the form correctly';
-                        alertAndLogError(errorMessage);
-                        throw new Error(errorMessage);
-                    });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showModal('Your application was sent successfully!');
+                } else {
+                    const errorMsg = data.error || 'Please fill the form correctly';
+                    showModal(errorMsg);
                 }
-                return response.json();
             })
-            .then((data) => {
-                console.log(data);
-                alertAndReload('Your application was sent successfully!');
-            })
-            .catch((error) => {
-                console.error('Client-Side Error:', error);
-                alertAndLogError('Something went wrong! Please fill the form correctly.');
+            .catch(error => {
+                console.error('Error:', error);
+                showModal('Something went wrong! Please try again.');
+                // showModal(error);
             });
     }
 
-    function alertAndLogError(errorMessage) {
-        alert(errorMessage);
-        console.error('Server-Side Error:', errorMessage);
+    function showModal(message) {
+    const modal = document.getElementById('myModal');
+    const span = document.getElementsByClassName("close")[0];
+    const modalText = document.getElementById('modalText');
+
+    modalText.innerHTML = message;
+    modal.style.display = "block";
+
+    span.onclick = function () {
+        modal.style.display = "none";
+        location.reload(); // reloads the page
     }
 
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            location.reload(); // reloads the page
+        }
+    }
+}
 
 
     document.getElementById('abroadApplicationForm').addEventListener('submit', function (e) {
         e.preventDefault();
         sendAbroadDataToServer();
     });
-
-
-    function alertAndReload(message) {
-        alert(message);
-        location.reload();
-    }
-
-    function checkOnlyOne(checkbox) {
-        const checkboxes = document.getElementsByName('program');
-        checkboxes.forEach((chk) => {
-            if (chk !== checkbox) {
-                chk.checked = false;
-            }
-        });
-    }
 
 </script>
 

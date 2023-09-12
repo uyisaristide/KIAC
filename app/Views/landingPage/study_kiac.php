@@ -471,51 +471,59 @@ include('header.php');
 
     return formData;
   }
+  function sendDataToServer() {
+    let formData = gatherFormData();
+
+    function isValidForm() {
+      const form = document.getElementById('abroadApplicationForm');
+      if (!form.checkValidity()) {
+        alert('Please fill all the fields correctly.');
+        return false;
+      }
+      return true;
+    }
+
+    fetch('http://localhost:3000/api/students/register', {
+      // fetch('http://173.212.230.165:3000/api/students/register', {
+      method: 'POST',
+      body: formData,
+      dataType: 'json',
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showModal('Your application was sent successfully!');
+        } else {
+          const errorMsg = data.error || 'Please fill the form correctly';
+          showModal(errorMsg);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showModal('Something went wrong! Please try again.');
+        // showModal(error);
+      });
+  }
 
   function showModal(message) {
-    let modal = document.getElementById("myModal");
-    let span = document.getElementsByClassName("close")[0];
-    let modalText = document.getElementById("modalText");
+    const modal = document.getElementById('myModal');
+    const span = document.getElementsByClassName("close")[0];
+    const modalText = document.getElementById('modalText');
 
     modalText.innerHTML = message;
     modal.style.display = "block";
 
     span.onclick = function () {
       modal.style.display = "none";
-      location.reload();  // Refresh the page when the modal is closed.
+      location.reload(); // reloads the page
     }
 
     window.onclick = function (event) {
       if (event.target === modal) {
         modal.style.display = "none";
-        location.reload();  // Refresh the page when the modal is clicked outside.
+        location.reload(); // reloads the page
       }
     }
-  }
-  function sendDataToServer() {
-    let formData = gatherFormData();
-
-
-    // fetch('http://localhost:3000/api/students/register', {
-    fetch('http://173.212.230.165:3000/api/students/register', {
-      method: 'POST',
-      body: formData
-    }).then(response => {
-      return response.json().then(data => {
-        if (!response.ok) {
-          throw new Error(data.error || alert("Some thing went wrong! Plz Fill the Form as it required "));
-          console.log(data.error || "Please fill the form correctly");
-          location.reload();
-        }
-        return data;
-      });
-    }).then(data => {
-      console.log(data);
-      showModal('Your application sent successfully!');
-    }).catch(error => {
-      console.error('Error:', error);
-      showModal("Some thing went wrong! Plz Fill the Form as it required ");
-    });
   }
 
   document.getElementById('applicationForm').addEventListener('submit', function (e) {
