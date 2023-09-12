@@ -60,8 +60,8 @@ function array_term($terms)
 														<th>Applicant</th>
 														<th>Phone</th>
                                                         <th>Email</th>
-                                                        <th>Program</th>
-														<th>Course</th>
+                                                        <th>certificate</th>
+											
 														<th>Level</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
@@ -81,13 +81,9 @@ function array_term($terms)
 															</td>
                                                             <td>
                                                                 <?= $pending['email_address']; ?>
-                                                            </td>
+                                                            </td>                        
 															<td>
-																<?= $pending['program']; ?>
-															</td>
-                                                    
-															<td>
-																<?= $pending['course']; ?>
+																<?= $pending['status']; ?>
 															</td>
                                                             <td>
 																<?= $pending['level']; ?>
@@ -97,18 +93,18 @@ function array_term($terms)
 																<div
 																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
 																	<!-- Add your blue button -->
-																	<!-- <div>
+																	 <div>
 																		<button class="btn btn-sm btn-info download-doc"
 																			data-document-path="">
 																			Transcript</button>
-																	</div> -->
+																	</div>
 																	<!-- Button to download Passport -->
-																	<!-- <div>
+																	 <div>
 																		<button
 																			class="btn btn-sm btn-secondary download-doc"
 																			data-document-path="">
 																			Passport</button>
-																	</div> -->
+																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-success"
 																			data-id="<?= $pending['id']; ?>">Approve</button>
@@ -166,8 +162,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
-			// const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/agents'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/agents/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
