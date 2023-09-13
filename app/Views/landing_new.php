@@ -77,6 +77,38 @@
             color: #036e9d;
             background: #fff !important;
         }
+
+        .side-button {
+            color: #036e9d;
+        }
+
+        .side-button:hover {
+            color: #fff;
+        }
+
+        .box .service-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            margin: 15px 0 0;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 2px;
+            transform: rotate(-45deg);
+        }
+
+        .box .service-icon i {
+            transform: rotate(45deg);
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        .fab {
+            font-family: "Font Awesome 5 Brands";
+        }
     </style>
 
 </head>
@@ -232,10 +264,9 @@
                             <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="text-center p-2 rounded-lg bg-blue-100"
-                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
-                            <a class="text-blue-500 font-semibold" href="#">Study <span
-                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Abroad</span></a>
+                        <div class="text-center p-2">
+                            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0; font-weight: bold;">
+                                Study Abroad</h2>
                         </div>
                         <div class="pt-3 flex flex-col gap-2">
                             <div
@@ -246,8 +277,8 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Armenia</button>
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Armenia</button>
                                 </div>
                             </div>
 
@@ -259,8 +290,8 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Turkey</button>
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Turkey</button>
                                 </div>
                             </div>
                             <div
@@ -271,8 +302,8 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Cyprus</button>
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Cyprus</button>
                                 </div>
                             </div>
                             <div
@@ -283,8 +314,8 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Poland</button>
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Poland</button>
                                 </div>
                             </div>
                         </div>
@@ -329,12 +360,9 @@
                             <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="text-center p-2 rounded-lg bg-blue-100"
-                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
-                            <a class="text-blue-500 font-semibold" href="#">Study At <span
-                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Kigali
-                                    International
-                                    School</span></a>
+                        <div class="text-center p-2">
+                            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0; font-weight: bold;">
+                                Kigali International Art College - KIAC</h2>
                         </div>
                         <div class="pt-3 flex flex-col gap-2">
                             <div
@@ -345,7 +373,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Video Production</button>
                                 </div>
                             </div>
@@ -357,7 +385,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Photography</button>
                                 </div>
                             </div>
@@ -370,7 +398,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Graphic Design</button>
                                 </div>
                             </div>
@@ -383,7 +411,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Web Design</button>
                                 </div>
                             </div>
@@ -396,7 +424,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Creative Arts</button>
                                 </div>
                             </div>
@@ -408,7 +436,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Computer Maintainance</button>
                                 </div>
                             </div>
@@ -420,7 +448,7 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Music</button>
                                 </div>
                             </div>
@@ -476,54 +504,85 @@
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
         </div>
         <div class="program-container">
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fas fa-code text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Web design</h2>
                 <p style="font-size: 14px; padding: 5px;">Web design refers to the design of websites that are
                     displayed on the internet.</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fab fa-android text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Software Development</h2>
                 <p style="font-size: 14px; padding: 5px">Software Development
                     Our courses helps in process programmers use to build computer programs.</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-image text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Photography</h2>
                 <p style="font-size: 14px; padding: 5px">Photography courses enable the candidates to understand the
-                    utility of different camera parts, working out the lights while clicking pictures.</p>
+                    utility of different camera parts</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-adjust text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Graphic Design</h2>
                 <p style="font-size: 14px; padding: 5px">Graphic design courses helps in a craft where professionals
                     create visual content to communicate messages.</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-desktop text-white"></i>
+                    <i class="fa fa-cog text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Computer Hardware</h2>
                 <p style="font-size: 14px; padding: 5px;">Web design refers to the design of websites that are
                     displayed on the internet. It usually refers to</p>
             </div>
         </div>
         <div class="program-container">
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-video text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Video Production</h2>
                 <p style="font-size: 14px; padding: 5px;">The Photography course focuses on developing students'
                     technical skills and artistic vision in capturing compelling images</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-paint-brush text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Creative Art</h2>
                 <p style="font-size: 14px; padding: 5px">A broad, practice-based course, that encompasses a wide
                     variety of visual and non-visual disciplines </p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-camera text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">CCTV Camera</h2>
                 <p style="font-size: 14px; padding: 5px">This course equips students with the skills to install,
                     maintain, and troubleshoot closed-circuit television (CCTV) systems.</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fas fa-microchip text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Electronic Services</h2>
                 <p style="font-size: 14px; padding: 5px">This course covers a wide range of topics related to
                     electronic services. It is designed to provide</p>
             </div>
-            <div class="box">
+            <div class="box flex flex-col items-center">
+                <div class="service-icon">
+                    <i class="fa fa-music text-white"></i>
+                </div>
                 <h2 style="font-size: 20px;">Music</h2>
                 <p style="font-size: 14px; padding: 5px">Music courses range in specialization from practical
                     instrument training to music theory to the music business.</p>
@@ -903,9 +962,9 @@
                         <input class="focus:outline-none" type="email" id="fname" name="email"
                             placeholder="Enter Your Name">
                         <select class="focus:outline-none" id="title" name="title">
-                            <option value="" disabled selected>Select School</option>
-                            <option value="student_kiac">Student At KIAC</option>
-                            <option value="student_abroad">Student Abroad</option>
+                            <option value="" disabled selected>Select Testimonial Category</option>
+                            <option value="student_kiac">At KIAC</option>
+                            <option value="student_abroad">Abroad</option>
                         </select>
                         <label for="profile" class="custom-file-upload focus:outline-none">
                             Choose Profile Photo

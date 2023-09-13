@@ -54,7 +54,6 @@
             justify-content: center;
             align-items: center;
     
-
         }
         .banner form{
             width: 40%;
@@ -67,7 +66,7 @@
         }
 
         @media (max-width: 768px) {
-            .form-container {
+            .form-container, .banner {
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 10px;

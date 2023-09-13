@@ -15,50 +15,34 @@ include('header.php');
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
-      background-color: #f5f5f5;
-      font-size: 14px;
-      /* Reduced font size */
     }
-
-    form {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      margin: 40px auto;
+    
+    .form-container h2 {
+      color: #036e9d;
     }
-
-    h3 {
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-weight: 600;
+    .form-container p {
       font-size: 16px;
-      /* Adjusted font size */
     }
 
-    input[type="text"],
-    input[type="date"],
-    input[type="tel"],
-    input[type="email"],
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      font-size: 13px;
-      outline: none;
-      transition: border 0.3s ease;
+    .forms-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .forms-container form {
+      width: 40%;
+      padding: 20px;
+      --tw-bg-opacity: 0.5;
+      background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+      /* background-color: #EBF8FF; */
+      border: 1px solid rgba(3, 110, 157, 0.3);
     }
 
-    input[type="text"]:focus,
-    input[type="date"]:focus,
-    input[type="tel"]:focus,
-    input[type="email"]:focus,
-    select:focus {
-      border-color: #007BFF;
+    .forms-container p {
+      border-bottom: 2px solid #e0e0e0;
+      padding: 10px 0 5px;
+      font-weight: 500;
+      font-size: 16px;
     }
 
     input[type="radio"],
@@ -69,26 +53,17 @@ include('header.php');
     input[type="radio"],
     input[type="checkbox"] {
       transform: scale(0.9);
-      /* Reduce size a bit */
     }
-
-    input[type="file"] {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      font-size: 13px;
-      width: 100%;
-    }
-
 
     #submitButton {
+      margin-top: 10px;
       background-color: #007BFF;
       color: #fff;
       border: none;
       border-radius: 5px;
       padding: 10px 20px;
-      font-size: 13px;
+      font-size: 16px;
+      font-weight: 500;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
       display: block;
@@ -98,7 +73,7 @@ include('header.php');
 
     #submitButton:hover {
       background-color: #0056b3;
-      transform: scale(1.05);
+      transform: scale(1.0);
     }
 
     .modal {
@@ -158,16 +133,6 @@ include('header.php');
       text-align: center;
     }
 
-    h3 {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: inline-block;
-      margin: 0 10px;
-      cursor: pointer;
-    }
-
     input[type="radio"] {
       margin-right: 5px;
     }
@@ -179,150 +144,185 @@ include('header.php');
     }
   </style>
 </head>
-
 <body class="bg-gray-200">
+
   <div class="form-container" id="studentForm">
     <div class="max-w-xl mx-auto mt-12">
-      <h2 class="text-gray-700 font-bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE (KIAC)</h2>
+      <h2 class="bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE - KIAC</h2>
       <div class="my-4">
-        <p class="text-gray-700 font-medium">Kigali International Art College (KIAC) is a prestigious institution in
+        <p class="text-gray-700 fw_400">Kigali International Art College (KIAC) is a prestigious institution in
           Rwanda that offers a variety of courses in technical fields such as CCTV Camera Installation, Computer
           Maintenance, Music, Graphic Design, Videography, Creative Art, Web Design, Software Development, and
           Photography. Applying to KIAC provides you an opportunity to access high-quality, innovative education and
           potentially win a 70% scholarship.</p>
       </div>
-
     </div>
     <!-- <h4>Student Form</h4> -->
+    <div class="w-1/4 px-2 forms-container">
+      <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="applicationForm" enctype="multipart/form-data" METHOD="POST">
+        <p class="text-xl font-semibold mt-2">What is your level of education:</p>
+        <input type="radio" name="level" value="University Level" required> University Level
+        <input type="radio" name="level" value="Secondary Level" required> Secondary Level
+        <div class="error" id="educationLevelError"></div>
 
-    <form id="applicationForm" enctype="multipart/form-data" METHOD="POST">
+        <p class="text-xl font-semibold mt-2">Did you finish your secondary school:</p>
+        <input type="radio" name="secondary_level" value="YES" required> Yes
+        <input type="radio" name="secondary_level" value="NO" required> No
+        <div class="error" id="secondaryFinishedError"></div>
 
-      <h3>WHAT IS YOUR LEVEL OF EDUCATION</h3>
-      <input type="radio" name="level" value="University Level" required> University Level
-      <input type="radio" name="level" value="Secondary Level" required> Secondary Level
-      <div class="error" id="educationLevelError"></div>
-
-      <h3>DID YOU FINISH YOUR SECONDARY SCHOOL</h3>
-      <input type="radio" name="secondary_level" value="YES" required> YES
-      <input type="radio" name="secondary_level" value="NO" required> NO
-      <div class="error" id="secondaryFinishedError"></div>
-
-      <div id="secondaryYearDiv">
-        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR HIGH SCHOOL?</h3>
-        <select name="secondaryYear" id="secondaryYear">
-          <option value="" disabled selected>Select your year</option>
-          <option value="S3">S3</option>
-          <option value="S4[LEVEL 3]">S4[LEVEL 3]</option>
-          <option value="S4[LEVEL 4]">S4[LEVEL 4]</option>
-          <option value="S6[LEVEL 5]">S6[LEVEL 5]</option>
-        </select>
-        <div class="error" id="secondaryYearError"></div>
-      </div>
-
-      <!-- ... Repeat for all other sections ... -->
-      <h3>DID YOU GRADUATE FROM UNIVERSITY?</h3>
-      <input type="radio" name="universityGraduated" value="YES" required> YES
-      <input type="radio" name="universityGraduated" value="NO" required> NO
-      <div class="error" id="universityGraduatedError"></div>
-
-      <div id="universityYearDiv">
-        <h3>IF YOUR ANSWER IS NO, INDICATE YOUR YEAR OF STUDY AT YOUR UNIVERSITY?</h3>
-        <select name="universityYear" id="universityYear">
-          <option value="" disabled selected>Select your year</option>
-          <option value="YEAR 1">YEAR 1</option>
-          <option value="YEAR 2">YEAR 2</option>
-          <option value="YEAR 3">YEAR 3</option>
-          <option value="YEAR 4">YEAR 4</option>
-          <option value="YEAR 5">YEAR 5</option>
-        </select>
-        <div class="error" id="universityYearError"></div>
-      </div>
-
-      <h3>SELECT SCHOOL</h3>
-      <select name="school">
-        <option value="" disabled selected>Select your school</option>
-        <option value="Kigali International Art College">Kigali International Art College</option>
-      </select>
-      <div class="error" id="schoolError"></div>
-
-      <!-- Personal Information -->
-      <h3>PERSONAL INFORMATION</h3>
-      First Name: <input type="text" name="firstName" required><br>
-      Last Name: <input type="text" name="lastName" required><br>
-      Gender:
-      <input type="radio" name="gender" value="Male" required> Male
-      <input type="radio" name="gender" value="Female" required> Female
-      <div class="error" id="genderError"></div>
-      Nationality: <input type="text" name="nationality" required><br>
-      Date of Birth: <input type="date" name="dob" required><br>
-      Phone Number: <input type="tel" name="phone" required pattern="[0-9]{10}"><br>
-      Email Address: <input type="email" name="email" required><br>
-
-      <h3>RESIDENTIAL ADDRESS</h3>
-      COUNTRY OF RESIDENCE:
-      <input type="text" name="country" required><br>
-      DISTRICT OF RESIDENCE:
-      <input type="text" name="district" required><br>
-      SECTOR OF RESIDENCE:
-      <input type="text" name="sector" required><br>
-
-      <h3>IF YOU DON'T LIVE IN KIGALI CITY, DO YOU HAVE ANY OF YOUR FAMILY MEMBERS IN KIGALI CITY</h3>
-      <input type="radio" name="familyInKigali" value="Yes" required> Yes
-      <input type="radio" name="familyInKigali" value="No" required> No
-      <div class="error" id="familyInKigaliError"></div>
-      <h3>COURSE</h3>
-      <p>We are excited to inform you about the wide range of courses available for partial scholarships at our
-        institution. These scholarships aim to make quality education more accessible to talented individuals like
-        yourself. Below, you will find a list of the courses eligible for our partial scholarship program:</p>
-      <h3>CHOOSE PROGRAMS YOU WANT TO STUDY</h3>
-
-      <input type="checkbox" id="day" name="program" value="Day" onclick="checkOnlyOne(this)"> Day<br>
-      <input type="checkbox" id="night" name="program" value="Night" onclick="checkOnlyOne(this)"> Night<br>
-      <input type="checkbox" id="weekend" name="program" value="Weekend" onclick="checkOnlyOne(this)"> Weekend<br>
-      <div class="error" id="programError"></div>
-
-      <h3>SELECT THE COURSE YOU WANT TO STUDY</h3>
-      <select name="course" required>
-        <option value="CCTV CAMERA">CCTV CAMERA</option>
-        <option value="Computer Hardware">Computer Hardware</option>
-        <option value="Music">Music</option>
-        <option value="Graphic Design">Graphic Design</option>
-        <option value="Video Production">Video Production</option>
-        <option value="Creative Art">Creative Art</option>
-        <option value="Web design">Web design</option>
-        <option value="Software Development">Software Development</option>
-        <option value="Photography">Photography</option>
-        <option value="Electronic Services">Electronic Services</option>
-        <option value="cycle inferieur">cycle inferieur</option>
-        <option value="Maternelle">Maternelle</option>
-        <option value="Secondaire">Secondaire</option>
-      </select>
-      <div class="error" id="courseError"></div>
-
-      <h3>Attachments</h3>
-      YOUR ID OR PASSPORT: <input type="file" name="passport"><br>
-      YOUR ADVANCED LEVEL CERTIFICATE OR ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript"><br>
-
-      <h3>APPLICATION FEE</h3>
-      CHOOSE PAYMENT METHOD:
-      <select name="paymentMethod">
-        <option value="" disabled selected>Select a payment method</option>
-        <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
-        <option value="Cash">Cash</option>
-        <option value="Bank Transfer">Bank Transfer</option>
-        <option value="PayPal">PayPal</option>
-      </select>
-      <div class="error" id="paymentMethodError"></div>
-      <input type="submit" value="Submit Application" id="submitButton">
-
-      <div id="myModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="modalText"></p>
+        <div id="secondaryYearDiv">
+          <p class="text-xl font-semibold mt-2">If your answer is no, indicate your year of study at your high school?
+          </p>
+          <select
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+            name="secondaryYear" id="secondaryYear">
+            <option value="" disabled selected>Select your year:</option>
+            <option value="S3">S3</option>
+            <option value="S4[LEVEL 3]">S4[LEVEL 3]</option>
+            <option value="S4[LEVEL 4]">S4[LEVEL 4]</option>
+            <option value="S6[LEVEL 5]">S6[LEVEL 5]</option>
+          </select>
+          <div class="error" id="secondaryYearError"></div>
         </div>
-      </div>
 
-    </form>
+        <!-- ... Repeat for all other sections ... -->
+        <p class="text-xl font-semibold mt-2">Did you graduate from university?</p>
+        <input type="radio" name="universityGraduated" value="YES" required> Yes
+        <input type="radio" name="universityGraduated" value="NO" required> No
+        <div class="error" id="universityGraduatedError"></div>
+
+        <div id="universityYearDiv">
+          <p class="text-xl font-semibold mt-2">If your answer is no, indicate your year of study at your university?
+          </p>
+          <select
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+            name="universityYear" id="universityYear" style="margin-bottom: 20px;">
+            <option value="" disabled selected>Select your year:</option>
+            <option value="YEAR 1">YEAR 1</option>
+            <option value="YEAR 2">YEAR 2</option>
+            <option value="YEAR 3">YEAR 3</option>
+            <option value="YEAR 4">YEAR 4</option>
+            <option value="YEAR 5">YEAR 5</option>
+          </select>
+          <div class="error" id="universityYearError"></div>
+        </div>
+
+        <p class="text-xl font-semibold mt-2">Select school:</p>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          name="school">
+          <option value="" disabled selected>Select your school:</option>
+          <option value="Kigali International Art College">Kigali International Art College - KIAC</option>
+        </select>
+        <div class="error" id="schoolError"></div>
+
+        <!-- Personal Information -->
+        <p class="text-xl font-semibold mt-2">Personal Information:</p>
+        First Name: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="firstName" required><br>
+        Last Name: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="lastName" required><br>
+          <div class="radio mt-3 mb-2">
+        Gender:
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female
+        <div class="error" id="genderError"></div>
+        </div>
+        Nationality: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="nationality" required><br>
+        Date of Birth: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="date" name="dob" required><br>
+        Phone Number: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="tel" name="phone" required pattern="[0-9]{10}"><br>
+        Email Address: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="email" name="email" required><br>
+
+        <p class="text-xl font-semibold mt-2">Residential address:</p>
+        Country of resident:
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="country" required><br>
+        District of resident:
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="district" required><br>
+        Sector of resident:
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="text" name="sector" required><br>
+
+        <p class="text-xl font-semibold mt-2">If you don't live in kigali city, do you have any of your family members
+          in Kigali City:</p>
+        <input type="radio" name="familyInKigali" value="Yes" required> Yes
+        <input type="radio" name="familyInKigali" value="No" required> No
+        <div class="error" id="familyInKigaliError"></div>
+
+        <p class="text-xl font-semibold mt-2">Select the Course you want to study:</p>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          name="course" required>
+          <option value="" disabled selected>Choose Course:</option>
+          <option value="CCTV CAMERA">CCTV Camera</option>
+          <option value="Computer Hardware">Computer Hardware</option>
+          <option value="Music">Music</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Video Production">Video Production</option>
+          <option value="Creative Art">Creative Art</option>
+          <option value="Web design">Web design</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Photography">Photography</option>
+          <option value="Electronic Services">Electronic Services</option>
+          <option value="cycle inferieur">cycle inferieur</option>
+          <option value="Maternelle">Maternelle</option>
+          <option value="Secondaire">Secondaire</option>
+        </select>
+        <div class="error" id="courseError"></div>
+
+        <p class="text-xl font-semibold mt-2">Choose Program:</p>
+        <div class="check mt-1">
+        <input type="checkbox" id="day" name="program" value="Day" onclick="checkOnlyOne(this)"> Day<br>
+        <input type="checkbox" id="night" name="program" value="Night" onclick="checkOnlyOne(this)"> Night<br>
+        <input type="checkbox" id="weekend" name="program" value="Weekend" onclick="checkOnlyOne(this)"> Weekend<br>
+        <div class="error" id="programError"></div>
+        </div>
+        <p class="text-xl font-semibold mt-2">Attachments:</p>
+        Your ID or Passport: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="file" name="passport"><br>
+          <div class="report mt-2">
+        Your adevanced level certificate or Academic transcript [School Report]: <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          type="file" name="transcript"><br>
+          </div>
+
+        <p class="text-xl font-semibold mt-2">Application Fee:</p>
+        Choose payment method:
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+          name="paymentMethod">
+          <!-- <option value="" disabled selected>Select a payment method</option> -->
+          <!-- Add the payment methods you accept here. I'm adding some general ones as examples -->
+          <option value="Cash" selected>Cash</option>
+          <option value="Momo" disabled>Momo</option>
+          <option value="credit card" disabled>credit card</option>
+        </select>
+        <div class="error" id="paymentMethodError"></div>
+        <input type="submit" value="Submit Application" id="submitButton">
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
   <?php
   include('footer.php');

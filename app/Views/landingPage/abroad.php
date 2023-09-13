@@ -15,50 +15,36 @@ include('header.php');
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #f5f5f5;
-            font-size: 14px;
-            /* Reduced font size */
         }
 
-        form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 40px auto;
+        .form-container h2 {
+            color: #036e9d;
         }
 
-        h3 {
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-weight: 600;
+        .form-container p {
             font-size: 16px;
-            /* Adjusted font size */
         }
 
-        input[type="text"],
-        input[type="date"],
-        input[type="tel"],
-        input[type="email"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 13px;
-            outline: none;
-            transition: border 0.3s ease;
+        .forms-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        input[type="text"]:focus,
-        input[type="date"]:focus,
-        input[type="tel"]:focus,
-        input[type="email"]:focus,
-        select:focus {
-            border-color: #007BFF;
+        .forms-container form {
+            width: 40%;
+            padding: 20px;
+            --tw-bg-opacity: 0.5;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+            /* background-color: #EBF8FF; */
+            border: 1px solid rgba(3, 110, 157, 0.3);
+        }
+
+        .forms-container p {
+            border-bottom: 2px solid #e0e0e0;
+            padding: 10px 0 5px;
+            font-weight: 500;
+            font-size: 16px;
         }
 
         input[type="radio"],
@@ -69,26 +55,17 @@ include('header.php');
         input[type="radio"],
         input[type="checkbox"] {
             transform: scale(0.9);
-            /* Reduce size a bit */
         }
-
-        input[type="file"] {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 13px;
-            width: 100%;
-        }
-
 
         #submitButton {
+            margin-top: 10px;
             background-color: #007BFF;
             color: #fff;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
-            font-size: 13px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: block;
@@ -98,7 +75,7 @@ include('header.php');
 
         #submitButton:hover {
             background-color: #0056b3;
-            transform: scale(1.05);
+            transform: scale(1.0);
         }
 
         .modal {
@@ -188,86 +165,97 @@ include('header.php');
 </head>
 
 <body class="bg-gray-200">
-    <div class="form-container" id="studentForm">
+    <div class="form-container" id="abroadForm">
         <div class="max-w-xl mx-auto mt-12">
-            <div class="form-container" id="abroadForm">
-                <div class="max-w-xl mx-auto mt-12">
-                    <h2 class="text-gray-700 font-bold text-2xl">STUDY ABROAD FOR SCHOLARSHIP
-                    </h2>
-
-                    <div class="my-4">
-                        <p class="text-gray-700 font-medium">KIAC is a professional educational agency, you can explore
-                            study
-                            abroad
-                            opportunities with scholarships that cover 90% of your expenses. We specialize in providing
-                            guidance
-                            and
-                            support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen
-                            countries.
-                        </p>
-                    </div>
-                    <form id="abroadApplicationForm" enctype="multipart/form-data" METHOD="POST">
-
-                        <h3>DO YOU WANT TO STUDY ABROAD FOR SCHOLARSHIP ?</h3>
-                        <input type="radio" name="want_to_study" value="yes" required> Yes
-                        <input type="radio" name="want_to_study" value="no" required> No
-                        <!-- <div class="error" id="educationLevelError"></div> -->
-
-                        <h3>IF YOU ARE INTERESTED ON THIS SCHOLARSHIP; PROCEED TO THE NEXT STEP.</h3>
-                        <input type="radio" name="interested" value="YES" required>I AM INTERESTED
-                        <input type="radio" name="interested" value="NO" required> NOT INTERESTED
-                        <!-- <div class="error" id="secondaryFinishedError"></div> -->
-
-                        <h3>PERSONAL INFORMATION</h3>
-                        <!-- First Name: <input type="text" name="firstName" required><br>
-        Last Name: <input type="text" name="lastName" required><br> -->
-                        Date of Birth: <input type="date" name="birth_date" required><br>
-                        Gender:
-                        <input type="radio" name="gender" value="Male" required> Male
-                        <input type="radio" name="gender" value="Female" required> Female
-                        <div class="error" id="genderError"></div>
-                        Nationality: <input type="text" name="nationality" required><br>
-                        Phone Number: <input type="tel" name="phone_number" required pattern="[0-9]{10}"><br>
-                        Email Address: <input type="email" name="email_add" required><br>
-
-
-                        <h3>YOUR CURRENT LEVEL OF EDUCATION </h3>
-                        <input type="radio" name="university_level" value="University Level" required> University Level
-                        <input type="radio" name="university_level" value="Secondary Level" required> Secondary Level
-                        <div class="error" id="educationLevelError"></div>
-
-                        <!-- ... Repeat for all other sections ... -->
-                        <h3>SELECT YOUR DESIRED COUNTRY
-                            *</h3>
-                        <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
-                        <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
-                        <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
-                        <div class="error" id="universityGraduatedError"></div>
-
-                        <h3>WHICH PROGRAM DO YOU WANT TO APPLY FOR ?
-                            *</h3>
-                        Program:
-                        <input type="text" name="program" required><br>
-                        <h3>REQUIRED DOCUMENT</h3>
-                        YOUR PHOTO PASSPORT: <input type="file" name="passport_pic"><br>
-                        ACADEMIC TRANSCRIPT [SCHOOL REPORT]: <input type="file" name="transcript_doc"><br>
-                        YOUR VALID PASSPORT: <input type="file" name="id_passport"><br>
-                        COVID_19 VACINATION CERTIFICATE <input type="file" name="vaccine"><br>
-
-                        <input type="submit" value="Submit Application" id="submitButton">
-
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <p id="modalText"></p>
-                            </div>
-                        </div>
-
-                    </form>
-                    <!-- Your form fields for abroad student go here -->
-
-                </div>
+            <h2 class="bold text-2xl">STUDY ABROAD FOR SCHOLARSHIP
+            </h2>
+            <div class="my-4">
+                <p class="text-gray-700 fw_400">KIAC is a professional educational agency, you can explore
+                    study
+                    abroad
+                    opportunities with scholarships that cover 90% of your expenses. We specialize in providing
+                    guidance
+                    and
+                    support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen
+                    countries.
+                </p>
             </div>
+        </div>
+        <div class="w-1/4 px-2 forms-container">
+            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="abroadApplicationForm" enctype="multipart/form-data"
+                METHOD="POST">
+                <p class="text-xl font-semibold mt-2">Do you want to study abroad for scholarship?</p>
+                <input type="radio" name="want_to_study" value="yes" required> Yes
+                <input type="radio" name="want_to_study" value="no" required> No
+
+                <p class="text-xl font-semibold mt-2">If you are interested in this scholarship, proceed to the next
+                    step.</p>
+                <div class="check mt-1">
+                <input type="radio" name="interested" value="YES" required> I am interested
+                <input type="radio" name="interested" value="NO" required> Not interested
+                </div>
+
+                <p class="text-xl font-semibold mt-2">Personal Information</p>
+                Date of Birth: <input type="date" name="birth_date" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                <div class="radio mt-3 mb-2">
+                Gender:
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female" required> Female
+                <div class="error" id="genderError"></div>
+                </div>
+                Nationality: <input type="text" name="nationality" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                Phone Number: <input type="tel" name="phone_number" required pattern="[0-9]{10}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                Email Address: <input type="email" name="email_add" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+
+                <p class="text-xl font-semibold mt-2">Your current level of education</p>
+                <div class="check mt-1">
+                <input type="radio" name="university_level" value="University Level" required> University Level
+                <input type="radio" name="university_level" value="Secondary Level" required> Secondary Level
+                <div class="error" id="educationLevelError"></div>
+                </div>
+                <p class="text-xl font-semibold mt-2">Select your desired country *</p>
+                <div class="check mt-1">
+                <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
+                <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
+                <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
+                <div class="error" id="universityGraduatedError"></div>
+                </div>
+                <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
+                Program:
+                <input type="text" name="program" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+
+                <p class="text-xl font-semibold mt-2">Required Documents</p>
+                <div class="report mt-2">
+                Your photo passport: <input type="file" name="passport_pic"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                Academic transcript (school report): <input type="file" name="transcript_doc"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                Your valid passport: <input type="file" name="id_passport"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                COVID-19 vaccination certificate <input type="file" name="vaccine"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <input type="submit" value="Submit Application" id="submitButton">
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p id="modalText"></p>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
     <?php
@@ -345,25 +333,25 @@ include('header.php');
     }
 
     function showModal(message) {
-    const modal = document.getElementById('myModal');
-    const span = document.getElementsByClassName("close")[0];
-    const modalText = document.getElementById('modalText');
+        const modal = document.getElementById('myModal');
+        const span = document.getElementsByClassName("close")[0];
+        const modalText = document.getElementById('modalText');
 
-    modalText.innerHTML = message;
-    modal.style.display = "block";
+        modalText.innerHTML = message;
+        modal.style.display = "block";
 
-    span.onclick = function () {
-        modal.style.display = "none";
-        location.reload(); // reloads the page
-    }
-
-    window.onclick = function (event) {
-        if (event.target === modal) {
+        span.onclick = function () {
             modal.style.display = "none";
             location.reload(); // reloads the page
         }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                location.reload(); // reloads the page
+            }
+        }
     }
-}
 
 
     document.getElementById('abroadApplicationForm').addEventListener('submit', function (e) {
