@@ -61,6 +61,7 @@ function array_term($terms)
 														<th>Gender</th>
 														<th>Phone</th>
 														<th>Program</th>
+														<th>Email</th>
 														<th>Payment status</th>
 														<th>Course</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
@@ -84,6 +85,9 @@ function array_term($terms)
 															</td>
 															<td>
 																<?= $pending['program']; ?>
+															</td>
+															<td>
+																<?= $pending['email']; ?>
 															</td>
 															<td>
 																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
@@ -130,6 +134,7 @@ function array_term($terms)
 														<th>Gender</th>
 														<th>Phone</th>
 														<th>Program</th>
+														<th>Email</th>
 														<th>Payment status</th>
 														<th>Course</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
