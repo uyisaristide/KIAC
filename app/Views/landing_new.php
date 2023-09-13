@@ -77,6 +77,12 @@
             color: #036e9d;
             background: #fff !important;
         }
+        .side-button{
+            color: #036e9d;
+        }
+        .side-button:hover{
+            color: #fff;
+        }
     </style>
 
 </head>
@@ -232,10 +238,8 @@
                             <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="text-center p-2 rounded-lg bg-blue-100"
-                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
-                            <a class="text-blue-500 font-semibold" href="#">Study <span
-                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Abroad</span></a>
+                        <div class="text-center p-2">
+                            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0; font-weight: bold;">Study Abroad</h2>
                         </div>
                         <div class="pt-3 flex flex-col gap-2">
                             <div
@@ -246,8 +250,8 @@
                                 </div>
                                 <div class="w-3/5">
                                     <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Armenia</button>
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
+                                        href="#">Armenia</button>
                                 </div>
                             </div>
 
@@ -258,9 +262,9 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Turkey</button>
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
+                                        href="#">Turkey</button>
                                 </div>
                             </div>
                             <div
@@ -270,9 +274,9 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/4.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Cyprus</button>
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
+                                        href="#">Cyprus</button>
                                 </div>
                             </div>
                             <div
@@ -282,9 +286,9 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/arm.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
-                                        href="#">Study in Poland</button>
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
+                                        href="#">Poland</button>
                                 </div>
                             </div>
                         </div>
@@ -329,12 +333,8 @@
                             <button class="p-2 w-2/6 bg-blue-500 rounded-lg text-sm text-white"
                                 type="submit">Search</button>
                         </div>
-                        <div class="text-center p-2 rounded-lg bg-blue-100"
-                            style="border: 1px solid rgba(3, 110, 157, 0.3);">
-                            <a class="text-blue-500 font-semibold" href="#">Study At <span
-                                    class="p-1 rounded-lg px-3 text-white bg-blue-500 transition-colors">Kigali
-                                    International
-                                    School</span></a>
+                        <div class="text-center p-2">
+                            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0; font-weight: bold;">Kigali International Art College - KIAC</h2>
                         </div>
                         <div class="pt-3 flex flex-col gap-2">
                             <div
@@ -344,8 +344,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/video.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Video Production</button>
                                 </div>
                             </div>
@@ -356,8 +356,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/photo.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Photography</button>
                                 </div>
                             </div>
@@ -369,8 +369,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/graphic.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Graphic Design</button>
                                 </div>
                             </div>
@@ -382,8 +382,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/web.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Web Design</button>
                                 </div>
                             </div>
@@ -395,8 +395,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/crea.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Creative Arts</button>
                                 </div>
                             </div>
@@ -407,8 +407,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/comp.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Computer Maintainance</button>
                                 </div>
                             </div>
@@ -419,8 +419,8 @@
                                         src="<?= base_url(); ?>assets/landing_new/img/music.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
-                                    <button
-                                        class="px-3 py-2 text-sm rounded-lg w-full font-semibold text-blue-500 bg-blue-100 transition-colors hover:text-white hover:bg-blue-500"
+                                <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button" 
                                         href="#">Music</button>
                                 </div>
                             </div>
@@ -903,9 +903,9 @@
                         <input class="focus:outline-none" type="email" id="fname" name="email"
                             placeholder="Enter Your Name">
                         <select class="focus:outline-none" id="title" name="title">
-                            <option value="" disabled selected>Select School</option>
-                            <option value="student_kiac">Student At KIAC</option>
-                            <option value="student_abroad">Student Abroad</option>
+                            <option value="" disabled selected>Select Testimonial Category</option>
+                            <option value="student_kiac">At KIAC</option>
+                            <option value="student_abroad">Abroad</option>
                         </select>
                         <label for="profile" class="custom-file-upload focus:outline-none">
                             Choose Profile Photo

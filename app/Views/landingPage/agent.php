@@ -10,55 +10,37 @@ include('header.php');
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<title>Apply To Study At Kigali International Art School</title>
+	<title>Apply for agent</title>
 
 	<style>
 		body {
 			font-family: 'Open Sans', sans-serif;
-			background-color: #f5f5f5;
-			font-size: 14px;
-			/* Reduced font size */
 		}
 
-		form {
-			background-color: #fff;
-			padding: 30px;
-			border-radius: 10px;
-			postal_box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-			max-width: 800px;
-			margin: 40px auto;
+		.form-container h2 {
+			color: #036e9d;
 		}
 
-		h3 {
+		.forms-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.forms-container form {
+			width: 40%;
+			padding: 20px;
+			--tw-bg-opacity: 0.5;
+			background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+			/* background-color: #EBF8FF; */
+			border: 1px solid rgba(3, 110, 157, 0.3);
+		}
+
+		.forms-container p {
 			border-bottom: 2px solid #e0e0e0;
-			padding-bottom: 10px;
-			margin-bottom: 20px;
-			font-weight: 600;
+			padding: 10px 0 5px;
+			font-weight: 500;
 			font-size: 16px;
-			/* Adjusted font size */
-		}
-
-		input[type="text"],
-		input[type="date"],
-		input[type="tel"],
-		input[type="email"],
-		select {
-			width: 100%;
-			padding: 10px;
-			margin-bottom: 20px;
-			border: 1px solid #e0e0e0;
-			border-radius: 5px;
-			font-size: 13px;
-			outline: none;
-			transition: border 0.3s ease;
-		}
-
-		input[type="text"]:focus,
-		input[type="date"]:focus,
-		input[type="tel"]:focus,
-		input[type="email"]:focus,
-		select:focus {
-			border-color: #007BFF;
 		}
 
 		input[type="radio"],
@@ -69,26 +51,17 @@ include('header.php');
 		input[type="radio"],
 		input[type="checkbox"] {
 			transform: scale(0.9);
-			/* Reduce size a bit */
 		}
-
-		input[type="file"] {
-			margin-bottom: 20px;
-			padding: 10px;
-			border: 1px solid #e0e0e0;
-			border-radius: 5px;
-			font-size: 13px;
-			width: 100%;
-		}
-
 
 		#submitButton {
+			margin-top: 10px;
 			background-color: #007BFF;
 			color: #fff;
 			border: none;
 			border-radius: 5px;
 			padding: 10px 20px;
-			font-size: 13px;
+			font-size: 16px;
+			font-weight: 500;
 			cursor: pointer;
 			transition: background-color 0.3s ease, transform 0.3s ease;
 			display: block;
@@ -98,7 +71,7 @@ include('header.php');
 
 		#submitButton:hover {
 			background-color: #0056b3;
-			transform: scale(1.05);
+			transform: scale(1.0);
 		}
 
 		.modal {
@@ -135,7 +108,6 @@ include('header.php');
 			cursor: pointer;
 		}
 
-		/* Center content */
 		.center {
 			display: flex;
 			justify-content: center;
@@ -144,7 +116,6 @@ include('header.php');
 			height: 50%;
 		}
 
-		/* Center content */
 		.center {
 			display: flex;
 			justify-content: center;
@@ -152,7 +123,6 @@ include('header.php');
 			height: 30%;
 		}
 
-		/* Styles for the content div */
 		.content {
 			background-color: #ffffff;
 			padding: 20px;
@@ -162,15 +132,9 @@ include('header.php');
 			/* center the h2 and radio buttons */
 		}
 
-		h3 {
-			margin-bottom: 20px;
-		}
-
 		label {
 			display: inline-block;
-			/* changed from block to inline-block */
 			margin: 0 10px;
-			/* added margin to space them apart */
 			cursor: pointer;
 		}
 
@@ -188,118 +152,117 @@ include('header.php');
 </head>
 
 <body class="bg-gray-200">
-	<div class="form-container" id="studentForm">
-		<div class="max-w-xl mx-auto mt-12">
 
-			<div class="form-container" id="agentForm">
-				<div class="max-w-xl mx-auto mt-12">
-					<h2 class="text-gray-700 font-bold text-2xl">APPLY FOR SCHOLARSHIP</h2>
+	<!-- <div class="form-container" id="studentForm">
+		<div class="max-w-xl mx-auto mt-12"> -->
 
-					<div class="my-4">
-						<p class="text-gray-700 font-medium">SCHOLARSHIP COVERS 50% TUITION FEES
-							OPPORTUNITY TO STUDY ABROAD
-							OPPORTUNITY FOR INTERNSHIP TO OUR PARTNERS </p>
-					</div>
+	<div class="form-container" id="agentForm">
+		<div class="max-w-xl mx-auto mt-12 my-4 text-center">
+			<h2 class="bold text-2xl">APPLY FOR AGENT</h2>
+		</div>
+		<div class="w-1/4 px-2 forms-container">
+			<form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="agentApplicationForm" enctype="multipart/form-data"
+				METHOD="POST">
+				<p class="text-xl font-semibold mt-2">Personal Information</p>
+				Names: <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="names" required><br>
+				Phone Number: <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="tel" name="telephone" required pattern="[0-9]{10}"><br>
+				Email Address: <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="email" name="email_address" required><br>
+				Nationality:<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="nationality" required><br>
+				ID/PC: <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="file" name="passport"><br>
+				Transcript: <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="file" name="transcript"><br>
 
-					<form id="agentApplicationForm" enctype="multipart/form-data" METHOD="POST">
-						<h3>PERSONAL INFORMATION</h3>
-						Names: <input type="text" name="names" required><br>
-						Phone Number: <input type="tel" name="telephone" required pattern="[0-9]{10}"><br>
-						Email Address: <input type="email" name="email_address" required><br>
-						Nationality:<input type="text" name="nationality" required><br>
-						ID/PC: <input type="file" name="passport"><br>
-						Transcript: <input type="file" name="transcript"><br>
-
-						<h3>Status:</h3>
-						<input type="checkbox" name="status" value=" Single " onclick=checkOnlyOne(this)> Single<br>
-						<input type="checkbox" name="status" value=" Married " onclick=checkOnlyOne(this)> Married<br>
-						<input type="checkbox" name="status" value=" Widow " onclick=checkOnlyOne(this)> Widow<br>
-						<input type="checkbox" name="status" value=" Divorced " onclick=checkOnlyOne(this)>
-						Divorced<br>
-						<input type="checkbox" name="status" value=" Separated " onclick=checkOnlyOne(this)>
-						Separated<br><br>
-
-						<h3>Current Address</h3>
-						Postal Box:
-						<input type="text" name="postal_box" required><br>
-						District/City:
-						<input type="text" name="district" required><br>
-						Province:
-						<input type="text" name="province" required><br>
-						Country:
-						<input type="text" name="country" required><br>
-						Fax:
-						<input type="text" name="fax" required><br><br>
-						Current Occupation:
-						<input type="checkbox" name="occupation" value=" Student " onclick=checkOnlyOne(this)>
-						Student<br>
-						<input type="checkbox" name="occupation" value=" Wage Earner " onclick=checkOnlyOne(this)> Wage
-						Earner<br>
-						<input type="checkbox" name="occupation" value=" Self Employed " onclick=checkOnlyOne(this)>
-						Self
-						Employed<br>
-						<input type="checkbox" name="occupation" value=" Job Seeker " onclick=checkOnlyOne(this)> Job
-						Seeker<br>
-						<input type="checkbox" name="occupation" value=" Without job " onclick=checkOnlyOne(this)>
-						Without
-						Job<br><br>
-
-						<h2>Educational Qualification:</h2>
-						<p>(Enclose notified/certified copy)</p>
-
-						<label for="level">Level:</label>
-						<select id="level" name="level">
-							<option value="secondary">Secondary</option>
-							<option value="school">School</option>
-							<option value="undergraduate">Undergraduate</option>
-							<option value="graduate">Graduate</option>
-							<option value="research">Research</option>
-						</select>
-						<br>
-
-						<label for="fieldDegree">Field/Degree:</label>
-						<input type="text" id="fieldDegree" name="fieldDegree">
-						<br>
-
-						<label for="specialization">Specialization awarded:</label>
-						<input type="text" id="specialization" name="specialization">
-						<br>
-
-						<label for="year">Year:</label>
-						<input type="text" id="year" name="year">
-						<br>
-
-						<label for="institution">Institution/University:</label>
-						<input type="text" id="institution" name="institution">
-						<br>
-
-						<label for="place">Place:</label>
-						<input type="text" id="place" name="place">
-						<br>
-
-						<label for="grade">Grade obtained:</label>
-						<input type="text" id="grade" name="grade">
-						<br>
-
-						<label for="certificate">Enclose notified/certified copy:</label>
-						<input type="file" id="certificate" name="certificate">
-						<br>
-
-						<input type="submit" value="Submit" id="submitButton">
-						<div id="myModal" class="modal">
-							<div class="modal-content">
-								<span class="close">&times;</span>
-								<p id="modalText"></p>
-							</div>
-						</div>
-					</form>
-
+				<p class="text-xl font-semibold mt-2">Status:</p>
+				<div class="check mt-1">
+				<input type="checkbox" name="status" value=" Single " onclick=checkOnlyOne(this)> Single<br>
+				<input type="checkbox" name="status" value=" Married " onclick=checkOnlyOne(this)> Married<br>
+				<input type="checkbox" name="status" value=" Widow " onclick=checkOnlyOne(this)> Widow<br>
+				<input type="checkbox" name="status" value=" Divorced " onclick=checkOnlyOne(this)>
+				Divorced<br>
+				<input type="checkbox" name="status" value=" Separated " onclick=checkOnlyOne(this)>
+				Separated<br><br>
 				</div>
-				<!-- Your form fields for agent go here -->
-			</div>
+				<p class="text-xl font-semibold mt-2">Current Address</p>
+				Postal Box:
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="postal_box" required><br>
+				District/City:
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="district" required><br>
+				Province:
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="province" required><br>
+				Country:
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="country" required><br>
+				Fax:
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" type="text" name="fax" required><br><br>
 
+				<p class="text-xl font-semibold mt-2">Current Occupation:</p>
+				<div class="check mt-1">
+				<input type="checkbox" name="occupation" value=" Student " onclick=checkOnlyOne(this)>
+				Student<br>
+				<input type="checkbox" name="occupation" value=" Wage Earner " onclick=checkOnlyOne(this)> Wage
+				Earner<br>
+				<input type="checkbox" name="occupation" value=" Self Employed " onclick=checkOnlyOne(this)>
+				Self
+				Employed<br>
+				<input type="checkbox" name="occupation" value=" Job Seeker " onclick=checkOnlyOne(this)> Job
+				Seeker<br>
+				<input type="checkbox" name="occupation" value=" Without job " onclick=checkOnlyOne(this)>
+				Without
+				Job<br><br>
+				</div>
+				<p class="text-xl font-semibold mt-2">Educational Qualification & Enclose notified/certified copy:</p>
+				<!-- <p>(Enclose notified/certified copy)</p> -->
+
+				<label for="level">Level:</label>
+				<!-- <p class="text-xl font-semibold mt-2">Level:</p> -->
+				<select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-3" id="level" name="level">
+					<option value="secondary">Secondary</option>
+					<option value="school">School</option>
+					<option value="undergraduate">Undergraduate</option>
+					<option value="graduate">Graduate</option>
+					<option value="research">Research</option>
+				</select>
+				<br>
+
+				<label for="fieldDegree">Field/Degree:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="fieldDegree" name="fieldDegree">
+				<br>
+
+				<label for="specialization">Specialization awarded:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="specialization" name="specialization">
+				<br>
+
+				<label for="year">Year:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="year" name="year">
+				<br>
+
+				<label for="institution">Institution/University:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="institution" name="institution">
+				<br>
+
+				<label for="place">Place:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="place" name="place">
+				<br>
+
+				<label for="grade">Grade obtained:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="text" id="grade" name="grade">
+				<br>
+
+				<label for="certificate">Enclose notified/certified copy:</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-1" type="file" id="certificate" name="certificate">
+				<br>
+
+				<input type="submit" value="Submit" id="submitButton">
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p id="modalText"></p>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
+	<!-- Your form fields for agent go here -->
+	<!-- </div>
+	</div> -->
 	<?php
 	include('footer.php');
 	?>
@@ -346,93 +309,93 @@ include('header.php');
 	}
 
 	function isValidForm() {
-			const form = document.getElementById('agentApplicationForm');
-			if (!form.checkValidity()) {
-				alert('Please fill all the fields correctly.');
-				return false;
-			}
-			return true;
+		const form = document.getElementById('agentApplicationForm');
+		if (!form.checkValidity()) {
+			alert('Please fill all the fields correctly.');
+			return false;
 		}
+		return true;
+	}
 
 
 	function sendDataToServer() {
 		if (!isValidForm()) return;
 		let formData = gatheragentFormData();
-			fetch('http://173.212.230.165:3000/api/agents/application', {
+		fetch('http://173.212.230.165:3000/api/agents/application', {
 			// fetch('http://localhost:3000/api/agents/application', {
-				method: 'POST',
+			method: 'POST',
 
-				body: formData,
-				dataType: 'json',
+			body: formData,
+			dataType: 'json',
 
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					showModal('Your application was sent successfully!');
+				} else {
+					const errorMsg = data.error || 'Please fill the form correctly';
+					showModal(errorMsg);
+				}
 			})
-				.then(response => response.json())
-				.then(data => {
-					if (data.success) {
-						showModal('Your application was sent successfully!');
-					} else {
-						const errorMsg = data.error || 'Please fill the form correctly';
-						showModal(errorMsg);
-					}
-				})
-				.catch(error => {
-					console.error('Error:', error);
-					showModal('Something went wrong! Please try again.');
-					// showModal(error);
-				});
+			.catch(error => {
+				console.error('Error:', error);
+				showModal('Something went wrong! Please try again.');
+				// showModal(error);
+			});
+	}
+
+	function showModal(message) {
+		const modal = document.getElementById('myModal');
+		const span = document.getElementsByClassName("close")[0];
+		const modalText = document.getElementById('modalText');
+
+		modalText.innerHTML = message;
+		modal.style.display = "block";
+
+		span.onclick = function () {
+			modal.style.display = "none";
+			location.reload(); // reloads the page
 		}
 
-		function showModal(message) {
-			const modal = document.getElementById('myModal');
-			const span = document.getElementsByClassName("close")[0];
-			const modalText = document.getElementById('modalText');
-
-			modalText.innerHTML = message;
-			modal.style.display = "block";
-
-			span.onclick = function () {
+		window.onclick = function (event) {
+			if (event.target === modal) {
 				modal.style.display = "none";
 				location.reload(); // reloads the page
 			}
+		}
+	}
 
-			window.onclick = function (event) {
-				if (event.target === modal) {
-					modal.style.display = "none";
-					location.reload(); // reloads the page
+
+
+	function checkOnlyOne(checkboxGroupName) {
+		// Get all checkboxes with the same name
+		const checkboxes = document.querySelectorAll(`input[name="${checkboxGroupName}"]`);
+
+		// Add event listeners to each checkbox
+		checkboxes.forEach(checkbox => {
+			checkbox.addEventListener('change', function () {
+				// If the changed checkbox is checked, uncheck all others
+				if (this.checked) {
+					checkboxes.forEach(postal_box => {
+						if (postal_box !== this) postal_box.checked = false;
+					});
 				}
-			}
-		}
-
-
-
-		function checkOnlyOne(checkboxGroupName) {
-			// Get all checkboxes with the same name
-			const checkboxes = document.querySelectorAll(`input[name="${checkboxGroupName}"]`);
-
-			// Add event listeners to each checkbox
-			checkboxes.forEach(checkbox => {
-				checkbox.addEventListener('change', function () {
-					// If the changed checkbox is checked, uncheck all others
-					if (this.checked) {
-						checkboxes.forEach(postal_box => {
-							if (postal_box !== this) postal_box.checked = false;
-						});
-					}
-				});
 			});
-		}
-
-		// Usage:
-		// Assuming you have checkboxes with the name attribute as "status" and "occupation"
-		window.onload = function () {
-			checkOnlyOne('status');
-			checkOnlyOne('occupation');
-		}
-
-		document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
-			e.preventDefault();
-			sendDataToServer();
 		});
+	}
+
+	// Usage:
+	// Assuming you have checkboxes with the name attribute as "status" and "occupation"
+	window.onload = function () {
+		checkOnlyOne('status');
+		checkOnlyOne('occupation');
+	}
+
+	document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
+		e.preventDefault();
+		sendDataToServer();
+	});
 
 </script>
 
