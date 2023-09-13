@@ -134,6 +134,7 @@ include('header.php');
       text-decoration: none;
       cursor: pointer;
     }
+
     .center {
       display: flex;
       justify-content: center;
@@ -148,6 +149,7 @@ include('header.php');
       align-items: center;
       height: 30%;
     }
+
     .content {
       background-color: #ffffff;
       padding: 20px;
@@ -169,6 +171,7 @@ include('header.php');
     input[type="radio"] {
       margin-right: 5px;
     }
+
     @media (max-width: 768px) {
       form {
         padding: 20px;
@@ -490,22 +493,20 @@ include('header.php');
     fetch('http://173.212.230.165:3000/api/students/register', {
       method: 'POST',
       body: formData
-    }).then(response => {
-      return response.json().then(data => {
-        if (!response.ok) {
-          throw new Error(data.error || alert("Some thing went wrong! Plz Fill the Form as it required "));
-          console.log(data.error || "Please fill the form correctly");
-          location.reload();
+    }).then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showModal('Your application was sent successfully!');
+        } else {
+          const errorMsg = data.error || 'Please fill the form correctly';
+          showModal(errorMsg);
         }
-        return data;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        showModal('Something went wrong! Please try again.');
+        // showModal(error);
       });
-    }).then(data => {
-      console.log(data);
-      showModal('Your application sent successfully!');
-    }).catch(error => {
-      console.error('Error:', error);
-      showModal("Some thing went wrong! Plz Fill the Form as it required ");
-    });
   }
 
   document.getElementById('applicationForm').addEventListener('submit', function (e) {

@@ -364,7 +364,6 @@ include('header.php');
 
 				body: formData,
 				dataType: 'json',
-
 			})
 				.then(response => response.json())
 				.then(data => {

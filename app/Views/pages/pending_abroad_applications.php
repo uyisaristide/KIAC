@@ -57,13 +57,11 @@ function array_term($terms)
 												<thead>
 													<tr role="row">
 														<th>#</th>
-														<th>Applicant</th>
-														<th>Phone</th>
 														<th>Email</th>
-														<th>Status</th>
-														<th>Level</th>
-														<th>Country</th>
+                                                        <th>Phone</th>
+                                                        <th>Location</th>
 														<th>Payment Status</th>
+														<th>Program</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
@@ -72,41 +70,35 @@ function array_term($terms)
 													<?php foreach ($pendings as $key => $pending) { ?>
 														<tr>
 															<td>
-																<?= $key + 1; ?>
+																 <?= $key + 1	; ?> 
 															</td>
 															<td>
-																<?= $pending['names'] ?>
+																<?= $pending['email_add']?>
 															</td>
+                                                            <td>
+                                                                <?= $pending['phone_number']; ?>
+                                                            </td>      
 															<td>
-																<?= $pending['telephone'] ?>
+                                                                <?= $pending['desired_country']; ?>
+                                                            </td>                     
+															<td>
+                                                            <?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
 															</td>
-															<td>
-																<?= $pending['email_address']; ?>
-															</td>
-															<td>
-																<?= $pending['status']; ?>
-															</td>
-															<td>
-																<?= $pending['level']; ?>
-															</td>
-															<td>
-																<?= $pending['country']; ?>
-															</td>
-															<td>
-																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
+                                                            <td>
+																<?= $pending['program']; ?>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">
 																<div
 																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
 																	<!-- Add your blue button -->
-																	<div>
+																	 <div>
 																		<button class="btn btn-sm btn-info download-doc"
 																			data-document-path="">
 																			Transcript</button>
 																	</div>
 																	<!-- Button to download Passport -->
-																	<div>
+																	 <div>
 																		<button
 																			class="btn btn-sm btn-secondary download-doc"
 																			data-document-path="">
@@ -169,7 +161,7 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/agents'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad'; // Replace with your server's base URL
 			// const serverBaseUrl = 'http://localhost:3000/api/agents/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
@@ -183,21 +175,16 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/updateStatus`, {
+			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/updateStatus`, {
+			fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
 				.then(data => {
 					if (data.success) {
-						// Payment status updated successfully
-						// Now, call your API to create a student
-						// createStudent(studentId);
-
-						// Reload the page to reflect the changes in the table
 						alert("updated successfully")
 						location.reload();
 					} else {
-						// Handle any errors here
 						console.error(data.error);
 					}
 				})
@@ -207,19 +194,20 @@ function array_term($terms)
 		});
 	});
 
-
+ 
 	document.querySelectorAll('.btn-danger').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			// fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/reject`, {
-			fetch(`http://localhost:3000/api/agents/application/${studentId}/reject`, {
+			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
+			fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
 				.then(data => {
 					if (data.success) {
+                        alert("rejected!")
 						location.reload();
 					} else {
 						// Handle any errors here
