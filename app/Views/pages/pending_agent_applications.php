@@ -213,8 +213,8 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			// fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/reject`, {
-			fetch(`http://localhost:3000/api/agents/application/${studentId}/reject`, {
+			fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/reject`, {
+			// fetch(`http://localhost:3000/api/agents/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
