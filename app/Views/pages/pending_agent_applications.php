@@ -60,8 +60,7 @@ function array_term($terms)
 														<th>Applicant</th>
 														<th>Phone</th>
                                                         <th>Email</th>
-                                                        <th>certificate</th>
-											
+                                                        <th>Status</th>
 														<th>Level</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
