@@ -134,6 +134,8 @@
                                 <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
                                 <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
+                                <li><a href="<?= base_url('partners'); ?>">Partnership</a></li>
+                                <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
                             </ul>
                         </li>
                     </ul>

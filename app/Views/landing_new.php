@@ -240,7 +240,7 @@
                                 <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
                                 <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
-                                <li><a href="<?= base_url('partners'); ?>">Partners</a></li>
+                                <li><a href="<?= base_url('partners'); ?>">Partnership</a></li>
                                 <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
                             </ul>
                         </li>
@@ -593,7 +593,7 @@
 
         <!-- Service section -->
 
-        <section id="news_events" class="news_events pt50 ">
+        <section id="news_events" class="news_events pt50 pb-3 " style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
             <div class="container">
                 <div class="row">
                     <div id="choose" class="col-lg-4">
@@ -806,7 +806,7 @@
 
         <!-- Testimonials -->
         <div style="text-align:center">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0;">Testimonials</h2>
+            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 0; margin-top: -40px">Testimonials</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Read trusted reviews from our customers</h1>
         </div>
         <div class="testimonial-container mx-auto mt-20">
@@ -950,7 +950,7 @@
             </button>
         </div>
 
-        <div class="contact-container reviews">
+        <div class="contact-container reviews" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
             <div class="row flex justify-content-center align-items-center">
                 <div class="column" style="width: 40%; background-color: #fff;" ;>
                     <div class="col-lg-7">
@@ -1043,7 +1043,7 @@
 
         <!-- FOOTER -->
 
-        <div class="footer-container gray-bg_medium">
+        <div class="footer-container gray-bg_medium" style="height: auto; padding-bottom: auto;">
             <footer class="container" id="footer"
                 style="padding: 20px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
                 <div class="row">
@@ -1130,12 +1130,12 @@
             <section class="footer-btm">
                 <div class="container footer-btm">
                     <div class="row ptb50 boder_tb gray-bg"
-                        style="padding-bottom: 30px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+                        style="padding-bottom: 10px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
                         <div class="col-md-4 col-sm-12 m_text-center m_pb20"><a href=""><img
-                                    style="width: 40%; margin-top: -50px;"
+                                    style="width: 40%; margin-top: -70px;"
                                     src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="img"></a></div>
 
-                        <div class="col-md-4 col-sm-12 m_pb20">
+                        <div class="col-md-4 col-sm-12 m_pb20"  style="margin-top: -50px">
                             <ul class="footer-social">
                                 <li class="inline-block m-2">
                                     <a href="#">
@@ -1163,14 +1163,14 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-4 text-center">
+                        <div class="col-md-4 text-center" style="margin-top: -40px">
                             <ul class="footer-links">
                                 <li><a style="color: #036e9d" class="pr10 copyright" href="">Copyright / Disclaimer /
                                         Privacy</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row ptb40 gray-bg" style="padding: 20px 0;">
+                    <div class="row ptb40 gray-bg" style="padding: 20px 0 0;">
                         <div class="col-md-12">
                             <p class="cricos">
                                 <span style="color: #666;">© 2023 Kigali International Art College. All Right
