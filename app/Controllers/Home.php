@@ -11916,65 +11916,43 @@ Merci";
 		}
 	}
 
-	// public
-	// 	function pendingRegistrations(
-	// ) {
-	// 	$this->_preset();
-	// 	$data = $this->data;
-	// 	$applicationMdl = new StudentApplicationModel();
-	// 	$school_id = $this->session->get("ideyetu_school_id");
-	// 	$data['title'] = lang("app.pendingRegistration");
-	// 	$data['subtitle'] = lang("app.pendingRegistration");
-	// 	$data['page'] = "pendingRegistration";
-	// 	$data['pendings'] = $applicationMdl->select("applications.id,concat(fname,' ',lname) as applicant,
-	// 	if(gender='M','Male','Famele') as gender,
-	// 	phoneNumber,parentType,
-	// 	parentPhoneNumber,parentNames,dateOfBirth,l.title as level,if(studyingMode=0,'Boarding','Day') mode,applications.status,code,admitted")
-	// 		->join("levels l", "l.id=applications.level")
-	// 		->where("admitted", 0)
-	// 		->where("schoolId", $school_id)
-	// 		->get()->getResultArray();
-	// 	$data['content'] = view("pages/pendingRegistrations", $data);
-	// 	return view('main', $data);
-	// }
-	// function pendingRegistrations() {
-	// 	$this->_preset();
-	// 	$data = $this->data;
-		
-	// 	$school_id = $this->session->get("ideyetu_school_id");
-	// 	$data['title'] = lang("app.pendingRegistration");
-	// 	$data['subtitle'] = lang("app.pendingRegistration");
-	// 	$data['page'] = "pendingRegistration";
-	
-	// 	// Replace this part with a cURL request to your API
-	// 	$apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
-	// 	// $apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
-		
-	// 	$ch = curl_init();	
-	// 	curl_setopt($ch, CURLOPT_URL, $apiUrl);
-	// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	// 	$response = curl_exec($ch);
-	// 	if (curl_errno($ch)) {
-	// 		// Handle error, maybe log it and show an error message
-	// 		die("Error: " . curl_error($ch));
-	// 	}
-	// 	curl_close($ch);
-		
-	// 	$applications = json_decode($response, true);
-	
-	// 	// Assuming 'applications' is the key in the API response containing the applications
-	// 	if (isset($applications['applications'])) {
-	// 		$data['pendings'] = $applications['applications'];
-	// 	} else {
-	// 		// Handle the error, maybe log it and show an error message
-	// 		$data['pendings'] = [];
-	// 	}
-	
-	// 	$data['content'] = view("pages/pendingRegistrations", $data);
-	// 	return view('main', $data);
-	// }
-
 	function pendingRegistrations() { 
+		$this->_preset();
+		$data = $this->data;
+		
+		$school_id = $this->session->get("ideyetu_school_id");
+		$data['title'] = lang("app.pendingRegistration");
+		$data['subtitle'] = lang("app.pendingRegistration");
+		$data['page'] = "pendingRegistration";
+	
+		// Updated API URL for fetching student applications
+		$apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
+		$ch = curl_init();    
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		if (curl_errno($ch)) {
+			// Handle error, maybe log it and show an error message
+			die("Error: " . curl_error($ch));
+		}
+		curl_close($ch);
+		
+		$students = json_decode($response, true);
+	
+		// Adjusted key name according to the assumption that your API returns students directly
+		if (isset($students)) {
+			$data['pendings'] = $students;
+		} else {
+			// Handle the error, maybe log it and show an error message
+			$data['pendings'] = [];
+		}
+	
+		// Updated view name to pending_agent_applications.php
+		$data['content'] = view("pages/pendingRegistrations", $data);
+		return view('main', $data);
+	}
+	function pending_internship_applications() { 
 		$this->_preset();
 		$data = $this->data;
 		
@@ -12007,7 +11985,43 @@ Merci";
 		}
 	
 		// Updated view name to pending_agent_applications.php
-		$data['content'] = view("pages/pendingRegistrations", $data);
+		$data['content'] = view("pages/pending_partnership_applications", $data);
+		return view('main', $data);
+	}
+	function pending_partnership_applications() { 
+		$this->_preset();
+		$data = $this->data;
+		
+		$school_id = $this->session->get("ideyetu_school_id");
+		$data['title'] = lang("app.pendingRegistration");
+		$data['subtitle'] = lang("app.pendingRegistration");
+		$data['page'] = "pendingRegistration";
+	
+		// Updated API URL for fetching student applications
+		$apiUrl = "http://173.212.230.165:3000/api/partners/all/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/partners/all/applications"; // Replace with your actual API URL
+		$ch = curl_init();    
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		if (curl_errno($ch)) {
+			// Handle error, maybe log it and show an error message
+			die("Error: " . curl_error($ch));
+		}
+		curl_close($ch);
+		
+		$students = json_decode($response, true);
+	
+		// Adjusted key name according to the assumption that your API returns students directly
+		if (isset($students)) {
+			$data['pendings'] = $students;
+		} else {
+			// Handle the error, maybe log it and show an error message
+			$data['pendings'] = [];
+		}
+	
+		// Updated view name to pending_agent_applications.php
+		$data['content'] = view("pages/pending_partnership_applications", $data);
 		return view('main', $data);
 	}
 
@@ -12021,8 +12035,8 @@ Merci";
 		$data['page'] = "pendingRegistration";
 	
 		// Updated API URL for fetching student applications
-		// $apiUrl = "http://173.212.230.165:3000/api/agents/all/applications"; 
-		$apiUrl = "http://localhost:3000/api/agents/all/applications"; 
+		$apiUrl = "http://173.212.230.165:3000/api/agents/all/applications"; 
+		// $apiUrl = "http://localhost:3000/api/agents/all/applications"; 
 		
 		$ch = curl_init();    
 		curl_setopt($ch, CURLOPT_URL, $apiUrl);
@@ -12059,8 +12073,8 @@ Merci";
 		$data['page'] = "pendingRegistration";
 	
 		// Updated API URL for fetching student applications
-		// $apiUrl = "http://173.212.230.165:3000/api/study/abroad/applications"; 
-		$apiUrl = "http://localhost:3000/api/study/abroad/applications"; 
+		$apiUrl = "http://173.212.230.165:3000/api/study/abroad/applications"; 
+		// $apiUrl = "http://localhost:3000/api/study/abroad/applications"; 
 		
 		$ch = curl_init();    
 		curl_setopt($ch, CURLOPT_URL, $apiUrl);

@@ -177,13 +177,12 @@ include('header.php');
             </div>
         </div>
         <div class="w-1/4 px-2 forms-container">
-            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="abroadApplicationForm" enctype="multipart/form-data"
-                METHOD="POST">
+            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="partnerApplication" METHOD="POST">
                 <p class="text-xl font-semibold mt-2">Personal Information:</p>
                 Name: <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    type="text" name="name" required><br>
-                Email Address: <input type="email" name="email_add" required
+                    type="text" name="names" required><br>
+                Email Address: <input type="email" name="email" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
                     <div style="flex: 1;">
@@ -204,7 +203,7 @@ include('header.php');
                         <label for="hear_about_us">Answer:</label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="text" name="name" id="hear_about_us" required>
+                            type="text" name="heard_us" id="hear_about_us" required>
                     </div>
                 </div>
 
@@ -233,10 +232,10 @@ include('header.php');
                     type="text" name="state" required><br>
                 Postal / Zip Code: <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    type="text" name="name" required><br>
+                    type="text" name="zip_code" required><br>
                 Website: <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    type="text" name="name" placeholder="http://www.example.com" required><br>
+                    type="text" name="website" placeholder="http://www.example.com" required><br>
 
                 <p class="text-xl font-semibold mt-2">Are You Most Interested In?</p>
                 <div class="check mt-1">
@@ -263,46 +262,28 @@ include('header.php');
 </body>
 <script>
     function gatheragentFormData() {
-        let formData = new FormData();
-        // name of the form field / name of the file
-        formData.append('names', document.querySelector('[name="names"]').value);
-        formData.append('telephone', document.querySelector('[name="telephone"]').value);
-        formData.append('nationality', document.querySelector('[name="nationality"]').value);
-        formData.append('province', document.querySelector('[name="province"]').value);
-        formData.append('district', document.querySelector('[name="district"]').value);
-        formData.append('country', document.querySelector('[name="country"]').value);
-        formData.append('email_address', document.querySelector('[name="email_address"]').value);
-        formData.append('postal_box', document.querySelector('[name="postal_box"]').value);
-        formData.append('fax', document.querySelector('[name="fax"]').value);
+        const formData = {
+            names: document.querySelector('[name="names"]').value,
+            email: document.querySelector('[name="email"]').value,
+            code: document.querySelector('[name="code"]').value,
+            phone_number: document.querySelector('[name="phone_number"]').value,
+            heard_us: document.querySelector('[name="heard_us"]').value,
+            company: document.querySelector('[name="company"]').value,
+            business: document.querySelector('[name="business"]').value,
+            street: document.querySelector('[name="street"]').value,
+            addressline: document.querySelector('[name="addressline"]').value,
+            city: document.querySelector('[name="city"]').value,
+            state: document.querySelector('[name="state"]').value,
+            zip_code: document.querySelector('[name="zip_code"]').value,
+            website: document.querySelector('[name="website"]').value,
+            status: document.querySelector('[name="status"]').value,
+        };
 
-        // Educational Qualification fields
-        formData.append('level', document.querySelector('[name="level"]').value);
-        formData.append('fieldDegree', document.querySelector('[name="fieldDegree"]').value);
-        formData.append('specialization', document.querySelector('[name="specialization"]').value);
-        formData.append('year', document.querySelector('[name="year"]').value);
-        formData.append('institution', document.querySelector('[name="institution"]').value);
-        formData.append('place', document.querySelector('[name="place"]').value);
-        formData.append('grade', document.querySelector('[name="grade"]').value);
-        formData.append('occupation', document.querySelector('[name="occupation"]').value);
-        formData.append('status', document.querySelector('[name="status"]').value);
-
-        if (document.querySelector('[name="passport"]').files.length > 0) {
-            formData.append('passport', document.querySelector('[name="passport"]').files[0]);
-        }
-        if (document.querySelector('[name="certificate"]').files.length > 0) {
-            formData.append('certificate', document.querySelector('[name="certificate"]').files[0]);
-        }
-
-        if (document.querySelector('[name="transcript"]').files.length > 0) {
-            formData.append('transcript', document.querySelector('[name="transcript"]').files[0]);
-        }
-        // status
-        return formData;
-
+        return new URLSearchParams(formData).toString();
     }
 
     function isValidForm() {
-        const form = document.getElementById('agentApplicationForm');
+        const form = document.getElementById('partnerApplication');
         if (!form.checkValidity()) {
             alert('Please fill all the fields correctly.');
             return false;
@@ -314,15 +295,14 @@ include('header.php');
     function sendDataToServer() {
         if (!isValidForm()) return;
         let formData = gatheragentFormData();
-        fetch('http://173.212.230.165:3000/api/agents/application', {
-            // fetch('http://localhost:3000/api/agents/application', {
+        // fetch('http://173.212.230.165:3000/api/partners/application', {
+        fetch('http://localhost:3000/api/partners/application', {
             method: 'POST',
-
             body: formData,
             dataType: 'json',
-
-            body: formData,
-            dataType: 'json',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
 
         })
             .then(response => response.json())
@@ -388,7 +368,7 @@ include('header.php');
         checkOnlyOne('occupation');
     }
 
-    document.getElementById('agentApplicationForm').addEventListener('submit', function (e) {
+    document.getElementById('partnerApplication').addEventListener('submit', function (e) {
         e.preventDefault();
         sendDataToServer();
     });

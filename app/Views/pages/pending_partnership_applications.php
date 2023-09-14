@@ -71,12 +71,10 @@ function array_term($terms)
 														<th>#</th>
 														<th>Applicant</th>
 														<th>Email</th>
-														<th>Gender</th>
-														<th>Phone</th>
-														<th>Program</th>
-														<th>Course</th>
-														<th>Payment status</th>
-														<th>Documents</th>
+														<th>Company Name</th>
+														<th>Type of Business</th>
+														<th>State/Province</th>
+														<th>Interested IN</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
@@ -88,45 +86,22 @@ function array_term($terms)
 																<?= $key + 1; ?>
 															</td>
 															<td>
-																<?= $pending['firstName'] . ' ' . $pending['lastName']; ?>
+																<?= $pending['names']  ?>
 															</td>
 															<td>
 																<?= $pending['email']; ?>
 															</td>
 															<td>
-																<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
+																<?= $pending['phone_number']; ?>
 															</td>
 															<td>
-																<?= $pending['phone']; ?>
+																<?= $pending['company']; ?>
 															</td>
 															<td>
-																<?= $pending['program']; ?>
+																<?= $pending['city']; ?>
 															</td>
 															<td>
-																<?= $pending['course']; ?>
-															</td>
-															<td>
-																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
-															</td>
-
-															<td style="text-align: center;">
-																<div
-																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
-																	<div>
-																		<button
-																			class="btn btn-sm btn-info open-modal download-doc"
-																			data-document-path="<?= $pending['transcript']; ?>">
-																			Transcript</button>
-																	</div>
-																	<!-- Button to download Passport -->
-																	<div>
-																		<button
-																			class="btn btn-sm btn-secondary open-modal download-doc"
-																			data-document-path="<?= $pending['passport']; ?>">
-																			Passport</button>
-																	</div>
-
-																</div>
+																<?= $pending['status']; ?>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">
@@ -270,7 +245,5 @@ function array_term($terms)
 				});
 		});
 	});
-
 </script>
-
 </html>

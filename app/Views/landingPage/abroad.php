@@ -328,7 +328,7 @@ include('header.php');
 
         let formData = gatherAbroadFormData();
 
-        fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+        // fetch('http://173.212.230.165:3000/api/study/abroad/application', {
             // fetch('http://localhost:3000/api/study/abroad/application', {
             method: 'POST',
             body: formData,
