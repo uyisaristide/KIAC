@@ -168,10 +168,10 @@ include('header.php');
     <div class="form-container" id="abroadForm">
         <div class="max-w-xl mx-auto mt-12 text-center">
             <h2 class="bold text-2xl">
-                KIAC Partnership Application
+                KIAC PARTNERSHIP APPLICATION FORM
             </h2>
             <div class="my-4">
-                <p class="text-gray-700 fw_400 pt-0">
+                <p class="text-gray-700 fw_400">
                     Tell about you and your company
                 </p>
             </div>
@@ -185,31 +185,37 @@ include('header.php');
                 Email Address: <input type="email" name="email" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                    <div style="flex: 1;">
+                    <div style="flex: 1; width: 50%;">
                         <p class="text-xl font-semibold mt-2">Phone</p>
                         <label for="code">Area Code:</label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="text" name="code" id="code" required>
-                    </div>
-                    <div style="flex: 1;">
-                        <p class="text-xl font-semibold mt-2">&nbsp;</p> <!-- Add an empty paragraph for spacing -->
                         <label for="phone_number">Phone Number:</label>
                         <input type="tel" name="phone_number" id="phone_number" required pattern="[0-9]{10}"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
-                    <div style="flex: 1;">
+                    <div style="flex: 1; width: 50%;">
                         <p class="text-xl font-semibold mt-2">How did you hear about us?</p>
+
                         <label for="hear_about_us">Answer:</label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="text" name="heard_us" id="hear_about_us" required>
+                        <label for="hear_about_us">Select:</label>
+                        <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            name="heard_us" required>
+                            <option value="--" disabled selected>--</option>
+                            <option value="socialMedia">Social media</option>
+                            <option value="radio">Radio</option>
+                            <option value="ourWebsite">Our Website</option>
+                            <option value="onlineNews">Online News</option>
+                            <option value="person">Person</option>
+                        </select>
                     </div>
                 </div>
-
-
                 <p class="text-xl font-semibold mt-2">Company Information</p>
-
                 Company Name: <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
                     type="text" name="company" required><br>

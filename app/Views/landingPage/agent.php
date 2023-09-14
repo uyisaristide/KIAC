@@ -13,141 +13,154 @@ include('header.php');
 	<title>Apply for agent</title>
 
 	<style>
-		body {
-			font-family: 'Open Sans', sans-serif;
-		}
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
 
-		.form-container h2 {
-			color: #036e9d;
-		}
+        .form-container h2 {
+            color: #036e9d;
+        }
 
-		.forms-container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+        .form-container p {
+            font-size: 16px;
+        }
 
-		.forms-container form {
-			width: 40%;
-			padding: 20px;
-			--tw-bg-opacity: 0.5;
-			background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
-			/* background-color: #EBF8FF; */
-			border: 1px solid rgba(3, 110, 157, 0.3);
-		}
+        .forms-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-		.forms-container p {
-			border-bottom: 2px solid #e0e0e0;
-			padding: 10px 0 5px;
-			font-weight: 500;
-			font-size: 16px;
-		}
+        .forms-container form {
+            width: 40%;
+            padding: 20px;
+            --tw-bg-opacity: 0.5;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+            /* background-color: #EBF8FF; */
+            border: 1px solid rgba(3, 110, 157, 0.3);
+        }
 
-		input[type="radio"],
-		input[type="checkbox"] {
-			margin-right: 5px;
-		}
+        .forms-container p {
+            border-bottom: 2px solid #e0e0e0;
+            padding: 10px 0 5px;
+            font-weight: 500;
+            font-size: 16px;
+        }
 
-		input[type="radio"],
-		input[type="checkbox"] {
-			transform: scale(0.9);
-		}
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
 
-		#submitButton {
-			margin-top: 10px;
-			background-color: #007BFF;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			font-size: 16px;
-			font-weight: 500;
-			cursor: pointer;
-			transition: background-color 0.3s ease, transform 0.3s ease;
-			display: block;
-			width: 100%;
-			text-align: center;
-		}
+        input[type="radio"],
+        input[type="checkbox"] {
+            transform: scale(0.9);
+        }
 
-		#submitButton:hover {
-			background-color: #0056b3;
-			transform: scale(1.0);
-		}
+        #submitButton {
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
 
-		.modal {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: rgba(0, 0, 0, 0.4);
-		}
+        #submitButton:hover {
+            background-color: #0056b3;
+            transform: scale(1.0);
+        }
 
-		.modal-content {
-			background-color: #fefefe;
-			margin: 15% auto;
-			padding: 20px;
-			border: 1px solid #888;
-			width: 80%;
-		}
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
-		.close {
-			color: #aaa;
-			float: right;
-			font-size: 28px;
-			font-weight: bold;
-		}
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
 
-		.close:hover,
-		.close:focus {
-			color: black;
-			text-decoration: none;
-			cursor: pointer;
-		}
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-		.center {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 50%;
-		}
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-		.center {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 30%;
-		}
+        /* Center content */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 50%;
+        }
 
-		.content {
-			background-color: #ffffff;
-			padding: 20px;
-			border-radius: 5px;
-			postal_box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			/* center the h2 and radio buttons */
-		}
+        /* Center content */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30%;
+        }
 
-		label {
-			display: inline-block;
-			margin: 0 10px;
-			cursor: pointer;
-		}
+        /* Styles for the content div */
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            /* center the h2 and radio buttons */
+        }
 
-		input[type="radio"] {
-			margin-right: 5px;
-		}
+        h3 {
+            margin-bottom: 20px;
+        }
 
-		/* Responsive Styles */
-		@media (max-width: 768px) {
-			form {
-				padding: 20px;
-			}
-		}
+        label {
+            display: inline-block;
+            /* changed from block to inline-block */
+            margin: 0 10px;
+            /* added margin to space them apart */
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+        }
 	</style>
 </head>
 
@@ -157,8 +170,13 @@ include('header.php');
 		<div class="max-w-xl mx-auto mt-12"> -->
 
 	<div class="form-container" id="agentForm">
-		<div class="max-w-xl mx-auto mt-12 my-4 text-center">
-			<h2 class="bold text-2xl">APPLY FOR AGENT</h2>
+		<div class="max-w-xl mx-auto mt-12 text-center">
+			<h2 class="bold text-2xl">KIAC AGENT APPLICATION FORM
+			</h2>
+			<div class="my-4">
+				<p class="text-gray-700 fw_400">Please tell us about You, Current Address, Current Occupation and
+					Educational Qualification & Enclose notified/certified copy</p>
+			</div>
 		</div>
 		<div class="w-1/4 px-2 forms-container">
 			<form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="agentApplicationForm" enctype="multipart/form-data"
@@ -215,7 +233,7 @@ include('header.php');
 					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
 					type="text" name="fax" required><br><br>
 
-				<p class="text-xl font-semibold mt-2">Current Occupation:</p>
+				<p class="text-xl font-semibold mt-2">Current Occupation</p>
 				<div class="check mt-1">
 					<input type="checkbox" name="occupation" value=" Student " onclick=checkOnlyOne(this)>
 					Student<br>

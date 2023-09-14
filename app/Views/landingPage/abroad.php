@@ -10,7 +10,7 @@ include('header.php');
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Apply To Study At Kigali International Art School</title>
+    <title>Apply To Study Abroad</title>
 
     <style>
         body {
@@ -166,18 +166,14 @@ include('header.php');
 
 <body class="bg-gray-200">
     <div class="form-container" id="abroadForm">
-        <div class="max-w-xl mx-auto mt-12">
+        <div class="max-w-xl mx-auto mt-12 text-center">
             <h2 class="bold text-2xl">STUDY ABROAD FOR SCHOLARSHIP
             </h2>
             <div class="my-4">
-                <p class="text-gray-700 fw_400">KIAC is a professional educational agency, you can explore
-                    study
-                    abroad
-                    opportunities with scholarships that cover 90% of your expenses. We specialize in providing
-                    guidance
+                <p class="text-gray-700 fw_400">KIAC is a professional educational agency, you can explore study abroad
+                    opportunities with scholarships that cover 90% of your expenses. We specialize in providing guidance
                     and
-                    support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen
-                    countries.
+                    support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen countries.
                 </p>
             </div>
         </div>
@@ -231,6 +227,10 @@ include('header.php');
                         <option value="Armenia">ARMENIA</option>
                         <option value="Azerbaijan">AZERBAIJAN</option>
                     </select>
+
+                    <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
+                    <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
+                    <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
                     <div class="error" id="universityGraduatedError"></div>
                 </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
@@ -252,6 +252,12 @@ include('header.php');
                 </div>
                 <div class="report mt-2">
                     Your photo passport: <input type="file" name="passport_pic"
+                    Your photo passport: <input type="file" name="passport_pic"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                    Academic transcript (school report): <input type="file" name="transcript_doc"
+
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
@@ -328,7 +334,7 @@ include('header.php');
 
         let formData = gatherAbroadFormData();
 
-        // fetch('http://173.212.230.165:3000/api/study/abroad/application', {
+        fetch('http://173.212.230.165:3000/api/study/abroad/application', {
             // fetch('http://localhost:3000/api/study/abroad/application', {
             method: 'POST',
             body: formData,

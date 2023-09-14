@@ -147,7 +147,7 @@ include('header.php');
 <body class="bg-gray-200">
 
   <div class="form-container" id="studentForm">
-    <div class="max-w-xl mx-auto mt-12">
+    <div class="max-w-xl mx-auto mt-12 text-center">
       <h2 class="bold text-2xl">APPLY TO STUDY AT KIGALI INTERNATIONAL ARTS COLLEGE - KIAC</h2>
       <div class="my-4">
         <p class="text-gray-700 fw_400">Kigali International Art College (KIAC) is a prestigious institution in
@@ -278,9 +278,6 @@ include('header.php');
           <option value="Software Development">Software Development</option>
           <option value="Photography">Photography</option>
           <option value="Electronic Services">Electronic Services</option>
-          <option value="cycle inferieur">cycle inferieur</option>
-          <option value="Maternelle">Maternelle</option>
-          <option value="Secondaire">Secondaire</option>
         </select>
         <div class="error" id="courseError"></div>
 
