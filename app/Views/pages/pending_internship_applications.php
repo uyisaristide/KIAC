@@ -73,10 +73,10 @@ function array_term($terms)
 														<th>Email</th>
 														<th>Gender</th>
 														<th>Phone</th>
-														<th>Program</th>
+														<th>National Id</th>
+														<th>Field Of Study</th>
 														<th>Course</th>
 														<th>Payment status</th>
-														<th>Documents</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
@@ -100,33 +100,16 @@ function array_term($terms)
 																<?= $pending['phone']; ?>
 															</td>
 															<td>
-																<?= $pending['program']; ?>
+																<?= $pending['national_id']; ?>
+															</td>
+															<td>
+																<?= $pending['fieldOfStudy']; ?>
 															</td>
 															<td>
 																<?= $pending['course']; ?>
 															</td>
 															<td>
 																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
-															</td>
-
-															<td style="text-align: center;">
-																<div
-																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
-																	<div>
-																		<button
-																			class="btn btn-sm btn-info open-modal download-doc"
-																			data-document-path="<?= $pending['transcript']; ?>">
-																			Transcript</button>
-																	</div>
-																	<!-- Button to download Passport -->
-																	<div>
-																		<button
-																			class="btn btn-sm btn-secondary open-modal download-doc"
-																			data-document-path="<?= $pending['passport']; ?>">
-																			Passport</button>
-																	</div>
-
-																</div>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">

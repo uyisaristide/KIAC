@@ -163,8 +163,7 @@ include('header.php');
         </div>
         <!-- <h4>Student Form</h4> -->
         <div class="w-1/4 px-2 forms-container">
-            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="applicationForm" enctype="multipart/form-data"
-                METHOD="POST">
+            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" id="InternshipApplicationForm" METHOD="POST">
 
                 <!-- Personal Information -->
                 <p class="text-xl font-semibold mt-2">Personal Details</p>
@@ -176,11 +175,11 @@ include('header.php');
                     type="text" name="lastName" required placeholder="Enter Last Name"><br>
                 National ID : <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    type="text" name="nationality" required placeholder="Enter National ID"><br>
+                    type="text" name="national_id" required placeholder="Enter National ID"><br>
                 Gender:
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    name="course" required>
+                    name="gender" required>
                     <option value="--" selected disabled>--</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -204,7 +203,7 @@ include('header.php');
                 Country:
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    name="course" required>
+                    name="country" required>
                     <option value="" selected>Rwanda</option>
                     <option value="armenia">Armenia</option>
                     <option value="turkey">Turkey</option>
@@ -223,7 +222,7 @@ include('header.php');
                 Duration (in months):
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    type="text" name="institution" required placeholder="Enter a Number(Not Exceeding 6 Months)"><br>
+                    type="text" name="duration" required placeholder="Enter a Number(Not Exceeding 6 Months)"><br>
                 <p class="text-xl font-semibold mt-2">About Internship</p>
                 Select your preferred area of work
                 Department:
@@ -246,15 +245,15 @@ include('header.php');
                 Career Plans:
                 <textarea
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    id="subject" name="subject" placeholder="Please Elaborate" style="height:60px"></textarea><br>
+                    id="subject" name="career_plan" placeholder="Please Elaborate" style="height:60px"></textarea><br>
                 What are your objectives in undertaking an intership with KIAC?
                 <textarea
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    id="subject" name="subject" placeholder="Please Elaborate" style="height:60px"></textarea><br>
+                    id="subject" name="objective" placeholder="Please Elaborate" style="height:60px"></textarea><br>
                 Describe your expactations during this internship:
                 <textarea
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
-                    id="subject" name="subject" placeholder="Please Elaborate" style="height:60px"></textarea><br>
+                    id="subject" name="expectation" placeholder="Please Elaborate" style="height:60px"></textarea><br>
 
 
 
@@ -274,171 +273,54 @@ include('header.php');
     ?>
 </body>
 <script>
-    function showForm(userType) {
-        // Hide all forms initially
-        // document.getElementById("selectorDiv").style.display = "none";
-        document.getElementById("studentForm").style.display = "none";
-        document.getElementById("agentForm").style.display = "none";
-        document.getElementById("abroadForm").style.display = "none";
 
-        // Display the corresponding form based on user selection
-        if (userType === "student") {
-            document.getElementById("studentForm").style.display = "block";
-        } else if (userType === "agent") {
-            document.getElementById("agentForm").style.display = "block";
-        } else if (userType === "abroad") {
-            document.getElementById("abroadForm").style.display = "block";
-        }
-    }
-    document.getElementById("applicationForm").addEventListener("submit", function (event) {
-        let hasError = false;
-
-        // For education level
-        if (!document.querySelector('input[name="educationLevel"]:checked')) {
-            document.getElementById("educationLevelError").innerText = "Please select your education level.";
-            hasError = true;
-        } else {
-            document.getElementById("educationLevelError").innerText = "";
-        }
-
-        // For secondary school finished
-        if (!document.querySelector('input[name="secondaryFinished"]:checked')) {
-            document.getElementById("secondaryFinishedError").innerText = "Please answer this question.";
-            hasError = true;
-        } else {
-            document.getElementById("secondaryFinishedError").innerText = "";
-        }
-        // ... Add similar validations for other fields ...
-        // For university graduated
-        if (!document.querySelector('input[name="universityGraduated"]:checked')) {
-            document.getElementById("universityGraduatedError").innerText = "Please answer this question.";
-            hasError = true;
-        } else {
-            document.getElementById("universityGraduatedError").innerText = "";
-        }
-
-        // For school selection
-        if (!document.querySelector('select[name="school"]').value) {
-            document.getElementById("schoolError").innerText = "Please select a school.";
-            hasError = true;
-        } else {
-            document.getElementById("schoolError").innerText = "";
-        }
-
-        // For gender selection
-        if (!document.querySelector('input[name="gender"]:checked')) {
-            document.getElementById("genderError").innerText = "Please select your gender.";
-            hasError = true;
-        } else {
-            document.getElementById("genderError").innerText = "";
-        }
-
-        // For family in Kigali question
-        if (!document.querySelector('input[name="familyInKigali"]:checked')) {
-            document.getElementById("familyInKigaliError").innerText = "Please answer this question.";
-            hasError = true;
-        } else {
-            document.getElementById("familyInKigaliError").innerText = "";
-        }
-        // For program selection
-        if (!document.querySelector('input[name="program"]:checked')) {
-            document.getElementById("programError").innerText = "Please select at least one program.";
-            hasError = true;
-        } else {
-            document.getElementById("programError").innerText = "";
-        }
-
-        // For course selection
-        if (!document.querySelector('select[name="course"]').value) {
-            document.getElementById("courseError").innerText = "Please select a course.";
-            hasError = true;
-        } else {
-            document.getElementById("courseError").innerText = "";
-        }
-
-        // For payment method selection
-        if (!document.querySelector('select[name="paymentMethod"]').value) {
-            document.getElementById("paymentMethodError").innerText = "Please select a payment method.";
-            hasError = true;
-        } else {
-            document.getElementById("paymentMethodError").innerText = "";
-        }
-        if (hasError) {
-            event.preventDefault();
-        }
-    });
     function gatherFormData() {
-        let formData = new FormData();
+        const formData = {
+            firstName: document.querySelector('[name="firstName"]').value,
+            email: document.querySelector('[name="email"]').value,
+            lastName: document.querySelector('[name="lastName"]').value,
+            phone: document.querySelector('[name="phone"]').value,
+            dob: document.querySelector('[name="dob"]').value,
+            national_id: document.querySelector('[name="national_id"]').value,
+            gender: document.querySelector('[name="gender"]').value,
+            institution: document.querySelector('[name="institution"]').value,
+            country: document.querySelector('[name="country"]').value,
+            fieldOfStudy: document.querySelector('[name="fieldOfStudy"]').value,
+            dts: document.querySelector('[name="dts"]').value,
+            duration: document.querySelector('[name="duration"]').value,
+            course: document.querySelector('[name="course"]').value,
+            career_plan: document.querySelector('[name="career_plan"]').value,
+            objective: document.querySelector('[name="objective"]').value,
+            expectation: document.querySelector('[name="expectation"]').value
+        };
 
-        formData.append('level', document.querySelector('[name="level"]:checked').value);
-        formData.append('finish_secondary', document.querySelector('[name="secondary_level"]:checked').value);
-        formData.append('secondaryYear', document.querySelector('#secondaryYear').value);
-        formData.append('universityGraduated', document.querySelector('[name="universityGraduated"]:checked').value);
-        formData.append('universityYear', document.querySelector('#universityYear').value);
-        formData.append('school', document.querySelector('[name="school"]').value);
-        formData.append('firstName', document.querySelector('[name="firstName"]').value);
-        formData.append('lastName', document.querySelector('[name="lastName"]').value);
-        formData.append('gender', document.querySelector('[name="gender"]:checked').value);
-        formData.append('nationality', document.querySelector('[name="nationality"]').value);
-        formData.append('dob', document.querySelector('[name="dob"]').value);
-        formData.append('phone', document.querySelector('[name="phone"]').value);
-        formData.append('email', document.querySelector('[name="email"]').value);
-        formData.append('country', document.querySelector('[name="country"]').value);
-        formData.append('district', document.querySelector('[name="district"]').value);
-        formData.append('sector', document.querySelector('[name="sector"]').value);
-        formData.append('familyInKigali', document.querySelector('[name="familyInKigali"]:checked').value);
-
-        // For checkboxes where multiple values can be checked
-        // Array.from(document.querySelectorAll('[name="program"]:checked')).forEach(input => {
-        //   formData.append('program', input.value);
-        // });
-        formData.append("program", document.querySelector('[name="program"]:checked').value);
-
-        formData.append('course', document.querySelector('[name="course"]').value);
-
-        // Handle file uploads
-        if (document.querySelector('[name="passport"]').files.length > 0) {
-            formData.append('passport', document.querySelector('[name="passport"]').files[0]);
-        }
-
-        if (document.querySelector('[name="transcript"]').files.length > 0) {
-            formData.append('transcript', document.querySelector('[name="transcript"]').files[0]);
-        }
-
-        formData.append('paymentMethod', document.querySelector('[name="paymentMethod"]').value);
-
-        return formData;
+        return new URLSearchParams(formData).toString();
     }
 
-    function showModal(message) {
-        let modal = document.getElementById("myModal");
-        let span = document.getElementsByClassName("close")[0];
-        let modalText = document.getElementById("modalText");
-
-        modalText.innerHTML = message;
-        modal.style.display = "block";
-
-        span.onclick = function () {
-            modal.style.display = "none";
-            location.reload();  // Refresh the page when the modal is closed.
+    function isValidForm() {
+        const form = document.getElementById('InternshipApplicationForm');
+        if (!form.checkValidity()) {
+            alert('Please fill all the fields correctly.');
+            return false;
         }
-
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-                location.reload();  // Refresh the page when the modal is clicked outside.
-            }
-        }
+        return true;
     }
+
+
     function sendDataToServer() {
+        if (!isValidForm()) return;
         let formData = gatherFormData();
-
-
-        // fetch('http://localhost:3000/api/students/register', {
-        fetch('http://173.212.230.165:3000/api/students/register', {
+        fetch('http://173.212.230.165:3000/api/internships/application', {
+        // fetch('http://localhost:3000/api/internships/application', {
             method: 'POST',
-            body: formData
-        }).then(response => response.json())
+            body: formData,
+            dataType: 'json',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+
+        })
+            .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     showModal('Your application was sent successfully!');
@@ -454,7 +336,54 @@ include('header.php');
             });
     }
 
-    document.getElementById('applicationForm').addEventListener('submit', function (e) {
+    function showModal(message) {
+        const modal = document.getElementById('myModal');
+        const span = document.getElementsByClassName("close")[0];
+        const modalText = document.getElementById('modalText');
+
+        modalText.innerHTML = message;
+        modal.style.display = "block";
+
+        span.onclick = function () {
+            modal.style.display = "none";
+            location.reload(); // reloads the page
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                location.reload(); // reloads the page
+            }
+        }
+    }
+
+
+
+    function checkOnlyOne(checkboxGroupName) {
+        // Get all checkboxes with the same name
+        const checkboxes = document.querySelectorAll(`input[name="${checkboxGroupName}"]`);
+
+        // Add event listeners to each checkbox
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                // If the changed checkbox is checked, uncheck all others
+                if (this.checked) {
+                    checkboxes.forEach(postal_box => {
+                        if (postal_box !== this) postal_box.checked = false;
+                    });
+                }
+            });
+        });
+    }
+
+    // Usage:
+    // Assuming you have checkboxes with the name attribute as "status" and "occupation"
+    window.onload = function () {
+        checkOnlyOne('status');
+        checkOnlyOne('occupation');
+    }
+
+    document.getElementById('InternshipApplicationForm').addEventListener('submit', function (e) {
         e.preventDefault();
         sendDataToServer();
     });

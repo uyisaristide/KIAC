@@ -301,8 +301,8 @@ include('header.php');
     function sendDataToServer() {
         if (!isValidForm()) return;
         let formData = gatheragentFormData();
-        // fetch('http://173.212.230.165:3000/api/partners/application', {
-        fetch('http://localhost:3000/api/partners/application', {
+        fetch('http://173.212.230.165:3000/api/partners/application', {
+        // fetch('http://localhost:3000/api/partners/application', {
             method: 'POST',
             body: formData,
             dataType: 'json',

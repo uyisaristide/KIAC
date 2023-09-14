@@ -11961,9 +11961,8 @@ Merci";
 		$data['subtitle'] = lang("app.pendingRegistration");
 		$data['page'] = "pendingRegistration";
 	
-		// Updated API URL for fetching student applications
-		// $apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
-		$apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
+		$apiUrl = "http://173.212.230.165:3000/api/internships/all/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/internships/all/applications"; // Replace with your actual API URL
 		$ch = curl_init();    
 		curl_setopt($ch, CURLOPT_URL, $apiUrl);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -11985,7 +11984,7 @@ Merci";
 		}
 	
 		// Updated view name to pending_agent_applications.php
-		$data['content'] = view("pages/pending_partnership_applications", $data);
+		$data['content'] = view("pages/pending_internship_applications", $data);
 		return view('main', $data);
 	}
 	function pending_partnership_applications() { 
