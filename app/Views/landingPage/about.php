@@ -1,215 +1,311 @@
+<?php
+include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>KIAC - <?= lang("app.login")?></title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-    <meta name="description" content="school management system">
-
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-
-    <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
-
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-       <!--  <link href="<?=base_url();?>assets/landing_new/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-       <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/all.min.css" rel="stylesheet"> -->
-        <link href="<?=base_url();?>assets/landing_new/fontawesome/css/all.min.css" rel="stylesheet">
-        <link href="<?=base_url();?>assets/landing_new/lib/slick/slick.css" rel="stylesheet">
-        <link href="<?=base_url();?>assets/landing_new/lib/slick/slick-theme.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-
-        <link href="<?=base_url();?>assets/landing_new/css/style.css" rel="stylesheet">
-        <style type="text/css">
-
-        
-
-       
-
-    .image-link {
-      text-decoration: none;
-      display: inline-block;
-      position: relative;
-    }
-
-    .image-link img {
-      width: 100%;
-      height: 100%;
-    }
-
-    .image-link .button {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 10px 20px;
-      background-color: #FFC600;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-      font-size: 0.80rem;
-      width: 70%;
-    }
-
-    .image-link:hover img {
-      opacity: 0.7;
-      -webkit-filter: none;
-      filter: blur(1px);
-    }
-
-    .image-link:hover .button {
-      display: block;
-      opacity: 1;
-    }
-        .lang{
-            position: absolute;bottom: 10px;left: 10px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | KIAC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Custom CSS for column layout */
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .lang a{
+        .column p{
+            font-size: 16px !important;
+            font-weight: 450 !important;
+        }
+        p.main-p{
+            font-size: 18px !important;
+            font-weight: 450 !important;
+        }
+        h1, h2{
+            color: #036e9d;
+        }
+
+        .column {
+            flex-basis: calc(33.33% - 20px);
+            /* Adjust as needed */
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .column:last-child {
+            margin-right: 0;
+        }
+
+        /* Custom styles for the columns */
+        .column {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Add gradients for a more polished look */
+        .column:nth-child(1) {
+            background: linear-gradient(135deg, #f1f1f1, #ffffff);
+        }
+
+        .column:nth-child(2) {
+            background: linear-gradient(135deg, #f9f9f9, #ffffff);
+        }
+
+        .column:nth-child(3) {
+            background: linear-gradient(-135deg, #f1f1f1, #ffffff);
+        }
+
+        /* Responsive design: Display as blocks and 100% width on smaller screens */
+        @media (max-width: 768px) {
+            .column {
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+        }
+
+        .admission-requirements {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        /* Custom list-style type for admission requirements */
+        .admission-requirements ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .admission-requirements ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .admission-requirements ul li:before {
+            content: "\2714\0020";
+            position: absolute;
+            left: 0;
+        }
+
+        .kiac-values {
+            display: flex;
+            text-align: left !important;
+            justify-content: left !important;
+            align-items: left !important;
+            align-content: left !important;
+        }
+
+        /* Custom list-style type for the "KIAC Values" section */
+        .kiac-values ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .kiac-values ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .kiac-values ul li:before {
+            content: "\2713\0020";
+            position: absolute;
+            left: 0;
+        }
+
+        .contact {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        /* Styling for phone numbers with icons */
+        .contact p {
+            margin-bottom: 10px;
+        }
+
+        .phone-icon {
             margin-right: 10px;
+            font-size: 20px;
+            vertical-align: middle;
         }
-        .lang img{
-            margin: -5px 3px 0 0;
-        }
-    
     </style>
 </head>
 
-<body cz-shortcut-listen="true" class='container' bgcolor="yellow">
-    <!-- Top bar Start -->
-        <header id="header" class="header d-flex align-items-center">
+<body class="bg-gray-100">
+    <div class="container mx-auto p-3">
+        <h1 class="text-2xl font-bold mb-4">WHO WE ARE</h1>
+        <div class="p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-2">About KIAC</h2>
+            <p class="text-gray-700 main-p">
+                Kigali International Art College (KIAC) is a dynamic and forward-looking technical school,
+                vibrant and lively; established in 2015 under the Workforce Development Authority (WDA)
+                decision, to produce highly technical skilled workforce to meet industry and social needs. We
+                are confident that our technical courses are internationally benchmarked and meet national and
+                international demands. Technical and Vocational training tackle directly the environment issues
+                through nurturing young skilled technician with skills of renewable energy.
+            </p>
+        </div>
 
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-        <div class="top-bar">
-            <div class="container-fluid">
-                <div class="row">
-                    <img src="<?=base_url();?>assets/landing_new/img/banner.jpg" style="width: 100%;height: 8rem;">
+        <div class="columns">
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Our Curriculum & Teaching Approach</h2>
+                    <p class="text-gray-700">
+                        The curriculum of KIAC is designed to respond to the global professional requirements of Art.
+                        KIAC works closely with different entities, partnerships to ensure top value professional
+                        industry.
+                        Students are prepared to gain real world technical experience and expertise through classroom
+                        lectures, industrial attachments, practical lessons, group discussions, demonstrations and
+                        presentations. Students receive their academic awards upon successful fulfillment of the number
+                        of modules designed in each program.
+                    </p>
                 </div>
-                 <!-- ======= Header ======= -->
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            </div>
 
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Technical Programs</h2>
+                    <p class="text-gray-700">
+                        These Programs are taught by KIAC in collaboration with national and International Art related
+                        entities. The technical programs take only 6 months. Courses are conducted in day and evening
+                        sessions in either French or English language. There is flexibility of time for the working
+                        students.
+                    </p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Art Modules </h2>
+                    <p class="text-gray-700">
+                        These comprehensive 6 months program is a specific technical program in Art industry. Art
+                        program is designed to equip the student per-requisite entrepreneurial, marketing and
+                        operational skills necessary for technical course. This program aims to produce professionals
+                        with strong academic and practical foundation in Creative Art, Video Production, Photography,
+                        Graphic design, Web design, Software development, Computer system, electronic services, CCTV
+                        Camera Installation, Music.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="admission-requirements">
+            <h2 class="text-xl font-semibold mb-2">Admission Requirements</h2>
+            <ul>
+                <li>Filled application form</li>
+                <li>Certificate or Degree</li>
+                <li>ID or Passport document</li>
+                <li>Photo passport</li>
+                <li>Registration fee: 15,000 Rwf</li>
+                <li>Tuition fee: 250,000 Rwf</li>
+                <li>Laptop</li>
+                <li>Paper Lame</li>
+            </ul>
+        </div>
+        <div class="p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-2">KIAC Objectives</h2>
+            <p class="text-gray-700 main-p">
+                To offer professional training to meet both local and international market demands to develop and
+                improve the effectiveness on young generations through quality training, capacity building & career
+                guidance.
+                To participate in discovery, transmission and preservation and enhancement of technical skills and
+                stimulate the intellectual participation of trainees in the economic, art, professional technological
+                development of Rwanda.
+                Upon successful completion of the course, students will be issued a certificate, depending on the
+                organizers of the course. After getting all required skills student can be able to graduate and start
+                making differences.
+            </p>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">About KIAC</h2>
+                    <p class="text-gray-700">
+                        Kigali International Art College (KIAC) is a dynamic and forward-looking technical school,
+                        established in 2015 under the Workforce Development Authority (WDA) decision.
+                    </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Our Curriculum & Teaching Approach</h2>
+                    <p class="text-gray-700">
+                        The curriculum of KIAC is designed to respond to the global professional requirements of Art.
+                    </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">KIAC Mission</h2>
+                    <p class="text-gray-700">
+                        The fundamental mission of KIAC college is to provide the students with technical and vocational
+                        training which enables them to become actors of development of the nation (Rwanda).
+                    </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">KIAC Vision</h2>
+                    <p class="text-gray-700">
+                        To stand out as a remarkable college for excellence in short-term vocational training that
+                        enables beneficiaries to acquire the skills required to create jobs and compete in the labor
+                        market.
+                    </p>
+                </div>
+            </div>
+
+            <div class="column  kiac-values">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">KIAC Values</h2>
+                    <ul>
+                        <li>Integrity</li>
+                        <li>Humanity</li>
+                        <li>Creativity</li>
+                        <li>Innovation</li>
+                        <li>Hardworking</li>
+                        <li>Self-confidence</li>
+                        <li>Determination</li>
+                        <li>Excellence</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column kiac-values">
+                <div class="p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">KIAC Philosophy</h2>
+                    <ul>
+                        <li>The Philosophy of KIAC is based on 4 fundamental principles that are:</li>
+                        <li>To have faith in God</li>
+                        <li>To know your mission on earth</li>
+                        <li>To live ethical values</li>
+                        <li>Having positive thoughts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column contact"> <!-- Add a class for "Contact" section -->
+            <h2 class="text-xl font-semibold mb-2" style="padding-right: 30px">Call to ask any question</h2>
+            <ul>
+                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size: 16px; color:#036e9d"></i> +250 781 847 787</li>
+                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size:16px; color:#036e9d"></i> +250 737 765 072</li>
+            </ul>
+        </div>
     </div>
-  </header><!-- End Header -->
-  <!-- Nav Bar Start -->
-        <div class="nav">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto">
-                            <a href="http://164.68.127.249/public/" class="nav-item nav-link active">Home</a>
-                           
-                            <a href="http://164.68.127.249/public/" class="nav-item nav-link">Programs</a>
-                            <a href="http://164.68.127.249/public/" class="nav-item nav-link">KIAC AGENT</a>
-                        <a href="http://164.68.127.249/public/" class="nav-item nav-link">kiac life</a>
-                         <a href="http://164.68.127.249/public/" class="nav-item nav-link">Applications</a>
-
-                            <a href="http://164.68.127.249/public/" class="nav-item nav-link">Contact us</a>
-                           
-                        </div>
-<!--                         <div class="navbar-nav ml-auto">
-                           <a href="<?=base_url('login');?>" class="btn-get-started">Login</a>&nbsp;
-                        </div> -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Nav Bar End -->
-        <br>
-
-
-<!-- Footer Start -->
-        <div class="footer" style="background: #091e35;color: white;">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <img src="<?=base_url();?>assets/landing_new/img/kiac-logo.png" alt="Logo">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h2>Get in Touch</h2>
-                            <div class="contact-info">
-                                <p><i class="fa fa-map-marker"></i>4 KG 11 Ave, Kigali
-                                YUSSA PLAZZA Building at 1st Floor</p>
-                                <p><i class="fa fa-envelope"></i>info@kiac.ac.rw</p>
-                                <p><i class="fa fa-phone"></i>+250 783 205 698</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h2>Follow Us</h2>
-                            <div class="contact-info">
-                                <div class="social">
-<a href="https://twitter.com/kiac_rwanda" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="https://www.facebook.com/kiac.rw1" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://www.linkedin.com/in/kigaliartcollege/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-<a href="https://www.instagram.com/kiac_rwanda?" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.youtube.com/channel/UClc_sPYUsjFGVgFGOi1k01g" target="_blank"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h2>Usefull Links</h2>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-        <!-- Footer Bottom Start -->
-        <div class="footer-bottom" style="background: #061429;">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="copyright">
-                        <p class="navbar-text col-md-12 col-sm-12 col-xs-12">Copyright &copy; <a href="#">KIAC</a>. All Rights Reserved</p>
-                    </div>
-
-                   
-                </div>
-            </div>
-        </div>
-        <!-- Footer Bottom End -->
-<script type="application/javascript" src="<?=base_url('assets/js/jquery-3.4.1.min.js');?>"></script>
-<script type="application/javascript" src="<?=base_url('assets/js/parsley.min.js');?>"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/toast.js"></script>
-
-<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
-     xlink="http://www.w3.org/1999/xlink" svgjs="http://svgjs.com/svgjs"
-     style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
-    <defs id="SvgjsDefs1002"></defs>
-    <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
-    <path id="SvgjsPath1004" d="M0 0 "></path>
-</svg>
-<div class="jvectormap-tip"></div>
+    <?php
+    include('footer.php');
+    ?>
 </body>
+
 </html>

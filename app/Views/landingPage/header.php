@@ -67,6 +67,8 @@
                     text-align: center;
                     font-size: 15px;
                     font-family: 'Trebuchet MS', sans-serif;
+                    border-bottom: 1px solid rgba(3, 110, 157, 1) !important;
+
                 }
 
                 #main-menu2 .submenu a:hover {
@@ -104,7 +106,7 @@
                     <ul id="main-menu" class="sm sm-blue">
                         <li><a class="current" href="<?= base_url('#'); ?>"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About KIAC</a>
+                        <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
                         <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
                                 KIAC</a>
