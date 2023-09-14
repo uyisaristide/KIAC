@@ -197,11 +197,6 @@ include('header.php');
                     </div>
                     <div style="flex: 1; width: 50%;">
                         <p class="text-xl font-semibold mt-2">How did you hear about us?</p>
-
-                        <label for="hear_about_us">Answer:</label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="text" name="heard_us" id="hear_about_us" required>
                         <label for="hear_about_us">Select:</label>
                         <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
