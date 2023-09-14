@@ -10,7 +10,7 @@ include('header.php');
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Apply To Study At Kigali International Art School</title>
+    <title>Apply To Study Abroad</title>
 
     <style>
         body {
@@ -166,18 +166,14 @@ include('header.php');
 
 <body class="bg-gray-200">
     <div class="form-container" id="abroadForm">
-        <div class="max-w-xl mx-auto mt-12">
+        <div class="max-w-xl mx-auto mt-12 text-center">
             <h2 class="bold text-2xl">STUDY ABROAD FOR SCHOLARSHIP
             </h2>
             <div class="my-4">
-                <p class="text-gray-700 fw_400">KIAC is a professional educational agency, you can explore
-                    study
-                    abroad
-                    opportunities with scholarships that cover 90% of your expenses. We specialize in providing
-                    guidance
+                <p class="text-gray-700 fw_400">KIAC is a professional educational agency, you can explore study abroad
+                    opportunities with scholarships that cover 90% of your expenses. We specialize in providing guidance
                     and
-                    support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen
-                    countries.
+                    support to students interested in studying in Turkey, Armenia, Azerbaijan, and Schengen countries.
                 </p>
             </div>
         </div>
@@ -191,18 +187,18 @@ include('header.php');
                 <p class="text-xl font-semibold mt-2">If you are interested in this scholarship, proceed to the next
                     step.</p>
                 <div class="check mt-1">
-                <input type="radio" name="interested" value="YES" required> I am interested
-                <input type="radio" name="interested" value="NO" required> Not interested
+                    <input type="radio" name="interested" value="YES" required> I am interested
+                    <input type="radio" name="interested" value="NO" required> Not interested
                 </div>
 
                 <p class="text-xl font-semibold mt-2">Personal Information</p>
                 Date of Birth: <input type="date" name="birth_date" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 <div class="radio mt-3 mb-2">
-                Gender:
-                <input type="radio" name="gender" value="Male" required> Male
-                <input type="radio" name="gender" value="Female" required> Female
-                <div class="error" id="genderError"></div>
+                    Gender:
+                    <input type="radio" name="gender" value="Male" required> Male
+                    <input type="radio" name="gender" value="Female" required> Female
+                    <div class="error" id="genderError"></div>
                 </div>
                 Nationality: <input type="text" name="nationality" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
@@ -213,16 +209,16 @@ include('header.php');
 
                 <p class="text-xl font-semibold mt-2">Your current level of education</p>
                 <div class="check mt-1">
-                <input type="radio" name="university_level" value="University Level" required> University Level
-                <input type="radio" name="university_level" value="Secondary Level" required> Secondary Level
-                <div class="error" id="educationLevelError"></div>
+                    <input type="radio" name="university_level" value="University Level" required> University Level
+                    <input type="radio" name="university_level" value="Secondary Level" required> Secondary Level
+                    <div class="error" id="educationLevelError"></div>
                 </div>
                 <p class="text-xl font-semibold mt-2">Select your desired country *</p>
                 <div class="check mt-1">
-                <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
-                <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
-                <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
-                <div class="error" id="universityGraduatedError"></div>
+                    <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
+                    <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
+                    <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
+                    <div class="error" id="universityGraduatedError"></div>
                 </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
                 Program:
@@ -231,20 +227,20 @@ include('header.php');
 
                 <p class="text-xl font-semibold mt-2">Required Documents</p>
                 <div class="report mt-2">
-                Your photo passport: <input type="file" name="passport_pic"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                    Your photo passport: <input type="file" name="passport_pic"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                Academic transcript (school report): <input type="file" name="transcript_doc"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                    Academic transcript (school report): <input type="file" name="transcript_doc"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                Your valid passport: <input type="file" name="id_passport"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                    Your valid passport: <input type="file" name="id_passport"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                COVID-19 vaccination certificate <input type="file" name="vaccine"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                    COVID-19 vaccination certificate <input type="file" name="vaccine"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <input type="submit" value="Submit Application" id="submitButton">
 
