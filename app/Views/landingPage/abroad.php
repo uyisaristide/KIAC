@@ -220,14 +220,6 @@ include('header.php');
                 <p class="text-xl font-semibold mt-2">Select your desired country *</p>
 
                 <div class="check mt-1">
-                    <select id="countries" name="desired_country"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1">
-                        <option value="#" selected disabled>Select Country</option>
-                        <option value="Turkey">TURKEY</option>
-                        <option value="Armenia">ARMENIA</option>
-                        <option value="Azerbaijan">AZERBAIJAN</option>
-                    </select>
-
                     <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
                     <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
                     <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
