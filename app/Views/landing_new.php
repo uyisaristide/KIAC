@@ -61,6 +61,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            /* border-bottom: 1px solid rgba(3, 110, 157, 0.3) !important; */
         }
 
         #main-menu2 .submenu a {
@@ -71,6 +72,7 @@
             text-align: center;
             font-size: 15px;
             font-family: 'Trebuchet MS', sans-serif;
+            border-bottom: 1px solid rgba(3, 110, 157, 1) !important;
         }
 
         #main-menu2 .submenu a:hover {
