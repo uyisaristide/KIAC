@@ -169,8 +169,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
-			// const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -183,7 +183,8 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			// fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -205,8 +206,8 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
-			// fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
+			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
+			fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())

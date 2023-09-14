@@ -102,15 +102,21 @@ function array_term($terms)
 																	<!-- Add your blue button -->
 																	<div>
 																		<button class="btn btn-sm btn-info download-doc"
-																			data-document-path="">
+																		data-document-path="<?= $pending['transcript']; ?>">
 																			Transcript</button>
 																	</div>
 																	<!-- Button to download Passport -->
 																	<div>
 																		<button
 																			class="btn btn-sm btn-secondary download-doc"
-																			data-document-path="">
+																			data-document-path="<?= $pending['transcript']; ?>">
 																			Passport</button>
+																	</div>
+																	<div>
+																		<button
+																			class="btn btn-sm btn-secondary download-doc"
+																			data-document-path="<?= $pending['certificate']; ?>">
+																			Certificate</button>
 																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-success"
@@ -169,8 +175,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/agents'; // Replace with your server's base URL
-			// const serverBaseUrl = 'http://localhost:3000/api/agents/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/agents'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/agents/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -183,7 +189,9 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/updateStatus`, {
+			// fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/updateStatus`, {
+			fetch(`http://localhost:3000/api/agents/application/${studentId}/updateStatus`, {
+
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -213,8 +221,8 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/reject`, {
-			// fetch(`http://localhost:3000/api/agents/application/${studentId}/reject`, {
+			// fetch(`http://173.212.230.165:3000/api/agents/application/${studentId}/reject`, {
+			fetch(`http://localhost:3000/api/agents/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())

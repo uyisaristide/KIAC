@@ -58,10 +58,11 @@ function array_term($terms)
 													<tr role="row">
 														<th>#</th>
 														<th>Email</th>
-                                                        <th>Phone</th>
-                                                        <th>Location</th>
+														<th>Phone</th>
+														<th>Location</th>
 														<th>Payment Status</th>
 														<th>Program</th>
+														<th>Documents</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
@@ -70,40 +71,51 @@ function array_term($terms)
 													<?php foreach ($pendings as $key => $pending) { ?>
 														<tr>
 															<td>
-																 <?= $key + 1	; ?> 
+																<?= $key + 1; ?>
 															</td>
 															<td>
-																<?= $pending['email_add']?>
+																<?= $pending['email_add'] ?>
 															</td>
-                                                            <td>
-                                                                <?= $pending['phone_number']; ?>
-                                                            </td>      
 															<td>
-                                                                <?= $pending['desired_country']; ?>
-                                                            </td>                     
-															<td>
-                                                            <?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
+																<?= $pending['phone_number']; ?>
 															</td>
-                                                            <td>
+															<td>
+																<?= $pending['desired_country']; ?>
+															</td>
+															<td>
+																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
+															</td>
+															<td>
 																<?= $pending['program']; ?>
+															</td>
+															<td>
+																<div>
+																	<button class="btn btn-sm btn-info download-doc"
+																		data-document-path="<?= $pending['id_passport']; ?>">
+																		ID</button>
+																</div>
+																<!-- Button to download Passport -->
+																<div>
+																	<button class="btn btn-sm btn-success download-doc"
+																		data-document-path="<?= $pending['passport_pic']; ?>">
+																		Passport</button>
+																</div>
+																<div>
+																	<button class="btn btn-sm btn-secondary download-doc"
+																		data-document-path="<?= $pending['transcript_doc']; ?>">
+																		Transcript</button>
+																</div>
+																<div>
+																	<button class="btn btn-sm btn-secondary download-doc"
+																		data-document-path="<?= $pending['vaccine']; ?>">
+																		Vaccine</button>
+																</div>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">
 																<div
 																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
 																	<!-- Add your blue button -->
-																	 <div>
-																		<button class="btn btn-sm btn-info download-doc"
-																			data-document-path="">
-																			Transcript</button>
-																	</div>
-																	<!-- Button to download Passport -->
-																	 <div>
-																		<button
-																			class="btn btn-sm btn-secondary download-doc"
-																			data-document-path="">
-																			Passport</button>
-																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-success"
 																			data-id="<?= $pending['id']; ?>">Approve</button>
@@ -161,8 +173,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad'; // Replace with your server's base URL
-			// const serverBaseUrl = 'http://localhost:3000/api/agents/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/study/abroad/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -175,8 +187,8 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/updateStatus`, {
-			// fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/updateStatus`, {
+			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/updateStatus`, {
+			fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -194,7 +206,7 @@ function array_term($terms)
 		});
 	});
 
- 
+
 	document.querySelectorAll('.btn-danger').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
@@ -207,7 +219,7 @@ function array_term($terms)
 				.then(response => response.json())
 				.then(data => {
 					if (data.success) {
-                        alert("rejected!")
+						alert("rejected!")
 						location.reload();
 					} else {
 						// Handle any errors here
