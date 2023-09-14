@@ -192,6 +192,8 @@ include('header.php');
                 </div>
 
                 <p class="text-xl font-semibold mt-2">Personal Information</p>
+                Names: <input type="text" name="names" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 Date of Birth: <input type="date" name="birth_date" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 <div class="radio mt-3 mb-2">
@@ -206,6 +208,8 @@ include('header.php');
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 Email Address: <input type="email" name="email_add" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                Location: <input type="text" name="location" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
 
                 <p class="text-xl font-semibold mt-2">Your current level of education</p>
                 <div class="check mt-1">
@@ -214,7 +218,16 @@ include('header.php');
                     <div class="error" id="educationLevelError"></div>
                 </div>
                 <p class="text-xl font-semibold mt-2">Select your desired country *</p>
+
                 <div class="check mt-1">
+                    <select id="countries" name="desired_country"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1">
+                        <option value="#" selected disabled>Select Country</option>
+                        <option value="Turkey">TURKEY</option>
+                        <option value="Armenia">ARMENIA</option>
+                        <option value="Azerbaijan">AZERBAIJAN</option>
+                    </select>
+
                     <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
                     <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
                     <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
@@ -222,16 +235,29 @@ include('header.php');
                 </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
                 Program:
-                <input type="text" name="program" required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
-
+                <div class="check mt-1">
+                    <select id="countries" name="program"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1">
+                        <option value="#" selected disabled>Select Program</option>
+                        <option value="Bachelor">BACHELOR</option>
+                        <option value="Masters">MASTERS</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                    <div class="error" id="universityGraduatedError"></div>
+                </div>
                 <p class="text-xl font-semibold mt-2">Required Documents</p>
                 <div class="report mt-2">
+                    Academic Transcript(School Report/Diploma): <input type="file" name="transcript_doc"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                    Your photo passport: <input type="file" name="passport_pic"
                     Your photo passport: <input type="file" name="passport_pic"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
                     Academic transcript (school report): <input type="file" name="transcript_doc"
+
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
@@ -270,11 +296,13 @@ include('header.php');
         formData.append('gender', document.querySelector('[name="gender"]:checked').value);
         formData.append('want_to_study', document.querySelector('[name="want_to_study"]:checked').value);
         formData.append('interested', document.querySelector('[name="interested"]:checked').value);
-        formData.append('desired_country', document.querySelector('[name="desired_country"]:checked').value);
+        formData.append('desired_country', document.querySelector('[name="desired_country"]').value);
         formData.append('birth_date', document.querySelector('[name="birth_date"]').value);
         formData.append('phone_number', document.querySelector('[name="phone_number"]').value);
         formData.append('email_add', document.querySelector('[name="email_add"]').value);
         formData.append('program', document.querySelector('[name="program"]').value);
+        formData.append('names', document.querySelector('[name="names"]').value);
+        formData.append('location', document.querySelector('[name="location"]').value);
 
         // Handle file uploads
         if (document.querySelector('[name="id_passport"]').files.length > 0) {

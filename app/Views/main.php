@@ -119,7 +119,7 @@
 </div>
 				<div class="nav-header" onclick="toggleNav('students')">
 				<i class="metismenu-icon typcn typcn-user"></i>
-				Study At Kiac</div>
+				STUDY AT KIAC</div>
 	<ul id="students" class="nav-links">
 	<div class="app-sidebar__inner">
 						<ul class="vertical-nav-menu metismenu">
@@ -130,108 +130,108 @@
 							<?php
 							if (!is_blocked(2)) {
 								?>
-										<li>
-											<a href="#">
-												<i class="metismenu-icon typcn typcn-user-outline"></i>
-												<?= lang("app.students"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
 												<li>
-													<a href="<?= base_url('pendingRegistrations'); ?>">
-														<i class="metismenu-icon typcn typcn-group-outline"></i>
-														<?= lang("app.pendingRegistration"); ?>
+													<a href="#">
+														<i class="metismenu-icon typcn typcn-user-outline"></i>
+														<?= lang("app.students"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="<?= base_url('pendingRegistrations'); ?>">
+																<i class="metismenu-icon typcn typcn-group-outline"></i>
+																<?= lang("app.pendingRegistration"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('register-student'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.newStudent"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('students'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.viewStudents"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('dismissedStudent'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.DismissedStudents"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-cards'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.studentCards"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-photo'); ?>">
+																<i class="metismenu-icon"></i>
+																Student Photo
+															</a>
+														</li>
+													</ul>
 												</li>
-												<li>
-													<a href="<?= base_url('register-student'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.newStudent"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('students'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.viewStudents"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('dismissedStudent'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.DismissedStudents"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-cards'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.studentCards"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-photo'); ?>">
-														<i class="metismenu-icon"></i>
-														Student Photo
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							?>
 							<?php
 							if (is_allowed(1, 3)) {
 								if ($_SESSION['ideyetu_country'] == "Congo") {
 									?>
-													<li>
-														<a href="<?= base_url('departments'); ?>">
-															<i class="metismenu-icon typcn typcn-home-outline"></i>
-															<?= lang("app.dept"); ?>
-														</a>
-													</li>
-													<?php
+																	<li>
+																		<a href="<?= base_url('departments'); ?>">
+																			<i class="metismenu-icon typcn typcn-home-outline"></i>
+																			<?= lang("app.dept"); ?>
+																		</a>
+																	</li>
+																	<?php
 								}
 								?>
-										<li>
-											<a href="<?= base_url('classes'); ?>">
-												<i class="metismenu-icon typcn typcn-home-outline"></i>
-												<?= lang("app.classes"); ?>
-											</a>
-										</li>
-										<?php
+												<li>
+													<a href="<?= base_url('classes'); ?>">
+														<i class="metismenu-icon typcn typcn-home-outline"></i>
+														<?= lang("app.classes"); ?>
+													</a>
+												</li>
+												<?php
 							}
 							?>
 							<?php
 							if (!is_blocked(3, 5, 6, 7, 8, 9, 10, 13, 17)) {
 								?>
-										<li>
-											<a href="#">
-												<i class="metismenu-icon typcn typcn-user-outline"></i>
-												<?= lang("app.course"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
 												<li>
-													<a href="<?= base_url('course-category'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.courseCategory"); ?>
+													<a href="#">
+														<i class="metismenu-icon typcn typcn-user-outline"></i>
+														<?= lang("app.course"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('add_course'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.createCourse"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('manage_courses'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.manageCourse"); ?>
-													</a>
-												</li>
+													<ul class="mm-collapse">
+														<li>
+															<a href="<?= base_url('course-category'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.courseCategory"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('add_course'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.createCourse"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('manage_courses'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.manageCourse"); ?>
+															</a>
+														</li>
 
-											</ul>
-										</li>
-										<?php
+													</ul>
+												</li>
+												<?php
 							}
 							?>
 							<li>
@@ -264,29 +264,29 @@
 							<?php
 							if (is_allowed(1, 4, 5, 6)) {
 								?>
-										<li>
-											<a href="#">
-												<i class="metismenu-icon typcn typcn-film"></i>
-												<?= lang("app.permissions"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse fa-com">
 												<li>
-													<a href="<?= base_url('permission_entry'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.permissionEntry"); ?>
+													<a href="#">
+														<i class="metismenu-icon typcn typcn-film"></i>
+														<?= lang("app.permissions"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('permission_report'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.permissionReport"); ?>
-													</a>
-												</li>
+													<ul class="mm-collapse fa-com">
+														<li>
+															<a href="<?= base_url('permission_entry'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.permissionEntry"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('permission_report'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.permissionReport"); ?>
+															</a>
+														</li>
 
-											</ul>
-										</li>
-										<?php
+													</ul>
+												</li>
+												<?php
 							}
 							?>
 							<li class="app-sidebar__heading"><?= lang("app.marks"); ?></li>
@@ -302,116 +302,116 @@
 									<?php
 									if (!is_blocked(10)) {
 										?>
-											<li>
-												<a href="<?= base_url('assessment'); ?>">
-													<i class="metismenu-icon typcn typcn-home-outline"></i>
-													<?= lang("app.marks"); ?>
-												</a>
-											</li>
-											<?php
+													<li>
+														<a href="<?= base_url('assessment'); ?>">
+															<i class="metismenu-icon typcn typcn-home-outline"></i>
+															<?= lang("app.marks"); ?>
+														</a>
+													</li>
+													<?php
 									}
 									; ?>
 									<?php
 									if (true) {
 										?>
-											<!-- <li>
+													<!-- <li>
 										<a href="#" data-toggle="modal" data-target="#mdlmarks">
 											<i class="metismenu-icon"></i>
 											<?= lang("app.marksEntryOld"); ?>
 										</a>
 									</li> -->
-											<?php
+													<?php
 									}
 									if ($_SESSION['ideyetu_country'] == "Congo") {
 										?>
-												<li>
-													<a href="<?= base_url('student_marks_drc'); ?>">
-														<i class="metismenu-icon typcn typcn-home-outline"></i>
-														<?= lang("app.marksEntry"); ?> RDC
-													</a>
-												</li>
-												<?php
+														<li>
+															<a href="<?= base_url('student_marks_drc'); ?>">
+																<i class="metismenu-icon typcn typcn-home-outline"></i>
+																<?= lang("app.marksEntry"); ?> RDC
+															</a>
+														</li>
+														<?php
 									}
 									if (is_allowed(1, 2)) {
 										?>
-												<li>
-													<a href="<?= base_url('get_uploaded_marks'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.marksList"); ?>
-													</a>
-												</li>
-
-												<li>
-													<a href="<?= base_url('student_report'); ?>">
-														<i class="metismenu-icon typcn typcn-user-outline"></i>
-														<?= lang("app.progressReports"); ?>
-													</a>
-												</li>
-
-												<li>
-													<a href="<?= base_url('get_periodic_report'); ?>">
-														<i class="metismenu-icon"></i>
-														Periodic report
-													</a>
-												</li>
-												<li>
-													<a href="javascript:void">
-														<i class="metismenu-icon typcn typcn-group-outline"></i>
-														<?= lang("app.parmaless"); ?>
-														<i class="metismenu-state-icon fa fa-caret-down"></i>
-													</a>
-
-													<ul class="mm-collapse">
 														<li>
-															<a href="<?= base_url('get_periodic_marks'); ?>">
+															<a href="<?= base_url('get_uploaded_marks'); ?>">
 																<i class="metismenu-icon"></i>
-																<?= lang("app.periodicResult"); ?>
-															</a>
-														</li>
-														<li>
-															<a href="<?= base_url('proclamation_list'); ?>">
-																<i class="metismenu-icon"></i>
-																<?= lang("app.proclamationList"); ?>
-															</a>
-														</li>
-														<li>
-															<a href="<?= base_url('student_term_results'); ?>">
-																<i class="metismenu-icon"></i>
-																<?= lang("app.termProclamationList"); ?>
+																<?= lang("app.marksList"); ?>
 															</a>
 														</li>
 
-													</ul>
-												</li>
-												<li>
-													<a href="javascript:void">
-														<i class="metismenu-icon typcn typcn-group-outline"></i>
-														<?= lang("app.deliberation"); ?>
-														<i class="metismenu-state-icon fa fa-caret-down"></i>
-													</a>
-
-													<ul class="mm-collapse">
 														<li>
-															<a href="<?= base_url('class-deliberation'); ?>">
+															<a href="<?= base_url('student_report'); ?>">
+																<i class="metismenu-icon typcn typcn-user-outline"></i>
+																<?= lang("app.progressReports"); ?>
+															</a>
+														</li>
+
+														<li>
+															<a href="<?= base_url('get_periodic_report'); ?>">
 																<i class="metismenu-icon"></i>
+																Periodic report
+															</a>
+														</li>
+														<li>
+															<a href="javascript:void">
+																<i class="metismenu-icon typcn typcn-group-outline"></i>
+																<?= lang("app.parmaless"); ?>
+																<i class="metismenu-state-icon fa fa-caret-down"></i>
+															</a>
+
+															<ul class="mm-collapse">
+																<li>
+																	<a href="<?= base_url('get_periodic_marks'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.periodicResult"); ?>
+																	</a>
+																</li>
+																<li>
+																	<a href="<?= base_url('proclamation_list'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.proclamationList"); ?>
+																	</a>
+																</li>
+																<li>
+																	<a href="<?= base_url('student_term_results'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.termProclamationList"); ?>
+																	</a>
+																</li>
+
+															</ul>
+														</li>
+														<li>
+															<a href="javascript:void">
+																<i class="metismenu-icon typcn typcn-group-outline"></i>
 																<?= lang("app.deliberation"); ?>
+																<i class="metismenu-state-icon fa fa-caret-down"></i>
 															</a>
+
+															<ul class="mm-collapse">
+																<li>
+																	<a href="<?= base_url('class-deliberation'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.deliberation"); ?>
+																	</a>
+																</li>
+																<li>
+																	<a href="<?= base_url('finish_deliberation'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.finishDeliberation"); ?>
+																	</a>
+																</li>
+																<li>
+																	<a href="<?= base_url('deliberation_settings'); ?>">
+																		<i class="metismenu-icon"></i>
+																		<?= lang("app.deliberationSettings"); ?>
+																	</a>
+																</li>
+															</ul>
 														</li>
-														<li>
-															<a href="<?= base_url('finish_deliberation'); ?>">
-																<i class="metismenu-icon"></i>
-																<?= lang("app.finishDeliberation"); ?>
-															</a>
-														</li>
-														<li>
-															<a href="<?= base_url('deliberation_settings'); ?>">
-																<i class="metismenu-icon"></i>
-																<?= lang("app.deliberationSettings"); ?>
-															</a>
-														</li>
-													</ul>
-												</li>
-												<?php
+														<?php
 									}
 									?>
 								</ul>
@@ -420,277 +420,277 @@
 							<?php
 							if (is_allowed(1, 4, 5, 6, 10)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.messaging"); ?></li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.messaging"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
+												<li class="app-sidebar__heading"><?= lang("app.messaging"); ?></li>
 												<li>
-													<a href="<?= base_url('messaging/parents'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.parentsMessaging"); ?>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.messaging"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="<?= base_url('messaging/parents'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.parentsMessaging"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('messaging/employees'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.employeesMessaging"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('messaging/reports'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.smsReports"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-												<li>
-													<a href="<?= base_url('messaging/employees'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.employeesMessaging"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('messaging/reports'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.smsReports"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							?>
 							<?php
 							if (!is_blocked(2, 5, 6, 10)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.attendance"); ?></li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.studentAttendance"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
+												<li class="app-sidebar__heading"><?= lang("app.attendance"); ?></li>
 												<li>
-													<a href="javascript:void" data-target="#attendanceMdl" data-toggle="modal">
-														<i class="fa fa-plus"></i>
-														<?= lang("app.recordAttendance"); ?>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.studentAttendance"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-report/inout/monthly'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.studentInOut"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-report/course/monthly/'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.studentCourse"); ?>
-													</a>
-												</li>
-												<li style="display: none">
-													<a href="<?= base_url('student-report/course/summary/'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.courseSummary"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-report/daily/class'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.studentDailyAttendance"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-report/daily/all'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.dailyAttendance"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('student-report/daily/details'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.dailyGeneralAttendance"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.staffAttendance"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
-												<li>
-													<a href="<?= base_url('staff-report/monthly'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.monthlyReport"); ?>
-													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="javascript:void" data-target="#attendanceMdl" data-toggle="modal">
+																<i class="fa fa-plus"></i>
+																<?= lang("app.recordAttendance"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-report/inout/monthly'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.studentInOut"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-report/course/monthly/'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.studentCourse"); ?>
+															</a>
+														</li>
+														<li style="display: none">
+															<a href="<?= base_url('student-report/course/summary/'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.courseSummary"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-report/daily/class'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.studentDailyAttendance"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-report/daily/all'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.dailyAttendance"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('student-report/daily/details'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.dailyGeneralAttendance"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
 												<li>
-													<a href="<?= base_url('staff-report/individual'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.individualReport"); ?>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.staffAttendance"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="<?= base_url('staff-report/monthly'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.monthlyReport"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('staff-report/individual'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.individualReport"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							?>
 
 							<?php
 							if (is_allowed(1, 2, 4)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.hrDept"); ?></li>
-										<li>
-											<a href="#">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.staffs"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-											<ul class="mm-collapse">
+												<li class="app-sidebar__heading"><?= lang("app.hrDept"); ?></li>
 												<li>
-													<a href="javascript:void" data-toggle="modal" data-target="#mdlStaff">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.addStaff"); ?>
+													<a href="#">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.staffs"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="javascript:void" data-toggle="modal" data-target="#mdlStaff">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.addStaff"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('staffs'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.allStaffs"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('staff-cards'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.staffCards"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('shifts'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.staffShifts"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-												<li>
-													<a href="<?= base_url('staffs'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.allStaffs"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('staff-cards'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.staffCards"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('shifts'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.staffShifts"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							?>
 							<?php
 							if (is_allowed(1, 10)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.feesManagement"); ?></li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.feesManagement"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
+												<li class="app-sidebar__heading"><?= lang("app.feesManagement"); ?></li>
+												<li>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.feesManagement"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
+													</a>
 
-											<ul class="mm-collapse">
-												<li>
-													<a href="<?= base_url('fees_entry'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.feesEntry"); ?>
-													</a>
+													<ul class="mm-collapse">
+														<li>
+															<a href="<?= base_url('fees_entry'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.feesEntry"); ?>
+															</a>
+														</li>
+														<!--										<li>-->
+														<!--											<a href="-->
+														<? //= base_url('school_fees_management'); ?><!--">-->
+														<!--												<i class="metismenu-icon"></i>-->
+														<!--												--><? //= lang("app.schoolFeesManagement"); ?>
+														<!--											</a>-->
+														<!--										</li>-->
+														<li>
+															<a href="<?= base_url('extra_fees_management'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.schoolFeesManagement"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('transport_fees_management'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.transportFeesManagement"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('finance_records'); ?>">
+																<i class="metismenu-icon"></i>
+																Self service transactions
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('system-report/fees'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.feesReport"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-												<!--										<li>-->
-												<!--											<a href="-->
-												<? //= base_url('school_fees_management'); ?><!--">-->
-												<!--												<i class="metismenu-icon"></i>-->
-												<!--												--><? //= lang("app.schoolFeesManagement"); ?>
-												<!--											</a>-->
-												<!--										</li>-->
-												<li>
-													<a href="<?= base_url('extra_fees_management'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.schoolFeesManagement"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('transport_fees_management'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.transportFeesManagement"); ?>
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('finance_records'); ?>">
-														<i class="metismenu-icon"></i>
-														Self service transactions
-													</a>
-												</li>
-												<li>
-													<a href="<?= base_url('system-report/fees'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.feesReport"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							if (is_allowed(1, 7, 13)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.libraryManagement"); ?></li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.libraryManagement"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-
-											<ul class="mm-collapse">
-
+												<li class="app-sidebar__heading"><?= lang("app.libraryManagement"); ?></li>
 												<li>
-													<a href="<?= base_url('book_management'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.booksManagement"); ?>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.libraryManagement"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+
+													<ul class="mm-collapse">
+
+														<li>
+															<a href="<?= base_url('book_management'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.booksManagement"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('borrowed_report'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.borrowedReport"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-												<li>
-													<a href="<?= base_url('borrowed_report'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.borrowedReport"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 
 							if (is_allowed(1, 5, 6, 7)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.transportManagement"); ?></li>
-										<li>
-											<a href="javascript:void">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.transportManagement"); ?>
-												<i class="metismenu-state-icon fa fa-caret-down"></i>
-											</a>
-
-											<ul class="mm-collapse">
-
+												<li class="app-sidebar__heading"><?= lang("app.transportManagement"); ?></li>
 												<li>
-													<a href="<?= base_url('bus_management'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.busManagement"); ?>
+													<a href="javascript:void">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.transportManagement"); ?>
+														<i class="metismenu-state-icon fa fa-caret-down"></i>
 													</a>
+
+													<ul class="mm-collapse">
+
+														<li>
+															<a href="<?= base_url('bus_management'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.busManagement"); ?>
+															</a>
+														</li>
+														<li>
+															<a href="<?= base_url('route_management'); ?>">
+																<i class="metismenu-icon"></i>
+																<?= lang("app.routeManagement"); ?>
+															</a>
+														</li>
+													</ul>
 												</li>
-												<li>
-													<a href="<?= base_url('route_management'); ?>">
-														<i class="metismenu-icon"></i>
-														<?= lang("app.routeManagement"); ?>
-													</a>
-												</li>
-											</ul>
-										</li>
-										<?php
+												<?php
 							}
 							if (is_allowed(1, 10, 2)) {
 								?>
-										<li class="app-sidebar__heading"><?= lang("app.PocketMoney"); ?></li>
-										<li>
-											<a href="<?= base_url('pocket_money'); ?>">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.PocketMoney"); ?>
-											</a>
-										</li>
-										<?php
+												<li class="app-sidebar__heading"><?= lang("app.PocketMoney"); ?></li>
+												<li>
+													<a href="<?= base_url('pocket_money'); ?>">
+														<i class="metismenu-icon typcn typcn-group-outline"></i>
+														<?= lang("app.PocketMoney"); ?>
+													</a>
+												</li>
+												<?php
 							}
 							?>
 							<li>
@@ -702,25 +702,25 @@
 							<?php
 							if (is_allowed(1, 2)) {
 								?>
-										<li>
-											<a href="<?= base_url('leave_management'); ?>">
-												<i class="metismenu-icon typcn typcn-chart-pie-outline"></i>
-												<?= lang("app.leaveManagement"); ?>
-											</a>
-										</li>
-										<?php
+												<li>
+													<a href="<?= base_url('leave_management'); ?>">
+														<i class="metismenu-icon typcn typcn-chart-pie-outline"></i>
+														<?= lang("app.leaveManagement"); ?>
+													</a>
+												</li>
+												<?php
 							}
 							?>
 <?php
 if (!is_blocked(10)) {
 	?>
-			<li>
-				<a href="<?= base_url('leave_management'); ?>">
-					<i class="metismenu-icon typcn typcn-chart-pie-outline"></i>
-					Test
-				</a>
-			</li>
-			<?php
+					<li>
+						<a href="<?= base_url('leave_management'); ?>">
+							<i class="metismenu-icon typcn typcn-chart-pie-outline"></i>
+							Test
+						</a>
+					</li>
+					<?php
 }
 ; ?>
 							<!--
@@ -740,65 +740,123 @@ if (!is_blocked(10)) {
 						</ul>
 					</div>
 	</ul>
-
-	<div class="nav-header" onclick="toggleNav('agents')"> <i class="metismenu-icon typcn typcn-briefcase"></i>  <!-- Placeholder icon for "Agents" -->
-	Agents</div>
-	<ul id="agents" class="nav-links">
-	<div class="app-sidebar__inner">
-						<ul class="vertical-nav-menu metismenu">
-							<?php
-							if (!is_blocked(2)) {
-								?>
-								<li>
-									<a href="#">
-										<i class="metismenu-icon typcn typcn-user-outline"></i>
-											Agents
-										<i class="metismenu-state-icon fa fa-caret-down"></i>
-									</a>
-									<ul class="mm-collapse">
-										<li>
-											<a href="<?= base_url('pending_agent_applications'); ?>">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.pendingRegistration"); ?>
-											</a>
-										</li>
-									</ul>
-								</li>
-								<?php
-							}
-							?>
-						</ul>
-					</div>
-	</ul>
-
-	<div class="nav-header" onclick="toggleNav('studyAbroad')"><i class="metismenu-icon typcn typcn-world"></i>  <!-- Placeholder icon for "Study Abroad" -->
-	Study Abroad</div>
-	<ul id="studyAbroad" class="nav-links">
+	<div class="nav-header" onclick="toggleNav('agents')">
+	<i class="metismenu-icon typcn typcn-briefcase"></i> AGENTS
+</div>
+<ul id="agents" class="nav-links">
 	<ul class="vertical-nav-menu metismenu">
-							<?php
-							if (!is_blocked(2)) {
-								?>
-								<li>
-									<a href="#">
-										<i class="metismenu-icon typcn typcn-user-outline"></i>
-											Students
-										<i class="metismenu-state-icon fa fa-caret-down"></i>
-									</a>
-									<ul class="mm-collapse">
-										<li>
-											<a href="<?= base_url('pending_abroad_applications'); ?>">
-												<i class="metismenu-icon typcn typcn-group-outline"></i>
-												<?= lang("app.pendingRegistration"); ?>
-											</a>
-										</li>
-									</ul>
-								</li>
-								<?php
-							}
-							?>
-						</ul>
+		<?php
+		if (!is_blocked(2)) {
+			?>
+				<li>
+					<a href="#">
+						<i class="metismenu-icon typcn typcn-user-outline"></i>
+						Agents
+						<i class="metismenu-state-icon fa fa-caret-down"></i>
+					</a>
+					<ul class="mm-collapse">
+						<li>
+							<a href="<?= base_url('pending_agent_applications'); ?>">
+								<i class="metismenu-icon typcn typcn-group-outline"></i>
+								<?= lang("app.pendingRegistration"); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<?php
+		}
+		?>
 	</ul>
-					<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+</ul>
+
+<div class="nav-header" onclick="toggleNav('studyAbroad')">
+	<i class="metismenu-icon typcn typcn-world"></i> STUDY ABROAD
+</div>
+<ul id="studyAbroad" class="nav-links">
+	<ul class="vertical-nav-menu metismenu">
+		<?php
+		if (!is_blocked(2)) {
+			?>
+				<li>
+					<a href="#">
+						<i class="metismenu-icon typcn typcn-user-outline"></i>
+						Students
+						<i class="metismenu-state-icon fa fa-caret-down"></i>
+					</a>
+					<ul class="mm-collapse">
+						<li>
+							<a href="<?= base_url('pending_abroad_applications'); ?>">
+								<i class="metismenu-icon typcn typcn-group-outline"></i>
+								<?= lang("app.pendingRegistration"); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<?php
+		}
+		?>
+	</ul>
+</ul>
+
+<div class="nav-header" onclick="toggleNav('interns')">
+	<i class="metismenu-icon typcn typcn-lightbulb"></i> INTERNSHIP
+</div>
+<ul id="interns" class="nav-links">
+	<ul class="vertical-nav-menu metismenu">
+		<?php
+		if (!is_blocked(2)) {
+			?>
+				<li>
+					<a href="#">
+						<i class="metismenu-icon typcn typcn-user-outline"></i>
+						Interns
+						<i class="metismenu-state-icon fa fa-caret-down"></i>
+					</a>
+					<ul class="mm-collapse">
+						<li>
+							<a href="<?= base_url('pending_internship_applications'); ?>">
+								<i class="metismenu-icon typcn typcn-group-outline"></i>
+								<?= lang("app.pendingRegistration"); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<?php
+		}
+		?>
+	</ul>
+</ul>
+
+<div class="nav-header" onclick="toggleNav('partners')">
+	<i class="metismenu-icon typcn typcn-group"></i> PARTNERSHIP
+</div>
+<ul id="partners" class="nav-links">
+	<ul class="vertical-nav-menu metismenu">
+		<?php
+		if (!is_blocked(2)) {
+			?>
+				<li>
+					<a href="#">
+						<i class="metismenu-icon typcn typcn-user-outline"></i>
+						Partners
+						<i class="metismenu-state-icon fa fa-caret-down"></i>
+					</a>
+					<ul class="mm-collapse">
+						<li>
+							<a href="<?= base_url('pending_partnership_applications'); ?>">
+								<i class="metismenu-icon typcn typcn-group-outline"></i>
+								<?= lang("app.pendingRegistration"); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<?php
+		}
+		?>
+	</ul>
+</ul>
+
+			<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
 						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
 					</div>
 					<div class="ps__rail-y" style="top: 0px; height: 702px; right: 0px;">
@@ -1048,13 +1106,13 @@ if (!is_blocked(10)) {
 															<?php
 															if (is_allowed(1, 2)) {
 																?>
-																			<li class="nav-item">
-																				<a href="<?= base_url('settings'); ?>"
-																				   class="nav-link"><i class="fa fa-cog"></i>&nbsp;&nbsp;
-																					<?= lang("app.settings"); ?>
-																				</a>
-																			</li>
-																			<?php
+																					<li class="nav-item">
+																						<a href="<?= base_url('settings'); ?>"
+																						   class="nav-link"><i class="fa fa-cog"></i>&nbsp;&nbsp;
+																							<?= lang("app.settings"); ?>
+																						</a>
+																					</li>
+																					<?php
 															}
 															?>
 															<li class="nav-item">
@@ -1066,15 +1124,15 @@ if (!is_blocked(10)) {
 															<?php
 															if (is_allowed(1, 3)) {
 																?>
-																			<li class="nav-item">
-																				<a href="javascript:void(0);" class="nav-link"
-																				   data-toggle="modal"
-																				   data-target="#mdlTerm"><i
-																							class="fa fa-angle-right"></i>&nbsp;&nbsp;
-																					<?= lang("app.changeActiveTerm"); ?>
-																				</a>
-																			</li>
-																			<?php
+																					<li class="nav-item">
+																						<a href="javascript:void(0);" class="nav-link"
+																						   data-toggle="modal"
+																						   data-target="#mdlTerm"><i
+																									class="fa fa-angle-right"></i>&nbsp;&nbsp;
+																							<?= lang("app.changeActiveTerm"); ?>
+																						</a>
+																					</li>
+																					<?php
 															}
 															?>
 															<li class="nav-item">
@@ -1269,18 +1327,18 @@ if (!is_blocked(10)) {
 							<?php
 							if (in_array($_SESSION['ideyetu_post'], [1, 3])) {
 								?>
-											<select class="form-control select2" name="academic_year">
-												<?php
-												foreach ($academicYears as $year) {
-													echo '<option value="' . $year['id'] . '" ' . ($year['id'] == $academic_year ? "selected" : "") . '>' . $year['title'] . '</option>';
-												}
-												?>
-											</select>
-											<?php
+													<select class="form-control select2" name="academic_year">
+														<?php
+														foreach ($academicYears as $year) {
+															echo '<option value="' . $year['id'] . '" ' . ($year['id'] == $academic_year ? "selected" : "") . '>' . $year['title'] . '</option>';
+														}
+														?>
+													</select>
+													<?php
 							} else {
 								?>
-											<input class="form-control" type="text" readonly value="<?= $academic_year_title; ?>">
-											<?php
+													<input class="form-control" type="text" readonly value="<?= $academic_year_title; ?>">
+													<?php
 							}
 							?>
 						</div>
@@ -1289,21 +1347,21 @@ if (!is_blocked(10)) {
 							<?php
 							if (in_array($_SESSION['ideyetu_post'], [1, 3])) {
 								?>
-											<select class="form-control select2" name="term">
-												<option
-														value="1" <?= $term == '1' ? 'selected' : ''; ?>><?= lang("app.term1"); ?> </option>
-												<option
-														value="2" <?= $term == '2' ? 'selected' : ''; ?>><?= lang("app.term2"); ?> </option>
-												<option
-														value="3" <?= $term == '3' ? 'selected' : ''; ?>><?= lang("app.term3"); ?> </option>
-											</select>
-											<?php
+													<select class="form-control select2" name="term">
+														<option
+																value="1" <?= $term == '1' ? 'selected' : ''; ?>><?= lang("app.term1"); ?> </option>
+														<option
+																value="2" <?= $term == '2' ? 'selected' : ''; ?>><?= lang("app.term2"); ?> </option>
+														<option
+																value="3" <?= $term == '3' ? 'selected' : ''; ?>><?= lang("app.term3"); ?> </option>
+													</select>
+													<?php
 							} else {
 								?>
-											<input class="form-control" type="text" readonly
-												   value="<?= \App\Controllers\Home::TermToStr($term); ?>">
-											<input type="hidden" name="term" readonly value="<?= $term; ?>">
-											<?php
+													<input class="form-control" type="text" readonly
+														   value="<?= \App\Controllers\Home::TermToStr($term); ?>">
+													<input type="hidden" name="term" readonly value="<?= $term; ?>">
+													<?php
 							}
 							?>
 						</div>
@@ -1316,8 +1374,8 @@ if (!is_blocked(10)) {
 								<?php
 								if (in_array($_SESSION['ideyetu_school_id'], [55])) {
 									?>
-												<option value="10"><?= lang("app.assessmentIntegrated"); ?></option>
-												<?php
+														<option value="10"><?= lang("app.assessmentIntegrated"); ?></option>
+														<?php
 								}
 								?>
 								<option value="4"><?= lang("app."); ?></option>
@@ -1349,1276 +1407,1276 @@ if (!is_blocked(10)) {
 </div>
 
 <?php if ($page == "shifts") { ?>
-				<div class="modal fade" id="mdlAddShift" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_shift'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.newShift"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?></label>
-											<input class="form-control" type="text" name="title" required
-												   minlength="3">
+						<div class="modal fade" id="mdlAddShift" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_shift'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.newShift"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-										<div class="form-group">
-											<label><?= lang("app.school"); ?></label>
-											<input class="form-control" type="text" name="school" required
-												   minlength="3" value="<?= $school_name; ?>" disabled="true">
-										</div>
-										<div class="form-group">
-											<label><?= lang("app.days"); ?></label>
-											<div>
-												<div class="hours-view">
-
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?></label>
+													<input class="form-control" type="text" name="title" required
+														   minlength="3">
 												</div>
-												<div class="add-hours">
-													<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
-														<select class="weekday form-control" style="border: 1px solid #cccccc">
-															<option value="0"><?= lang("app.monday"); ?></option>
-															<option value="1"><?= lang("app.tuesday"); ?></option>
-															<option value="2"><?= lang("app.wednesday"); ?></option>
-															<option value="3"><?= lang("app.thursday"); ?></option>
-															<option value="4"><?= lang("app.friday"); ?></option>
-															<option value="5"><?= lang("app.saturday"); ?></option>
-															<option value="6"><?= lang("app.sunday"); ?></option>
-														</select>
-													</div><!-- /.form-group -->
-													<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
-														<select class="hours-start form-control" style="border: 1px solid #cccccc">
+												<div class="form-group">
+													<label><?= lang("app.school"); ?></label>
+													<input class="form-control" type="text" name="school" required
+														   minlength="3" value="<?= $school_name; ?>" disabled="true">
+												</div>
+												<div class="form-group">
+													<label><?= lang("app.days"); ?></label>
+													<div>
+														<div class="hours-view">
 
-															<option value="0.0">12:00 am <?= lang("app.midnight"); ?></option>
+														</div>
+														<div class="add-hours">
+															<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
+																<select class="weekday form-control" style="border: 1px solid #cccccc">
+																	<option value="0"><?= lang("app.monday"); ?></option>
+																	<option value="1"><?= lang("app.tuesday"); ?></option>
+																	<option value="2"><?= lang("app.wednesday"); ?></option>
+																	<option value="3"><?= lang("app.thursday"); ?></option>
+																	<option value="4"><?= lang("app.friday"); ?></option>
+																	<option value="5"><?= lang("app.saturday"); ?></option>
+																	<option value="6"><?= lang("app.sunday"); ?></option>
+																</select>
+															</div><!-- /.form-group -->
+															<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
+																<select class="hours-start form-control" style="border: 1px solid #cccccc">
 
-															<option value="0.5">12:30 am</option>
+																	<option value="0.0">12:00 am <?= lang("app.midnight"); ?></option>
 
-															<option value="1.0">1:00 am</option>
+																	<option value="0.5">12:30 am</option>
 
-															<option value="1.5">1:30 am</option>
+																	<option value="1.0">1:00 am</option>
 
-															<option value="2.0">2:00 am</option>
+																	<option value="1.5">1:30 am</option>
 
-															<option value="2.5">2:30 am</option>
+																	<option value="2.0">2:00 am</option>
 
-															<option value="3.0">3:00 am</option>
+																	<option value="2.5">2:30 am</option>
 
-															<option value="3.5">3:30 am</option>
+																	<option value="3.0">3:00 am</option>
 
-															<option value="4.0">4:00 am</option>
+																	<option value="3.5">3:30 am</option>
 
-															<option value="4.5">4:30 am</option>
+																	<option value="4.0">4:00 am</option>
 
-															<option value="5.0">5:00 am</option>
+																	<option value="4.5">4:30 am</option>
 
-															<option value="5.5">5:30 am</option>
+																	<option value="5.0">5:00 am</option>
 
-															<option value="6.0">6:00 am</option>
+																	<option value="5.5">5:30 am</option>
 
-															<option value="6.5">6:30 am</option>
+																	<option value="6.0">6:00 am</option>
 
-															<option value="7.0">7:00 am</option>
+																	<option value="6.5">6:30 am</option>
 
-															<option value="7.5">7:30 am</option>
+																	<option value="7.0">7:00 am</option>
 
-															<option value="8.0">8:00 am</option>
+																	<option value="7.5">7:30 am</option>
 
-															<option value="8.5">8:30 am</option>
+																	<option value="8.0">8:00 am</option>
 
-															<option value="9.0" selected="selected">9:00 am</option>
+																	<option value="8.5">8:30 am</option>
 
-															<option value="9.5">9:30 am</option>
+																	<option value="9.0" selected="selected">9:00 am</option>
 
-															<option value="10.0">10:00 am</option>
+																	<option value="9.5">9:30 am</option>
 
-															<option value="10.5">10:30 am</option>
+																	<option value="10.0">10:00 am</option>
 
-															<option value="11.0">11:00 am</option>
+																	<option value="10.5">10:30 am</option>
 
-															<option value="11.5">11:30 am</option>
+																	<option value="11.0">11:00 am</option>
 
-															<option value="12.0">12:00 pm <?= lang("app.noon"); ?></option>
+																	<option value="11.5">11:30 am</option>
 
-															<option value="12.5">12:30 pm</option>
+																	<option value="12.0">12:00 pm <?= lang("app.noon"); ?></option>
 
-															<option value="13.0">1:00 pm</option>
+																	<option value="12.5">12:30 pm</option>
 
-															<option value="13.5">1:30 pm</option>
+																	<option value="13.0">1:00 pm</option>
 
-															<option value="14.0">2:00 pm</option>
+																	<option value="13.5">1:30 pm</option>
 
-															<option value="14.5">2:30 pm</option>
+																	<option value="14.0">2:00 pm</option>
 
-															<option value="15.0">3:00 pm</option>
+																	<option value="14.5">2:30 pm</option>
 
-															<option value="15.5">3:30 pm</option>
+																	<option value="15.0">3:00 pm</option>
 
-															<option value="16.0">4:00 pm</option>
+																	<option value="15.5">3:30 pm</option>
 
-															<option value="16.5">4:30 pm</option>
+																	<option value="16.0">4:00 pm</option>
 
-															<option value="17.0">5:00 pm</option>
+																	<option value="16.5">4:30 pm</option>
 
-															<option value="17.5">5:30 pm</option>
+																	<option value="17.0">5:00 pm</option>
 
-															<option value="18.0">6:00 pm</option>
+																	<option value="17.5">5:30 pm</option>
 
-															<option value="18.5">6:30 pm</option>
+																	<option value="18.0">6:00 pm</option>
 
-															<option value="19.0">7:00 pm</option>
+																	<option value="18.5">6:30 pm</option>
 
-															<option value="19.5">7:30 pm</option>
+																	<option value="19.0">7:00 pm</option>
 
-															<option value="20.0">8:00 pm</option>
+																	<option value="19.5">7:30 pm</option>
 
-															<option value="20.5">8:30 pm</option>
+																	<option value="20.0">8:00 pm</option>
 
-															<option value="21.0">9:00 pm</option>
+																	<option value="20.5">8:30 pm</option>
 
-															<option value="21.5">9:30 pm</option>
+																	<option value="21.0">9:00 pm</option>
 
-															<option value="22.0">10:00 pm</option>
+																	<option value="21.5">9:30 pm</option>
 
-															<option value="22.5">10:30 pm</option>
+																	<option value="22.0">10:00 pm</option>
 
-															<option value="23.0">11:00 pm</option>
+																	<option value="22.5">10:30 pm</option>
 
-															<option value="23.5">11:30 pm</option>
-														</select>
+																	<option value="23.0">11:00 pm</option>
 
-													</div><!-- /.form-group -->
-													<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
-														<select class="hours-end form-control" style="border: 1px solid #cccccc">
+																	<option value="23.5">11:30 pm</option>
+																</select>
 
-															<option value="0.5">12:30 am</option>
+															</div><!-- /.form-group -->
+															<div class="form-group" style="width: 25%;float: left;margin-right: 1%">
+																<select class="hours-end form-control" style="border: 1px solid #cccccc">
 
-															<option value="1.0">1:00 am</option>
+																	<option value="0.5">12:30 am</option>
 
-															<option value="1.5">1:30 am</option>
+																	<option value="1.0">1:00 am</option>
 
-															<option value="2.0">2:00 am</option>
+																	<option value="1.5">1:30 am</option>
 
-															<option value="2.5">2:30 am</option>
+																	<option value="2.0">2:00 am</option>
 
-															<option value="3.0">3:00 am</option>
+																	<option value="2.5">2:30 am</option>
 
-															<option value="3.5">3:30 am</option>
+																	<option value="3.0">3:00 am</option>
 
-															<option value="4.0">4:00 am</option>
+																	<option value="3.5">3:30 am</option>
 
-															<option value="4.5">4:30 am</option>
+																	<option value="4.0">4:00 am</option>
 
-															<option value="5.0">5:00 am</option>
+																	<option value="4.5">4:30 am</option>
 
-															<option value="5.5">5:30 am</option>
+																	<option value="5.0">5:00 am</option>
 
-															<option value="6.0">6:00 am</option>
+																	<option value="5.5">5:30 am</option>
 
-															<option value="6.5">6:30 am</option>
+																	<option value="6.0">6:00 am</option>
 
-															<option value="7.0">7:00 am</option>
+																	<option value="6.5">6:30 am</option>
 
-															<option value="7.5">7:30 am</option>
+																	<option value="7.0">7:00 am</option>
 
-															<option value="8.0">8:00 am</option>
+																	<option value="7.5">7:30 am</option>
 
-															<option value="8.5">8:30 am</option>
+																	<option value="8.0">8:00 am</option>
 
-															<option value="9.0">9:00 am</option>
+																	<option value="8.5">8:30 am</option>
 
-															<option value="9.5">9:30 am</option>
+																	<option value="9.0">9:00 am</option>
 
-															<option value="10.0">10:00 am</option>
+																	<option value="9.5">9:30 am</option>
 
-															<option value="10.5">10:30 am</option>
+																	<option value="10.0">10:00 am</option>
 
-															<option value="11.0">11:00 am</option>
+																	<option value="10.5">10:30 am</option>
 
-															<option value="11.5">11:30 am</option>
+																	<option value="11.0">11:00 am</option>
 
-															<option value="12.0">12:00 pm <?= lang("app.noon"); ?></option>
+																	<option value="11.5">11:30 am</option>
 
-															<option value="12.5">12:30 pm</option>
+																	<option value="12.0">12:00 pm <?= lang("app.noon"); ?></option>
 
-															<option value="13.0">1:00 pm</option>
+																	<option value="12.5">12:30 pm</option>
 
-															<option value="13.5">1:30 pm</option>
+																	<option value="13.0">1:00 pm</option>
 
-															<option value="14.0">2:00 pm</option>
+																	<option value="13.5">1:30 pm</option>
 
-															<option value="14.5">2:30 pm</option>
+																	<option value="14.0">2:00 pm</option>
 
-															<option value="15.0">3:00 pm</option>
+																	<option value="14.5">2:30 pm</option>
 
-															<option value="15.5">3:30 pm</option>
+																	<option value="15.0">3:00 pm</option>
 
-															<option value="16.0">4:00 pm</option>
+																	<option value="15.5">3:30 pm</option>
 
-															<option value="16.5">4:30 pm</option>
+																	<option value="16.0">4:00 pm</option>
 
-															<option value="17.0" selected="selected">5:00 pm</option>
+																	<option value="16.5">4:30 pm</option>
 
-															<option value="17.5">5:30 pm</option>
+																	<option value="17.0" selected="selected">5:00 pm</option>
 
-															<option value="18.0">6:00 pm</option>
+																	<option value="17.5">5:30 pm</option>
 
-															<option value="18.5">6:30 pm</option>
+																	<option value="18.0">6:00 pm</option>
 
-															<option value="19.0">7:00 pm</option>
+																	<option value="18.5">6:30 pm</option>
 
-															<option value="19.5">7:30 pm</option>
+																	<option value="19.0">7:00 pm</option>
 
-															<option value="20.0">8:00 pm</option>
+																	<option value="19.5">7:30 pm</option>
 
-															<option value="20.5">8:30 pm</option>
+																	<option value="20.0">8:00 pm</option>
 
-															<option value="21.0">9:00 pm</option>
+																	<option value="20.5">8:30 pm</option>
 
-															<option value="21.5">9:30 pm</option>
+																	<option value="21.0">9:00 pm</option>
 
-															<option value="22.0">10:00 pm</option>
+																	<option value="21.5">9:30 pm</option>
 
-															<option value="22.5">10:30 pm</option>
+																	<option value="22.0">10:00 pm</option>
 
-															<option value="23.0">11:00 pm</option>
+																	<option value="22.5">10:30 pm</option>
 
-															<option value="23.5">11:30 pm</option>
+																	<option value="23.0">11:00 pm</option>
 
-															<option value="0.0">12:00
-																am <?= lang("app.midnightNextDay"); ?></option>
+																	<option value="23.5">11:30 pm</option>
 
-															<option value="0.5">12:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="0.0">12:00
+																		am <?= lang("app.midnightNextDay"); ?></option>
 
-															<option value="1.0">1:00 am <?= lang("app.nextDay"); ?></option>
+																	<option value="0.5">12:30 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="1.5">1:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="1.0">1:00 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="2.0">2:00 am <?= lang("app.nextDay"); ?></option>
+																	<option value="1.5">1:30 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="2.5">2:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="2.0">2:00 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="3.0">3:00 am <?= lang("app.nextDay"); ?></option>
+																	<option value="2.5">2:30 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="3.5">3:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="3.0">3:00 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="4.0">4:00 am <?= lang("app.nextDay"); ?></option>
+																	<option value="3.5">3:30 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="4.5">4:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="4.0">4:00 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="5.0">5:00 am <?= lang("app.nextDay"); ?></option>
+																	<option value="4.5">4:30 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="5.5">5:30 am <?= lang("app.nextDay"); ?></option>
+																	<option value="5.0">5:00 am <?= lang("app.nextDay"); ?></option>
 
-															<option value="6.0">6:00 am <?= lang("app.nextDay"); ?></option>
-														</select>
+																	<option value="5.5">5:30 am <?= lang("app.nextDay"); ?></option>
 
-													</div><!-- /.form-group -->
-													<div class="form-group" style="width: 22%;float: left;">
-														<button type="button" value="submit"
-																class="btn btn-gradient-primary addhours"
-																style="">
-															<span><?= lang("app.addDay"); ?></span>
-														</button>
+																	<option value="6.0">6:00 am <?= lang("app.nextDay"); ?></option>
+																</select>
+
+															</div><!-- /.form-group -->
+															<div class="form-group" style="width: 22%;float: left;">
+																<button type="button" value="submit"
+																		class="btn btn-gradient-primary addhours"
+																		style="">
+																	<span><?= lang("app.addDay"); ?></span>
+																</button>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 <?php if ($page == "add_course") {
 	?>
-				<div class="modal fade" id="assignModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.assign"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.sClass"); ?></label> <i style="color: red;">*</i>
-											<input type="hidden" name="fId">
-											<input type="hidden" name="status" value="1">
-											<select class="form-control select2" name="classes">
-												<option selected disabled><?= lang("app.selectClass"); ?></option>
-												<?php
-												foreach ($classes as $classe):
-													echo "<option value='{$classe['id']}'>{$classe['level_name']} {$classe['code']} {$classe['title']}</option>";
-												endforeach;
-												?>
-											</select>
+						<div class="modal fade" id="assignModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.assign"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.schoolYear"); ?></label> <i style="color: red;">*</i>
-											<input type="text" name="year" class="form-control" readonly
-												   value="<?= $academic_year_title; ?>">
-										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.term"); ?></label> <i style="color: red;">*</i>
-											<select class="form-control select2" name="term[]" multiple>
-												<option value="1"><?= lang("app.term1"); ?> </option>
-												<option value="2"><?= lang("app.term2"); ?> </option>
-												<option value="3"><?= lang("app.term3"); ?> </option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
-													style="color: red;">*</i>
-											<select class="form-control select2" name="teacher">
-												<option selected disabled><?= lang("app.selectSubject"); ?> </option>
-												<?php
-												foreach ($staffs as $staff):
-													echo "<option value='{$staff['id']}'>{$staff['fname']} {$staff['lname']}</option>";
-												endforeach;
-												?>
-											</select>
-										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.sClass"); ?></label> <i style="color: red;">*</i>
+													<input type="hidden" name="fId">
+													<input type="hidden" name="status" value="1">
+													<select class="form-control select2" name="classes">
+														<option selected disabled><?= lang("app.selectClass"); ?></option>
+														<?php
+														foreach ($classes as $classe):
+															echo "<option value='{$classe['id']}'>{$classe['level_name']} {$classe['code']} {$classe['title']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.schoolYear"); ?></label> <i style="color: red;">*</i>
+													<input type="text" name="year" class="form-control" readonly
+														   value="<?= $academic_year_title; ?>">
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.term"); ?></label> <i style="color: red;">*</i>
+													<select class="form-control select2" name="term[]" multiple>
+														<option value="1"><?= lang("app.term1"); ?> </option>
+														<option value="2"><?= lang("app.term2"); ?> </option>
+														<option value="3"><?= lang("app.term3"); ?> </option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
+															style="color: red;">*</i>
+													<select class="form-control select2" name="teacher">
+														<option selected disabled><?= lang("app.selectSubject"); ?> </option>
+														<?php
+														foreach ($staffs as $staff):
+															echo "<option value='{$staff['id']}'>{$staff['fname']} {$staff['lname']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
 
-									</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('manage_courses'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('manage_courses'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_course'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Edit course</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
+						<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_course'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Edit course</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label id="mentor">Title</label> <i style="color: red;">*</i>
+													<input type="text" name="title" class="form-control">
+													<input type="hidden" name="courseId">
+												</div>
+												<div class="form-group">
+													<label id="mentor">Code</label> <i style="color: red;">*</i>
+													<input type="text" name="code" class="form-control">
+												</div>
+												<div class="form-group">
+													<label id="mentor">Category</label> <i style="color: red;">*</i>
+													<select class="form-control select2" name="category" required>
+														<option disabled selected><?= lang("app.chooseCategory"); ?></option>
+														<?php
+														foreach ($categories as $category):
+															echo "<option value='{$category['id']}'>{$category['title']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
+												<div class="form-group">
+													<label id="mentor">Credits</label> <i style="color: red;">*</i>
+													<input type="number" name="credit" class="form-control">
+												</div>
+												<div class="form-group">
+													<label id="mentor">Marks</label> <i style="color: red;">*</i>
+													<input type="text" name="marks" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('add_course'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label id="mentor">Title</label> <i style="color: red;">*</i>
-											<input type="text" name="title" class="form-control">
-											<input type="hidden" name="courseId">
-										</div>
-										<div class="form-group">
-											<label id="mentor">Code</label> <i style="color: red;">*</i>
-											<input type="text" name="code" class="form-control">
-										</div>
-										<div class="form-group">
-											<label id="mentor">Category</label> <i style="color: red;">*</i>
-											<select class="form-control select2" name="category" required>
-												<option disabled selected><?= lang("app.chooseCategory"); ?></option>
-												<?php
-												foreach ($categories as $category):
-													echo "<option value='{$category['id']}'>{$category['title']}</option>";
-												endforeach;
-												?>
-											</select>
-										</div>
-										<div class="form-group">
-											<label id="mentor">Credits</label> <i style="color: red;">*</i>
-											<input type="number" name="credit" class="form-control">
-										</div>
-										<div class="form-group">
-											<label id="mentor">Marks</label> <i style="color: red;">*</i>
-											<input type="text" name="marks" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('add_course'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 } ?>
 
 <?php if ($page == "manage_Course") { ?>
-				<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.addNewCourse"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+						<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.addNewCourse"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.course"); ?></label> <i style="color: red;">*</i>
-											<input type="hidden" name="fId">
-											<input type="hidden" name="status" value="2">
-											<select class="form-control select2" name="classes">
-												<option selected disabled><?= lang("app.selectCourse"); ?></option>
-												<?php
-												foreach ($courses as $course):
-													echo "<option value='{$course['id']}'>{$course['title']}</option>";
-												endforeach;
-												?>
-											</select>
-										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.schoolYear"); ?></label> <i style="color: red;">*</i>
-											<input type="text" name="year" class="form-control" readonly
-												   value="<?= $academic_year_title; ?>">
-										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.terms"); ?></label> <i style="color: red;">*</i>
-											<select class="form-control select2" name="term[]" multiple>
-												<option value="1"> <?= lang("app.term1"); ?></option>
-												<option value="2"> <?= lang("app.term2"); ?></option>
-												<option value="3"> <?= lang("app.term3"); ?></option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
-													style="color: red;">*</i>
-											<select class="form-control select2" name="teacher">
-												<option selected disabled><?= lang("app.selectSubject"); ?></option>
-												<?php
-												foreach ($staffs as $staff):
-													echo "<option value='{$staff['id']}'>{$staff['fname']} {$staff['lname']}</option>";
-												endforeach;
-												?>
-											</select>
-										</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.course"); ?></label> <i style="color: red;">*</i>
+													<input type="hidden" name="fId">
+													<input type="hidden" name="status" value="2">
+													<select class="form-control select2" name="classes">
+														<option selected disabled><?= lang("app.selectCourse"); ?></option>
+														<?php
+														foreach ($courses as $course):
+															echo "<option value='{$course['id']}'>{$course['title']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.schoolYear"); ?></label> <i style="color: red;">*</i>
+													<input type="text" name="year" class="form-control" readonly
+														   value="<?= $academic_year_title; ?>">
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.terms"); ?></label> <i style="color: red;">*</i>
+													<select class="form-control select2" name="term[]" multiple>
+														<option value="1"> <?= lang("app.term1"); ?></option>
+														<option value="2"> <?= lang("app.term2"); ?></option>
+														<option value="3"> <?= lang("app.term3"); ?></option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
+															style="color: red;">*</i>
+													<select class="form-control select2" name="teacher">
+														<option selected disabled><?= lang("app.selectSubject"); ?></option>
+														<?php
+														foreach ($staffs as $staff):
+															echo "<option value='{$staff['id']}'>{$staff['fname']} {$staff['lname']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
 
-									</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('manage_courses'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('manage_courses'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<!-- edit course teacher modal" -->
-				<div class="modal fade" id="editLecCourseModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editSubjectTeacher"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-
-										<div class="form-group">
-											<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
-													style="color: red;">*</i>
-											<input type="hidden" name="fid" value="">
-											<select class="form-control select2" name="teacher">
-												<option selected disabled><?= lang("app.selectSubject"); ?></option>
-												<?php
-												foreach ($staffs as $staff):
-													echo "<option value='" . $staff['id'] . "'>{$staff['fname']} {$staff['lname']}</option>";
-												endforeach;
-												?>
-											</select>
+						<!-- edit course teacher modal" -->
+						<div class="modal fade" id="editLecCourseModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_assign_course'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editSubjectTeacher"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 
-									</div>
-								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('manage_courses'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+												<div class="form-group">
+													<label id="mentor"><?= lang("app.subjectTeacher"); ?></label> <i
+															style="color: red;">*</i>
+													<input type="hidden" name="fid" value="">
+													<select class="form-control select2" name="teacher">
+														<option selected disabled><?= lang("app.selectSubject"); ?></option>
+														<?php
+														foreach ($staffs as $staff):
+															echo "<option value='" . $staff['id'] . "'>{$staff['fname']} {$staff['lname']}</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
 
-				<!-- edit term-->
-				<div class="modal fade" id="editTermModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('change_course_data'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editTerm"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-
-										<div class="form-group">
-											<label><?= lang("app.term"); ?> </label> <i style="color: red;">*</i>
-											<input type="hidden" name="fId">
-											<select class="form-control select2" name="Term[]" multiple>
-												<option selected disabled><?= lang("app.selectTerms"); ?></option>
-												<option value="1"><?= lang("app.term1"); ?></option>
-												<option value="2"><?= lang("app.term2"); ?></option>
-												<option value="3"><?= lang("app.term3"); ?></option>
-											</select>
+											</div>
 										</div>
-
-									</div>
-								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('manage_courses'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
-				<!-- edit course name-->
-				<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('change_course_data/title'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editCourse"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-
-										<div class="form-group">
-											<label><?= lang("app.course"); ?> </label> <i style="color: red;">*</i>
-											<input type="hidden" name="fId">
-											<input type="text" class="form-control" name="courseName"
-												   placeholder="Edit course title">
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('manage_courses'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
 										</div>
-
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="<?= base_url('manage_courses'); ?>">
-										<?= lang("app.save"); ?>
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+
+						<!-- edit term-->
+						<div class="modal fade" id="editTermModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('change_course_data'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editTerm"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+
+												<div class="form-group">
+													<label><?= lang("app.term"); ?> </label> <i style="color: red;">*</i>
+													<input type="hidden" name="fId">
+													<select class="form-control select2" name="Term[]" multiple>
+														<option selected disabled><?= lang("app.selectTerms"); ?></option>
+														<option value="1"><?= lang("app.term1"); ?></option>
+														<option value="2"><?= lang("app.term2"); ?></option>
+														<option value="3"><?= lang("app.term3"); ?></option>
+													</select>
+												</div>
+
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('manage_courses'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<!-- edit course name-->
+						<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('change_course_data/title'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editCourse"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+
+												<div class="form-group">
+													<label><?= lang("app.course"); ?> </label> <i style="color: red;">*</i>
+													<input type="hidden" name="fId">
+													<input type="text" class="form-control" name="courseName"
+														   placeholder="Edit course title">
+												</div>
+
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="<?= base_url('manage_courses'); ?>">
+												<?= lang("app.save"); ?>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<?php
 }
 ?>
 
 <?php if ($page == "course_category" || $page == "add_course") { ?>
-				<div class="modal fade" id="addCourseCategory" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_course_category'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.addNewCourseCategory"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?></label>
-											<input class="form-control" type="text" name="title" required
-												   minlength="3">
+						<div class="modal fade" id="addCourseCategory" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_course_category'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.addNewCourseCategory"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?></label>
+													<input class="form-control" type="text" name="title" required
+														   minlength="3">
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<label style="position: absolute;left: 20px;"><?= lang("app.youAreDone"); ?></label>
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
 <?php if ($page == "staffs") { ?>
-				<div class="modal fade" id="assignShiftMdl" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('assign_shift'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.assignShift"); ?> </h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label id="lbl_shift"><?= lang("app.currentShiftNone"); ?></label>
-											<input class="form-control" type="hidden" name="shift_id" id="sh_shift_id">
-											<input class="form-control sh_staff_id" type="hidden" name="staff">
+						<div class="modal fade" id="assignShiftMdl" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('assign_shift'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.assignShift"); ?> </h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-										<div class="form-group">
-											<label><?= lang("app.newShift"); ?></label>
-											<select class="form-control select2" required name="shift">
-												<option selected disabled><?= lang("app.selectShift"); ?></option>
-												<?php foreach ($shifts as $data) {
-													$days = count(json_decode($data['options'], true));
-													echo "<option value='{$data['id']}'>{$data['title']} - {$days} Days</option>";
-												} ?>
-											</select>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label id="lbl_shift"><?= lang("app.currentShiftNone"); ?></label>
+													<input class="form-control" type="hidden" name="shift_id" id="sh_shift_id">
+													<input class="form-control sh_staff_id" type="hidden" name="staff">
+												</div>
+												<div class="form-group">
+													<label><?= lang("app.newShift"); ?></label>
+													<select class="form-control select2" required name="shift">
+														<option selected disabled><?= lang("app.selectShift"); ?></option>
+														<?php foreach ($shifts as $data) {
+															$days = count(json_decode($data['options'], true));
+															echo "<option value='{$data['id']}'>{$data['title']} - {$days} Days</option>";
+														} ?>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="changePostMdl" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('change_post'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeStaffPost"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label id="lbl_post"><?= lang("app.currentPost"); ?> </label>
-											<input class="form-control" type="hidden" name="post_id" id="sh_post_id">
-											<input class="form-control sh_staff_id" type="hidden" name="staff">
+						<div class="modal fade" id="changePostMdl" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('change_post'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeStaffPost"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-										<div class="form-group">
-											<label><?= lang("app.privilege"); ?></label>
-											<a href="javascript:void" class="pull-right" id="refrs_privilege" data-toggle="refresh"
-											   data-href="<?= base_url('get_posts'); ?>" data-target="privilege"
-											   style="margin: 0 10px"><i class="fa fa-sync faa-spin"></i></a>
-											<select class="form-control select2" style="width: 100%" name="privilege"
-													id="privilege" required>
-												<option selected disabled><?= lang("app.selectPrivilege"); ?></option>
-											</select>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label id="lbl_post"><?= lang("app.currentPost"); ?> </label>
+													<input class="form-control" type="hidden" name="post_id" id="sh_post_id">
+													<input class="form-control sh_staff_id" type="hidden" name="staff">
+												</div>
+												<div class="form-group">
+													<label><?= lang("app.privilege"); ?></label>
+													<a href="javascript:void" class="pull-right" id="refrs_privilege" data-toggle="refresh"
+													   data-href="<?= base_url('get_posts'); ?>" data-target="privilege"
+													   style="margin: 0 10px"><i class="fa fa-sync faa-spin"></i></a>
+													<select class="form-control select2" style="width: 100%" name="privilege"
+															id="privilege" required>
+														<option selected disabled><?= lang("app.selectPrivilege"); ?></option>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 <?php if ($page == "School_fees") { ?>
-				<div class="modal fade" id="mdlfees" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_school_fee'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.selectDepartment"); ?></label>
-											<select class="form-control select2" required name="dept" id="select_dept">
-												<option selected disabled><?= lang("app.selectDepartment"); ?></option>
-												<?php foreach ($depts as $dept) { ?>
-																<option
-																		value="<?= $dept['id']; ?>"><?= $dept['title']; ?>				 		<?= $dept['code']; ?></option>
-																<?php
-												}
-												?>
-											</select>
+						<div class="modal fade" id="mdlfees" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_school_fee'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.selectLevel"); ?></label>
-											<select class="form-control select2" required name="level">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.selectDepartment"); ?></label>
+													<select class="form-control select2" required name="dept" id="select_dept">
+														<option selected disabled><?= lang("app.selectDepartment"); ?></option>
+														<?php foreach ($depts as $dept) { ?>
+																				<option
+																						value="<?= $dept['id']; ?>"><?= $dept['title']; ?>								 		<?= $dept['code']; ?></option>
+																				<?php
+														}
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.selectLevel"); ?></label>
+													<select class="form-control select2" required name="level">
 
-											</select>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.singleTermAmount"); ?></label>
+													<input type="text" name="amount" class="form-control">
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.singleTermAmount"); ?></label>
-											<input type="text" name="amount" class="form-control">
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 <?php if ($page == "Extra_fees") { ?>
-				<div class="modal fade" id="mdlextrafees" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_extra_fee'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
+						<div class="modal fade" id="mdlextrafees" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_extra_fee'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
 
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?></label>
-											<input type="text" name="title" class="form-control">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?></label>
+													<input type="text" name="title" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.selectClass"); ?></label>
+													<select class="form-control select2" required name="classe">
+														<option selected disabled><?= lang("app.selectLevel"); ?></option>
+														<?php foreach ($classes as $classe) {
+															?>
+																				<option
+																						value="<?= $classe['id']; ?>"> <?= $classe['level_name']; ?>								 		<?= $classe['code']; ?>								 		<?= $classe['title']; ?></option>
+																				<?php
+														}
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.amount"); ?>:</label>
+													<input type="text" name="amount" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.selectTerms"); ?></label>
+													<select class="form-control select2" required name="term[]" multiple>
+														<option value="1"><?= lang("app.term1"); ?></option>
+														<option value="2"><?= lang("app.term2"); ?></option>
+														<option value="3"><?= lang("app.term3"); ?></option>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.selectClass"); ?></label>
-											<select class="form-control select2" required name="classe">
-												<option selected disabled><?= lang("app.selectLevel"); ?></option>
-												<?php foreach ($classes as $classe) {
-													?>
-																<option
-																		value="<?= $classe['id']; ?>"> <?= $classe['level_name']; ?>				 		<?= $classe['code']; ?>				 		<?= $classe['title']; ?></option>
-																<?php
-												}
-												?>
-											</select>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.amount"); ?>:</label>
-											<input type="text" name="amount" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.selectTerms"); ?></label>
-											<select class="form-control select2" required name="term[]" multiple>
-												<option value="1"><?= lang("app.term1"); ?></option>
-												<option value="2"><?= lang("app.term2"); ?></option>
-												<option value="3"><?= lang("app.term3"); ?></option>
-											</select>
-										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
 <?php if ($page == "Fees_Entry") { ?>
-				<div class="modal fade" id="mdlfeesEntry" tabindex="-1" role="dialog">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.recordNewInvoice"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form class="autoSubmits validate">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.feeType"); ?></label>
-											<select class="form-control select2" name="feetype" id="select_fees_type">
-												<option selected disabled><?= lang("app.selectType"); ?></option>
-												<option value="1"><?= lang("app.schoolFees"); ?></option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="schoolfeesType" style="display: none">
-										<div class="form-group">
-											<label><?= lang("app.schoolFeesTerm"); ?></label>
-											<select class="form-control select2" name="select_term" id="select_fees_term">
-
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="extrafeesType" style="display: none">
-										<div class="form-group">
-											<label><?= lang("app.schoolFees"); ?></label>
-											<select class="form-control select2" name="ExtrafeeType" id="ExtrafeeType">
-
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.expectedAmount"); ?></label>
-											<input type="text" name="expected_amount" class="form-control" readonly>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-right">
-										<div class="form-group">
-											<label><?= lang("app.paidAmount"); ?></label>
-											<input type="text" name="paid_amount" id="paidAmount" class="form-control" disabled>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-left" id="remainDiv">
-										<div class="form-group">
-											<label><?= lang("app.remainAmount"); ?></label>
-											<input type="number" name="remain_amount" class="form-control" id="remainField"
-												   readonly>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-right" id="recievedDiv">
-										<div class="form-group">
-											<label><?= lang("app.receivedAmount"); ?></label>
-											<input type="number" name="received_amount" class="form-control"
-												   data-parsley-lt-message="Received amount must be less than remaining amount"
-												   required id="receivedAmount">
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="paymentModeDiv">
-										<div class="form-group">
-											<label><?= lang("app.paymentMode"); ?></label>
-											<select class="form-control select2" name="payment_mode" id="paymentMode" required>
-												<option selected disabled><?= lang("app.selectPaymentMode"); ?></option>
-												<option value="1"><?= lang("app.bankSlip"); ?></option>
-												<option value="2"><?= lang("app.cash"); ?></option>
-												<option value="3"><?= lang("app.cheque"); ?></option>
-												<option value="4"><?= lang("app.momo"); ?></option>
-												<option value="5"><?= lang("app.airtelMoney"); ?></option>
-											</select>
-										</div>
-										<button type="submit" class="btn btn-success btn-sm float-right"
-												style="margin-bottom: 13px;margin-top:-12px;color: #ffffff" id="addItemBtn"
-												data-target="open">Add item
+						<div class="modal fade" id="mdlfeesEntry" tabindex="-1" role="dialog">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.recordNewInvoice"); ?></h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">×</span>
 										</button>
 									</div>
-								</form>
-
-								<div class="modal-footer">
-									<form action="<?= base_url('manipulate_fee_entry'); ?>" id="frmSaveFeesRecords"
-										  class="autoSubmit validate" style="display:none;">
-										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-											<input type="hidden" name="studentid" id="studentId">
-											<table class="table table-bordered" id="pendingTbl">
-												<thead>
-												<tr>
-													<th scope="col">#</th>
-													<th scope="col">Item</th>
-													<th scope="col">Type</th>
-													<th scope="col">Amount</th>
-													<th scope="col">Payment Mode</th>
-													<th scope="col"></th>
-												</tr>
-												</thead>
-												<tbody>
-
-												</tbody>
-											</table>
-										</div>
-										<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="duedateDiv">
-											<div class="form-group">
-												<label><?= lang("app.dueDate"); ?></label>
-												<input type="date" name="dueDate" class="form-control">
+									<div class="modal-body">
+										<form class="autoSubmits validate">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.feeType"); ?></label>
+													<select class="form-control select2" name="feetype" id="select_fees_type">
+														<option selected disabled><?= lang("app.selectType"); ?></option>
+														<option value="1"><?= lang("app.schoolFees"); ?></option>
+													</select>
+												</div>
 											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="schoolfeesType" style="display: none">
+												<div class="form-group">
+													<label><?= lang("app.schoolFeesTerm"); ?></label>
+													<select class="form-control select2" name="select_term" id="select_fees_term">
+
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="extrafeesType" style="display: none">
+												<div class="form-group">
+													<label><?= lang("app.schoolFees"); ?></label>
+													<select class="form-control select2" name="ExtrafeeType" id="ExtrafeeType">
+
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.expectedAmount"); ?></label>
+													<input type="text" name="expected_amount" class="form-control" readonly>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-right">
+												<div class="form-group">
+													<label><?= lang("app.paidAmount"); ?></label>
+													<input type="text" name="paid_amount" id="paidAmount" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-left" id="remainDiv">
+												<div class="form-group">
+													<label><?= lang("app.remainAmount"); ?></label>
+													<input type="number" name="remain_amount" class="form-control" id="remainField"
+														   readonly>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-right" id="recievedDiv">
+												<div class="form-group">
+													<label><?= lang("app.receivedAmount"); ?></label>
+													<input type="number" name="received_amount" class="form-control"
+														   data-parsley-lt-message="Received amount must be less than remaining amount"
+														   required id="receivedAmount">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="paymentModeDiv">
+												<div class="form-group">
+													<label><?= lang("app.paymentMode"); ?></label>
+													<select class="form-control select2" name="payment_mode" id="paymentMode" required>
+														<option selected disabled><?= lang("app.selectPaymentMode"); ?></option>
+														<option value="1"><?= lang("app.bankSlip"); ?></option>
+														<option value="2"><?= lang("app.cash"); ?></option>
+														<option value="3"><?= lang("app.cheque"); ?></option>
+														<option value="4"><?= lang("app.momo"); ?></option>
+														<option value="5"><?= lang("app.airtelMoney"); ?></option>
+													</select>
+												</div>
+												<button type="submit" class="btn btn-success btn-sm float-right"
+														style="margin-bottom: 13px;margin-top:-12px;color: #ffffff" id="addItemBtn"
+														data-target="open">Add item
+												</button>
+											</div>
+										</form>
+
+										<div class="modal-footer">
+											<form action="<?= base_url('manipulate_fee_entry'); ?>" id="frmSaveFeesRecords"
+												  class="autoSubmit validate" style="display:none;">
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<input type="hidden" name="studentid" id="studentId">
+													<table class="table table-bordered" id="pendingTbl">
+														<thead>
+														<tr>
+															<th scope="col">#</th>
+															<th scope="col">Item</th>
+															<th scope="col">Type</th>
+															<th scope="col">Amount</th>
+															<th scope="col">Payment Mode</th>
+															<th scope="col"></th>
+														</tr>
+														</thead>
+														<tbody>
+
+														</tbody>
+													</table>
+												</div>
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left" id="duedateDiv">
+													<div class="form-group">
+														<label><?= lang("app.dueDate"); ?></label>
+														<input type="date" name="dueDate" class="form-control">
+													</div>
+												</div>
 										</div>
+										<button type="button" class="btn btn-secondary"
+												data-dismiss="modal"><?= lang("app.close"); ?></button>
+										<button type="submit" class="btn btn-gradient-primary" data-target="open"
+												id="btnSave"><?= lang("app.save"); ?></button>
+										</form>
+									</div>
 								</div>
-								<button type="button" class="btn btn-secondary"
-										data-dismiss="modal"><?= lang("app.close"); ?></button>
-								<button type="submit" class="btn btn-gradient-primary" data-target="open"
-										id="btnSave"><?= lang("app.save"); ?></button>
-								</form>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="mdlExtraFeesStudent" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_extra_fee/1'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
+						<div class="modal fade" id="mdlExtraFeesStudent" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_extra_fee/1'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createFee"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
 
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.student"); ?></label>
-											<input type="text" name="studentName" class="form-control" readonly>
-											<input type="hidden" name="studentId" class="form-control">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.student"); ?></label>
+													<input type="text" name="studentName" class="form-control" readonly>
+													<input type="hidden" name="studentId" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?></label>
+													<input type="text" name="title" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.amount"); ?>:</label>
+													<input type="text" name="amount" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.selectTerms"); ?></label>
+													<select class="form-control select2" required name="term[]">
+														<option value="1"><?= lang("app.term1"); ?></option>
+														<option value="2"><?= lang("app.term2"); ?></option>
+														<option value="3"><?= lang("app.term3"); ?></option>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?></label>
-											<input type="text" name="title" class="form-control">
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.amount"); ?>:</label>
-											<input type="text" name="amount" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.selectTerms"); ?></label>
-											<select class="form-control select2" required name="term[]">
-												<option value="1"><?= lang("app.term1"); ?></option>
-												<option value="2"><?= lang("app.term2"); ?></option>
-												<option value="3"><?= lang("app.term3"); ?></option>
-											</select>
-										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="mdlDiscountFeesStudent" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_fee_discount/1'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">School fee change</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
+						<div class="modal fade" id="mdlDiscountFeesStudent" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_fee_discount/1'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">School fee change</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
 
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.student"); ?></label>
-											<input type="text" name="studentName" class="form-control" readonly>
-											<input type="hidden" name="studentId" class="form-control">
-											<input type="hidden" name="feeId" class="form-control">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.student"); ?></label>
+													<input type="text" name="studentName" class="form-control" readonly>
+													<input type="hidden" name="studentId" class="form-control">
+													<input type="hidden" name="feeId" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>Current amount</label>
+													<input type="number" name="feeAmount" id="feeOldAmount" class="form-control" readonly>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>New amount</label>
+													<input type="number" name="feeNewAmount" id="feeNewAmount" required
+														   class="form-control">
+												</div>
+												<h5>Amount change: <span id="spAmountChange"></span>
+													<span id="spAmountChangeIncrease" class="badge badge-success" style="display: none">Increase</span>
+													<span id="spAmountChangeDiscount" class="badge badge-danger" style="display: none">Discount</span>
+												</h5>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>Comment</label>
+													<textarea type="text" name="comment" class="form-control" required
+															  minlength="5"></textarea>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>Current amount</label>
-											<input type="number" name="feeAmount" id="feeOldAmount" class="form-control" readonly>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>New amount</label>
-											<input type="number" name="feeNewAmount" id="feeNewAmount" required
-												   class="form-control">
-										</div>
-										<h5>Amount change: <span id="spAmountChange"></span>
-											<span id="spAmountChangeIncrease" class="badge badge-success" style="display: none">Increase</span>
-											<span id="spAmountChangeDiscount" class="badge badge-danger" style="display: none">Discount</span>
-										</h5>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>Comment</label>
-											<textarea type="text" name="comment" class="form-control" required
-													  minlength="5"></textarea>
-										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="mdlEditExtraFeesStudent" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_extra_fee/1'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">School fee change</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
+						<div class="modal fade" id="mdlEditExtraFeesStudent" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_extra_fee/1'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">School fee change</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
 
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.student"); ?></label>
-											<input type="text" name="studentName" class="form-control" readonly>
-											<input type="hidden" name="studentId" class="form-control">
-											<input type="hidden" name="feeId" class="form-control">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.student"); ?></label>
+													<input type="text" name="studentName" class="form-control" readonly>
+													<input type="hidden" name="studentId" class="form-control">
+													<input type="hidden" name="feeId" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>Current amount</label>
+													<input type="number" name="feeAmount" id="feeOldAmount" class="form-control" readonly>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>New amount</label>
+													<input type="number" name="feeNewAmount" id="feeNewAmount" required
+														   class="form-control">
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>Current amount</label>
-											<input type="number" name="feeAmount" id="feeOldAmount" class="form-control" readonly>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>New amount</label>
-											<input type="number" name="feeNewAmount" id="feeNewAmount" required
-												   class="form-control">
-										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
 <?php
 if ($page == "add_classes") {
 	?>
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><i
-											class="fa fa-plus"></i> <?= lang("app.addNewClass"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="<?= base_url('manipulate_cl'); ?>" class="validate autoSubmit">
-									<div class="modal-body">
-										<div class="form-group row">
-											<div class="col-sm-12">
-												<label><?= lang("app.type"); ?> <i style="color: red;">*</i></label>
-												<select class="form-control select2 "
-														name="type" <?= $_SESSION['ideyetu_country'] == "Congo" ? 'data-target="faculty"' : '' ?>
-														id="type_select">
-													<option selected value=""><?= lang("app.selectFaculty"); ?></option>
-													<?php
-													if ($_SESSION['ideyetu_country'] == "Congo") {
-														foreach ($levels->levels as $level) {
-															?>
-																					<option value="<?= $level->id ?>"><?= $level->name ?></option>
-																					<?php
-														}
-													} else {
-														foreach ($types as $type) {
-															?>
-																					<option value="<?= $type->id ?>"><?= $type->title ?></option>
-																					<?php
-														}
-													}
-													?>
-												</select>
-											</div>
-											<div class="col-sm-12" id="select_faculty">
-												<label id="labels"><?= lang("app.faculty"); ?> </label> <i style="color: red;">*</i>
-												<select class="form-control select2 " name="faculty" id="faculty_select">
-												</select>
-											</div>
-
-											<div class="col-sm-12" id="select_dept">
-												<label id="depts"><?= lang("app.dept"); ?></label> <i style="color: red;">*</i>
-												<select class="form-control select2 " name="depts" id="dept_select">
-
-												</select>
-											</div>
-
-											<div class="col-sm-7" id="select_level">
-												<label id="levels"><?= lang("app.level"); ?></label> <i style="color: red;">*</i>
-												<select class="form-control select2 " name="levels">
-
-												</select>
-											</div>
-											<div class="col-sm-5" id="select_sub">
-												<label id="subclass"><?= lang("app.subClass"); ?></label>
-												<input type="text" class="form-control" name="subclass" placeholder="Ex: A,B,C">
-											</div>
-											<div class="col-sm-12" id="select_teacher">
-												<label id="mentor"><?= lang("app.classMentor"); ?></label> <i
-														style="color: red;">*</i>
-												<select class="form-control select2" name="teacher" required>
-													<option selected disabled><?= lang("app.classMentor"); ?></option>
-													<?php
-													foreach ($staffs as $item) {
-														echo "<option value='{$item['id']}'>{$item['fname']} {$item['lname']}</option>";
-													}
-													?>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-												data-dismiss="modal"><?= lang("app.close"); ?></button>
-										<button type="submit" class="btn btn-success"
-												data-target="<?= base_url('classes'); ?>"><?= lang("app.saveChanges"); ?>
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"><i
+													class="fa fa-plus"></i> <?= lang("app.addNewClass"); ?></h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
-								</form>
+									<div class="modal-body">
+										<form action="<?= base_url('manipulate_cl'); ?>" class="validate autoSubmit">
+											<div class="modal-body">
+												<div class="form-group row">
+													<div class="col-sm-12">
+														<label><?= lang("app.type"); ?> <i style="color: red;">*</i></label>
+														<select class="form-control select2 "
+																name="type" <?= $_SESSION['ideyetu_country'] == "Congo" ? 'data-target="faculty"' : '' ?>
+																id="type_select">
+															<option selected value=""><?= lang("app.selectFaculty"); ?></option>
+															<?php
+															if ($_SESSION['ideyetu_country'] == "Congo") {
+																foreach ($levels->levels as $level) {
+																	?>
+																											<option value="<?= $level->id ?>"><?= $level->name ?></option>
+																											<?php
+																}
+															} else {
+																foreach ($types as $type) {
+																	?>
+																											<option value="<?= $type->id ?>"><?= $type->title ?></option>
+																											<?php
+																}
+															}
+															?>
+														</select>
+													</div>
+													<div class="col-sm-12" id="select_faculty">
+														<label id="labels"><?= lang("app.faculty"); ?> </label> <i style="color: red;">*</i>
+														<select class="form-control select2 " name="faculty" id="faculty_select">
+														</select>
+													</div>
+
+													<div class="col-sm-12" id="select_dept">
+														<label id="depts"><?= lang("app.dept"); ?></label> <i style="color: red;">*</i>
+														<select class="form-control select2 " name="depts" id="dept_select">
+
+														</select>
+													</div>
+
+													<div class="col-sm-7" id="select_level">
+														<label id="levels"><?= lang("app.level"); ?></label> <i style="color: red;">*</i>
+														<select class="form-control select2 " name="levels">
+
+														</select>
+													</div>
+													<div class="col-sm-5" id="select_sub">
+														<label id="subclass"><?= lang("app.subClass"); ?></label>
+														<input type="text" class="form-control" name="subclass" placeholder="Ex: A,B,C">
+													</div>
+													<div class="col-sm-12" id="select_teacher">
+														<label id="mentor"><?= lang("app.classMentor"); ?></label> <i
+																style="color: red;">*</i>
+														<select class="form-control select2" name="teacher" required>
+															<option selected disabled><?= lang("app.classMentor"); ?></option>
+															<?php
+															foreach ($staffs as $item) {
+																echo "<option value='{$item['id']}'>{$item['fname']} {$item['lname']}</option>";
+															}
+															?>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+														data-dismiss="modal"><?= lang("app.close"); ?></button>
+												<button type="submit" class="btn btn-success"
+														data-target="<?= base_url('classes'); ?>"><?= lang("app.saveChanges"); ?>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
 <?php
 if ($page == "add_departments") {
 	?>
-				<!-- Modal -->
-				<div class="modal fade" id="addNewDepartmentModal" role="dialog" aria-labelledby="exampleModalLabel"
-					 aria-hidden="true">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><i
-											class="fa fa-plus"></i> <?= lang("app.addNewDepartment"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<form action="<?= base_url('manipulate_department'); ?>" class="validate autoSubmit">
-								<div class="modal-body">
+						<!-- Modal -->
+						<div class="modal fade" id="addNewDepartmentModal" role="dialog" aria-labelledby="exampleModalLabel"
+							 aria-hidden="true">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"><i
+													class="fa fa-plus"></i> <?= lang("app.addNewDepartment"); ?></h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="<?= base_url('manipulate_department'); ?>" class="validate autoSubmit">
+										<div class="modal-body">
 
-									<div class="form-group col-sm-12 col-md-6" style="float:left;">
-										<label><?= lang("app.title"); ?></label>
-										<!-- <input class="form-control" type="text" name="title" required placeholder="<?= lang("app.depart_name") ?>"> -->
-										<select name="department_id" class="form-control" style="width: 100%" id="department_id">
-											<option value=""></option>
-											<?php
-											// var_dump($departments); die();
-											if (count($departments) > 0) {
-												foreach ($departments as $department) {
+											<div class="form-group col-sm-12 col-md-6" style="float:left;">
+												<label><?= lang("app.title"); ?></label>
+												<!-- <input class="form-control" type="text" name="title" required placeholder="<?= lang("app.depart_name") ?>"> -->
+												<select name="department_id" class="form-control" style="width: 100%" id="department_id">
+													<option value=""></option>
+													<?php
+													// var_dump($departments); die();
+													if (count($departments) > 0) {
+														foreach ($departments as $department) {
+															?>
+																									<option value="<?= $department->id ?>"
+																											data-accronym="<?= $department->acronym ?>"><?= $department->name ?></option>
+																									<?php
+														}
+													}
 													?>
-																			<option value="<?= $department->id ?>"
-																					data-accronym="<?= $department->acronym ?>"><?= $department->name ?></option>
-																			<?php
-												}
-											}
-											?>
-										</select>
-									</div>
-									<div class="form-group col-sm-12 col-md-6" style="float:left;">
-										<label><?= lang("app.code"); ?></label>
-										<input class="form-control" type="text" name="code"
-											   placeholder="<?= lang("app.depart_accronym") ?>" id="department_accronym">
-									</div>
+												</select>
+											</div>
+											<div class="form-group col-sm-12 col-md-6" style="float:left;">
+												<label><?= lang("app.code"); ?></label>
+												<input class="form-control" type="text" name="code"
+													   placeholder="<?= lang("app.depart_accronym") ?>" id="department_accronym">
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" data-target="reload"
+													class="btn btn-success"><?= lang("app.saveDepartment"); ?></button>
+											<button type="reset" class="btn btn-light"><?= lang("app.cancel"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="submit" data-target="reload"
-											class="btn btn-success"><?= lang("app.saveDepartment"); ?></button>
-									<button type="reset" class="btn btn-light"><?= lang("app.cancel"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 <div class="modal fade" id="mdlStaff" tabindex="-1" role="dialog">
@@ -3068,686 +3126,518 @@ if ($page == "add_departments") {
 	</div>
 </div>
 <?php if ($page == "apply_leave") { ?>
-				<div class="modal fade" id="apply_leave_model" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_leave'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.leaveApplication"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group" style="display: flex">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<label><?= lang("app.typeofleave"); ?></label>
-												<select class="form-control select2" required id="leave_type" name="type">
-													<option selected disabled><?= lang("app.selectLeaveType"); ?></option>
-													<option value="1"><?= lang("app.annualLeave"); ?></option>
-													<option value="2"><?= lang("app.sickLeave"); ?></option>
-													<option value="3"><?= lang("app.maternityLeave"); ?></option>
-													<option value="4"><?= lang("app.unpaidLeave"); ?></option>
-												</select>
-											</div>
+						<div class="modal fade" id="apply_leave_model" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_leave'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.leaveApplication"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-										<div class="form-group" style="display: flex;" id="reason">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<label><?= lang("app.unpaidReason"); ?></label>
-												<textarea class="form-control" placeholder="Reason" name="reason"></textarea>
-											</div>
-										</div>
-										<div class="form-group" style="display: flex">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<div>
-													<i><?= lang("app.note"); ?><br>
-														<?= lang("app.execess1day"); ?><br>
-														<?= lang("app.attached"); ?></i>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group" style="display: flex">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<label><?= lang("app.typeofleave"); ?></label>
+														<select class="form-control select2" required id="leave_type" name="type">
+															<option selected disabled><?= lang("app.selectLeaveType"); ?></option>
+															<option value="1"><?= lang("app.annualLeave"); ?></option>
+															<option value="2"><?= lang("app.sickLeave"); ?></option>
+															<option value="3"><?= lang("app.maternityLeave"); ?></option>
+															<option value="4"><?= lang("app.unpaidLeave"); ?></option>
+														</select>
+													</div>
 												</div>
-											</div>
-										</div>
-										<div class="form-group" style="display: flex">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<label><?= lang("app.daysRequest"); ?></label>
-												<input type="number" class="form-control" name="days">
-											</div>
-										</div>
-										<div class="form-group" style="display: flex">
-											<div style="width: 50%;float:left;padding-right: 5px;">
-												<label><?= lang("app.from"); ?></label>
-												<input type="date" class="form-control" name="fdate" required>
-											</div>
-											<div style="width: 50%;float:left;padding-left: 5px">
-												<label><?= lang("app.to"); ?></label>
-												<input type="date" class="form-control" name="tdate" required>
-											</div>
-										</div>
+												<div class="form-group" style="display: flex;" id="reason">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<label><?= lang("app.unpaidReason"); ?></label>
+														<textarea class="form-control" placeholder="Reason" name="reason"></textarea>
+													</div>
+												</div>
+												<div class="form-group" style="display: flex">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<div>
+															<i><?= lang("app.note"); ?><br>
+																<?= lang("app.execess1day"); ?><br>
+																<?= lang("app.attached"); ?></i>
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="display: flex">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<label><?= lang("app.daysRequest"); ?></label>
+														<input type="number" class="form-control" name="days">
+													</div>
+												</div>
+												<div class="form-group" style="display: flex">
+													<div style="width: 50%;float:left;padding-right: 5px;">
+														<label><?= lang("app.from"); ?></label>
+														<input type="date" class="form-control" name="fdate" required>
+													</div>
+													<div style="width: 50%;float:left;padding-left: 5px">
+														<label><?= lang("app.to"); ?></label>
+														<input type="date" class="form-control" name="tdate" required>
+													</div>
+												</div>
 
-										<div class="form-group" style="display: flex">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<label><?= lang("app.addresDuringLeave"); ?></label>
-												<input type="text" name="address" class="form-control">
+												<div class="form-group" style="display: flex">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<label><?= lang("app.addresDuringLeave"); ?></label>
+														<input type="text" name="address" class="form-control">
+													</div>
+												</div>
+
 											</div>
 										</div>
-
-									</div>
+										<div class="modal-footer">
+											<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.saveChanges"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.saveChanges"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 <?php if ($page == "leave") { ?>
-				<!-- deny modal-->
-				<div class="modal fade" id="deny_Modal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_leaveOrDeny'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.denyLeave"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group" style="display: flex;" id="reason">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<label><?= lang("app.reasonForDeny"); ?></label>
-												<textarea class="form-control" placeholder="Reason" name="denyReason"
-														  required></textarea>
-												<input type="hidden" value="" name="fId">
-												<input type="hidden" value="2" name="type">
-												<input type="hidden" value="2" name="email">
+						<!-- deny modal-->
+						<div class="modal fade" id="deny_Modal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_leaveOrDeny'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.denyLeave"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group" style="display: flex;" id="reason">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<label><?= lang("app.reasonForDeny"); ?></label>
+														<textarea class="form-control" placeholder="Reason" name="denyReason"
+																  required></textarea>
+														<input type="hidden" value="" name="fId">
+														<input type="hidden" value="2" name="type">
+														<input type="hidden" value="2" name="email">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.cancel"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.deny"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.cancel"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.deny"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<!-- approve modal-->
-				<div class="modal fade" id="approve_Modal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_leaveOrDeny'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.please"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group" style="display: flex;" id="reason">
-											<div style="width: 100%;float:left;padding-right: 5px;">
-												<center><h5><i><?= lang("app.areYouSureApprove"); ?></i></h5>
-													<p><i><b id="stafflabel"></b></i> <i><?= lang("app.leavess"); ?></i></p>
-													<input type="hidden" value="" name="fId"></center>
-												<input type="hidden" value="1" name="type">
-												<input type="hidden" value="2" name="email">
-												</center>
+						<!-- approve modal-->
+						<div class="modal fade" id="approve_Modal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_leaveOrDeny'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.please"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group" style="display: flex;" id="reason">
+													<div style="width: 100%;float:left;padding-right: 5px;">
+														<center><h5><i><?= lang("app.areYouSureApprove"); ?></i></h5>
+															<p><i><b id="stafflabel"></b></i> <i><?= lang("app.leavess"); ?></i></p>
+															<input type="hidden" value="" name="fId"></center>
+														<input type="hidden" value="1" name="type">
+														<input type="hidden" value="2" name="email">
+														</center>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.cancel"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.approve"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<!--						<label style="position: absolute;left: 20px;">Close this if you are done</label>-->
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.cancel"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.approve"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
 <?php if ($page == "Book") { ?>
-				<div class="modal fade" id="createBook" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_book_entry'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createnewBook"); ?> </h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?>:</label>
-											<input class="form-control" type="text" name="title" required>
+						<div class="modal fade" id="createBook" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_book_entry'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createnewBook"); ?> </h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.author"); ?>:</label>
-											<input class="form-control" type="text" name="author">
-										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?>:</label>
+													<input class="form-control" type="text" name="title" required>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.author"); ?>:</label>
+													<input class="form-control" type="text" name="author">
+												</div>
+											</div>
 
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.category"); ?>:</label> <a data-toggle="modal"
-																							data-target="#createBookCategory"><i
-														class="pull-right fa fa-plus"><?= lang("app.new"); ?></i></a>
-											<select class="form-control select2" required name="category">
-												<option selected disabled><?= lang("app.selectCategory"); ?></option>
-												<?php foreach ($categories as $cat) { ?>
-																<option value="<?= $cat['id']; ?>"><?= $cat['title']; ?></option>
-																<?php
-												}
-												?>
-											</select>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.category"); ?>:</label> <a data-toggle="modal"
+																									data-target="#createBookCategory"><i
+																class="pull-right fa fa-plus"><?= lang("app.new"); ?></i></a>
+													<select class="form-control select2" required name="category">
+														<option selected disabled><?= lang("app.selectCategory"); ?></option>
+														<?php foreach ($categories as $cat) { ?>
+																				<option value="<?= $cat['id']; ?>"><?= $cat['title']; ?></option>
+																				<?php
+														}
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.quantity"); ?>:</label>
+													<input class="form-control" type="number" name="quantity" required>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.quantity"); ?>:</label>
-											<input class="form-control" type="number" name="quantity" required>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<!-- edit book record -->
-				<div class="modal fade" id="editBook" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_book_entry'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editBook"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?>:</label>
-											<input class="form-control" type="hidden" name="fId" required>
-											<input class="form-control" type="text" name="title" required>
+						<!-- edit book record -->
+						<div class="modal fade" id="editBook" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_book_entry'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editBook"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.author"); ?>:</label>
-											<input class="form-control" type="text" name="author">
-										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?>:</label>
+													<input class="form-control" type="hidden" name="fId" required>
+													<input class="form-control" type="text" name="title" required>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.author"); ?>:</label>
+													<input class="form-control" type="text" name="author">
+												</div>
+											</div>
 
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.category"); ?>:</label> <a data-toggle="modal"
-																							data-target="#createBookCategory"><i
-														class="pull-right fa fa-plus"><?= lang("app.new"); ?></i></a>
-											<select class="form-control select2" required name="category">
-												<option selected disabled><?= lang("app.selectCategory"); ?></option>
-												<?php foreach ($categories as $cat) { ?>
-																<option value="<?= $cat['id']; ?>"><?= $cat['title']; ?></option>
-																<?php
-												}
-												?>
-											</select>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.category"); ?>:</label> <a data-toggle="modal"
+																									data-target="#createBookCategory"><i
+																class="pull-right fa fa-plus"><?= lang("app.new"); ?></i></a>
+													<select class="form-control select2" required name="category">
+														<option selected disabled><?= lang("app.selectCategory"); ?></option>
+														<?php foreach ($categories as $cat) { ?>
+																				<option value="<?= $cat['id']; ?>"><?= $cat['title']; ?></option>
+																				<?php
+														}
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.currentQuantity"); ?>:</label>
+													<input class="form-control" type="number" name="quantity" required disabled>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.newQuantity"); ?>:</label>
+													<input class="form-control" type="number" name="newquantity">
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.currentQuantity"); ?>:</label>
-											<input class="form-control" type="number" name="quantity" required disabled>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.newQuantity"); ?>:</label>
-											<input class="form-control" type="number" name="newquantity">
-										</div>
-									</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="createBookCategory" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_bookCategory'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.newBookCategory"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?>:</label>
-											<input class="form-control" type="text" name="title" required>
+						<div class="modal fade" id="createBookCategory" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_bookCategory'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.newBookCategory"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?>:</label>
+													<input class="form-control" type="text" name="title" required>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="borrowBook" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_borrow_book'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.borrowBook"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
+						<div class="modal fade" id="borrowBook" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_borrow_book'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.borrowBook"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?>:</label>
+													<input class="form-control" type="hidden" name="bookId" required>
+													<input class="form-control" type="text" name="title" disabled>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>Type</label>
+													<select class="select2" name="borrowType" required id="borrowType">
+														<option value="1">Student</option>
+														<option value="2">Staff</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-student">
+												<div class="form-group">
+													<label><?= lang("app.sClass"); ?>:</label>
+													<select class="select2" name="classe" id="select_class_book">
+														<option disabled selected><?= lang("app.selectClass"); ?></option>
+														<?php foreach ($classes as $classe) { ?>
+																				<option
+																						value="<?= $classe['id']; ?>"><?= $classe['level_name']; ?>								 		<?= $classe['code']; ?>								 		<?= $classe['title']; ?></option>
+																				<?php
+														}
+														?>
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-student">
+												<div class="form-group">
+													<label><?= lang("app.student"); ?>:</label>
+													<select class="select2" name="select_student_book" id="select_student_book">
+														<option disabled selected><?= lang("app.selectStudent"); ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-staff">
+												<div class="form-group">
+													<label>Staff:</label>
+													<select class="select2" name="staff" id="selected_staff_book">
+														<option disabled selected>Select staff</option>
+														<?php
+														foreach ($staffs as $staff):
+															echo "<option value='" . $staff['id'] . "'>" . $staff['names'] . "</option>";
+														endforeach;
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.borrowDate"); ?>:</label>
+													<input class="form-control" type="date" name="borrow_date" required>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 pull-left ">
+												<div class="form-group">
+													<label><?= lang("app.returnDueDate"); ?>:</label>
+													<input class="form-control" type="date" name="return_due_date" required>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?>:</label>
-											<input class="form-control" type="hidden" name="bookId" required>
-											<input class="form-control" type="text" name="title" disabled>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>Type</label>
-											<select class="select2" name="borrowType" required id="borrowType">
-												<option value="1">Student</option>
-												<option value="2">Staff</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-student">
-										<div class="form-group">
-											<label><?= lang("app.sClass"); ?>:</label>
-											<select class="select2" name="classe" id="select_class_book">
-												<option disabled selected><?= lang("app.selectClass"); ?></option>
-												<?php foreach ($classes as $classe) { ?>
-																<option
-																		value="<?= $classe['id']; ?>"><?= $classe['level_name']; ?>				 		<?= $classe['code']; ?>				 		<?= $classe['title']; ?></option>
-																<?php
-												}
-												?>
-												?>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-student">
-										<div class="form-group">
-											<label><?= lang("app.student"); ?>:</label>
-											<select class="select2" name="select_student_book" id="select_student_book">
-												<option disabled selected><?= lang("app.selectStudent"); ?></option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left show-staff">
-										<div class="form-group">
-											<label>Staff:</label>
-											<select class="select2" name="staff" id="selected_staff_book">
-												<option disabled selected>Select staff</option>
-												<?php
-												foreach ($staffs as $staff):
-													echo "<option value='" . $staff['id'] . "'>" . $staff['names'] . "</option>";
-												endforeach;
-												?>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.borrowDate"); ?>:</label>
-											<input class="form-control" type="date" name="borrow_date" required>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-6 pull-left ">
-										<div class="form-group">
-											<label><?= lang("app.returnDueDate"); ?>:</label>
-											<input class="form-control" type="date" name="return_due_date" required>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<?php
+						<?php
 }
 if ($page == "Book_history") {
 	?>
-				<div class="modal fade" id="returnBook" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('returing_book'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.message"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<center><b><?= lang("app.areYoSure"); ?></b></center>
-											<input type="hidden" name="record_id">
+						<div class="modal fade" id="returnBook" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('returing_book'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.message"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<center><b><?= lang("app.areYoSure"); ?></b></center>
+													<input type="hidden" name="record_id">
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.no"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.yes"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.no"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.yes"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 if ($page == "student") {
 	?>
-				<div class="modal fade" id="Change_student_Mode" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('change_studing_mode'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeMode"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<input class="form-control" type="hidden" name="fId" required>
-											<label><?= lang("app.studingMode"); ?>:</label>
-											<select class="select2" name="mode" id="selectMode">
-												<option disabled selected><?= lang("app.selectMode"); ?></option>
-												<option value="0"><?= lang("app.boarding"); ?></option>
-												<option value="1"><?= lang("app.day"); ?></option>
-											</select>
+						<div class="modal fade" id="Change_student_Mode" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('change_studing_mode'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeMode"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<input class="form-control" type="hidden" name="fId" required>
+													<label><?= lang("app.studingMode"); ?>:</label>
+													<select class="select2" name="mode" id="selectMode">
+														<option disabled selected><?= lang("app.selectMode"); ?></option>
+														<option value="0"><?= lang("app.boarding"); ?></option>
+														<option value="1"><?= lang("app.day"); ?></option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="Change_student_Class" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('change_student_class'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeClass"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<input class="form-control" type="hidden" name="fId" required>
-											<label><?= lang("app.selectClass"); ?>:</label>
-											<select class="select2" name="classe" required>
-												<option disabled selected><?= lang("app.selectClass"); ?></option>
-												<?php foreach ($classes as $classe) { ?>
-																<option
-																		value="<?= $classe['id']; ?>"><?= $classe['level_name']; ?>				 		<?= $classe['code']; ?>				 		<?= $classe['title']; ?></option>
-																<?php
-												}
-												?>
-												?>
-											</select>
+						<div class="modal fade" id="Change_student_Class" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('change_student_class'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeClass"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<input class="form-control" type="hidden" name="fId" required>
+													<label><?= lang("app.selectClass"); ?>:</label>
+													<select class="select2" name="classe" required>
+														<option disabled selected><?= lang("app.selectClass"); ?></option>
+														<?php foreach ($classes as $classe) { ?>
+																				<option
+																						value="<?= $classe['id']; ?>"><?= $classe['level_name']; ?>								 		<?= $classe['code']; ?>								 		<?= $classe['title']; ?></option>
+																				<?php
+														}
+														?>
+														?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 if ($page == "Bus_management") {
 	?>
-			<div class="modal fade" id="createBus" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editBus"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.plateNumber"); ?>:</label>
-										<input class="form-control" type="hidden" name="fId" required>
-										<input class="form-control" type="text" name="plate" required>
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carMaker"); ?>:</label>
-										<input class="form-control" type="text" name="car_maker">
-									</div>
-								</div>
-
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carModel"); ?>:</label>
-										<input class="form-control" type="text" name="car_model">
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carYear"); ?>:</label>
-										<input class="form-control" type="number" name="car_year" required maxlength="4"
-											   minlength="4">
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.noofPlaces"); ?>:</label>
-										<input class="form-control" type="number" name="places" required maxlength="3"
-											   minlength="2">
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.driver"); ?>:</label>
-										<select class="select2" name="driver" required>
-											<option disabled selected><?= lang("app.selectDriver"); ?></option>
-											<?php
-											foreach ($drivers as $driver) {
-												?>
-															<option value="<?= $driver['id']; ?>"><?= $driver['driver']; ?></option>
-															<?php
-											}
-											?>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-										data-dismiss="modal"><?= lang("app.close"); ?></button>
-								<button type="submit" class="btn btn-gradient-primary"
-										data-target="reload"><?= lang("app.save"); ?></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal fade" id="editBus" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createNewBus"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.plateNumber"); ?>:</label>
-										<input class="form-control" type="hidden" name="fId" required>
-										<input class="form-control" type="text" name="plate" required>
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carMaker"); ?>:</label>
-										<input class="form-control" type="text" name="car_maker">
-									</div>
-								</div>
-
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carModel"); ?>:</label>
-										<input class="form-control" type="text" name="car_model">
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.carYear"); ?>:</label>
-										<input class="form-control" type="number" name="car_year" required maxlength="4"
-											   minlength="4">
-									</div>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-									<div class="form-group">
-										<label><?= lang("app.places"); ?>:</label>
-										<input class="form-control" type="number" name="places" required maxlength="3"
-											   minlength="2">
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-										data-dismiss="modal"><?= lang("app.close"); ?></button>
-								<button type="submit" class="btn btn-gradient-primary"
-										data-target="reload"><?= lang("app.save"); ?></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal fade" id="editBusDriver" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeDriver"); ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-								<div class="form-group">
-									<input type="hidden" name="fId">
-									<label><?= lang("app.driver"); ?>:</label>
-									<select class="select2 form-control" name="staff" required>
-										<option disabled selected><?= lang("app.selectDriver"); ?></option>
-										<?php
-										foreach ($drivers as $driver) {
-											?>
-														<option value="<?= $driver['id']; ?>"><?= $driver['driver']; ?></option>
-														<?php
-										}
-										?>
-									</select>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-										data-dismiss="modal"><?= lang("app.close"); ?></button>
-								<button type="submit" class="btn btn-gradient-primary"
-										data-target="reload"><?= lang("app.save"); ?></button>
-							</div>
-						</form>
-					</div>
-				</div>
-				<?php
-}
-if ($page == "Route_management") {
-	?>
-					<div class="modal fade" id="createRoute" tabindex="-1" role="dialog">
+					<div class="modal fade" id="createBus" tabindex="-1" role="dialog">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
-								<form action="<?= base_url('manipulate_route'); ?>" class="autoSubmit validate">
+								<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createRoute"); ?></h5>
+										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editBus"); ?></h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">×</span>
 										</button>
@@ -3755,25 +3645,53 @@ if ($page == "Route_management") {
 									<div class="modal-body">
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.title"); ?>:</label>
-												<input class="form-control" type="text" name="title" required>
+												<label><?= lang("app.plateNumber"); ?>:</label>
+												<input class="form-control" type="hidden" name="fId" required>
+												<input class="form-control" type="text" name="plate" required>
 											</div>
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.price"); ?>:</label>
-												<input class="form-control" type="number" name="price"
-													   placeholder="price per a single ride" required>
+												<label><?= lang("app.carMaker"); ?>:</label>
+												<input class="form-control" type="text" name="car_maker">
 											</div>
 										</div>
 
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.details"); ?>:</label>
-												<textarea class="form-control" name="details"></textarea>
+												<label><?= lang("app.carModel"); ?>:</label>
+												<input class="form-control" type="text" name="car_model">
 											</div>
 										</div>
-
+										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+											<div class="form-group">
+												<label><?= lang("app.carYear"); ?>:</label>
+												<input class="form-control" type="number" name="car_year" required maxlength="4"
+													   minlength="4">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+											<div class="form-group">
+												<label><?= lang("app.noofPlaces"); ?>:</label>
+												<input class="form-control" type="number" name="places" required maxlength="3"
+													   minlength="2">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+											<div class="form-group">
+												<label><?= lang("app.driver"); ?>:</label>
+												<select class="select2" name="driver" required>
+													<option disabled selected><?= lang("app.selectDriver"); ?></option>
+													<?php
+													foreach ($drivers as $driver) {
+														?>
+																			<option value="<?= $driver['id']; ?>"><?= $driver['driver']; ?></option>
+																			<?php
+													}
+													?>
+												</select>
+											</div>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
@@ -3786,12 +3704,12 @@ if ($page == "Route_management") {
 						</div>
 					</div>
 
-					<div class="modal fade" id="editRoute" tabindex="-1" role="dialog">
+					<div class="modal fade" id="editBus" tabindex="-1" role="dialog">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
-								<form action="<?= base_url('manipulate_route'); ?>" class="autoSubmit validate">
+								<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editRoute"); ?></h5>
+										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createNewBus"); ?></h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">×</span>
 										</button>
@@ -3799,260 +3717,400 @@ if ($page == "Route_management") {
 									<div class="modal-body">
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.title"); ?>:</label>
+												<label><?= lang("app.plateNumber"); ?>:</label>
 												<input class="form-control" type="hidden" name="fId" required>
-												<input class="form-control" type="text" name="title" required>
+												<input class="form-control" type="text" name="plate" required>
 											</div>
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.price"); ?>:</label>
-												<input class="form-control" type="number" name="price" required>
+												<label><?= lang("app.carMaker"); ?>:</label>
+												<input class="form-control" type="text" name="car_maker">
 											</div>
 										</div>
 
 										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 											<div class="form-group">
-												<label><?= lang("app.price"); ?>:</label>
-												<textarea class="form-control" name="details"></textarea>
+												<label><?= lang("app.carModel"); ?>:</label>
+												<input class="form-control" type="text" name="car_model">
 											</div>
 										</div>
-
+										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+											<div class="form-group">
+												<label><?= lang("app.carYear"); ?>:</label>
+												<input class="form-control" type="number" name="car_year" required maxlength="4"
+													   minlength="4">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+											<div class="form-group">
+												<label><?= lang("app.places"); ?>:</label>
+												<input class="form-control" type="number" name="places" required maxlength="3"
+													   minlength="2">
+											</div>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 												data-dismiss="modal"><?= lang("app.close"); ?></button>
 										<button type="submit" class="btn btn-gradient-primary"
-												data-target="reload"><?= lang("app.saveChanges"); ?></button>
+												data-target="reload"><?= lang("app.save"); ?></button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
-					<?php
-}
-if ($page == "Transport_management") {
-	?>
-				<div class="modal fade" id="createTransport_fees" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_transport_fees'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.transportFee"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.sClass"); ?>:</label>
-											<select class="select2 form-control" name="classe" id="select_class_trans">
-												<option selected disabled><?= lang("app.selectClass"); ?></option>
-												<?php
-												foreach ($classes as $class) {
-													echo "<option value='{$class['id']}'>{$class['level_name']} {$class['title']} {$class['code']} </option>";
-												}
-												?>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<label><?= lang("app.student"); ?></label>
-										<select class="select2" name="select_student_btrans" id="student">
-											<option disabled selected><?= lang("app.selectStudent"); ?></option>
-										</select>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.recievedAmount"); ?>:</label>
-											<input class="form-control" type="number" name="recieved_amount" required>
-										</div>
-									</div>
 
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.saveChanges"); ?></button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="app-drawer-overlay d-none animated fadeIn"></div>
-			</body>
-			<?php
-}
-if ($page == "Deliberation") {
-	?>
-				<div class="modal fade" id="changeVerdictModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_change_second_verdict'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.secondVerdict"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
+					<div class="modal fade" id="editBusDriver" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<form action="<?= base_url('manipulate_bus'); ?>" class="autoSubmit validate">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.changeDriver"); ?></h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">×</span>
+										</button>
+									</div>
 									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 										<div class="form-group">
 											<input type="hidden" name="fId">
-											<label><?= lang("app.verdict"); ?>:</label>
-											<select class="select2 form-control" name="second_verdict">
-												<option selected disabled><?= lang("app.selectVerdict"); ?></option>
-												<?php foreach ($secondverdicts as $secondverdict) { ?>
-																<option
-																		value="<?= $secondverdict['id']; ?>"><?= $secondverdict['title']; ?></option>
-																<?php
+											<label><?= lang("app.driver"); ?>:</label>
+											<select class="select2 form-control" name="staff" required>
+												<option disabled selected><?= lang("app.selectDriver"); ?></option>
+												<?php
+												foreach ($drivers as $driver) {
+													?>
+																		<option value="<?= $driver['id']; ?>"><?= $driver['driver']; ?></option>
+																		<?php
 												}
 												?>
 											</select>
 										</div>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.saveChanges"); ?></button>
-								</div>
-							</form>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+												data-dismiss="modal"><?= lang("app.close"); ?></button>
+										<button type="submit" class="btn btn-gradient-primary"
+												data-target="reload"><?= lang("app.save"); ?></button>
+									</div>
+								</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
+}
+if ($page == "Route_management") {
+	?>
+							<div class="modal fade" id="createRoute" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<form action="<?= base_url('manipulate_route'); ?>" class="autoSubmit validate">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.createRoute"); ?></h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">×</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.title"); ?>:</label>
+														<input class="form-control" type="text" name="title" required>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.price"); ?>:</label>
+														<input class="form-control" type="number" name="price"
+															   placeholder="price per a single ride" required>
+													</div>
+												</div>
+
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.details"); ?>:</label>
+														<textarea class="form-control" name="details"></textarea>
+													</div>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+														data-dismiss="modal"><?= lang("app.close"); ?></button>
+												<button type="submit" class="btn btn-gradient-primary"
+														data-target="reload"><?= lang("app.save"); ?></button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="editRoute" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<form action="<?= base_url('manipulate_route'); ?>" class="autoSubmit validate">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.editRoute"); ?></h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">×</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.title"); ?>:</label>
+														<input class="form-control" type="hidden" name="fId" required>
+														<input class="form-control" type="text" name="title" required>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.price"); ?>:</label>
+														<input class="form-control" type="number" name="price" required>
+													</div>
+												</div>
+
+												<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+													<div class="form-group">
+														<label><?= lang("app.price"); ?>:</label>
+														<textarea class="form-control" name="details"></textarea>
+													</div>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+														data-dismiss="modal"><?= lang("app.close"); ?></button>
+												<button type="submit" class="btn btn-gradient-primary"
+														data-target="reload"><?= lang("app.saveChanges"); ?></button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<?php
+}
+if ($page == "Transport_management") {
+	?>
+						<div class="modal fade" id="createTransport_fees" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_transport_fees'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.transportFee"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.sClass"); ?>:</label>
+													<select class="select2 form-control" name="classe" id="select_class_trans">
+														<option selected disabled><?= lang("app.selectClass"); ?></option>
+														<?php
+														foreach ($classes as $class) {
+															echo "<option value='{$class['id']}'>{$class['level_name']} {$class['title']} {$class['code']} </option>";
+														}
+														?>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<label><?= lang("app.student"); ?></label>
+												<select class="select2" name="select_student_btrans" id="student">
+													<option disabled selected><?= lang("app.selectStudent"); ?></option>
+												</select>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.recievedAmount"); ?>:</label>
+													<input class="form-control" type="number" name="recieved_amount" required>
+												</div>
+											</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.saveChanges"); ?></button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="app-drawer-overlay d-none animated fadeIn"></div>
+					</body>
+					<?php
+}
+if ($page == "Deliberation") {
+	?>
+						<div class="modal fade" id="changeVerdictModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_change_second_verdict'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.secondVerdict"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<input type="hidden" name="fId">
+													<label><?= lang("app.verdict"); ?>:</label>
+													<select class="select2 form-control" name="second_verdict">
+														<option selected disabled><?= lang("app.selectVerdict"); ?></option>
+														<?php foreach ($secondverdicts as $secondverdict) { ?>
+																				<option
+																						value="<?= $secondverdict['id']; ?>"><?= $secondverdict['title']; ?></option>
+																				<?php
+														}
+														?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.saveChanges"); ?></button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<?php
 }
 if ($page == "Verdicts") {
 	?>
-				<div class="modal fade" id="createVerdict" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_verdicts'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.verdict"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.title"); ?>:</label>
-											<input type="text" name="title" class="form-control">
+						<div class="modal fade" id="createVerdict" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_verdicts'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.verdict"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.verdict"); ?>:</label>
-											<select class="select2 form-control" name="type">
-												<option selected disabled><?= lang("app.selectType"); ?></option>
-												<option value="1"><?= lang("app.firstVerdict"); ?></option>
-												<option value="2"><?= lang("app.secondVerdict"); ?></option>
-											</select>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.title"); ?>:</label>
+													<input type="text" name="title" class="form-control">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.verdict"); ?>:</label>
+													<select class="select2 form-control" name="type">
+														<option selected disabled><?= lang("app.selectType"); ?></option>
+														<option value="1"><?= lang("app.firstVerdict"); ?></option>
+														<option value="2"><?= lang("app.secondVerdict"); ?></option>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="modal fade" id="EditVerdict" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_verdicts'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.verdict"); ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<input type="hidden" name="fId" required>
-											<label><?= lang("app.title"); ?>:</label>
-											<input type="text" name="title" class="form-control" required>
+						<div class="modal fade" id="EditVerdict" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_verdicts'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"><?= lang("app.verdict"); ?></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.verdict"); ?>:</label>
-											<select class="select2 form-control" name="type" required>
-												<option selected disabled><?= lang("app.selectType"); ?></option>
-												<option value="1"><?= lang("app.firstVerdict"); ?> </option>
-												<option value="2"><?= lang("app.secondverdict"); ?> </option>
-											</select>
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<input type="hidden" name="fId" required>
+													<label><?= lang("app.title"); ?>:</label>
+													<input type="text" name="title" class="form-control" required>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.verdict"); ?>:</label>
+													<select class="select2 form-control" name="type" required>
+														<option selected disabled><?= lang("app.selectType"); ?></option>
+														<option value="1"><?= lang("app.firstVerdict"); ?> </option>
+														<option value="2"><?= lang("app.secondverdict"); ?> </option>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload"><?= lang("app.save"); ?></button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload"><?= lang("app.save"); ?></button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 if ($page == "settings") {
 
 	?>
-				<div class="modal fade" id="DeleteGradeModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog modal-sm" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('delete_grade'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">attention !</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
+						<div class="modal fade" id="DeleteGradeModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('delete_grade'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">attention !</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<input type="hidden" name="fId">
+											<center><b>Are you sure to delete ?</b></center>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">No
+											</button>
+											<button type="submit" class="btn btn-gradient-primary"
+													data-target="reload">Yes
+											</button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-body">
-									<input type="hidden" name="fId">
-									<center><b>Are you sure to delete ?</b></center>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">No
-									</button>
-									<button type="submit" class="btn btn-gradient-primary"
-											data-target="reload">Yes
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 if ($page == "pendingRegistration") {
 	?>
-				<!-- edit course -->
-				<div class="modal fade" id="documentModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulate_course_category'); ?>" class="autoSubmit validate">
-								<!-- <div class="modal-header">
+						<!-- edit course -->
+						<div class="modal fade" id="documentModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulate_course_category'); ?>" class="autoSubmit validate">
+										<!-- <div class="modal-header">
 						<h5 class="modal-title">Applicant document</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
 					</div> -->
-								<!-- <div class="modal-body">
+										<!-- <div class="modal-body">
 						<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
 							<table class="table">
 								<tr>
@@ -4070,61 +4128,61 @@ if ($page == "pendingRegistration") {
 						<button type="button" class="btn btn-secondary"
 								data-dismiss="modal"> ?></button>
 					</div> -->
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="approveRegistrationModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<form action="<?= base_url('manipulateApproveStudentsRegistration'); ?>" class="autoSubmit validate">
-								<div class="modal-header">
-									<h5 class="modal-title">Approve applicant</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
+									</form>
 								</div>
-								<div class="modal-body">
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.faculty"); ?>:</label>
-											<input type="text" class="form-control" name="faculty" readonly>
-											<input type="hidden" name="applicationId">
+							</div>
+						</div>
+						<div class="modal fade" id="approveRegistrationModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<form action="<?= base_url('manipulateApproveStudentsRegistration'); ?>" class="autoSubmit validate">
+										<div class="modal-header">
+											<h5 class="modal-title">Approve applicant</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label>Department:</label>
-											<input type="text" class="form-control" name="dpt" readonly>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.level"); ?>:</label>
-											<input type="text" class="form-control" name="level" readonly>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
-										<div class="form-group">
-											<label><?= lang("app.classes"); ?>:</label>
-											<select class="select2 form-control" name="classId" required id="classesOptions">
+										<div class="modal-body">
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.faculty"); ?>:</label>
+													<input type="text" class="form-control" name="faculty" readonly>
+													<input type="hidden" name="applicationId">
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label>Department:</label>
+													<input type="text" class="form-control" name="dpt" readonly>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.level"); ?>:</label>
+													<input type="text" class="form-control" name="level" readonly>
+												</div>
+											</div>
+											<div class="col-sm-12 col-md-12 col-lg-12 pull-left">
+												<div class="form-group">
+													<label><?= lang("app.classes"); ?>:</label>
+													<select class="select2 form-control" name="classId" required id="classesOptions">
 
-											</select>
+													</select>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+													data-dismiss="modal"><?= lang("app.close"); ?></button>
+											<button type="submit" class="btn btn-primary"
+													data-target="reload">Approve
+											</button>
+										</div>
+									</form>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-											data-dismiss="modal"><?= lang("app.close"); ?></button>
-									<button type="submit" class="btn btn-primary"
-											data-target="reload">Approve
-									</button>
-								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<?php
+						<?php
 }
 ?>
 
@@ -4177,15 +4235,15 @@ if ($page == "pendingRegistration") {
 		<?php
 		if ($page == "add_departments") {
 			?>
-					$('#departmentTable').DataTable();
-					$("#department_id").select2({
-						placeholder: '<?= lang('app.depart_name') ?>',
-						// dropdownParent: "#addNewDepartmentModal",
-						tags: true
-					}).bind('change', function (e) {
-						//Here make sure to manupulate the change Event
-					});
-					<?php
+							$('#departmentTable').DataTable();
+							$("#department_id").select2({
+								placeholder: '<?= lang('app.depart_name') ?>',
+								// dropdownParent: "#addNewDepartmentModal",
+								tags: true
+							}).bind('change', function (e) {
+								//Here make sure to manupulate the change Event
+							});
+							<?php
 		}
 		?>
 		$("#borrowType").on("change", function () {

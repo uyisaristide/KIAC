@@ -28,6 +28,18 @@ function array_term($terms)
 	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		#messageModal {
+			z-index: 1050;
+			/* Make sure this value is higher than other elements on the page */
+		}
+
+		.modal-backdrop {
+			display: none;
+			/* This removes the default dark backdrop. If you want to keep the backdrop but remove the blur, you'll need to adjust this. */
+		}
+	</style>
 
 
 </head>
@@ -58,12 +70,13 @@ function array_term($terms)
 													<tr role="row">
 														<th>#</th>
 														<th>Applicant</th>
+														<th>Email</th>
 														<th>Gender</th>
 														<th>Phone</th>
 														<th>Program</th>
-														<th>Email</th>
-														<th>Payment status</th>
 														<th>Course</th>
+														<th>Payment status</th>
+														<th>Documents</th>
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
@@ -78,6 +91,9 @@ function array_term($terms)
 																<?= $pending['firstName'] . ' ' . $pending['lastName']; ?>
 															</td>
 															<td>
+																<?= $pending['email']; ?>
+															</td>
+															<td>
 																<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
 															</td>
 															<td>
@@ -87,13 +103,30 @@ function array_term($terms)
 																<?= $pending['program']; ?>
 															</td>
 															<td>
-																<?= $pending['email']; ?>
+																<?= $pending['course']; ?>
 															</td>
 															<td>
 																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
 															</td>
-															<td>
-																<?= $pending['course']; ?>
+
+															<td style="text-align: center;">
+																<div
+																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
+																	<div>
+																		<button
+																			class="btn btn-sm btn-info open-modal download-doc"
+																			data-document-path="<?= $pending['transcript']; ?>">
+																			Transcript</button>
+																	</div>
+																	<!-- Button to download Passport -->
+																	<div>
+																		<button
+																			class="btn btn-sm btn-secondary open-modal download-doc"
+																			data-document-path="<?= $pending['passport']; ?>">
+																			Passport</button>
+																	</div>
+
+																</div>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">
@@ -101,45 +134,18 @@ function array_term($terms)
 																	style="display: flex; justify-content: center; gap: 2px; padding:20px;">
 																	<!-- Add your blue button -->
 																	<div>
-																		<button class="btn btn-sm btn-info download-doc"
-																			data-document-path="<?= $pending['transcript']; ?>">
-																			Transcript</button>
-																	</div>
-																	<!-- Button to download Passport -->
-																	<div>
-																		<button
-																			class="btn btn-sm btn-secondary download-doc"
-																			data-document-path="<?= $pending['passport']; ?>">
-																			Passport</button>
-																	</div>
-																	<div>
 																		<button class="btn btn-sm btn-success"
 																			data-id="<?= $pending['id']; ?>">Approve</button>
 																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-danger"
-																			data-id="<?= $pending['id']; ?>"
-																			>Reject</button>
+																			data-id="<?= $pending['id']; ?>">Reject</button>
 																	</div>
 																</div>
 															</td>
 														</tr>
 													<?php } ?>
 												</tbody>
-												<!-- <tfoot>
-													<tr>
-														<th>#</th>
-														<th>Applicant</th>
-														<th>Gender</th>
-														<th>Phone</th>
-														<th>Program</th>
-														<th>Email</th>
-														<th>Payment status</th>
-														<th>Course</th>
-														<th style="text-align: center; white-space: nowrap;">Actions
-														</th>
-													</tr>
-												</tfoot> -->
 											</table>
 										</div>
 									</div>
@@ -150,6 +156,26 @@ function array_term($terms)
 				</div>
 			</div>
 
+		</div>
+	</div>
+	<!-- Message Modal -->
+	<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Message</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="messageModalBody">
+					<!-- Message will be inserted here -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+						onclick="closeModal()">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script>
@@ -178,22 +204,37 @@ function array_term($terms)
 		});
 	});
 
+	// ... Your existing code ...
+	function showMessageInModal(message) {
+		const modalBody = document.getElementById('messageModalBody');
+		modalBody.textContent = message;
+		$('#messageModal').modal('show');
+	}
+
+	function closeModal() {
+		$('#messageModal').modal('hide');
+	}
+
 	document.querySelectorAll('.btn-success').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-
-			// Send an AJAX request to update payment status
-			// fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
-			fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
 				.then(data => {
-					if (data.success) {
-						location.reload();
+					if (data.message) {
+						// Show the message in the modal
+						document.querySelector('#messageModal .modal-body').innerText = data.message;
+						$('#messageModal').modal('show');
+
+						// Reload the page after closing the modal
+						$('#messageModal').on('hidden.bs.modal', function (e) {
+							location.reload();
+						});
 					} else {
-						// Handle any errors here
-						console.error(data.error);
+						console.error(data.details || "Unknown error");
 					}
 				})
 				.catch(error => {
@@ -201,23 +242,27 @@ function array_term($terms)
 				});
 		});
 	});
+
 	document.querySelectorAll('.btn-danger').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-
-			// Send an AJAX request to update payment status
-			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
-			fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/reject`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
 				.then(data => {
-					if (data.success) {
-                        alert("rejected!")
-						location.reload();
+					if (data.message) {
+						// Show the message in the modal
+						document.querySelector('#messageModal .modal-body').innerText = data.message;
+						$('#messageModal').modal('show');
+
+						// Reload the page after closing the modal
+						$('#messageModal').on('hidden.bs.modal', function (e) {
+							location.reload();
+						});
 					} else {
-						// Handle any errors here
-						console.error(data.error);
+						console.error(data.details || "Unknown error");
 					}
 				})
 				.catch(error => {

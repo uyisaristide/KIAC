@@ -380,13 +380,8 @@ include('header.php');
 		fetch('http://173.212.230.165:3000/api/agents/application', {
 			// fetch('http://localhost:3000/api/agents/application', {
 			method: 'POST',
-
 			body: formData,
 			dataType: 'json',
-
-			body: formData,
-			dataType: 'json',
-
 		})
 			.then(response => response.json())
 			.then(data => {

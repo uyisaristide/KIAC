@@ -28,6 +28,7 @@ function array_term($terms)
 	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		#messageModal {
 			z-index: 1050;
@@ -38,11 +39,9 @@ function array_term($terms)
 			display: none;
 			/* This removes the default dark backdrop. If you want to keep the backdrop but remove the blur, you'll need to adjust this. */
 		}
-
-		.table-responsive {
-			overflow-x: auto;
-		}
 	</style>
+
+
 </head>
 
 <body>
@@ -72,17 +71,13 @@ function array_term($terms)
 														<th>#</th>
 														<th>Applicant</th>
 														<th>Email</th>
+														<th>Gender</th>
 														<th>Phone</th>
-														<th>Location</th>
-														<th>Desire Country</th>
-														<th>Payment Status</th>
-														<th>Program</th>
-														<th
-															style="width: 20%; text-align: center; white-space: nowrap;">
-															Documents</th>
-														<th
-															style="width: 20%; text-align: center; white-space: nowrap;">
-															Actions</th>
+														<th>National Id</th>
+														<th>Field Of Study</th>
+														<th>Course</th>
+														<th>Payment status</th>
+														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
 												</thead>
@@ -93,39 +88,28 @@ function array_term($terms)
 																<?= $key + 1; ?>
 															</td>
 															<td>
-																<?= $pending['names'] ?>
+																<?= $pending['firstName'] . ' ' . $pending['lastName']; ?>
 															</td>
 															<td>
-																<?= $pending['email_add'] ?>
+																<?= $pending['email']; ?>
 															</td>
 															<td>
-																<?= $pending['phone_number']; ?>
+																<?= $pending['gender'] == "male" ? "Male" : "Female"; ?>
 															</td>
 															<td>
-																<?= $pending['location']; ?>
+																<?= $pending['phone']; ?>
 															</td>
 															<td>
-																<?= $pending['desired_country']; ?>
+																<?= $pending['national_id']; ?>
+															</td>
+															<td>
+																<?= $pending['fieldOfStudy']; ?>
+															</td>
+															<td>
+																<?= $pending['course']; ?>
 															</td>
 															<td>
 																<?= !$pending['payment_status'] ? 'Unpaid' : 'Paid'; ?>
-															</td>
-															<td>
-																<?= $pending['program']; ?>
-															</td>
-															<td>
-																<div class="d-flex "
-																	style="gap:2px ;  justify-content: center;">
-																	<button class="btn btn-sm btn-info download-doc mb-2"
-																		data-document-path="<?= $pending['id_passport']; ?>">ID</button>
-																	<button class="btn btn-sm btn-warning download-doc mb-2"
-																		data-document-path="<?= $pending['passport_pic']; ?>">Passport</button>
-																	<button
-																		class="btn btn-sm btn-secondary download-doc mb-2"
-																		data-document-path="<?= $pending['transcript_doc']; ?>">Transcripts</button>
-																	<button class="btn btn-sm btn-dark download-doc mb-2"
-																		data-document-path="<?= $pending['vaccine']; ?>">Vaccine</button>
-																</div>
 															</td>
 															<!-- Displaying the id as the application code -->
 															<td style="text-align: center;">
@@ -138,9 +122,7 @@ function array_term($terms)
 																	</div>
 																	<div>
 																		<button class="btn btn-sm btn-danger"
-																			data-id="<?= $pending['id']; ?>"
-																			data-toggle="modal"
-																			data-target="#exampleModal1">Reject</button>
+																			data-id="<?= $pending['id']; ?>">Reject</button>
 																	</div>
 																</div>
 															</td>
@@ -156,8 +138,10 @@ function array_term($terms)
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
+	<!-- Message Modal -->
 	<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -175,7 +159,6 @@ function array_term($terms)
 			</div>
 		</div>
 	</div>
-
 
 </body>
 <script>
@@ -195,8 +178,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			// const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad/'; // Replace with your server's base URL
-			const serverBaseUrl = 'http://localhost:3000/api/study/abroad/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -218,8 +201,8 @@ function array_term($terms)
 	document.querySelectorAll('.btn-success').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-			fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/updateStatus`, {
-			// fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/updateStatus`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -246,8 +229,8 @@ function array_term($terms)
 	document.querySelectorAll('.btn-danger').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-			fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
-			// fetch(`http://localhost:3000/api/study/abroad/application/${studentId}/reject`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/reject`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -270,7 +253,6 @@ function array_term($terms)
 				});
 		});
 	});
-
 
 </script>
 
