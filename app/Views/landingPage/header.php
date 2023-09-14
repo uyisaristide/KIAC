@@ -106,7 +106,7 @@
                     <ul id="main-menu" class="sm sm-blue">
                         <li><a class="current" href="<?= base_url('#'); ?>"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About KIAC</a>
+                        <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
                         <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
                                 KIAC</a>

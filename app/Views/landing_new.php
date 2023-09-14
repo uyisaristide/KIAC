@@ -212,7 +212,7 @@
                     <ul id="main-menu" class="sm sm-blue">
                         <li><a class="current" href="#"><i class="fa fa-home fa-lg"></i> Home</a>
                         </li>
-                        <li><a href="#about"><i class="fa fa-institution"></i> About KIAC</a>
+                        <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
                         <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
                                 KIAC</a>
@@ -595,7 +595,8 @@
 
         <!-- Service section -->
 
-        <section id="news_events" class="news_events pt50 pb-3 " style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+        <section id="news_events" class="news_events pt50 pb-3 "
+            style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
             <div class="container">
                 <div class="row">
                     <div id="choose" class="col-lg-4">
@@ -1137,7 +1138,7 @@
                                     style="width: 40%; margin-top: -70px;"
                                     src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="img"></a></div>
 
-                        <div class="col-md-4 col-sm-12 m_pb20"  style="margin-top: -50px">
+                        <div class="col-md-4 col-sm-12 m_pb20" style="margin-top: -50px">
                             <ul class="footer-social">
                                 <li class="inline-block m-2">
                                     <a href="#">
