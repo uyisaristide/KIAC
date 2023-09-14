@@ -119,15 +119,14 @@ function array_term($terms)
 																	<div>
 																		<button class="btn btn-sm btn-danger"
 																			data-id="<?= $pending['id']; ?>"
-																			data-toggle="modal"
-																			data-target="#exampleModal1">Reject</button>
+																			>Reject</button>
 																	</div>
 																</div>
 															</td>
 														</tr>
 													<?php } ?>
 												</tbody>
-												<tfoot>
+												<!-- <tfoot>
 													<tr>
 														<th>#</th>
 														<th>Applicant</th>
@@ -140,7 +139,7 @@ function array_term($terms)
 														<th style="text-align: center; white-space: nowrap;">Actions
 														</th>
 													</tr>
-												</tfoot>
+												</tfoot> -->
 											</table>
 										</div>
 									</div>
@@ -170,8 +169,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
-			// const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -184,17 +183,37 @@ function array_term($terms)
 			const studentId = this.getAttribute('data-id');
 
 			// Send an AJAX request to update payment status
-			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			// fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
 				.then(data => {
 					if (data.success) {
-						// Payment status updated successfully
-						// Now, call your API to create a student
-						// createStudent(studentId);
+						location.reload();
+					} else {
+						// Handle any errors here
+						console.error(data.error);
+					}
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		});
+	});
+	document.querySelectorAll('.btn-danger').forEach(button => {
+		button.addEventListener('click', function () {
+			const studentId = this.getAttribute('data-id');
 
-						// Reload the page to reflect the changes in the table
+			// Send an AJAX request to update payment status
+			// fetch(`http://173.212.230.165:3000/api/study/abroad/application/${studentId}/reject`, {
+			fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
+				method: 'PUT',
+			})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+                        alert("rejected!")
 						location.reload();
 					} else {
 						// Handle any errors here

@@ -325,6 +325,9 @@ include('header.php');
 			// fetch('http://localhost:3000/api/agents/application', {
 			method: 'POST',
 
+				body: formData,
+				dataType: 'json',
+
 			body: formData,
 			dataType: 'json',
 
