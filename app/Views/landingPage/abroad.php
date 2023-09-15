@@ -225,14 +225,11 @@ include('header.php');
                         <option value="#" selected disabled>Select Country</option>
                         <option value="Armenia">ARMENIA</option>
                         <option value="Azerbaijan">AZERBAIJAN</option>
-                        <option value="Azerbaijan">RUSSIAN</option>
+                        <option value="Azerbaijan">CYPRUS</option>
+                        <option value="Azerbaijan">INDIA</option>
+                        <option value="Azerbaijan">RUSSIA</option>
                         <option value="Turkey">TURKEY</option>
                     </select>
-<<<<<<< HEAD
-                    <div class="error" id="universityGraduatedError"></div>
-=======
->>>>>>> de7b63d2d23932ed56f9bed93784dbc9f70ae9dc
-                </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
                 Program:
                 <div class="check mt-1">
@@ -247,11 +244,11 @@ include('header.php');
                 </div>
                 <p class="text-xl font-semibold mt-2">Required Documents</p>
                 <div class="report mt-2">
-                    Certificate / degree( Notified ) <input type="file" name="transcript_doc"
+                    Certificate / Degree (Notified) <input type="file" name="transcript_doc"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                    Academic Transcripts( Notified ) <input type="file" name="transcript_doc"
+                    Academic Transcripts (Notified) <input type="file" name="transcript_doc"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">

@@ -227,7 +227,7 @@
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
@@ -294,7 +294,7 @@
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
-                                        href="#">Azerbaijani</button>
+                                        href="#">Azerbaijan</button>
                                 </div>
                             </div>
                             <div
@@ -318,13 +318,81 @@
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">India</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Turkey</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="pt-2 md:hidden">
-                            <img class="h-[14rem] w-full rounded-lg object-cover"
-                                src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="" />
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Russia</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Poland</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">USA</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Canada</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">UK</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="w-[60%] h-full md:w-full">
@@ -440,7 +508,7 @@
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
-                                        href="#">Computer Maintainance</button>
+                                        href="#">Computer System</button>
                                 </div>
                             </div>
                             <div
@@ -453,6 +521,42 @@
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
                                         href="#">Music</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/music.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Electronic Services</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/music.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">Software Development</button>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
+                                <div class="w-2/5 h-[70px] md:h-[100px]">
+                                    <img class="w-full h-full object-cover"
+                                        src="<?= base_url(); ?>assets/landing_new/img/music.jpg" alt="Armenia Image">
+                                </div>
+                                <div class="w-3/5">
+                                    <button
+                                        class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
+                                        href="#">CCTV Camera</button>
                                 </div>
                             </div>
                         </div>

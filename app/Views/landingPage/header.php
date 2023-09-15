@@ -121,7 +121,7 @@
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
