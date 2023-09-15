@@ -228,7 +228,10 @@ include('header.php');
                         <option value="Azerbaijan">RUSSIAN</option>
                         <option value="Turkey">TURKEY</option>
                     </select>
+<<<<<<< HEAD
                     <div class="error" id="universityGraduatedError"></div>
+=======
+>>>>>>> de7b63d2d23932ed56f9bed93784dbc9f70ae9dc
                 </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
                 Program:
