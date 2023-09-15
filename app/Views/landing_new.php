@@ -285,17 +285,16 @@
                                         href="#">Armenia</button>
                                 </div>
                             </div>
-
                             <div
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
                                 <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
-                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
+                                        src="<?= base_url(); ?>assets/landing_new/img/arm.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
-                                        href="#">Turkey</button>
+                                        href="#">Azerbaijani</button>
                                 </div>
                             </div>
                             <div
@@ -314,12 +313,12 @@
                                 class="rounded-lg pr-2 overflow-hidden border border-blue-300 bg-white shadow-md flex gap-2 items-center">
                                 <div class="w-2/5 h-[70px] md:h-[100px]">
                                     <img class="w-full h-full object-cover"
-                                        src="<?= base_url(); ?>assets/landing_new/img/arm.jpg" alt="Armenia Image">
+                                        src="<?= base_url(); ?>assets/landing_new/img/turk.jpg" alt="Armenia Image">
                                 </div>
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
-                                        href="#">Azerbaijani</button>
+                                        href="#">Turkey</button>
                                 </div>
                             </div>
                         </div>
