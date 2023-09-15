@@ -240,10 +240,10 @@
                             </h2>
                             <ul class="submenu">
                                 <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
-                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
-                                <li><a href="<?= base_url('partners'); ?>">Partnership</a></li>
                                 <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
+                                <li><a href="<?= base_url('partners'); ?>">Be A Partner</a></li>
+                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -254,7 +254,7 @@
                 <div class="w-full flex items-center justify-between  h-24 md:block">
                     <div class="h-full w-full md:hidden">
                         <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.jpg"
-                            alt="img" />
+                            alt="img" alt="Current Banner" id="banner1"/>
                     </div>
                 </div>
 
@@ -319,7 +319,7 @@
                                 <div class="w-3/5">
                                     <button
                                         class="px-3 py-2 text-md rounded-lg w-full font-bold bg-blue-100 transition-colors hover:bg-blue-500 side-button"
-                                        href="#">Poland</button>
+                                        href="#">Azerbaijani</button>
                                 </div>
                             </div>
                         </div>
@@ -599,7 +599,7 @@
             style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
             <div class="container">
                 <div class="row">
-                    <div id="choose" class="col-lg-4">
+                    <div id="choose" class="col-lg-5" style="margin-left: -45px;">
                         <h2 class="txt-service fw_400" style="font-size: 25px;">Latest News</h2>
                         <span class="bottom-bdr"></span>
                         <ul class="why_chosse_list">
@@ -952,36 +952,41 @@
                 <i class="fas fa-angle-right"></i>
             </button>
         </div>
-
         <div class="contact-container reviews" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
-            <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%; background-color: #fff;" ;>
-                    <div class="col-lg-7">
-                        <div class="section-title position-relative pb-3 mb-1">
-                            <h1 class="mb-0" style="font-size: 20px">Be Our Testimonial!</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="column" style="width:35%">
-                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
-                        <input class="focus:outline-none" type="email" id="fname" name="email"
-                            placeholder="Enter Your Name">
-                        <select class="focus:outline-none" id="title" name="title">
-                            <option value="" disabled selected>Select Testimonial Category</option>
-                            <option value="student_kiac">At KIAC</option>
-                            <option value="student_abroad">Abroad</option>
-                        </select>
-                        <label for="profile" class="custom-file-upload focus:outline-none">
-                            Choose Profile Photo
-                        </label>
-                        <input class="hidden-file-input" id="profile" type="file">
-                        <textarea class="focus:outline-none" id="subject" name="subject" placeholder="Write Your Review"
-                            style="height:70px"></textarea><br>
-                        <input style="width: 70%" type="submit" value="Submit Review">
-                    </form>
+    <div class="row flex justify-content-center align-items-center">
+        <!-- Column 1 -->
+        <div class="column" style="width: 30%; background-color: #fff;">
+            <div class="col-lg-7">
+                <div class="section-title position-relative pb-3 mb-1">
+                    <h1 class="mb-0" style="font-size: 20px;">Be Our Testimonial!</h1>
                 </div>
             </div>
         </div>
+        <!-- Column 2 -->
+        <div class="column" style="width: 35%;">
+            <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
+                <input class="focus:outline-none" type="email" id="fname" name="email" placeholder="Enter Your Name">
+                <select class="focus:outline-none" id="title" name="title">
+                    <option value="" disabled selected>Select Testimonial Category</option>
+                    <option value="student_kiac">At KIAC</option>
+                    <option value="student_abroad">Abroad</option>
+                </select>
+                <label for="profile" class="custom-file-upload focus:outline-none">
+                    Choose Profile Photo
+                </label>
+                <input class="hidden-file-input" id="profile" type="file">
+                <textarea class="focus:outline-none" id="subject" name="subject" placeholder="Write Your Review"
+                    style="height:70px"></textarea><br>
+                <input style="width: 70%" type="submit" value="Submit Review">
+            </form>
+        </div>
+        <!-- Column 3 (Banner Image) -->
+        <div class="column" style="width: 30%; background-color: #fff">
+            <img src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="img" alt="Banner Image" width="300">
+        </div>
+    </div>
+</div>
+
 
         <!-- Contact us -->
         <div style="text-align:center">
@@ -991,7 +996,7 @@
         </div>
         <div class="contact-container">
             <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%;">
+                <div class="column" style="width: 40%; padding-right: 100px; margin-right: 100px">
                     <div class="col-lg-10">
                         <div class="section-title position-relative pb-3 mb-5">
                             <h1 class="mb-0">Need any help about how you can study or getting scholarship with KIAC?

@@ -223,14 +223,11 @@ include('header.php');
                     <select id="countries" name="desired_country"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1">
                         <option value="#" selected disabled>Select Country</option>
-                        <option value="Turkey">TURKEY</option>
                         <option value="Armenia">ARMENIA</option>
                         <option value="Azerbaijan">AZERBAIJAN</option>
+                        <option value="Azerbaijan">RUSSIAN</option>
+                        <option value="Turkey">TURKEY</option>
                     </select>
-
-                    <input type="radio" name="desired_country" value="TURKEY" required> TURKEY
-                    <input type="radio" name="desired_country" value="ARMENIA" required> ARMENIA
-                    <input type="radio" name="desired_country" value="AZERBAIJAN" required> AZERBAIJAN
                     <div class="error" id="universityGraduatedError"></div>
                 </div>
                 <p class="text-xl font-semibold mt-2">Which program do you want to apply for? *</p>
@@ -247,25 +244,25 @@ include('header.php');
                 </div>
                 <p class="text-xl font-semibold mt-2">Required Documents</p>
                 <div class="report mt-2">
-                    Academic Transcript(School Report/Diploma): <input type="file" name="transcript_doc"
+                    Certificate / degree( Notified ) <input type="file" name="transcript_doc"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                    Your photo passport: <input type="file" name="passport_pic"
-                    Your photo passport: <input type="file" name="passport_pic"
+                    Academic Transcripts( Notified ) <input type="file" name="transcript_doc"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <div class="report mt-2">
-                    Academic transcript (school report): <input type="file" name="transcript_doc"
+                    Your Valid Passport: <input type="file" name="id_passport"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
+                </div>
+                <div class="report mt-2">
+                    Date Of Birth( Notified ) <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"
+                        type="date" name="dob" required><br>
+                </div>
 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
-                </div>
                 <div class="report mt-2">
-                    Your valid passport: <input type="file" name="id_passport"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
-                </div>
-                <div class="report mt-2">
-                    COVID-19 vaccination certificate <input type="file" name="vaccine"
+                    Your Photo Passport: <input type="file" name="passport_pic"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1"><br>
                 </div>
                 <input type="submit" value="Submit Application" id="submitButton">
