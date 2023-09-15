@@ -7712,8 +7712,9 @@ Merci";
 			} else {
 				if ($school_id == 52) {
 					$view = view("pages/reports/custom/cyungo_wda" . $annualTag, $data);
-				} else if (in_array($school_id, [55, 92])) {
-					$view = view("pages/reports/custom/itr_wda" . $annualTag, $data);
+				} else if (in_array($school_id, [55, 94])) {
+					// $view = view("pages/reports/custom/itr_wda" . $annualTag, $data);
+					$view = view("pages/reports/custom/wda_old" . $annualTag, $data);
 				} else {
 					if (in_array($this->session->get("ideyetu_country"), ['cd', 'bi'])) {
 						$view = view("pages/reports/student_report" . $annualTag, $data);
