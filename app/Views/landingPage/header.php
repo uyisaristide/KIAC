@@ -37,40 +37,61 @@
     <div class="w-full max-w-full">
         <div class="container-main p-4">
             <style>
+                #main-menu .menu-item:hover .submenu,
                 #main-menu2 .menu-item:hover .submenu {
                     display: block;
                 }
 
+                #main-menu .submenu,
                 #main-menu2 .submenu {
                     display: none;
                     position: absolute;
                     top: 100%;
                     left: 0;
-                    border-right: 3px solid #fff;
+                    border: none;
+                    padding: 0;
+                    width: 100%;
                     border-top: 0;
                     border-bottom: 0;
                     border-left: 0;
                     padding: 0;
                 }
 
+                #main-menu .submenu {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    border: none;
+                    width: 100%;
+                    padding: 0;
+                    border-top: 0;
+                    border-bottom: 0;
+                    border-left: 0;
+                    padding: 0;
+                }
+
+                #main-menu .submenu li,
                 #main-menu2 .submenu li {
                     list-style: none;
                     margin: 0;
                     padding: 0;
+                    /* border-bottom: 1px solid rgba(3, 110, 157, 0.3) !important; */
                 }
 
+                #main-menu .submenu a,
                 #main-menu2 .submenu a {
                     display: block;
-                    padding: 10px 20px;
+                    padding: 10px 10px;
                     text-decoration: none;
                     color: #fff;
                     text-align: center;
                     font-size: 15px;
                     font-family: 'Trebuchet MS', sans-serif;
                     border-bottom: 1px solid rgba(3, 110, 157, 1) !important;
-
                 }
 
+                #main-menu .submenu a:hover,
                 #main-menu2 .submenu a:hover {
                     color: #036e9d;
                     background: #fff !important;
@@ -108,10 +129,36 @@
                         </li>
                         <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
-                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
-                                KIAC</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-heartbeat"></i> Study At KIAC
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('#'); ?>">Technical Courses</a></li>
+                                <li><a href="<?= base_url('#'); ?>">International Students</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Admission requirements</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Training Calendar</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Fees structure and payment information</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Intended Training Outcome</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Regulations and policies</a></li>
+                                <li><a href="<?= base_url('#'); ?>">E-learning platform</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Electronic resources</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Library</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-trophy"></i> Students
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('#'); ?>">Projects</a></li>
+                                <li><a href="<?= base_url('#'); ?>">Students diversity</a></li>
+                            </ul>
+                        </li>
                         </li>
                         <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>

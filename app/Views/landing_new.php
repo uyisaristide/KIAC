@@ -98,7 +98,8 @@
             display: block;
         }
 
-        #main-menu .submenu, #main-menu2 .submenu {
+        #main-menu .submenu,
+        #main-menu2 .submenu {
             display: none;
             position: absolute;
             top: 100%;
@@ -111,7 +112,8 @@
             border-left: 0;
             padding: 0;
         }
-        #main-menu .submenu{
+
+        #main-menu .submenu {
             display: none;
             position: absolute;
             top: 100%;
