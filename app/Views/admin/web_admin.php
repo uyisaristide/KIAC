@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,17 +15,6 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- CSS Libraries -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>assets/landing_new/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/all.min.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>assets/landing_new/css/main2.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url(); ?>assets/landing_new/css/menu1.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url(); ?>assets/landing_new/css/menu2.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url(); ?>assets/landing_new/css/menu3.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url(); ?>assets/landing_new/css/main.css" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
     <title>Document</title>
     <style>
@@ -40,13 +27,8 @@
 
         }
 
-        h3 {
-            font-size: 18px;
-            padding: 10px;
-        }
-
         .form-container {
-            width: 25%;
+            width: 30%;
             margin-right: 10px;
         }
 
@@ -58,6 +40,7 @@
         }
         .banner form{
             width: 40%;
+            padding: 20px !important;
 
         }
 
@@ -75,19 +58,16 @@
         }
 
         form {
-            padding: 20px;
+            padding: 10px;
         }
     </style>
 </head>
 
 <body class="bg-gray-200">
-    <h2 style="text-decoration: underline;">Web Administration</h2>
-
     <!-- Banner Update Form -->
-    <h2>Banner Section</h2>
     <div class="w-1/4 px-2 banner">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 class="text-xl font-semibold mb-4">Update Banner</h2>
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" id="">
+            <h2 class="text-xl font-semibold mb-4">Update Banners</h2>
 
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="bannerID">
@@ -109,13 +89,12 @@
 
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button">
+                type="button" id="updateBannerButton">
                 Update Banner
             </button>
         </form>
     </div>
 
-    <h2>Service Section</h2>
     <div class="flex flex-wrap justify-between flex-wrapper">
         <div class="w-full max-w-md mx-auto w-1/4 px-2 form-container">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -206,5 +185,46 @@
     </div>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get references to your HTML elements
+        const bannerIDInput = document.getElementById("bannerID");
+        const bannerImageInput = document.getElementById("bannerImage");
+        const updateBannerButton = document.getElementById("updateBannerButton");
+        const bannerImage = document.getElementById("banner1");
 
+        // Add a click event listener to the update button
+        updateBannerButton.addEventListener("click", function() {
+            const bannerID = bannerIDInput.value;
+
+            // Check if the user has selected a file
+            if (bannerImageInput.files.length === 0) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const file = bannerImageInput.files[0];
+
+            // Check if the file is an image (you can add more validation if needed)
+            if (!file.type.startsWith("image/")) {
+                alert("Please select an image file.");
+                return;
+            }
+
+            // Assuming your local storage structure is similar to your website structure
+            const imageUrl = `/${bannerID}.jpg`; // Update the file extension as needed
+
+            // Update the image source with the new image
+            bannerImage.src = imageUrl;
+
+            // Optional: You can also upload the file to your server here
+            // You may need to use a server-side language like PHP to handle file uploads
+            // and save the file to the appropriate location.
+
+            // Clear the input fields
+            bannerIDInput.value = "";
+            bannerImageInput.value = "";
+        });
+    });
+</script>
 </html>

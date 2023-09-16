@@ -3,11 +3,11 @@
 use App\Models\AcademicTypeModel;
 use App\Models\AddressModel;
 use App\Models\AttendanceRecordsModel;
-use App\Models\ClassesModel;
 use App\Models\ClassRecordModel;
 use App\Models\CountriesModel;
 use App\Models\DeptModel;
 use App\Models\DeviceModel;
+use App\Models\DeviceModel2;
 use App\Models\ExtraSMSModel;
 use App\Models\FacultyModel;
 use App\Models\PackageModel;
@@ -17,7 +17,6 @@ use App\Models\StaffModel;
 use App\Models\StudentModel;
 use App\Models\UserModel;
 use App\Models\DrcToken;
-
 use CodeIgniter\HTTP\Response;
 use GuzzleHttp\Client;
 
@@ -321,9 +320,10 @@ class Admin extends BaseController
 		$data['content'] = view('admin/packages', $data);
 		return view('main_admin', $data);
 	}
+
 	public function attendance_devices(): string
 	{
-		$this->_preset();
+		$this->_preset(); 
 		$mdl = new DeviceModel();
 		$sMdl = new SchoolModel();
 		$data['title'] = 'view all devices';
@@ -334,6 +334,16 @@ class Admin extends BaseController
 		$data['content'] = view('admin/devices', $data);
 		return view('main_admin', $data);
 	}
+	public function web_administration(): string
+	{
+		$this->_preset(); 
+		$data['title'] = 'Web Administration Panel';
+		$data['subtitle'] = 'Update Web Contents';
+		$data['page'] = 'web_admin';
+		$data['content'] = view('admin/web_admin', $data);
+		return view('main_admin', $data);
+	}
+
 
 	public function academic_structures(): string
 	{

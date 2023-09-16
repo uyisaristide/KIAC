@@ -121,7 +121,7 @@
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Projects</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
@@ -133,11 +133,11 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                                <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
-                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
+                            <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
-                                <li><a href="<?= base_url('partners'); ?>">Partnership</a></li>
                                 <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
+                                <li><a href="<?= base_url('partners'); ?>">Be A Partner</a></li>
+                                <li><a href="<?= base_url('agent'); ?>">Be An Agent</a></li>
                             </ul>
                         </li>
                     </ul>

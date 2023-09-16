@@ -90,6 +90,7 @@ $routes->get('/admin', 'Admin::index');
 $routes->add('/users', 'Admin::users');
 $routes->add('/packages', 'Admin::packages');
 $routes->add('/attendance-devices', 'Admin::attendance_devices');
+$routes->add('/web-administration', 'Admin::web_administration');
 $routes->add('/extra_sms', 'Admin::extra_sms');
 $routes->add('/schools', 'Admin::schools');
 $routes->add('/add-school', 'Admin::add_school');

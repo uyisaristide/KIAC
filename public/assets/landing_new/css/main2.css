@@ -125,7 +125,7 @@ background-size: cover;
 .gallery-image:hover,
 .gallery-image:hover:focus {
     box-shadow: 0 0.5em 0.5em -0.5em var(--hover);
-    transform: translateY(-0.8em);
+    transform: translateY(-0.3em);
 
 }
 
