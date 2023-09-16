@@ -171,6 +171,13 @@
             border-radius: 5px;
             padding: 10px 0 30px;
         }
+
+        .gallery-image:hover,
+        .gallery-image:hover:focus {
+            box-shadow: 0 0.5em 0.5em -0.5em var(--hover);
+            transform: translateY(-0.5em);
+
+        }
     </style>
 
 </head>
@@ -683,7 +690,7 @@
             </div>
         </div>
 
-        <!-- <div class="gallery-container">
+        <div class="gallery-container">
             <div class="gallery-image">
                 <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit">
             </div>
@@ -693,67 +700,6 @@
             <div class="gallery-image">
                 <img src="<?= base_url() ?>assets/landing_new/img/3.jpg" alt="Image 3" class="image-fit">
             </div>
-        </div> -->
-
-        <div class="testimonial-container mx-auto mt-20">
-            <button id="prevBtn" class="testimonial-button testimonial-button-prev">
-                <i class="fas fa-angle-left"></i>
-            </button>
-            <div class="testimonial-slider overflow-hidden relative">
-                <div class="slider-content flex" id="sliderContent">
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="nextBtn" class="testimonial-button testimonial-button-next">
-                <i class="fas fa-angle-right"></i>
-            </button>
         </div>
 
         <!-- Our Program -->
