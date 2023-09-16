@@ -195,8 +195,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			// const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad/'; // Replace with your server's base URL
-			const serverBaseUrl = 'http://localhost:3000/api/study/abroad/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://173.212.230.165:3000/api/study/abroad/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://localhost:3000/api/study/abroad/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download

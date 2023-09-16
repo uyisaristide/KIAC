@@ -11927,8 +11927,8 @@ Merci";
 		$data['page'] = "pendingRegistration";
 	
 		// Updated API URL for fetching student applications
-		// $apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
-		$apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
+		$apiUrl = "http://173.212.230.165:3000/api/students/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/students/applications"; // Replace with your actual API URL
 		$ch = curl_init();    
 		curl_setopt($ch, CURLOPT_URL, $apiUrl);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -11986,6 +11986,41 @@ Merci";
 	
 		// Updated view name to pending_agent_applications.php
 		$data['content'] = view("pages/pending_internship_applications", $data);
+		return view('main', $data);
+	}
+	function rejected_students_applications() { 
+		$this->_preset();
+		$data = $this->data;
+		
+		$school_id = $this->session->get("ideyetu_school_id");
+		$data['title'] = lang("app.pendingRegistration");
+		$data['subtitle'] = lang("app.pendingRegistration");
+		$data['page'] = "pendingRegistration";
+	
+		$apiUrl = "http://173.212.230.165:3000/api/internships/all/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/internships/all/applications"; // Replace with your actual API URL
+		$ch = curl_init();    
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		if (curl_errno($ch)) {
+			// Handle error, maybe log it and show an error message
+			die("Error: " . curl_error($ch));
+		}
+		curl_close($ch);
+		
+		$students = json_decode($response, true);
+	
+		// Adjusted key name according to the assumption that your API returns students directly
+		if (isset($students)) {
+			$data['pendings'] = $students;
+		} else {
+			// Handle the error, maybe log it and show an error message
+			$data['pendings'] = [];
+		}
+	
+		// Updated view name to pending_agent_applications.php
+		$data['content'] = view("pages/rejected_students_applications", $data);
 		return view('main', $data);
 	}
 	function pending_partnership_applications() { 

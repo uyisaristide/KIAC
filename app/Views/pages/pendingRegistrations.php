@@ -72,7 +72,8 @@ function array_term($terms)
 		.document-icon i {
 			font-size: 2em;
 		}
-		.view-docs p{
+
+		.view-docs p {
 			margin-left: 10px;
 		}
 	</style>
@@ -158,6 +159,12 @@ function array_term($terms)
 																			data-id="<?= $pending['id']; ?>">Approve</button>
 																	</div>
 																	<div>
+																		<button class="btn btn-sm btn-primary"
+																			data-id="<?= $pending['id']; ?>"
+																			data-toggle="modal"
+																			data-target="#updateModal">Update</button>
+																	</div>
+																	<div>
 																		<button class="btn btn-sm btn-danger"
 																			data-id="<?= $pending['id']; ?>">Reject</button>
 																	</div>
@@ -227,7 +234,65 @@ function array_term($terms)
 			</div>
 		</div>
 	</div>
-
+	<!-- Update Modal -->
+	<!-- Update Modal -->
+	<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateModalLabel">Update Application</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="updateApplicationForm">
+						<div class="form-group">
+							<label for="firstName">First Name</label>
+							<input type="text" class="form-control" id="firstName" name="firstName"
+								value="<?= $pending['firstName']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name</label>
+							<input type="text" class="form-control" id="lastName" name="lastName"
+								value="<?= $pending['lastName']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email" name="email"
+								value="<?= $pending['email']; ?>">
+						</div>
+						<!-- Add more form fields for other data you want to update -->
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email" name="email"
+								value="<?= $pending['email']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="email">Phone</label>
+							<input type="email" class="form-control" id="email" name="email"
+								value="<?= $pending['phone']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="email">Program</label>
+							<input type="email" class="form-control" id="email" name="email"
+								value="<?= $pending['program']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="email">Approval</label>
+							<input type="email" class="form-control" id="email" name="email"
+								value="<?= $pending['status_of_application']; ?>">
+						</div>
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="submitUpdateBtn">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script>
@@ -247,8 +312,8 @@ function array_term($terms)
 			const documentPath = this.getAttribute('data-document-path');
 
 			// Construct the full document URL
-			// const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
-			const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
+			const serverBaseUrl = 'http://173.212.230.165:3000/api/students/'; // Replace with your server's base URL
+			// const serverBaseUrl = 'http://localhost:3000/api/students/'; // Replace with your server's base URL
 			const documentUrl = serverBaseUrl + documentPath;
 
 			// Initiate the document download
@@ -285,8 +350,8 @@ function array_term($terms)
 	document.querySelectorAll('.btn-success').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-			// fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
-			fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/updateStatus`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/updateStatus`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -310,11 +375,11 @@ function array_term($terms)
 		});
 	});
 
-	document.querySelectorAll('.btn-danger').forEach(button => {
+	document.querySelectorAll('.btn-primary').forEach(button => {
 		button.addEventListener('click', function () {
 			const studentId = this.getAttribute('data-id');
-			// fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/reject`, {
-			fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
+			fetch(`http://173.212.230.165:3000/api/students/application/${studentId}/reject`, {
+			// fetch(`http://localhost:3000/api/students/application/${studentId}/reject`, {
 				method: 'PUT',
 			})
 				.then(response => response.json())
@@ -337,6 +402,58 @@ function array_term($terms)
 				});
 		});
 	});
+
+	document.querySelectorAll('.btn-success').forEach(button => {
+        button.addEventListener('click', function () {
+            const studentId = this.getAttribute('data-id');
+
+            // Populate the form fields with existing data
+            document.querySelector('#firstName').value = '<?= $pending['firstName']; ?>'; // Example data
+            document.querySelector('#lastName').value = '<?= $pending['lastName']; ?>'; // Example data
+            document.querySelector('#email').value = '<?= $pending['email']; ?>'; // Example data
+
+            // Show the modal
+            $('#updateModal').modal('show');
+
+            // Handle the "Submit" button click
+            document.querySelector('#submitUpdateBtn').addEventListener('click', function () {
+                // Collect updated data from the form
+                const updatedData = {
+                    firstName: document.querySelector('#firstName').value,
+                    lastName: document.querySelector('#lastName').value,
+                    email: document.querySelector('#email').value,
+                    // Add more fields as needed
+                };
+
+                // Send the updated data to your API for processing using AJAX
+                fetch(`http://localhost:3000/api/students/application/${studentId}/update`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        // Show the message in the modal
+                        document.querySelector('#messageModal .modal-body').innerText = data.message;
+                        $('#messageModal').modal('show');
+
+                        // Reload the page after closing the modal
+                        $('#messageModal').on('hidden.bs.modal', function (e) {
+                            location.reload();
+                        });
+                    } else {
+                        console.error(data.details || "Unknown error");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
+        });
+    });
 
 </script>
 
