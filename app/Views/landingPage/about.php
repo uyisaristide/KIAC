@@ -9,6 +9,8 @@ include('header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | KIAC</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         /* Custom CSS for column layout */
@@ -18,7 +20,8 @@ include('header.php');
             text-align: justify;
             text-justify: auto;
         }
-        .big-p{
+
+        .big-p {
             text-align: justify;
             text-justify: auto;
         }
@@ -28,6 +31,7 @@ include('header.php');
             font-weight: 450 !important;
             text-justify: ;
         }
+
         p.main-p {
             font-size: 18px !important;
             font-weight: 450 !important;
@@ -130,18 +134,38 @@ include('header.php');
             left: 0;
         }
 
-        .contact {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
+        .column.wrapper {
+            display: flex !important;
+            flex-wrap: wrap !important;
         }
 
-        /* Styling for phone numbers with icons */
-        .contact p {
-            margin-bottom: 10px;
+        .philosophy {
+            flex: 1;
+            max-width: 50% !important;
         }
+
+        .contact {
+            flex: 1;
+            max-width: 50% !important;
+        }
+
+        @media (min-width: 768px) {
+            .contact, .philosophy{
+                display: block !important;
+            }
+
+            /* Add any specific styling for larger screens here */
+            .philosophy {
+                max-width: 100% !important;
+                /* Adjust the width as needed for larger screens */
+            }
+
+            .contact {
+                max-width: 100% !important;
+                /* Adjust the width as needed for larger screens */
+            }
+        }
+
 
         .phone-icon {
             margin-right: 10px;
@@ -167,7 +191,7 @@ include('header.php');
         </div>
         <div class="columns">
             <div class="column">
-                <div class="p-6 rounded-lg">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Our Curriculum & Teaching Approach</h2>
                     <p class="text-gray-700">
                         The curriculum of KIAC is designed to respond to the global professional requirements of Art.
@@ -182,7 +206,7 @@ include('header.php');
             </div>
 
             <div class="column">
-                <div class="p-6 rounded-lg">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Technical Programs</h2>
                     <p class="text-gray-700">
                         These Programs are taught by KIAC in collaboration with national and International Art related
@@ -193,7 +217,7 @@ include('header.php');
                 </div>
             </div>
             <div class="column">
-                <div class="p-6 rounded-lg">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Art Modules </h2>
                     <p class="text-gray-700">
                         These comprehensive 6 months program is a specific technical program in Art industry. Art
@@ -206,7 +230,7 @@ include('header.php');
                 </div>
             </div>
         </div>
-        <div class="admission-requirements">
+        <div class="admission-requirements py-2 px-6 ">
             <h2 class="text-xl font-semibold mb-2">Admission Requirements</h2>
             <ul>
                 <li>Filled application form</li>
@@ -233,28 +257,10 @@ include('header.php');
                 making differences.
             </p>
         </div>
-        <div class="columns">
-            <div class="column">
-                <div class="p-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-2">About KIAC</h2>
-                    <p class="text-gray-700">
-                        Kigali International Art College (KIAC) is a dynamic and forward-looking technical school,
-                        established in 2015 under the Workforce Development Authority (WDA) decision.
-                    </p>
-                </div>
-            </div>
 
-            <div class="column">
-                <div class="p-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-2">Our Curriculum & Teaching Approach</h2>
-                    <p class="text-gray-700">
-                        The curriculum of KIAC is designed to respond to the global professional requirements of Art.
-                    </p>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="p-6 rounded-lg">
+        <div class="columns flex flex-wrap">
+            <div class="column w-full md:w-1/4">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Mission</h2>
                     <p class="text-gray-700">
                         The fundamental mission of KIAC college is to provide the students with technical and vocational
@@ -263,8 +269,8 @@ include('header.php');
                 </div>
             </div>
 
-            <div class="column">
-                <div class="p-6 rounded-lg">
+            <div class="column w-full md:w-1/4">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Vision</h2>
                     <p class="text-gray-700">
                         To stand out as a remarkable college for excellence in short-term vocational training that
@@ -274,8 +280,8 @@ include('header.php');
                 </div>
             </div>
 
-            <div class="column  kiac-values">
-                <div class="p-6 rounded-lg">
+            <div class="column w-full md:w-1/4 kiac-values">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Values</h2>
                     <ul>
                         <li>Integrity</li>
@@ -289,12 +295,14 @@ include('header.php');
                     </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="column kiac-values">
-                <div class="p-6 rounded-lg">
+        <div class="column wrapper">
+            <div class="kiac-values philosophy" style="display: inline-block; vertical-align: top;">
+                <div class="py-2 px-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Philosophy</h2>
                     <ul>
-                        <li>The Philosophy of KIAC is based on 4 fundamental principles that are:</li>
+                        <p class="mb-2">The Philosophy of KIAC is based on 4 fundamental principles that are:</p>
                         <li>To have faith in God</li>
                         <li>To know your mission on earth</li>
                         <li>To live ethical values</li>
@@ -302,16 +310,17 @@ include('header.php');
                     </ul>
                 </div>
             </div>
+            <div class="contact text-center" style="display: inline-block; vertical-align: top;">
+                <h2 class="text-xl font-semibold mb-4">Call to ask any question</h2>
+                <ul>
+                    <li style="color:#036e9d"><i class="fa fa-phone" style="font-size: 16px; color:#036e9d"></i> +250
+                        781 847 787</li>
+                    <li style="color:#036e9d"><i class="fa fa-phone" style="font-size:16px; color:#036e9d"></i> +250 737
+                        765 072</li>
+                </ul>
+            </div>
         </div>
-        <div class="column contact"> <!-- Add a class for "Contact" section -->
-            <h2 class="text-xl font-semibold mb-2" style="padding-right: 30px">Call to ask any question</h2>
-            <ul>
-                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size: 16px; color:#036e9d"></i> +250 781
-                    847 787</li>
-                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size:16px; color:#036e9d"></i> +250 737 765
-                    072</li>
-            </ul>
-        </div>
+
     </div>
     <?php
     include('footer.php');
