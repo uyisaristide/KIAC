@@ -120,7 +120,7 @@
                         <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
-                        <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
+                        <li><a href="https://www.youtube.com/@kiactv7489"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC Records</a></li>
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
