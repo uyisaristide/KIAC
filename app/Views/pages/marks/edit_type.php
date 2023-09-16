@@ -11,10 +11,10 @@
 						<label><?= lang("app.type"); ?></label>
 						<select required class="select2" name="marktype" id="marks_type_edit">
 							<option disabled selected><?= lang("app.marksTtype"); ?></option>
-							<option <?= $mark_type == 1?"selected":"" ?> value="1"><?= lang("app.cat").(in_array($_SESSION['ideyetu_school_id'], [55])?" ".lang("app.or")." ".lang("app.assessmentFormative"):""); ?></option>
-							<option <?= $mark_type == 2?"selected":"" ?> value="2"><?= lang("app.exam").(in_array($_SESSION['ideyetu_school_id'], [55])?" ".lang("app.or")." ". lang("app.assessmentComprehensive"):""); ?></option>
+							<option <?= $mark_type == 1?"selected":"" ?> value="1"><?= lang("app.cat").(in_array($_SESSION['ideyetu_school_id'], [94])?" ".lang("app.or")." ".lang("app.assessmentFormative"):""); ?></option>
+							<option <?= $mark_type == 2?"selected":"" ?> value="2"><?= lang("app.exam").(in_array($_SESSION['ideyetu_school_id'], [94])?" ".lang("app.or")." ". lang("app.assessmentComprehensive"):""); ?></option>
 							<?php
-							if(in_array($_SESSION['ideyetu_school_id'], [55])){
+							if(in_array($_SESSION['ideyetu_school_id'], [94])){
 								?>
 								<option <?= $mark_type == 10?"selected":"" ?> value="10"><?= lang("app.assessmentIntegrated"); ?></option>
 								<?php

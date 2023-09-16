@@ -314,12 +314,12 @@
 									<?php
 									if (true) {
 										?>
-													<!-- <li>
+													<li>
 										<a href="#" data-toggle="modal" data-target="#mdlmarks">
 											<i class="metismenu-icon"></i>
 											<?= lang("app.marksEntryOld"); ?>
 										</a>
-									</li> -->
+									</li>
 													<?php
 									}
 									if ($_SESSION['ideyetu_country'] == "Congo") {
