@@ -117,15 +117,15 @@
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
-                        <li><a href="<?= base_url('login'); ?>"><i class="fa fa-language"></i> Login</a></li>
+                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
-                        <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
+                        <li><a href="#"><i class="fa fa-group"></i>KIAC Records</a></li>
+                        <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
@@ -133,7 +133,7 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                            <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
+                                <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
                                 <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
                                 <li><a href="<?= base_url('partners'); ?>">Be A Partner</a></li>

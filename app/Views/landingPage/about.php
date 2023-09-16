@@ -15,17 +15,26 @@ include('header.php');
         .columns {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            text-align: justify;
+            text-justify: auto;
         }
-        .column p{
+        .big-p{
+            text-align: justify;
+            text-justify: auto;
+        }
+
+        .column p {
             font-size: 16px !important;
             font-weight: 450 !important;
+            text-justify: ;
         }
-        p.main-p{
+        p.main-p {
             font-size: 18px !important;
             font-weight: 450 !important;
         }
-        h1, h2{
+
+        h1,
+        h2 {
             color: #036e9d;
         }
 
@@ -145,7 +154,7 @@ include('header.php');
 <body class="bg-gray-100">
     <div class="container mx-auto p-3">
         <h1 class="text-2xl font-bold mb-4">WHO WE ARE</h1>
-        <div class="p-6 rounded-lg">
+        <div class="p-6 rounded-lg big-p">
             <h2 class="text-xl font-semibold mb-2">About KIAC</h2>
             <p class="text-gray-700 main-p">
                 Kigali International Art College (KIAC) is a dynamic and forward-looking technical school,
@@ -156,7 +165,6 @@ include('header.php');
                 through nurturing young skilled technician with skills of renewable energy.
             </p>
         </div>
-
         <div class="columns">
             <div class="column">
                 <div class="p-6 rounded-lg">
@@ -211,7 +219,7 @@ include('header.php');
                 <li>Paper Lame</li>
             </ul>
         </div>
-        <div class="p-6 rounded-lg">
+        <div class="p-6 rounded-lg big-p">
             <h2 class="text-xl font-semibold mb-2">KIAC Objectives</h2>
             <p class="text-gray-700 main-p">
                 To offer professional training to meet both local and international market demands to develop and
@@ -298,8 +306,10 @@ include('header.php');
         <div class="column contact"> <!-- Add a class for "Contact" section -->
             <h2 class="text-xl font-semibold mb-2" style="padding-right: 30px">Call to ask any question</h2>
             <ul>
-                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size: 16px; color:#036e9d"></i> +250 781 847 787</li>
-                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size:16px; color:#036e9d"></i> +250 737 765 072</li>
+                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size: 16px; color:#036e9d"></i> +250 781
+                    847 787</li>
+                <li style="color:#036e9d"><i class="fa fa-phone" style="font-size:16px; color:#036e9d"></i> +250 737 765
+                    072</li>
             </ul>
         </div>
     </div>

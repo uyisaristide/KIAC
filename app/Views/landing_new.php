@@ -33,12 +33,66 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
     <script>
-        $(document).ready(function () {
-            $('#myCarousel').carousel();
+        // Add custom JavaScript to trigger the carousel slide
+        $('#carouselControls').on('slide.bs.carousel', function (e) {
+            let $nextImage = $(e.relatedTarget);
+            let $currentImage = $(e.relatedTarget).prev();
+
+            if ($nextImage.index() > $currentImage.index()) {
+                $nextImage.removeClass('right').addClass('left');
+                $currentImage.removeClass('left').addClass('right');
+            } else {
+                $nextImage.removeClass('left').addClass('right');
+                $currentImage.removeClass('right').addClass('left');
+            }
+
+            $currentImage.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                $(this).removeClass('active left right');
+            });
         });
+        $('#carouselControls').carousel({ interval: 2000 });
+
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
+        button.login {
+            transition: transform 0.3s ease;
+        }
+
+        button.login:hover {
+            transform: scale(1.001);
+            border: 2px solid #036e9d;
+            font-weight: bold;
+            color: #036e9d !important;
+            background-color: #EBF8FF;
+        }
+
+        .carousel-fade .carousel-item {
+            display: block;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .carousel-fade .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .carousel-fade .carousel-item.active.left {
+            transform: translateX(-100%);
+        }
+
+        .carousel-fade .carousel-item.active.right {
+            transform: translateX(100%);
+        }
+
+
+
         #main-menu2 .menu-item:hover .submenu {
             display: block;
         }
@@ -110,6 +164,12 @@
 
         .fab {
             font-family: "Font Awesome 5 Brands";
+        }
+
+        .contact-container {
+            width: 99%;
+            border-radius: 5px;
+            padding: 10px 0 30px;
         }
     </style>
 
@@ -193,14 +253,19 @@
                 </div>
                 <div>
                     <div class="flex items-center h-[4rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
-                        <div class="w-1/3 py-2 pl-4 md:w-full">
-                            <img class="w-1/2 h-[70%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
-                                alt="no image found">
+                        <div class=" py-2 pl-4 md:w-full" style="padding-right: 30px">
+                            <img src="<?= base_url(); ?>assets/landing_new/img/logo1.png" alt="no image found"
+                                style="width: 150; height: auto;">
                         </div>
-                        <div class="w-full md:w-full">
+                        <div class="w-2/3 md:w-full">
                             <img class="w-full h-[80%]"
                                 src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg " alt="no image found"
                                 style="height: 96px">
+                        </div>
+                        <div class="w-1/4 sm:w-full" style="padding-left: 100px">
+                            <button onclick="location.href='<?= base_url('login'); ?>';"
+                                class="w-full h-[80%] md:w-full bg-blue-500 text-white login"
+                                style="border-radius: 5px; font-size: 20px; padding: 10px 30px;">Login</button>
                         </div>
                     </div>
                 </div>
@@ -223,15 +288,15 @@
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
-                        <li><a href="<?= base_url('login'); ?>"><i class="fa fa-language"></i> Login</a></li>
+                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
-                        <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
+                        <li><a href="#"><i class="fa fa-group"></i>KIAC Records</a></li>
+                        <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
@@ -249,8 +314,8 @@
                     </ul>
                 </nav>
             </header>
+
             <div class="mt-2 w-full ">
-                <!-- img header -->
                 <div class="w-full flex items-center justify-between  h-24 md:block">
                     <div class="h-full w-full md:hidden">
                         <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.jpg"
@@ -395,33 +460,57 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-[60%] h-full md:w-full">
-                        <div id="carouselControls" class="carousel slide carousel-fade rounded-lg h-full"
-                            data-ride="carousel">
-                            <div class="carousel-inner h-full">
-                                <div class="carousel-item active  h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-1.jpg" alt="">
+                    <div class="w-[60%] h-full md:w-full md:flex md:flex-col">
+
+
+                        <div class="container">
+                            <div id="carouselControls" class="carousel slide carousel-fade rounded-lg bg-white"
+                                data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-1.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-2.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-5.jpg" alt="">
+                                    </div>
                                 </div>
-                                <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-2.jpg" alt="">
-                                </div>
-                                <!-- <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-3.jpg" alt="">
-                                </div> -->
-                                <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
-                                </div>
-                                <div class="carousel-item h-full">
-                                    <img class="w-full h-[41rem] max-h-[41rem] d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-5.jpg" alt="">
-                                </div>
+                                <a class="carousel-control-prev" href="#carouselControls" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselControls" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
                         </div>
+
+                        <!-- Under banner -->
+
+                        <div id="carouselControls" class="carousel slide carousel-fade rounded-lg h-full bg-white"
+                            data-ride="carousel"
+                            style="padding-top: 10px; margin-top: 20px; border-top: 2px solid rgba(3, 110, 157, 0.3); box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.3);">
+                            <!-- <div class="carousel-inner h-full"> -->
+                            <!-- <div class="carousel-item active  h-full"> -->
+                            <img class="h-full w-full d-block w-100 rounded-lg"
+                                src="<?= base_url() ?>assets/landing_new/img/creative.jpg" alt="Banner 4">
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
                     </div>
+
                     <div class="w-[30%] md:w-full">
                         <div class="my-2 w-full flex item-center gap-2">
                             <input
@@ -614,7 +703,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -622,7 +711,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -630,7 +719,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -638,7 +727,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -646,7 +735,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -654,7 +743,7 @@
                     <div class="testimonial p-4 w-1/3">
                         <div class="rounded flex flex-col items-center">
                             <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
+                                <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
                                     style="width: 330px; height: auto;">
                             </div>
                         </div>
@@ -667,7 +756,7 @@
         </div>
 
         <!-- Our Program -->
-        <div style="text-align:center; padding-top: 10px">
+        <div style="text-align:center;">
             <h2 class="txt-contact fw_400" style="font-size: 25px;">Our Courses</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
         </div>
@@ -1117,14 +1206,15 @@
             </button>
         </div>
         <div class="contact-container reviews" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+            <div style="text-align:center" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+                <h2 class="txt-contact fw_400" style="font-size: 20px; padding-top: 0;">
+                    Be Our Testimonial!</h2>
+            </div>
             <div class="row flex justify-content-center align-items-center">
-                <!-- Column 1 -->
-                <div class="column" style="width: 30%; background-color: #fff;">
-                    <div class="col-lg-7">
-                        <div class="section-title position-relative pb-3 mb-1">
-                            <h1 class="mb-0" style="font-size: 20px;">Be Our Testimonial!</h1>
-                        </div>
-                    </div>
+                <!-- Column 1 (Banner Image)-->
+                <div class="column" style="width: 30%; background-color: #fff">
+                    <img src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="img" alt="Banner Image"
+                        width="300">
                 </div>
                 <!-- Column 2 -->
                 <div class="column" style="width: 35%;">
@@ -1153,16 +1243,15 @@
             </div>
         </div>
 
-
         <!-- Contact us -->
         <div style="text-align:center">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 50px;">Contact Us</h2>
+            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 20px;">Contact Us</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Feel free to reach out to us. We're here to
                 assist you!</h1>
         </div>
         <div class="contact-container">
             <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%; padding-right: 100px; margin-right: 100px">
+                <div class="column" style="width: 35%; padding-right: 10px; margin-right: 10px">
                     <div class="col-lg-10">
                         <div class="section-title position-relative pb-3 mb-5">
                             <h1 class="mb-0">Need any help about how you can study or getting scholarship with KIAC?
@@ -1195,8 +1284,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="column" style="width: 35%;">
-                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
+                <div class="column" style="width: 30%;">
+                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center"
+                        style="padding: 0;">
 
                         <input class="focus:outline-none" type="text" id="fname" name="firstname"
                             placeholder="Enter your Name">
@@ -1211,6 +1301,10 @@
                             style="height:100px"></textarea><br>
                         <input type="submit" value="Submit">
                     </form>
+                </div>
+                <div class="column" style="width: 25%; padding: 0; background: none; box-shadow: none">
+                    <img src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="img" alt="Banner Image"
+                        width="300">
                 </div>
             </div>
         </div>
