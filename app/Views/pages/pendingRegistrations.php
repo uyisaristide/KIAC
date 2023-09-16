@@ -171,7 +171,6 @@ function array_term($terms)
 																</div>
 															</td>
 														</tr>
-													<?php } ?>
 												</tbody>
 											</table>
 										</div>
@@ -293,7 +292,7 @@ function array_term($terms)
 			</div>
 		</div>
 	</div>
-
+	<?php } ?>
 </body>
 <script>
 	// Function to initiate document download
@@ -406,12 +405,7 @@ function array_term($terms)
 	document.querySelectorAll('.btn-success').forEach(button => {
         button.addEventListener('click', function () {
             const studentId = this.getAttribute('data-id');
-
-            // Populate the form fields with existing data
-            document.querySelector('#firstName').value = '<?= $pending['firstName']; ?>'; // Example data
-            document.querySelector('#lastName').value = '<?= $pending['lastName']; ?>'; // Example data
-            document.querySelector('#email').value = '<?= $pending['email']; ?>'; // Example data
-
+     
             // Show the modal
             $('#updateModal').modal('show');
 
