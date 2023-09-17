@@ -51,6 +51,16 @@
             });
         });
         $('#carouselControls').carousel({ interval: 2000 });
+    </script>
+    <script>
+        function scrollToCourses() {
+            const coursesDiv = document.getElementById("our-courses");
+
+            if (coursesDiv) {
+                // Use smooth scrolling behavior
+                coursesDiv.scrollIntoView({ behavior: "smooth" });
+            }
+        }
 
     </script>
 
@@ -344,7 +354,7 @@
                             </ul>
                         </li>
                         </li>
-                        <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
+                        <li><a href="#" onclick="scrollToCourses()"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
@@ -756,7 +766,7 @@
         </div>
 
         <!-- Our Program -->
-        <div style="text-align:center;">
+        <div style="text-align:center;" id="our-courses">
             <h2 class="txt-contact fw_400" style="font-size: 25px;">Our Courses</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
         </div>
