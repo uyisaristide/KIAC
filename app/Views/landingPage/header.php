@@ -160,7 +160,7 @@
                             </ul>
                         </li>
                         </li>
-                        <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
+                        <li><a href="<?= base_url('##our-courses'); ?>"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>

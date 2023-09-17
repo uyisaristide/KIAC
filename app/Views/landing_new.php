@@ -57,11 +57,9 @@
             const coursesDiv = document.getElementById("our-courses");
 
             if (coursesDiv) {
-                // Use smooth scrolling behavior
                 coursesDiv.scrollIntoView({ behavior: "smooth" });
             }
         }
-
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
