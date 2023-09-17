@@ -197,6 +197,14 @@
             transform: translateY(-0.5em);
 
         }
+
+        @media only screen and (max-width: 768px) {
+
+            .middle-banner,
+            .middle-banner img {
+                display: none;
+            }
+        }
     </style>
 
 </head>
@@ -283,7 +291,7 @@
                             <img src="<?= base_url(); ?>assets/landing_new/img/logo1.png" alt="no image found"
                                 style="width: 150; height: auto;">
                         </div>
-                        <div class="w-2/3 md:w-full">
+                        <div class="w-2/3 md:w-full middle-banner">
                             <img class="w-full h-[80%]"
                                 src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg " alt="no image found"
                                 style="height: 96px">
@@ -312,16 +320,16 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                                <li><a href="<?= base_url('#'); ?>">Technical Courses</a></li>
-                                <li><a href="<?= base_url('#'); ?>">International Students</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Admission requirements</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Training Calendar</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Fees structure and payment information</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Intended Training Outcome</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Regulations and policies</a></li>
-                                <li><a href="<?= base_url('#'); ?>">E-learning platform</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Electronic resources</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Library</a></li>
+                                <li><a href="<?= base_url('TechnicalCourses'); ?>">Technical Courses</a></li>
+                                <li><a href="<?= base_url('InternationalStudents'); ?>">International Students</a></li>
+                                <li><a href="<?= base_url('AdmissionRequirements'); ?>">Admission requirements</a></li>
+                                <li><a href="<?= base_url('TrainingCalendar'); ?>">Training Calendar</a></li>
+                                <li><a href="<?= base_url('Fees'); ?>">Fees structure and payment information</a></li>
+                                <li><a href="<?= base_url('TrainingOutcome'); ?>">Intended Training Outcome</a></li>
+                                <li><a href="<?= base_url('RegulationsPolicies'); ?>">Regulations and policies</a></li>
+                                <li><a href="<?= base_url('Elearning'); ?>">E-learning platform</a></li>
+                                <li><a href="<?= base_url('ElectronicResources'); ?>">Electronic resources</a></li>
+                                <li><a href="<?= base_url('Library'); ?>">Library</a></li>
                             </ul>
                         </li>
                         <li class="menu-item">
@@ -331,8 +339,8 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                                <li><a href="<?= base_url('#'); ?>">Projects</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Students diversity</a></li>
+                                <li><a href="<?= base_url('Projects'); ?>">Projects</a></li>
+                                <li><a href="<?= base_url('StudentsDiversity'); ?>">Students diversity</a></li>
                             </ul>
                         </li>
                         </li>
@@ -1302,145 +1310,9 @@
         </div>
 
         <!-- FOOTER -->
-
-        <div class="footer-container gray-bg_medium" style="height: auto; padding-bottom: auto;">
-            <footer class="container" id="footer"
-                style="padding: 20px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">About Us</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">KIAC Facts and Figures</a></li>
-                                    <li><a href="#">KIAC Statement and Concept</a></li>
-                                    <li><a href="#">Vision and Mission</a></li>
-                                    <li><a href="#">The Chancellor</a></li>
-                                    <li><a href="#">Vice Chancellor's Office</a></li>
-                                    <li><a href="#">Board of Governors</a></li>
-                                    <li><a href="#">Administrative offices</a></li>
-                                    <li><a href="#">Key Documents & Policies</a></li>
-                                    <li><a href="#">Partnerships</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Academic</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">Students</a></li>
-                                    <li><a href="#">Colleges and Campuses Schools</a></li>
-                                    <li><a href="#">Schools</a></li>
-                                    <li><a href="#">Admission</a></li>
-                                    <li><a href="#">International Students</a></li>
-                                    <li><a href="#">Fee Structure</a></li>
-                                    <li><a href="#">KIAC Bank accounts</a></li>
-                                    <li><a href="#">Academic Calendar</a></li>
-                                    <li><a href="#">Academic Regulations & Policies</a></li>
-                                    <li><a href="#">Centres of excellence</a></li>
-                                    <li><a href="#">E-Learning</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Key Links</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">KIAC brand guidelines</a></li>
-                                    <li><a href="#">Our partner universities/institutions</a></li>
-                                    <li><a href="#">Government Smart Admin System</a></li>
-                                    <li><a href="#">E-mboni</a></li>
-                                    <li><a href="#">MIFOTRA self-service portal</a></li>
-                                    <li><a href="#">Class Representative Report Form</a></li>
-                                    <li><a href="#">Students Evaluation of Module Teaching and Learning Form</a></li>
-                                    <li><a href="#">KIAC weekly reporting form</a></li>
-                                    <li><a href="#">DTLE</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Address</h3>
-                            <ul class="main_footer_links ">
-                                <li style="font-weight: 600;color: #036e9d; font-size: 14px; padding-top: 5px;"><i
-                                        class="fa fa-map-marker"></i> KK 737
-                                    Street, Remera, Kigali<br>
-                                    PO BOX 4285 Kigali-Rwanda</li>
-                                <li style="font-weight: 600;color: #036e9d; font-size:14px; padding: 5px 0 15px;"> <i
-                                        class="fa fa-envelope"></i>
-                                    info@kiac.ac.rw</li>
-                            </ul>
-                        </div>
-                        <div class="map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127601.33843275288!2d29.95548984335936!3d-1.9355972999999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7a9f5f652c3%3A0xd0fe063e8f64a42b!2sKIAC%20-%20Kigali%20International%20Art%20College!5e0!3m2!1sen!2srw!4v1694422613436!5m2!1sen!2srw"
-                                width="285" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <section class="footer-btm">
-                <div class="container footer-btm">
-                    <div class="row ptb50 boder_tb gray-bg"
-                        style="padding-bottom: 10px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
-                        <div class="col-md-4 col-sm-12 m_text-center m_pb20"><a href=""><img
-                                    style="width: 40%; margin-top: -70px;"
-                                    src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="img"></a></div>
-
-                        <div class="col-md-4 col-sm-12 m_pb20" style="margin-top: -50px">
-                            <ul class="footer-social">
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-facebook inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Facebook</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-twitter inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Twitter</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-instagram inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Instagram</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-youtube inline-block align-middle"></i>
-                                        <span class="sr-only">Link to YouTube</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 text-center" style="margin-top: -40px">
-                            <ul class="footer-links">
-                                <li><a style="color: #036e9d" class="pr10 copyright" href="">Copyright / Disclaimer /
-                                        Privacy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row ptb40 gray-bg" style="padding: 20px 0 0;">
-                        <div class="col-md-12">
-                            <p class="cricos">
-                                <span style="color: #666;">© 2023 Kigali International Art College. All Right
-                                    Reserved</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <?php
+        include('footer.php');
+        ?>
         <!-- Back to Top -->
         <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
             <i class="fa fa-chevron-up"></i>

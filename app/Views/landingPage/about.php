@@ -103,8 +103,9 @@ include('header.php');
         }
 
         .admission-requirements ul li:before {
-            content: "\2714\0020";
+            content: "\2713\0020";
             position: absolute;
+            color: #036e9d;
             left: 0;
         }
 
@@ -131,6 +132,7 @@ include('header.php');
         .kiac-values ul li:before {
             content: "\2713\0020";
             position: absolute;
+            color: #036e9d;
             left: 0;
         }
 

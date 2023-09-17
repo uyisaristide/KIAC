@@ -136,16 +136,16 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                                <li><a href="<?= base_url('#'); ?>">Technical Courses</a></li>
-                                <li><a href="<?= base_url('#'); ?>">International Students</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Admission requirements</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Training Calendar</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Fees structure and payment information</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Intended Training Outcome</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Regulations and policies</a></li>
-                                <li><a href="<?= base_url('#'); ?>">E-learning platform</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Electronic resources</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Library</a></li>
+                                <li><a href="<?= base_url('TechnicalCourses'); ?>">Technical Courses</a></li>
+                                <li><a href="<?= base_url('InternationalStudents'); ?>">International Students</a></li>
+                                <li><a href="<?= base_url('AdmissionRequirements'); ?>">Admission requirements</a></li>
+                                <li><a href="<?= base_url('TrainingCalendar'); ?>">Training Calendar</a></li>
+                                <li><a href="<?= base_url('Fees'); ?>">Fees structure and payment information</a></li>
+                                <li><a href="<?= base_url('TrainingOutcome'); ?>">Intended Training Outcome</a></li>
+                                <li><a href="<?= base_url('RegulationsPolicies'); ?>">Regulations and policies</a></li>
+                                <li><a href="<?= base_url('Elearning'); ?>">E-learning platform</a></li>
+                                <li><a href="<?= base_url('ElectronicResources'); ?>">Electronic resources</a></li>
+                                <li><a href="<?= base_url('Library'); ?>">Library</a></li>
                             </ul>
                         </li>
                         <li class="menu-item">
@@ -155,8 +155,8 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                                <li><a href="<?= base_url('#'); ?>">Projects</a></li>
-                                <li><a href="<?= base_url('#'); ?>">Students diversity</a></li>
+                                <li><a href="<?= base_url('Projects'); ?>">Projects</a></li>
+                                <li><a href="<?= base_url('StudentsDiversity'); ?>">Students diversity</a></li>
                             </ul>
                         </li>
                         </li>
