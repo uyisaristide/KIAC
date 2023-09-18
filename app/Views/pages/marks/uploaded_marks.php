@@ -104,7 +104,7 @@
 				foreach ($classes as $class) {
 					?>
 					<option
-						value="<?= $class['id']; ?>"> <?= $class['level_name'] . " " . $class['code'] . " " . $class['title']; ?></option>
+						value="<?= $class['id']; ?>"> <?= $class['code']; ?></option>
 					<?php
 				} ?>
 			</select>

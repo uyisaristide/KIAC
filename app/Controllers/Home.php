@@ -4133,9 +4133,10 @@ Merci";
 	 * @throws \ReflectionException
 	 * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
 	 */
-	public
-		function upload_student_template(
-	) {
+	//add student upload names
+		public
+	function upload_student_template()
+	{
 		$this->_preset();
 		set_time_limit(0);
 		ini_set("memory_limit", -1);
