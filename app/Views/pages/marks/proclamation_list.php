@@ -71,7 +71,7 @@
 					<?php foreach ($classes as $classe) {
 						?>
 						<option value="<?= $classe['id']; ?>" <?= $classe['id'] == ($class_id ?? '') ? 'selected' : ''; ?>
-								data-id=""> <?= $classe['level_name']; ?> <?= $classe['code']; ?> <?= $classe['title']; ?></option>
+								data-id=""> <?= $classe['code']; ?> </option>
 						<?php
 					}
 					?>

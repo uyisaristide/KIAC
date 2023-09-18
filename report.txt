@@ -1,0 +1,24 @@
+// TASKS FOR TODAY 
+1-Project setup 
+2- Restricting the courses field from retrieving course details 
+3- Avoiding menu from poping back when clicked
+
+//Done
+Task1: Project setup
+Task 2 done on :
+  - Student feature:
+     *generate card
+     *Register new student
+  - Behavious feature:
+     *Record Entry 
+     *completed displine Entry
+     *Displine record
+  - Permission feature:
+      *Permission Entry
+      
+  -  Marks feature:
+         *Marks
+         *Old marks Entry
+         *Uploaded marks
+         *Periodic reports
+         *Periodic result

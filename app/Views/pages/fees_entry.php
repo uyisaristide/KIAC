@@ -26,7 +26,7 @@
 			<?php foreach ($classes as $classe) {
 				?>
 				<option value="<?= $classe['id']; ?>"
-						data-id=""> <?= $classe['level_name']; ?> <?= $classe['code']; ?> <?= $classe['title']; ?></option>
+						data-id=""><?= $classe['code']; ?></option>
 				<?php
 			}
 			?>

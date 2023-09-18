@@ -31,7 +31,7 @@
 					<?php foreach ($classes as $classe) {
 						?>
 						<option value="<?= $classe['id']; ?>" <?= $classe['id'] == ($class_id??'')?'selected':''; ?>
-								data-id=""> <?= $classe['level_name']; ?> <?= $classe['code']; ?> <?= $classe['title']; ?></option>
+								data-id="">  <?= $classe['code']; ?> ; ?></option>
 						<?php
 					}
 					?>
@@ -213,7 +213,7 @@ margin: 67px auto;font-size: 15pt;'>No pending deliberation in this class</block
 							<?php foreach ($next_classes as $classe) {
 								?>
 								<option value="<?= $classe['id']; ?>"
-										data-id=""> <?= $classe['level_name']; ?> <?= $classe['code']; ?> <?= $classe['title']; ?></option>
+										data-id=""> <?= $classe['code']; ?> </option>
 								<?php
 							}
 							?>

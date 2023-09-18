@@ -3909,7 +3909,7 @@ if ($page == "Transport_management") {
 														<option selected disabled><?= lang("app.selectClass"); ?></option>
 														<?php
 														foreach ($classes as $class) {
-															echo "<option value='{$class['id']}'>{$class['level_name']} {$class['title']} {$class['code']} </option>";
+															echo "<option value='{$class['id']}'> {$class['code']} </option>";
 														}
 														?>
 													</select>

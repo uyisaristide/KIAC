@@ -48,7 +48,7 @@
 						foreach ($courses as $course) {
 							?>
 							<option id="course_marks<?= $course['id']; ?>" data-course="<?= $course['marks']; ?>"
-									value="<?= $course['id']; ?>"> <?= $course['title']; ?>
+									value="<?= $course['id']; ?>"> 
 								-<?= $course['code']; ?></option>
 							<?php
 						} ?>
