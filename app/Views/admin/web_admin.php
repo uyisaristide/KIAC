@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,53 @@
     <!-- CSS Libraries -->
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
     <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const updateBannerButton = document.getElementById('updateBannerButton');
+            const newBannerImageInput = document.getElementById('newBannerImage');
+            const bannerIDSelect = document.getElementById('bannerID'); // Updated to select element
+
+            // Load saved images from localStorage
+            const bannerImages = document.querySelectorAll('[data-banner-id]');
+            bannerImages.forEach(bannerImage => {
+                const bannerID = bannerImage.getAttribute('data-banner-id');
+                const savedImageUrl = localStorage.getItem(`savedImageUrl_${bannerID}`);
+                if (savedImageUrl) {
+                    bannerImage.src = savedImageUrl;
+                }
+            });
+
+            updateBannerButton.addEventListener('click', function () {
+                const bannerID = bannerIDSelect.value; // Get selected banner ID from the select element
+                const currentBannerImage = document.querySelector(`[data-banner-id="${bannerID}"]`);
+
+                if (currentBannerImage) {
+                    if (newBannerImageInput && newBannerImageInput.files.length > 0) {
+                        const newImageFile = newBannerImageInput.files[0];
+                        const newImageUrl = URL.createObjectURL(newImageFile);
+
+                        // Update the image source
+                        currentBannerImage.src = newImageUrl;
+
+                        // Clear the form fields
+                        newBannerImageInput.value = '';
+                        bannerIDSelect.selectedIndex = 0;
+
+                        // Save the new image URL to localStorage using a dynamic key
+                        localStorage.setItem(`savedImageUrl_${bannerID}`, newImageUrl);
+                    } else {
+                        alert('No image selected.');
+                    }
+                } else {
+                    alert('Banner ID not found.');
+                }
+            });
+        });
+
+
+
+
+    </script>
     <style>
         h2 {
             font-size: 25px;
@@ -36,9 +84,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-    
+
         }
-        .banner form{
+
+        .banner form {
             width: 40%;
             padding: 20px !important;
 
@@ -50,7 +99,9 @@
         }
 
         @media (max-width: 768px) {
-            .form-container, .banner {
+
+            .form-container,
+            .banner {
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 10px;
@@ -64,27 +115,37 @@
 </head>
 
 <body class="bg-gray-200">
-    <!-- Banner Update Form -->
-    <div class="w-1/4 px-2 banner">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" id="">
-            <h2 class="text-xl font-semibold mb-4">Update Banners</h2>
 
+    <img id="bannerImage1" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" data-banner-id="banner1"
+        alt="Banner Image">
+    <br>
+    <img id="bannerImage2" src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" data-banner-id="banner2"
+        alt="Banner Image">
+
+    <div class="w-1/4 px-2 banner">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" id="bannerUpdateForm">
+            <h2 class="text-xl font-semibold mb-4">Update Banners</h2>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="bannerID">
                     Banner ID:
                 </label>
-                <input
+                <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="bannerID" type="text" placeholder="Enter Banner ID">
+                    id="bannerID">
+                    <option value="select" selected disabled>-- Select Banner ID --</option>
+                    <option value="banner1">Banner 1</option>
+                    <option value="banner2">Banner 2</option>
+                </select>
             </div>
+            <!-- ... other form fields ... -->
 
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="bannerImage">
-                    Banner Image:
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="newBannerImage">
+                    New Banner Image:
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="bannerImage" type="file">
+                    id="newBannerImage" type="file">
             </div>
 
             <button
@@ -95,10 +156,12 @@
         </form>
     </div>
 
+
+
     <div class="flex flex-wrap justify-between flex-wrapper">
         <div class="w-full max-w-md mx-auto w-1/4 px-2 form-container">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 class="text-xl font-semibold mb-4">Update News</h2>
+                <h2 class="text-xl font-semibold mb-4">Update News</h2>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="newsTitle">
                         News Title
@@ -156,7 +219,7 @@
 
         <div class="w-full max-w-md mx-auto w-1/4 px-2 form-container">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 class="text-xl font-semibold mb-4">Update Announcements</h2>
+                <h2 class="text-xl font-semibold mb-4">Update Announcements</h2>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="announcementTitle">
                         Announcement Title
@@ -185,46 +248,5 @@
     </div>
 
 </body>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get references to your HTML elements
-        const bannerIDInput = document.getElementById("bannerID");
-        const bannerImageInput = document.getElementById("bannerImage");
-        const updateBannerButton = document.getElementById("updateBannerButton");
-        const bannerImage = document.getElementById("banner1");
 
-        // Add a click event listener to the update button
-        updateBannerButton.addEventListener("click", function() {
-            const bannerID = bannerIDInput.value;
-
-            // Check if the user has selected a file
-            if (bannerImageInput.files.length === 0) {
-                alert("Please select a file.");
-                return;
-            }
-
-            const file = bannerImageInput.files[0];
-
-            // Check if the file is an image (you can add more validation if needed)
-            if (!file.type.startsWith("image/")) {
-                alert("Please select an image file.");
-                return;
-            }
-
-            // Assuming your local storage structure is similar to your website structure
-            const imageUrl = `/${bannerID}.jpg`; // Update the file extension as needed
-
-            // Update the image source with the new image
-            bannerImage.src = imageUrl;
-
-            // Optional: You can also upload the file to your server here
-            // You may need to use a server-side language like PHP to handle file uploads
-            // and save the file to the appropriate location.
-
-            // Clear the input fields
-            bannerIDInput.value = "";
-            bannerImageInput.value = "";
-        });
-    });
-</script>
 </html>
