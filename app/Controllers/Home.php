@@ -4133,145 +4133,124 @@ Merci";
 	 * @throws \ReflectionException
 	 * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
 	 */
-	//add student
-		public function upload_student_template() {
-    $this->_preset();
-    set_time_limit(0);
-    ini_set("memory_limit", -1);
-    ini_set("max_execution_time", -1);
-    $studentMdl = new StudentModel();
-    $file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+	//add student upload names
+		public
+	function upload_student_template()
+	{
+		$this->_preset();
+		set_time_limit(0);
+		ini_set("memory_limit", -1);
+		ini_set("max_execution_time", -1);
+		$studentMdl = new StudentModel();
+		$file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		if (isset($_FILES['documents']['name']) && in_array($_FILES['documents']['type'], $file_mimes)) {
+			$name = $_FILES['documents']['name'];
+			$chunks = explode("_", $name);
+			$file_class = explode(".", $chunks[count($chunks) - 2])[0];
+			$post_cl = explode("-", $this->request->getPost("check_class"), 2);
+			$post_class = explode("-", $this->request->getPost("check_class"))[0];
+			if ($file_class != $post_class) {
+				$this->session->setFlashdata("error", lang("app.pleaseUpload"));
+				return redirect()->to(base_url("students"));
+			} else {
+				$arr_file = explode('.', $_FILES['documents']['name']);
+				$extension = end($arr_file);
+				if ('csv' == $extension) {
+					$reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+				} else {
+					$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+				}
+				$spreadsheet = $reader->load($_FILES['documents']['tmp_name']);
+				$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+				//print_r($sheetData);die();
+				$i = 0;
+				$empty = 0;
+				// echo "upload done";die();
+				foreach ($sheetData as $sheet) {
+					if ($i == 0) {
+						$i++;
+						continue;
+					}
+					//					echo $sheet['A']." ".$i;
+					if (empty($sheet['A'])) {
+						$empty++;
+						if ($empty > 2) {
+							break;
+						}
+						continue;
+					}
+					$empty = 0;
+					$country = $this->data['country'];
+					$mode = strtolower($this->_sanitize_txt($sheet['F'])) == "day" ? 1 : 0;
+					if (in_array($country, [2, 3])) {
+						$mode = strtolower($this->_sanitize_txt($sheet['G'])) == "day" ? 1 : 0;
+					}
 
-    if (isset($_FILES['documents']['name']) && in_array($_FILES['documents']['type'], $file_mimes)) {
-        $name = $_FILES['documents']['name'];
-        $chunks = explode("_", $name);
-        $file_class = explode(".", $chunks[count($chunks) - 2])[0];
-        $post_cl = explode("-", $this->request->getPost("check_class"), 2);
-        $post_class = explode("-", $this->request->getPost("check_class"))[0];
-
-        if ($file_class != $post_class) {
-            $this->session->setFlashdata("error", lang("app.pleaseUpload"));
-            return redirect()->to(base_url("students"));
-        } else {
-            $arr_file = explode('.', $_FILES['documents']['name']);
-            $extension = end($arr_file);
-
-            if ('csv' == $extension) {
-                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
-            } else {
-                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-            }
-
-            $spreadsheet = $reader->load($_FILES['documents']['tmp_name']);
-            $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-
-            $i = 0;
-            $empty = 0;
-
-            foreach ($sheetData as $sheet) {
-                if ($i == 0) {
-                    $i++;
-                    continue; // Skip the header row
-                }
-
-                if (empty($sheet['A'])) {
-                    $empty++;
-                    if ($empty > 2) {
-                        break; // Skip rows with empty data if there are more than 2 consecutively
-                    }
-                    continue;
-                }
-
-                $empty = 0;
-                $country = $this->data['country'];
-                $mode = strtolower($this->_sanitize_txt($sheet['F'])) == "day" ? 1 : 0;
-
-                if (in_array($country, [2, 3])) {
-                    $mode = strtolower($this->_sanitize_txt($sheet['G'])) == "day" ? 1 : 0;
-                }
-
-                // Check if regno already exists
-                $existingStudent = $studentMdl->where('regno', $this->_sanitize_txt($sheet['C']))->first();
-
-                if ($existingStudent) {
-                    // You can choose to update the existing student record or skip it
-                    // For now, we'll skip it
-                    continue;
-                }
-
-                // If regno not available, generate a new one
-                $uvMdl = new UpdateVersionModel();
-                $update_v = 1;
-                $update_v_data = $uvMdl->select("version")->where("type", "student")->where("school_id", $this->session->get("ideyetu_school_id"))->get(1)->getRow();
-
-                if ($update_v_data != null) {
-                    $update_v = $update_v_data->version;
-                }
-
-                $regno = strlen($this->_sanitize_txt($sheet['C'])) > 2 ? $this->_sanitize_txt($sheet['C']) : $this->_generate_regno(true);
-
-                if (in_array($country, [2, 3])) {
-                    $dt = [
-                        "school_id" => $this->session->get("ideyetu_school_id"),
-                        "fname" => $this->_sanitize_txt($sheet['A']),
-                        "lname" => $this->_sanitize_txt($sheet['B']),
-                        "sex" => $this->_sanitize_txt($sheet['E']),
-                        "dob" => $this->_sanitize_txt($sheet['F']),
-                        "regno" => $regno,
-                        "national_id" => $this->_sanitize_txt($sheet['D']),
-                        "studying_mode" => $mode,
-                        "nationality" => $this->_sanitize_txt($sheet['H']),
-                        "father" => $this->_sanitize_txt($sheet['I']),
-                        "ft_phone" => $this->_sanitize_txt($sheet['J']),
-                        "mother" => $this->_sanitize_txt($sheet['K']),
-                        "mt_phone" => $this->_sanitize_txt($sheet['L']),
-                        "guardian" => $this->_sanitize_txt($sheet['M']),
-                        "gd_phone" => $this->_sanitize_txt($sheet['N']),
-                        "religion" => $this->_sanitize_txt($sheet['O']),
-                        "created_by" => $this->session->get("ideyetu_id"),
-                        "status" => 1,
-                        "updateVersion" => $update_v
-                    ];
-                } else {
-                    $dt = [
-                        "school_id" => $this->session->get("ideyetu_school_id"),
-                        "fname" => $this->_sanitize_txt($sheet['A']),
-                        "lname" => $this->_sanitize_txt($sheet['B']),
-                        "sex" => $this->_sanitize_txt($sheet['D']),
-                        "dob" => $this->_sanitize_txt($sheet['E']),
-                        "regno" => $regno,
-                        "studying_mode" => $mode,
-                        "nationality" => $this->_sanitize_txt($sheet['G']),
-                        "father" => $this->_sanitize_txt($sheet['H']),
-                        "ft_phone" => $this->_sanitize_txt($sheet['I']),
-                        "mother" => $this->_sanitize_txt($sheet['J']),
-                        "mt_phone" => $this->_sanitize_txt($sheet['K']),
-                        "guardian" => $this->_sanitize_txt($sheet['L']),
-                        "gd_phone" => $this->_sanitize_txt($sheet['M']),
-                        "religion" => $this->_sanitize_txt($sheet['N']),
-                        "created_by" => $this->session->get("ideyetu_id"),
-                        "status" => 1,
-                        "updateVersion" => $update_v
-                    ];
-                }
-
-                $id = $studentMdl->insert($dt);
-
-                // Create class record
-                $classRecordMdl = new ClassRecordModel();
-                $classRecordMdl->save(["student" => $id, "year" => $this->data['academic_year'], "class" => $post_class]);
-
-                $i++;
-            }
-
-            $this->session->setFlashdata("success", ($i - 1) . lang("app.studentsUploade") . str_replace("-", " ", $post_cl[1]));
-            return redirect()->to(base_url("students"));
-        }
-    } else {
-        $this->session->setFlashdata("error", lang("app.invalidFileUploaded"));
-        return redirect()->to(base_url("students"));
-    }
-}
+					//if regno not available generate new
+					$uvMdl = new UpdateVersionModel();
+					$update_v = 1;
+					$update_v_data = $uvMdl->select("version")->where("type", "student")->where("school_id", $this->session->get("ideyetu_school_id"))->get(1)->getRow();
+					if ($update_v_data != null)
+						$update_v = $update_v_data->version;
+					$regno = strlen($this->_sanitize_txt($sheet['C'])) > 2 ? $this->_sanitize_txt($sheet['C']) : $this->_generate_regno(true);
+					if (in_array($country, [2, 3])) {
+						$dt = [
+							"school_id" => $this->session->get("ideyetu_school_id"),
+							"fname" => $this->_sanitize_txt($sheet['A']),
+							"lname" => $this->_sanitize_txt($sheet['B']),
+							"sex" => $this->_sanitize_txt($sheet['E']),
+							"dob" => $this->_sanitize_txt($sheet['F']),
+							"regno" => $regno,
+							"national_id" => $this->_sanitize_txt($sheet['D']),
+							"studying_mode" => $mode,
+							"nationality" => $this->_sanitize_txt($sheet['H']),
+							"father" => $this->_sanitize_txt($sheet['I']),
+							"ft_phone" => $this->_sanitize_txt($sheet['J']),
+							"mother" => $this->_sanitize_txt($sheet['K']),
+							"mt_phone" => $this->_sanitize_txt($sheet['L']),
+							"guardian" => $this->_sanitize_txt($sheet['M']),
+							"gd_phone" => $this->_sanitize_txt($sheet['N']),
+							"religion" => $this->_sanitize_txt($sheet['O']),
+							"created_by" => $this->session->get("ideyetu_id"),
+							"status" => 1,
+							"updateVersion" => $update_v
+						];
+					} else {
+						$dt = [
+							"school_id" => $this->session->get("ideyetu_school_id"),
+							"fname" => $this->_sanitize_txt($sheet['A']),
+							"lname" => $this->_sanitize_txt($sheet['B']),
+							"sex" => $this->_sanitize_txt($sheet['D']),
+							"dob" => $this->_sanitize_txt($sheet['E']),
+							"regno" => $regno,
+							"studying_mode" => $mode,
+							"nationality" => $this->_sanitize_txt($sheet['G']),
+							"father" => $this->_sanitize_txt($sheet['H']),
+							"ft_phone" => $this->_sanitize_txt($sheet['I']),
+							"mother" => $this->_sanitize_txt($sheet['J']),
+							"mt_phone" => $this->_sanitize_txt($sheet['K']),
+							"guardian" => $this->_sanitize_txt($sheet['L']),
+							"gd_phone" => $this->_sanitize_txt($sheet['M']),
+							"religion" => $this->_sanitize_txt($sheet['N']),
+							"created_by" => $this->session->get("ideyetu_id"),
+							"status" => 1,
+							"updateVersion" => $update_v
+						];
+					}
+					$id = $studentMdl->insert($dt);
+					//create class record
+					$classRecordMdl = new ClassRecordModel();
+					$classRecordMdl->save(array("student" => $id, "year" => $this->data['academic_year'], "class" => $post_class));
+					$i++;
+				}
+				$this->session->setFlashdata("success", ($i - 1) . lang("app.studentsUploade") . str_replace("-", " ", $post_cl[1]));
+				return redirect()->to(base_url("students"));
+			}
+		} else {
+			$this->session->setFlashdata("error", lang("app.invalidFileUploaded"));
+			return redirect()->to(base_url("students"));
+		}
+	}
 
 	public
 		function _sanitize_txt(
