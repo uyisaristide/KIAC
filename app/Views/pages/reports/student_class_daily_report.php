@@ -54,7 +54,7 @@ if ($show_header) {
 					<option disabled selected><?= lang("app.selectClass"); ?> </option>
 					<?php
 					foreach ($classes as $class):
-						echo "<option value='{$class['id']}'>{$class['level_name']} {$class['code']} {$class['title']}</option>";
+						echo "<option value='{$class['id']}'>{$class['code']} </option>";
 					endforeach;
 					?>
 				</select>

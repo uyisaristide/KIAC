@@ -37,7 +37,7 @@
 				foreach ($classes as $class) {
 					?>
 					<option
-						data-id="<?= $class['facul_id']; ?>" id="faculty<?= $class['id']; ?>" value="<?= $class['id']; ?>"> <?= $class['level_name'] . " " . $class['code'] . " " . $class['title']; ?></option>
+						data-id="<?= $class['facul_id']; ?>" id="faculty<?= $class['id']; ?>" value="<?= $class['id']; ?>"> <?=  $class['code']; ?></option>
 					<?php
 				} ?>
 			</select>
