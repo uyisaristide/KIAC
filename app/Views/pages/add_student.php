@@ -200,7 +200,7 @@
 													}
 												} else {
 													foreach ($classes as $class) {
-														echo "<option value='{$class['id']}'>{$class['level_name']} {$class['code']} {$class['title']}</option>";
+														echo "<option value='{$class['id']}'>{$class['code']}</option>";
 													}
 												}
 												?>
