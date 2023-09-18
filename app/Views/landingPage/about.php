@@ -56,7 +56,7 @@ include('header.php');
         /* Custom styles for the columns */
         .column {
             background-color: #fff;
-            padding: 20px;
+            /* padding: 20px; */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
         }
@@ -192,8 +192,8 @@ include('header.php');
             </p>
         </div>
         <div class="columns">
-            <div class="column">
-                <div class="py-2 px-6 rounded-lg">
+            <div class="column" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Our Curriculum & Teaching Approach</h2>
                     <p class="text-gray-700">
                         The curriculum of KIAC is designed to respond to the global professional requirements of Art.
@@ -207,8 +207,8 @@ include('header.php');
                 </div>
             </div>
 
-            <div class="column">
-                <div class="py-2 px-6 rounded-lg">
+            <div class="column" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Technical Programs</h2>
                     <p class="text-gray-700">
                         These Programs are taught by KIAC in collaboration with national and International Art related
@@ -218,8 +218,8 @@ include('header.php');
                     </p>
                 </div>
             </div>
-            <div class="column">
-                <div class="py-2 px-6 rounded-lg">
+            <div class="column" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">Art Modules </h2>
                     <p class="text-gray-700">
                         These comprehensive 6 months program is a specific technical program in Art industry. Art
@@ -232,7 +232,7 @@ include('header.php');
                 </div>
             </div>
         </div>
-        <div class="admission-requirements py-2 px-6 ">
+        <div class="admission-requirements py-2 px-4 ">
             <h2 class="text-xl font-semibold mb-2">Admission Requirements</h2>
             <ul>
                 <li>Filled application form</li>
@@ -261,8 +261,8 @@ include('header.php');
         </div>
 
         <div class="columns flex flex-wrap">
-            <div class="column w-full md:w-1/4">
-                <div class="py-2 px-6 rounded-lg">
+            <div class="column w-full md:w-1/4" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Mission</h2>
                     <p class="text-gray-700">
                         The fundamental mission of KIAC college is to provide the students with technical and vocational
@@ -271,8 +271,8 @@ include('header.php');
                 </div>
             </div>
 
-            <div class="column w-full md:w-1/4">
-                <div class="py-2 px-6 rounded-lg">
+            <div class="column w-full md:w-1/4" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Vision</h2>
                     <p class="text-gray-700">
                         To stand out as a remarkable college for excellence in short-term vocational training that
@@ -283,7 +283,7 @@ include('header.php');
             </div>
 
             <div class="column w-full md:w-1/4 kiac-values">
-                <div class="py-2 px-6 rounded-lg">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Values</h2>
                     <ul>
                         <li>Integrity</li>
@@ -301,7 +301,7 @@ include('header.php');
 
         <div class="column wrapper">
             <div class="kiac-values philosophy" style="display: inline-block; vertical-align: top;">
-                <div class="py-2 px-6 rounded-lg">
+                <div class="py-2 px-4 rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">KIAC Philosophy</h2>
                     <ul>
                         <p class="mb-2">The Philosophy of KIAC is based on 4 fundamental principles that are:</p>

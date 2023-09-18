@@ -93,32 +93,6 @@ include('header.php');
             }
         }
 
-        .admission-requirements {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
-        }
-
-        /* Custom list-style type for admission requirements */
-        .admission-requirements ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .admission-requirements ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-        }
-
-        .admission-requirements ul li:before {
-            content: "\2714\0020";
-            position: absolute;
-            left: 0;
-        }
-
         .kiac-values ul {
             list-style-type: none;
             padding-left: 0;
@@ -157,9 +131,9 @@ include('header.php');
             </p>
         </div>
         <div class="columns">
-            <div class="column kiac-values">
+            <div class="column kiac-values" style="display: flex; flex-direction: column; justify-content: flex-start;">
                 <div class="py-2 px-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-2">Why you should join us ?</h2>
+                    <h2 class="text-xl font-semibold mb-2 py-2">Why you should join us ?</h2>
                     <ul>
                         <li>Flexible, part-time programmes specially designed for busy professionals.</li>
                         <li>Access to amazing learning, research and teaching facilities available at Kigali
@@ -170,9 +144,9 @@ include('header.php');
                 </div>
             </div>
 
-            <div class="column kiac-values">
+            <div class="column kiac-values" style="display: flex; flex-direction: column; justify-content: flex-start;">
                 <div class="py-2 px-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-2">College of Business and Economics</h2>
+                    <h2 class="text-xl font-semibold mb-2 py-2">College of Business and Economics</h2>
                     <p class="text-gray-700 pb-2">
                         Programs offered at the various colleges include College of Business and Economics;
                     </p>
@@ -189,9 +163,9 @@ include('header.php');
                             target="_blank">Click here to read more about the programs at the CBE website</a></p>
                 </div>
             </div>
-            <div class="column kiac-values">
+            <div class="column kiac-values" style="display: flex; flex-direction: column; justify-content: flex-start;">
                 <div class="py-2 px-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-2">College of Education</h2>
+                    <h2 class="text-xl font-semibold mb-2 py-2">College of Education</h2>
                     <p class="text-gray-700 pb-2">
                         Another Program offered at the various colleges is College of Education;
                     </p>

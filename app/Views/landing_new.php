@@ -228,8 +228,9 @@
                         <div class="h-full w-full image-slideshow">
                             <!-- <div class="image fade"> -->
                             <div class="image">
-                                <img class="w-full h-full"
-                                    src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg" alt="img" />
+                                <img class="w-full h-full" id="bannerImage"
+                                    src="<?= base_url(); ?>assets/landing_new/img/banner_left.jpg"
+                                    data-banner-id="banner1" alt="Banner Image">
                             </div>
                             <!-- <div class="image fade">
                                 <img class="w-full h-full"
