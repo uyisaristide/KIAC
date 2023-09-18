@@ -33,16 +33,80 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <link href="<?= base_url(); ?>assets/css/tailwind/output.css" rel="stylesheet">
     <script>
-        $(document).ready(function () {
-            $('#myCarousel').carousel();
+        // Add custom JavaScript to trigger the carousel slide
+        $('#carouselControls').on('slide.bs.carousel', function (e) {
+            let $nextImage = $(e.relatedTarget);
+            let $currentImage = $(e.relatedTarget).prev();
+
+            if ($nextImage.index() > $currentImage.index()) {
+                $nextImage.removeClass('right').addClass('left');
+                $currentImage.removeClass('left').addClass('right');
+            } else {
+                $nextImage.removeClass('left').addClass('right');
+                $currentImage.removeClass('right').addClass('left');
+            }
+
+            $currentImage.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                $(this).removeClass('active left right');
+            });
         });
+        $('#carouselControls').carousel({ interval: 2000 });
     </script>
+    <script>
+        function scrollToCourses() {
+            const coursesDiv = document.getElementById("our-courses");
+
+            if (coursesDiv) {
+                coursesDiv.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
+        button.login {
+            transition: transform 0.3s ease;
+        }
+
+        button.login:hover {
+            transform: scale(1.001);
+            border: 2px solid #036e9d;
+            font-weight: bold;
+            color: #036e9d !important;
+            background-color: #EBF8FF;
+        }
+
+        .carousel-fade .carousel-item {
+            display: block;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .carousel-fade .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .carousel-fade .carousel-item.active.left {
+            transform: translateX(-100%);
+        }
+
+        .carousel-fade .carousel-item.active.right {
+            transform: translateX(100%);
+        }
+
+
+
+        #main-menu .menu-item:hover .submenu,
         #main-menu2 .menu-item:hover .submenu {
             display: block;
         }
 
+        #main-menu .submenu,
         #main-menu2 .submenu {
             display: none;
             position: absolute;
@@ -50,13 +114,28 @@
             left: 0;
             border: none;
             padding: 0;
-            border-right: 3px solid #fff;
+            width: 100%;
             border-top: 0;
             border-bottom: 0;
             border-left: 0;
             padding: 0;
         }
 
+        #main-menu .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            border: none;
+            width: 100%;
+            padding: 0;
+            border-top: 0;
+            border-bottom: 0;
+            border-left: 0;
+            padding: 0;
+        }
+
+        #main-menu .submenu li,
         #main-menu2 .submenu li {
             list-style: none;
             margin: 0;
@@ -64,9 +143,10 @@
             /* border-bottom: 1px solid rgba(3, 110, 157, 0.3) !important; */
         }
 
+        #main-menu .submenu a,
         #main-menu2 .submenu a {
             display: block;
-            padding: 10px 20px;
+            padding: 10px 10px;
             text-decoration: none;
             color: #fff;
             text-align: center;
@@ -75,6 +155,7 @@
             border-bottom: 1px solid rgba(3, 110, 157, 1) !important;
         }
 
+        #main-menu .submenu a:hover,
         #main-menu2 .submenu a:hover {
             color: #036e9d;
             background: #fff !important;
@@ -110,6 +191,27 @@
 
         .fab {
             font-family: "Font Awesome 5 Brands";
+        }
+
+        .contact-container {
+            width: 99%;
+            border-radius: 5px;
+            padding: 10px 0 30px;
+        }
+
+        .gallery-image:hover,
+        .gallery-image:hover:focus {
+            box-shadow: 0 0.5em 0.5em -0.5em var(--hover);
+            transform: translateY(-0.5em);
+
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .middle-banner,
+            .middle-banner img {
+                display: none;
+            }
         }
     </style>
 
@@ -193,14 +295,19 @@
                 </div>
                 <div>
                     <div class="flex items-center h-[4rem] md:h-[4rem] w-full md:grid md:grid-cols-2">
-                        <div class="w-1/3 py-2 pl-4 md:w-full">
-                            <img class="w-1/2 h-[70%]" src="<?= base_url(); ?>assets/landing_new/img/logo1.png"
-                                alt="no image found">
+                        <div class=" py-2 pl-4 md:w-full" style="padding-right: 30px">
+                            <img src="<?= base_url(); ?>assets/landing_new/img/logo1.png" alt="no image found"
+                                style="width: 150; height: auto;">
                         </div>
-                        <div class="w-full md:w-full">
+                        <div class="w-2/3 md:w-full middle-banner">
                             <img class="w-full h-[80%]"
                                 src="<?= base_url(); ?>assets/landing_new/img/middle_banner.jpg " alt="no image found"
                                 style="height: 96px">
+                        </div>
+                        <div class="w-1/4 sm:w-full" style="padding-left: 100px">
+                            <button onclick="location.href='<?= base_url('login'); ?>';"
+                                class="w-full h-[80%] md:w-full bg-blue-500 text-white login"
+                                style="border-radius: 5px; font-size: 20px; padding: 10px 30px;">Login</button>
                         </div>
                     </div>
                 </div>
@@ -214,24 +321,51 @@
                         </li>
                         <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
-                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
-                                KIAC</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-heartbeat"></i> Study At KIAC
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('TechnicalCourses'); ?>">Technical Courses</a></li>
+                                <li><a href="<?= base_url('InternationalStudents'); ?>">International Students</a></li>
+                                <li><a href="<?= base_url('AdmissionRequirements'); ?>">Admission requirements</a></li>
+                                <li><a href="<?= base_url('TrainingCalendar'); ?>">Training Calendar</a></li>
+                                <li><a href="<?= base_url('Fees'); ?>">Fees structure and payment information</a></li>
+                                <li><a href="<?= base_url('TrainingOutcome'); ?>">Intended Training Outcome</a></li>
+                                <li><a href="<?= base_url('RegulationsPolicies'); ?>">Regulations and policies</a></li>
+                                <li><a href="<?= base_url('Elearning'); ?>">E-learning platform</a></li>
+                                <li><a href="<?= base_url('ElectronicResources'); ?>">Electronic resources</a></li>
+                                <li><a href="<?= base_url('Library'); ?>">Library</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-trophy"></i> Students
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('Projects'); ?>">Projects</a></li>
+                                <li><a href="<?= base_url('StudentsDiversity'); ?>">Students diversity</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
+                        </li>
+                        <li><a href="#" onclick="scrollToCourses()"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
-                        <li><a href="<?= base_url('login'); ?>"><i class="fa fa-language"></i> Login</a></li>
+                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
+                        <li><a href="https://www.youtube.com/@kiactv7489" target="_blank"><i
+                                    class="fa fa-group"></i>KIAC TV</a></li>
+                        <li><a href="#"><i class="fa fa-group"></i>KIAC Records</a></li>
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
-                        <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
@@ -249,8 +383,8 @@
                     </ul>
                 </nav>
             </header>
+
             <div class="mt-2 w-full ">
-                <!-- img header -->
                 <div class="w-full flex items-center justify-between  h-24 md:block">
                     <div class="h-full w-full md:hidden">
                         <img class="w-full h-full" src="<?= base_url(); ?>assets/landing_new/img/banner_right.jpg"
@@ -395,33 +529,57 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-[60%] h-full md:w-full">
-                        <div id="carouselControls" class="carousel slide carousel-fade rounded-lg h-full"
-                            data-ride="carousel">
-                            <div class="carousel-inner h-full">
-                                <div class="carousel-item active  h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-1.jpg" alt="">
+                    <div class="w-[60%] h-full md:w-full md:flex md:flex-col">
+
+
+                        <div class="container">
+                            <div id="carouselControls" class="carousel slide carousel-fade rounded-lg bg-white"
+                                data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-1.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-2.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100 rounded-lg"
+                                            src="<?= base_url() ?>assets/landing_new/img/header-slide-5.jpg" alt="">
+                                    </div>
                                 </div>
-                                <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-2.jpg" alt="">
-                                </div>
-                                <!-- <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-3.jpg" alt="">
-                                </div> -->
-                                <div class="carousel-item h-full">
-                                    <img class="h-full w-full d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-4.jpg" alt="">
-                                </div>
-                                <div class="carousel-item h-full">
-                                    <img class="w-full h-[41rem] max-h-[41rem] d-block w-100 rounded-lg"
-                                        src="<?= base_url() ?>assets/landing_new/img/header-slide-5.jpg" alt="">
-                                </div>
+                                <a class="carousel-control-prev" href="#carouselControls" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselControls" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
                         </div>
+
+                        <!-- Under banner -->
+
+                        <div id="carouselControls" class="carousel slide carousel-fade rounded-lg h-full bg-white"
+                            data-ride="carousel"
+                            style="padding-top: 10px; margin-top: 20px; border-top: 2px solid rgba(3, 110, 157, 0.3); box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.3);">
+                            <!-- <div class="carousel-inner h-full"> -->
+                            <!-- <div class="carousel-item active  h-full"> -->
+                            <img class="h-full w-full d-block w-100 rounded-lg"
+                                src="<?= base_url() ?>assets/landing_new/img/creative.jpg" alt="Banner 4">
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
                     </div>
+
                     <div class="w-[30%] md:w-full">
                         <div class="my-2 w-full flex item-center gap-2">
                             <input
@@ -593,7 +751,7 @@
             </div>
         </div>
 
-        <!-- <div class="gallery-container">
+        <div class="gallery-container">
             <div class="gallery-image">
                 <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit">
             </div>
@@ -603,71 +761,10 @@
             <div class="gallery-image">
                 <img src="<?= base_url() ?>assets/landing_new/img/3.jpg" alt="Image 3" class="image-fit">
             </div>
-        </div> -->
-
-        <div class="testimonial-container mx-auto mt-20">
-            <button id="prevBtn" class="testimonial-button testimonial-button-prev">
-                <i class="fas fa-angle-left"></i>
-            </button>
-            <div class="testimonial-slider overflow-hidden relative">
-                <div class="slider-content flex" id="sliderContent">
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/1.jpg" alt="Image 1" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial p-4 w-1/3">
-                        <div class="rounded flex flex-col items-center">
-                            <div class="shadow">
-                            <img src="<?= base_url() ?>assets/landing_new/img/2.jpg" alt="Image 2" class="image-fit"
-                                    style="width: 330px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="nextBtn" class="testimonial-button testimonial-button-next">
-                <i class="fas fa-angle-right"></i>
-            </button>
         </div>
 
         <!-- Our Program -->
-        <div style="text-align:center; padding-top: 10px">
+        <div style="text-align:center;" id="our-courses">
             <h2 class="txt-contact fw_400" style="font-size: 25px;">Our Courses</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;"></h1>
         </div>
@@ -1117,14 +1214,15 @@
             </button>
         </div>
         <div class="contact-container reviews" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+            <div style="text-align:center" style="border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
+                <h2 class="txt-contact fw_400" style="font-size: 20px; padding-top: 0;">
+                    Be Our Testimonial!</h2>
+            </div>
             <div class="row flex justify-content-center align-items-center">
-                <!-- Column 1 -->
-                <div class="column" style="width: 30%; background-color: #fff;">
-                    <div class="col-lg-7">
-                        <div class="section-title position-relative pb-3 mb-1">
-                            <h1 class="mb-0" style="font-size: 20px;">Be Our Testimonial!</h1>
-                        </div>
-                    </div>
+                <!-- Column 1 (Banner Image)-->
+                <div class="column" style="width: 30%; background-color: #fff">
+                    <img src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="img" alt="Banner Image"
+                        width="300">
                 </div>
                 <!-- Column 2 -->
                 <div class="column" style="width: 35%;">
@@ -1153,16 +1251,15 @@
             </div>
         </div>
 
-
         <!-- Contact us -->
         <div style="text-align:center">
-            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 50px;">Contact Us</h2>
+            <h2 class="txt-contact fw_400" style="font-size: 25px; padding-top: 20px;">Contact Us</h2>
             <h1 class="mb-0" style="font-size: 16px; padding: 10px 0;">Feel free to reach out to us. We're here to
                 assist you!</h1>
         </div>
         <div class="contact-container">
             <div class="row flex justify-content-center align-items-center">
-                <div class="column" style="width: 40%; padding-right: 100px; margin-right: 100px">
+                <div class="column" style="width: 35%; padding-right: 10px; margin-right: 10px">
                     <div class="col-lg-10">
                         <div class="section-title position-relative pb-3 mb-5">
                             <h1 class="mb-0">Need any help about how you can study or getting scholarship with KIAC?
@@ -1195,8 +1292,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="column" style="width: 35%;">
-                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center">
+                <div class="column" style="width: 30%;">
+                    <form action="/action_page.php" class="flex flex-wrap justify-content-center align-items-center"
+                        style="padding: 0;">
 
                         <input class="focus:outline-none" type="text" id="fname" name="firstname"
                             placeholder="Enter your Name">
@@ -1212,149 +1310,17 @@
                         <input type="submit" value="Submit">
                     </form>
                 </div>
+                <div class="column" style="width: 25%; padding: 0; background: none; box-shadow: none">
+                    <img src="<?= base_url(); ?>assets/landing_new/img/header-slide-3.jpg" alt="img" alt="Banner Image"
+                        width="300">
+                </div>
             </div>
         </div>
 
         <!-- FOOTER -->
-
-        <div class="footer-container gray-bg_medium" style="height: auto; padding-bottom: auto;">
-            <footer class="container" id="footer"
-                style="padding: 20px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">About Us</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">KIAC Facts and Figures</a></li>
-                                    <li><a href="#">KIAC Statement and Concept</a></li>
-                                    <li><a href="#">Vision and Mission</a></li>
-                                    <li><a href="#">The Chancellor</a></li>
-                                    <li><a href="#">Vice Chancellor's Office</a></li>
-                                    <li><a href="#">Board of Governors</a></li>
-                                    <li><a href="#">Administrative offices</a></li>
-                                    <li><a href="#">Key Documents & Policies</a></li>
-                                    <li><a href="#">Partnerships</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Academic</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">Students</a></li>
-                                    <li><a href="#">Colleges and Campuses Schools</a></li>
-                                    <li><a href="#">Schools</a></li>
-                                    <li><a href="#">Admission</a></li>
-                                    <li><a href="#">International Students</a></li>
-                                    <li><a href="#">Fee Structure</a></li>
-                                    <li><a href="#">KIAC Bank accounts</a></li>
-                                    <li><a href="#">Academic Calendar</a></li>
-                                    <li><a href="#">Academic Regulations & Policies</a></li>
-                                    <li><a href="#">Centres of excellence</a></li>
-                                    <li><a href="#">E-Learning</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Key Links</h3>
-                            <ul class="main_footer_links" style="display: block;">
-                                <ul>
-                                    <li><a href="#">KIAC brand guidelines</a></li>
-                                    <li><a href="#">Our partner universities/institutions</a></li>
-                                    <li><a href="#">Government Smart Admin System</a></li>
-                                    <li><a href="#">E-mboni</a></li>
-                                    <li><a href="#">MIFOTRA self-service portal</a></li>
-                                    <li><a href="#">Class Representative Report Form</a></li>
-                                    <li><a href="#">Students Evaluation of Module Teaching and Learning Form</a></li>
-                                    <li><a href="#">KIAC weekly reporting form</a></li>
-                                    <li><a href="#">DTLE</a></li>
-                                </ul>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
-                        <div class="footer-links-group">
-                            <h3 class="footer-heading fw_300">Address</h3>
-                            <ul class="main_footer_links ">
-                                <li style="font-weight: 600;color: #036e9d; font-size: 14px; padding-top: 5px;"><i
-                                        class="fa fa-map-marker"></i> KK 737
-                                    Street, Remera, Kigali<br>
-                                    PO BOX 4285 Kigali-Rwanda</li>
-                                <li style="font-weight: 600;color: #036e9d; font-size:14px; padding: 5px 0 15px;"> <i
-                                        class="fa fa-envelope"></i>
-                                    info@kiac.ac.rw</li>
-                            </ul>
-                        </div>
-                        <div class="map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127601.33843275288!2d29.95548984335936!3d-1.9355972999999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7a9f5f652c3%3A0xd0fe063e8f64a42b!2sKIAC%20-%20Kigali%20International%20Art%20College!5e0!3m2!1sen!2srw!4v1694422613436!5m2!1sen!2srw"
-                                width="285" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <section class="footer-btm">
-                <div class="container footer-btm">
-                    <div class="row ptb50 boder_tb gray-bg"
-                        style="padding-bottom: 10px; border-bottom: 1px solid rgba(3, 110, 157, 0.3);">
-                        <div class="col-md-4 col-sm-12 m_text-center m_pb20"><a href=""><img
-                                    style="width: 40%; margin-top: -70px;"
-                                    src="<?= base_url(); ?>assets/landing_new/img/kiac-logo.png" alt="img"></a></div>
-
-                        <div class="col-md-4 col-sm-12 m_pb20" style="margin-top: -50px">
-                            <ul class="footer-social">
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-facebook inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Facebook</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-twitter inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Twitter</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-instagram inline-block align-middle"></i>
-                                        <span class="sr-only">Link to Instagram</span>
-                                    </a>
-                                </li>
-                                <li class="inline-block m-2">
-                                    <a href="#">
-                                        <i class="fab fa-youtube inline-block align-middle"></i>
-                                        <span class="sr-only">Link to YouTube</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 text-center" style="margin-top: -40px">
-                            <ul class="footer-links">
-                                <li><a style="color: #036e9d" class="pr10 copyright" href="">Copyright / Disclaimer /
-                                        Privacy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row ptb40 gray-bg" style="padding: 20px 0 0;">
-                        <div class="col-md-12">
-                            <p class="cricos">
-                                <span style="color: #666;">© 2023 Kigali International Art College. All Right
-                                    Reserved</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <?php
+        include('footer.php');
+        ?>
         <!-- Back to Top -->
         <a href="#" class="back-to-top fixed bottom-4 right-4 bg-[#091e35] text-white p-2 rounded-full shadow-md">
             <i class="fa fa-chevron-up"></i>

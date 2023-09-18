@@ -37,40 +37,61 @@
     <div class="w-full max-w-full">
         <div class="container-main p-4">
             <style>
+                #main-menu .menu-item:hover .submenu,
                 #main-menu2 .menu-item:hover .submenu {
                     display: block;
                 }
 
+                #main-menu .submenu,
                 #main-menu2 .submenu {
                     display: none;
                     position: absolute;
                     top: 100%;
                     left: 0;
-                    border-right: 3px solid #fff;
+                    border: none;
+                    padding: 0;
+                    width: 100%;
                     border-top: 0;
                     border-bottom: 0;
                     border-left: 0;
                     padding: 0;
                 }
 
+                #main-menu .submenu {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    border: none;
+                    width: 100%;
+                    padding: 0;
+                    border-top: 0;
+                    border-bottom: 0;
+                    border-left: 0;
+                    padding: 0;
+                }
+
+                #main-menu .submenu li,
                 #main-menu2 .submenu li {
                     list-style: none;
                     margin: 0;
                     padding: 0;
+                    /* border-bottom: 1px solid rgba(3, 110, 157, 0.3) !important; */
                 }
 
+                #main-menu .submenu a,
                 #main-menu2 .submenu a {
                     display: block;
-                    padding: 10px 20px;
+                    padding: 10px 10px;
                     text-decoration: none;
                     color: #fff;
                     text-align: center;
                     font-size: 15px;
                     font-family: 'Trebuchet MS', sans-serif;
                     border-bottom: 1px solid rgba(3, 110, 157, 1) !important;
-
                 }
 
+                #main-menu .submenu a:hover,
                 #main-menu2 .submenu a:hover {
                     color: #036e9d;
                     background: #fff !important;
@@ -108,24 +129,51 @@
                         </li>
                         <li><a href="<?= base_url('about'); ?>"><i class="fa fa-institution"></i> About KIAC</a>
                         </li>
-                        <li><a href="<?= base_url('study_at_kiac'); ?>"><i class="fa fa-heartbeat "></i> Study At
-                                KIAC</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-heartbeat"></i> Study At KIAC
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('TechnicalCourses'); ?>">Technical Courses</a></li>
+                                <li><a href="<?= base_url('InternationalStudents'); ?>">International Students</a></li>
+                                <li><a href="<?= base_url('AdmissionRequirements'); ?>">Admission requirements</a></li>
+                                <li><a href="<?= base_url('TrainingCalendar'); ?>">Training Calendar</a></li>
+                                <li><a href="<?= base_url('Fees'); ?>">Fees structure and payment information</a></li>
+                                <li><a href="<?= base_url('TrainingOutcome'); ?>">Intended Training Outcome</a></li>
+                                <li><a href="<?= base_url('RegulationsPolicies'); ?>">Regulations and policies</a></li>
+                                <li><a href="<?= base_url('Elearning'); ?>">E-learning platform</a></li>
+                                <li><a href="<?= base_url('ElectronicResources'); ?>">Electronic resources</a></li>
+                                <li><a href="<?= base_url('Library'); ?>">Library</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-trophy"></i> Students</a>
+                        <li class="menu-item">
+                            <h2>
+                                <a id="has-submenu" class="" href="#">
+                                    <span class="sub-arrow">+</span><i class="fa fa-trophy"></i> Students
+                                </a>
+                            </h2>
+                            <ul class="submenu">
+                                <li><a href="<?= base_url('Projects'); ?>">Projects</a></li>
+                                <li><a href="<?= base_url('StudentsDiversity'); ?>">Students diversity</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-bullseye"></i>Courses</a>
+                        </li>
+                        <li><a href="<?= base_url('##our-courses'); ?>"><i class="fa fa-bullseye"></i>Courses</a>
                         </li>
                         <li><a href="#contact"><i class="fa fa-laptop"></i> Admissions</a>
                         </li>
-                        <li><a href="<?= base_url('login'); ?>"><i class="fa fa-language"></i> Login</a></li>
+                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
                     </ul>
                     <ul id="main-menu2" class="sm2 sm-blue">
+                        <li><a href="https://www.youtube.com/@kiactv7489" target="_blank"><i
+                                    class="fa fa-group"></i>KIAC TV</a></li>
+                        <li><a href="#"><i class="fa fa-group"></i>KIAC Records</a></li>
                         <li><a href="#"><i class="fa fa-plane"></i>Services</a></li>
-                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
-                        <li><a href="#"><i class="fa fa-group"></i>KIAC TV</a></li>
                         <li><a href="#"><i class="fa fa-female"></i> News and Events</a></li>
                         <li><a href="<?= base_url('agent'); ?>"><i class="fa fa-building"></i>Agents</a></li>
-                        <li><a href="<?= base_url('abroad'); ?>"><i class="fa fa-newspaper-o"></i>Study Abroad </a></li>
+                        <li><a href="#"><i class="fa fa-line-chart "></i>Partners</a></li>
                         <li class="menu-item">
                             <h2>
                                 <a id="has-submenu" class="" href="#">
@@ -133,7 +181,7 @@
                                 </a>
                             </h2>
                             <ul class="submenu">
-                            <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
+                                <li><a href="<?= base_url('study_at_kiac'); ?>">Study At KIAC</a></li>
                                 <li><a href="<?= base_url('abroad'); ?>">Study Abroad</a></li>
                                 <li><a href="<?= base_url('internship'); ?>">Internship</a></li>
                                 <li><a href="<?= base_url('partners'); ?>">Be A Partner</a></li>

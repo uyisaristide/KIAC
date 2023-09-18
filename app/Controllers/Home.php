@@ -205,14 +205,11 @@ class Home extends BaseController
 		$data['subtitle'] = lang("app.SchoolManagementSystem");
 		$data['content'] = view('landingPage/main', $data);
 		return view('landing_new', $data);
-		//		return view('landing_new', $data);
 	}
-	//	differents functions to call pages in views 
+
 	public function Register()
 	{
-
 		return view('landingPage/application.php');
-		//		return view('landing_new', $data);	
 	}
 	public function Web_Administration()
 	{
@@ -221,34 +218,97 @@ class Home extends BaseController
 	public function Agent()
 	{
 
-		return view('landingPage/agent.php');
-		//		return view('landing_new', $data);	
+		return view('landingPage/agent.php');	
 	}
 	public function Abroad()
 	{
 
 		return view('landingPage/abroad.php');
-		//		return view('landing_new', $data);	
 	}
+
 	public function Partners()
 	{
 
 		return view('landingPage/partners.php');
-		//		return view('landing_new', $data);	
 	}
 
 	public function Internship()
 	{
 
 		return view('landingPage/internship.php');
-		//		return view('landing_new', $data);	
 	}
+
 	public function About()
 	{
 
 		return view('landingPage/about.php');
+	}
+
+	public function TechnicalCourses ()
+	{
+
+		return view('landingPage/technical_courses.php');
+	}
+
+	public function InternationalStudents()
+	{
+
+		return view('landingPage/international_students.php');
+	}
+
+	public function AdmissionRequirements()
+	{
+
+		return view('landingPage/admission_requirements.php');
+	}
+
+	public function TrainingCalendar()
+	{
+		return view('landingPage/training_calendar.php');
+	}
+
+	public function Fees()
+	{
+		return view('landingPage/fees.php');
+	}
+
+	public function TrainingOutcome()
+	{
+		return view('landingPage/training_outcome.php');
+	}
+
+	public function RegulationsPolicies()
+	{
+		return view('landingPage/regulations_policies.php');
+	}
+
+	public function  Elearning()
+	{
+		return view('landingPage/e-learning.php');
+	}
+
+	public function  ElectronicResources()
+	{
+		return view('landingPage/electronic_resources.php');
+	}
+	public function  Library()
+	{
+		return view('landingPage/library.php');
+	}
+
+	public function  Projects()
+	{
+
+		return view('landingPage/projects.php');
+	}
+
+	public function StudentsDiversity()
+	{
+
+		return view('landingPage/students_diversity.php');
 		//		return view('landing_new', $data);	
 	}
+
 	public function dashboard()
 	{
 		$this->_preset();
@@ -12010,6 +12070,41 @@ Merci";
 		$data['content'] = view("pages/pending_internship_applications", $data);
 		return view('main', $data);
 	}
+	function rejected_students_applications() { 
+		$this->_preset();
+		$data = $this->data;
+		
+		$school_id = $this->session->get("ideyetu_school_id");
+		$data['title'] = lang("app.pendingRegistration");
+		$data['subtitle'] = lang("app.pendingRegistration");
+		$data['page'] = "pendingRegistration";
+	
+		$apiUrl = "http://173.212.230.165:3000/api/internships/all/applications"; // Replace with your actual API URL
+		// $apiUrl = "http://localhost:3000/api/internships/all/applications"; // Replace with your actual API URL
+		$ch = curl_init();    
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$response = curl_exec($ch);
+		if (curl_errno($ch)) {
+			// Handle error, maybe log it and show an error message
+			die("Error: " . curl_error($ch));
+		}
+		curl_close($ch);
+		
+		$students = json_decode($response, true);
+	
+		// Adjusted key name according to the assumption that your API returns students directly
+		if (isset($students)) {
+			$data['pendings'] = $students;
+		} else {
+			// Handle the error, maybe log it and show an error message
+			$data['pendings'] = [];
+		}
+	
+		// Updated view name to pending_agent_applications.php
+		$data['content'] = view("pages/rejected_students_applications", $data);
+		return view('main', $data);
+	}
 	function pending_partnership_applications() { 
 		$this->_preset();
 		$data = $this->data;
@@ -12587,7 +12682,6 @@ Merci";
 
 	public function study_abroad()
 	{
-
 		return view("pages/selfApplication/study_abroad");
 	}
 
